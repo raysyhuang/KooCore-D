@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+
+# Data files and outputs
+*.csv
+*.xlsx
+*.xls
+universe_cache*.csv
+
+# Date folders with outputs (optional - uncomment if you want to exclude all outputs)
+# YYYY-MM-DD/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Logs
+*.log
+
+# Keep specific files in date folders if needed
+!requirements.txt
+
