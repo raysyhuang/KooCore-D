@@ -1,0 +1,43 @@
+## DUAL-HORIZON MOMENTUM AUDIT
+
+### 1) Summary Table
+
+| Ticker | Score_7-10d | Verdict_7-10d | Score_30d | Verdict_30d | Setup | Spark_7-10d | Trap | Entry_7-10d | Stop_7-10d | Spark_30d | Entry_30d | Stop_30d |
+|--------|-------------|---------------|-----------|-------------|-------|-------------|------|-------------|------------|-----------|-----------|----------|
+| LION | 52 | IGNORE | 58 | WATCH | Breakout | Catalyst unknown | RSI >84 overbought reversal | Break above $9.42 on 1.5x vol | $8.45 | Catalyst unknown | Break above $9.42 on 1.5x vol | $8.45 |
+
+### 2) Rankings
+
+**A) Top 1 for 7–10d:** None qualify for BUY. LION fails catalyst gate with unknown earnings and zero headlines despite strong technicals.
+
+**B) Top 2 for 30d:** Only LION available at WATCH level. Missing second ticker for comparison, but LION's 25/100 completeness score prevents BUY rating despite breakout structure.
+
+---
+
+## DETAILED ANALYSIS: LION
+
+**Horizon A: 7–10 Trading Days Score: 52/100**
+- Catalyst Immediacy: 8/40 (Unknown earnings, zero headlines - major penalty)
+- Narrative Velocity: 5/20 (No story flow, no recent coverage)
+- Volatility Fit: 19/20 (4.92% ATR supports +10% move)
+- Technical Alignment: 20/20 (Above MA20/MA50, clean breakout structure, RSI 84.1)
+
+**Horizon B: 30 Calendar Days Score: 58/100**
+- Catalyst Immediacy: 12/30 (Slightly more time for unknown catalyst to emerge)
+- Narrative Velocity: 8/25 (Extended time window, but still no narrative foundation)
+- Volatility Fit: 18/20 (ATR adequate for 30-day timeframe)
+- Technical Alignment: 20/25 (Strong breakout confirmation, but RSI overbought concern)
+
+**Verdict Rationale:**
+- **7–10d: IGNORE** - Completeness score 25/100 triggers hard constraint. No identifiable catalyst despite 2.82 RVOL and breakout structure.
+- **30d: WATCH** - Technical setup is clean (above both MAs, 26% 20-day return), but catalyst void prevents BUY rating.
+
+**Key Risks:**
+- RSI 84.1 suggests potential pullback risk
+- Zero headline coverage creates information asymmetry
+- Unknown earnings timing prevents catalyst planning
+
+**Required Checks:**
+- Confirm earnings date via company IR/Nasdaq calendar
+- Pull 14-30d headlines from SEC filings, PR sources
+- Check for upcoming catalysts: contracts, guidance, offerings

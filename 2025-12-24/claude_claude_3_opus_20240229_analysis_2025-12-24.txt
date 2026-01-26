@@ -1,0 +1,33 @@
+LION Momentum Audit (30 Calendar Days)
+
+Total Score: 52/100
+- Catalyst Immediacy: 5/30
+  * Earnings date Unknown. No recent headlines to assess narrative.
+- Narrative Velocity: 5/25 
+  * No headlines in last 14 days. Narrative velocity and specificity Unknown.
+- Volatility Fit: 17/20
+  * ATR% 4.92 supports capturing +10% within 30d if catalyst emerges. 
+- Technical Alignment: 25/25
+  * Strong breakout above prior range. Confirmed above 20/50d MAs. RSI overbought but can persist.
+
+Verdict: WATCH
+- Catalyst uncertainty is too high to justify a BUY rating.
+- Powerful technicals but narrative is a black box. Earnings date is key.
+
+Setup: Breakout 
+
+Spark: Unknown. Check for pending catalysts: earnings date, guidance, major contract, sector tailwinds.
+
+Trap: Loss of 8.50 breakout level on a closing basis. 
+
+Trade Plan:
+- Entry: Buy break & hold above 9.20 on ≥1.5× volume. 
+- Stop: 7.90 (below prior range + 1.2 ATR buffer).
+- TP1: 9.90 (+1 ATR), TP2: 10.80 (+2 ATR). Trail stop after TP1.
+- Position: Risk 1–2% per trade. Shares = $risk / (9.20 - 7.90).
+
+Next steps:
+- Confirm earnings date + check for prelim guidance (company IR, Nasdaq calendar).
+- Pull 30d headlines from secondary source in case key events were missed.
+- Monitor SEC filings for ATM / shelf offering language.
+- Map overhead supply zones from prior consolidations and gap levels.

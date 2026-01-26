@@ -1,0 +1,34 @@
+1) Summary Table (one row per ticker):
+
+Ticker | Score_7-10d | Verdict_7-10d | Score_30d | Verdict_30d | Setup | Spark_7-10d | Trap | Entry_7-10d | Stop_7-10d | Spark_30d | Entry_30d | Stop_30d
+---|---:|---|---:|---|---|---|---|---|---|---|---|---
+TVTX | 52/100 | WATCH | 63/100 | WATCH | Breakout | **Technical continuation only**: break/hold above prior day high / local resistance on ≥1.5× volume (no dated catalyst; earnings unknown; 0 headlines) | Failed breakout / loss of breakout level; momentum fade back below MA20/MA50 | Break & hold above prior day high or key resistance on ≥1.5× vol; avoid if >2× ATR extended | 1.2× ATR (~$2.38) below breakout level (or below prior day low if tighter/clean) | **Technical trend extension** toward/through 52W high (catalyst unknown; must be tape-driven) | Same: add on confirmed hold above resistance; prefer pullback-to-breakout retest with support | 1.2× ATR below breakout/retest support (or below MA20 if that’s the clean structure)
+
+2) Rankings:
+A) Top 1 for 7–10d and why (1–2 sentences)  
+- **TVTX (WATCH)**: Only name provided; strong tape (RVOL 2.19, ATR% ~4.9, above MA20/MA50) supports a fast move, but **catalyst visibility is effectively absent** (earnings unknown, 0 headlines), so probability of +10% in 7–10d is not >60%.
+
+B) Top 2 for 30d and why (1–2 sentences)  
+- **TVTX (WATCH)**: Technicals are constructive (breakout structure, RSI 67.7, ~4.4% from 52W high) and volatility is sufficient for +10% within 30 days, but **Completeness Score 25 (<55) hard-caps at WATCH** and there is no dated catalyst to lift probability above the BUY threshold.
+
+---
+
+TVTX — 30D MOMENTUM AUDIT (decision-grade)
+
+- Total Score: **63/100**
+- Verdict: **WATCH** (cannot be BUY: **Catalyst completeness 25/100 < 55**, earnings **Unknown**, **0** headlines in 14d)
+- Setup: **Breakout**
+
+- 1-line Spark: **Catalyst unknown**; only plausible path is **tape-driven continuation**—a clean breakout hold above resistance with sustained volume and follow-through toward/through the 52W high.
+- 1-line Trap: **Breakout failure**—rejection at/near the 52W high area or loss of the breakout level leading to a drop back below **MA20/MA50** (overhead supply / momentum unwind).
+
+Trade Plan (template-based):
+- Entry trigger: **Break & hold above prior day high or key resistance on ≥1.5× volume**; prefer a **retest hold** rather than chasing if price is **>2× ATR** extended.
+- Stop anchor: **1.2× ATR (~$2.38) below** the breakout/retest support level (or below prior day low if tighter and still logical).
+- TP1/TP2: **TP1 = +1.0× ATR (~$1.98)**, **TP2 = +2.0× ATR (~$3.96)**; trail after TP1.
+- Position sizing rule: risk **1–2%** of account; shares = AccountRisk$ / StopDistance$.
+
+Evidence gaps / required checks (must-do before upgrading):
+- Confirm **next earnings date** (IR / Nasdaq calendar).
+- Pull **14–30d headlines** from alternate sources (SEC filings, PR, major outlets).
+- Check for **FDA/clinical milestones**, guidance updates, or financing risk (secondary/ATM)—currently **unknown** due to no headlines.
