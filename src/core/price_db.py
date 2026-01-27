@@ -191,13 +191,27 @@ class PriceDatabase:
             for idx, row in df.iterrows():
                 date_str = pd.Timestamp(idx).strftime("%Y-%m-%d")
                 
+                def _get_scalar(*keys):
+                    for key in keys:
+                        if key not in row:
+                            continue
+                        value = row[key]
+                        if isinstance(value, pd.Series):
+                            if value.empty:
+                                continue
+                            value = value.iloc[0]
+                        if pd.isna(value):
+                            continue
+                        return value
+                    return None
+
                 # Handle different column naming conventions
-                open_price = row.get('Open') or row.get('open')
-                high_price = row.get('High') or row.get('high')
-                low_price = row.get('Low') or row.get('low')
-                close_price = row.get('Close') or row.get('close')
-                volume = row.get('Volume') or row.get('volume')
-                adj_close = row.get('Adj Close') or row.get('adjusted_close') or close_price
+                open_price = _get_scalar("Open", "open")
+                high_price = _get_scalar("High", "high")
+                low_price = _get_scalar("Low", "low")
+                close_price = _get_scalar("Close", "close")
+                volume = _get_scalar("Volume", "volume")
+                adj_close = _get_scalar("Adj Close", "adjusted_close") or close_price
                 
                 # Skip invalid rows
                 if pd.isna(close_price) or close_price <= 0:
