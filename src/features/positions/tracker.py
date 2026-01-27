@@ -370,6 +370,10 @@ class PositionTracker:
         except Exception as e:
             logger.error(f"Failed to fetch prices for monitoring: {e}")
             return alerts
+
+        if price_data is None or price_data.empty:
+            logger.warning("Price monitoring skipped: empty price data response")
+            return alerts
         
         now = datetime.utcnow().isoformat() + "Z"
         

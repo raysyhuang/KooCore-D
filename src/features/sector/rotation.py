@@ -213,6 +213,9 @@ def find_sector_leaders(
     
     # Get SPY benchmark
     spy_prices = fetch_price_history("SPY", days=30)
+    if spy_prices.empty:
+        logger.error("Failed to fetch SPY data for sector leaders")
+        return []
     spy_1w = (spy_prices.iloc[-1] / spy_prices.iloc[-5] - 1) * 100 if len(spy_prices) >= 5 else 0
     spy_1m = (spy_prices.iloc[-1] / spy_prices.iloc[0] - 1) * 100 if len(spy_prices) >= 20 else 0
     

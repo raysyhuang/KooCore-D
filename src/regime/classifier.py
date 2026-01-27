@@ -12,8 +12,11 @@ This enables regime-specific model selection and sizing adjustments.
 from __future__ import annotations
 from dataclasses import dataclass
 from typing import Optional, Dict, Any
+import logging
 import pandas as pd
 import numpy as np
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass(frozen=True)
@@ -64,7 +67,8 @@ def classify_regime(
     
     # Compute MA50
     ma50 = close.rolling(50).mean()
-    if len(ma50.dropna()) == 0:
+    if close.empty or ma50.dropna().empty:
+        logger.warning("Regime classifier: insufficient SPY history for MA50")
         return Regime("chop", confidence=0.5, evidence={"reason": "insufficient_history"})
     
     last_close = float(close.iloc[-1])
@@ -132,6 +136,7 @@ def fetch_regime_data(asof_date: Optional[str] = None) -> tuple:
         
         return spy_df, vix_level
     except Exception as e:
+        logger.warning(f"Regime data fetch failed: {e}")
         return pd.DataFrame(), None
 
 

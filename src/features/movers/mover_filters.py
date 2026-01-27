@@ -11,8 +11,11 @@ import pandas as pd
 import numpy as np
 from typing import Optional
 import yfinance as yf
+import logging
 
 from ...core.yf import get_ticker_df
+
+logger = logging.getLogger(__name__)
 
 
 def compute_close_position_in_range(row: pd.Series) -> Optional[float]:
@@ -256,7 +259,14 @@ def analyze_mover_momentum(
     Returns:
         dict with analysis: setup_type, score, signals, recommendation
     """
-    if df.empty or len(df) < 14:
+    if df is None or df.empty or len(df) < 14:
+        logger.info(f"Mover analysis skipped for {ticker}: insufficient history")
+        return {"setup_type": "unknown", "score": 0, "signals": [], "recommendation": "skip"}
+
+    required_cols = {"Close", "Volume"}
+    if not required_cols.issubset(df.columns):
+        missing = sorted(required_cols.difference(df.columns))
+        logger.warning(f"Mover analysis skipped for {ticker}: missing columns {missing}")
         return {"setup_type": "unknown", "score": 0, "signals": [], "recommendation": "skip"}
     
     close = df["Close"].astype(float)

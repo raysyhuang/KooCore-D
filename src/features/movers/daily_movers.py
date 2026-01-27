@@ -46,10 +46,18 @@ def _compute_movers_from_dataframes(
         dict with keys: "gainers", "losers", "meta"
     """
     results = []
+    skipped_empty = 0
+    skipped_malformed = 0
+    skipped_errors = 0
     
     for ticker, df in ticker_data.items():
         try:
-            if df.empty or len(df) < 2:
+            if df is None or df.empty or len(df) < 2:
+                skipped_empty += 1
+                continue
+            required_cols = {"Close", "High", "Low", "Volume"}
+            if not required_cols.issubset(df.columns):
+                skipped_malformed += 1
                 continue
             
             # Get last 2 trading days (sorted by date)
@@ -78,8 +86,16 @@ def _compute_movers_from_dataframes(
                 "asof_date_utc": datetime.utcnow().isoformat(),
                 "source": source
             })
-        except Exception:
+        except Exception as e:
+            skipped_errors += 1
+            logger.debug(f"Daily movers: failed to process {ticker}: {e}")
             continue
+
+    if skipped_empty or skipped_malformed or skipped_errors:
+        logger.info(
+            "Daily movers: skipped tickers due to data issues "
+            f"(empty_or_short={skipped_empty}, malformed={skipped_malformed}, errors={skipped_errors})"
+        )
     
     if not results:
         return {
