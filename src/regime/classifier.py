@@ -123,6 +123,8 @@ def fetch_regime_data(asof_date: Optional[str] = None) -> tuple:
         
         if asof_date:
             asof_dt = pd.to_datetime(asof_date)
+            if getattr(spy_df.index, "tz", None) is not None and asof_dt.tzinfo is None:
+                asof_dt = asof_dt.tz_localize(spy_df.index.tz)
             spy_df = spy_df[spy_df.index <= asof_dt]
         
         # Fetch VIX level
@@ -130,7 +132,10 @@ def fetch_regime_data(asof_date: Optional[str] = None) -> tuple:
         vix_df = vix.history(period="5d")
         
         if asof_date:
-            vix_df = vix_df[vix_df.index <= asof_dt]
+            vix_asof = asof_dt
+            if getattr(vix_df.index, "tz", None) is not None and vix_asof.tzinfo is None:
+                vix_asof = vix_asof.tz_localize(vix_df.index.tz)
+            vix_df = vix_df[vix_df.index <= vix_asof]
         
         vix_level = float(vix_df["Close"].iloc[-1]) if not vix_df.empty else None
         

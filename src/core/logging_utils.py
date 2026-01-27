@@ -21,6 +21,7 @@ from contextlib import contextmanager
 from functools import wraps
 import traceback
 
+from src.utils.time import utc_now, utc_now_iso_z
 
 # Custom log levels
 TRACE = 5
@@ -58,7 +59,7 @@ class StructuredFormatter(logging.Formatter):
         import json
         
         log_data = {
-            "timestamp": datetime.utcnow().isoformat() + "Z",
+            "timestamp": utc_now_iso_z(),
             "level": record.levelname,
             "logger": record.name,
             "message": record.getMessage(),
@@ -126,7 +127,7 @@ def setup_logging(
             log_dir_path.mkdir(parents=True, exist_ok=True)
             
             if include_timestamp_in_filename:
-                timestamp = datetime.now().strftime("%Y-%m-%d")
+                timestamp = utc_now().strftime("%Y-%m-%d")
                 filename = f"all_run_{timestamp}.log"
             else:
                 filename = "latest.log"

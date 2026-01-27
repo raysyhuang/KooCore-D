@@ -33,6 +33,8 @@ from .guardrails import (
     FEATURE_COMPLETENESS_THRESHOLD,
 )
 
+from src.utils.time import utc_now, utc_now_iso_z
+
 
 # Default feature columns for calibration
 FEATURE_COLS = [
@@ -130,7 +132,7 @@ def train_calibration_model(
     joblib.dump(pipe, model_path)
     
     # G4.2: Build version metadata with full audit info
-    train_date = datetime.utcnow().strftime("%Y-%m-%d")
+    train_date = utc_now().strftime("%Y-%m-%d")
     
     # Get training date range
     train_start = None
@@ -160,7 +162,7 @@ def train_calibration_model(
         "model": "logistic_regression",
         "brier_score": float(brier),
         "auc_roc": float(auc) if auc is not None else None,
-        "trained_at": datetime.utcnow().isoformat() + "Z",
+        "trained_at": utc_now_iso_z(),
         "training_window": f"{train_start} → {train_end}" if train_start and train_end else None,
         "train_start": train_start,
         "train_end": train_end,

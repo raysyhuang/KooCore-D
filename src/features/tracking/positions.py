@@ -16,6 +16,8 @@ import pandas as pd
 
 logger = logging.getLogger(__name__)
 
+from ...utils.time import utc_now, utc_now_timestamp
+
 
 @dataclass
 class Position:
@@ -67,7 +69,7 @@ class Position:
     
     def __post_init__(self):
         if not self.position_id:
-            self.position_id = f"{self.ticker}_{self.entry_date}_{datetime.utcnow().timestamp():.0f}"
+            self.position_id = f"{self.ticker}_{self.entry_date}_{utc_now_timestamp():.0f}"
         # Initialize high water mark to entry price
         if self.high_water_mark is None and self.entry_price > 0:
             self.high_water_mark = self.entry_price
@@ -220,7 +222,7 @@ class PositionTracker:
         data = {
             "positions": [pos.to_dict() for pos in self.positions.values()],
             "trade_log": [log.to_dict() for log in self.trade_log],
-            "updated_at": datetime.utcnow().isoformat()
+            "updated_at": utc_now().isoformat().replace("+00:00", "")
         }
         
         with open(self.data_path, "w", encoding="utf-8") as f:
@@ -274,7 +276,7 @@ class PositionTracker:
         
         # Add to trade log
         self.trade_log.append(TradeLog(
-            timestamp=datetime.utcnow().isoformat(),
+            timestamp=utc_now().isoformat().replace("+00:00", ""),
             action="entry",
             position_id=position.position_id,
             ticker=ticker.upper(),
@@ -318,7 +320,7 @@ class PositionTracker:
         
         # Add to trade log
         self.trade_log.append(TradeLog(
-            timestamp=datetime.utcnow().isoformat(),
+            timestamp=utc_now().isoformat().replace("+00:00", ""),
             action="exit",
             position_id=position_id,
             ticker=position.ticker,

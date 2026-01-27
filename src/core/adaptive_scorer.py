@@ -15,6 +15,8 @@ from dataclasses import dataclass, asdict, field
 
 logger = logging.getLogger(__name__)
 
+from src.utils.time import utc_now
+
 # Default weights path
 WEIGHTS_PATH = "data/model_weights.json"
 MODEL_HISTORY_PATH = "outputs/model_history.md"
@@ -327,7 +329,7 @@ class AdaptiveScorer:
             new_weights = result.get("weights", {})
             
             self.weights.version = old_version + 1
-            self.weights.last_trained = datetime.utcnow().strftime("%Y-%m-%d")
+            self.weights.last_trained = utc_now().strftime("%Y-%m-%d")
             self.weights.observations = n_loaded
             self.weights.overall_hit_rate = result.get("overall_hit_rate", 0)
             
@@ -371,7 +373,7 @@ class AdaptiveScorer:
             history_path = Path(MODEL_HISTORY_PATH)
             history_path.parent.mkdir(parents=True, exist_ok=True)
             
-            timestamp = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
+            timestamp = utc_now().strftime("%Y-%m-%d %H:%M UTC")
             
             lines = [
                 f"\n### Model Update v{old_version} → v{self.weights.version} ({timestamp})",

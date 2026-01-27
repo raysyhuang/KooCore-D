@@ -12,6 +12,8 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Optional
 
+from ...utils.time import utc_now
+
 
 def get_queue_file_path() -> Path:
     """Get path to mover queue file."""
@@ -179,7 +181,7 @@ def get_eligible_movers(
         return []
     
     if asof_date_utc is None:
-        asof_date_utc = datetime.utcnow()
+        asof_date_utc = utc_now()
     
     # Update statuses before querying
     config = {"cooling_days_required": 1, "max_age_days": 5}

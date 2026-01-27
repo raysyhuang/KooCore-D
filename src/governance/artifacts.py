@@ -11,6 +11,8 @@ from datetime import datetime
 import json
 import os
 
+from src.utils.time import utc_now_iso_z
+
 
 @dataclass
 class GovernanceRecord:
@@ -37,7 +39,7 @@ class GovernanceRecord:
     
     def __post_init__(self):
         if self.run_timestamp is None:
-            self.run_timestamp = datetime.utcnow().isoformat() + "Z"
+            self.run_timestamp = utc_now_iso_z()
     
     def to_dict(self) -> Dict[str, Any]:
         """Convert to dictionary for JSON serialization."""
@@ -59,7 +61,7 @@ def write_governance(path: str, payload: Dict[str, Any]) -> str:
     
     # Ensure timestamp is present
     if "run_timestamp" not in payload:
-        payload["run_timestamp"] = datetime.utcnow().isoformat() + "Z"
+        payload["run_timestamp"] = utc_now_iso_z()
     
     with open(path, "w") as f:
         json.dump(payload, f, indent=2)

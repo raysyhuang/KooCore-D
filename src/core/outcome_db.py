@@ -17,6 +17,8 @@ import pandas as pd
 
 logger = logging.getLogger(__name__)
 
+from src.utils.time import utc_now_iso_z
+
 DB_PATH = "data/outcomes.db"
 
 
@@ -58,7 +60,7 @@ class PickRecord:
     
     def __post_init__(self):
         if self.created_at is None:
-            self.created_at = datetime.utcnow().isoformat() + "Z"
+            self.created_at = utc_now_iso_z()
         if not self.overlap_sources:
             self.overlap_sources = [self.source]
 
@@ -116,7 +118,7 @@ class OutcomeRecord:
     
     def __post_init__(self):
         if self.closed_at is None:
-            self.closed_at = datetime.utcnow().isoformat() + "Z"
+            self.closed_at = utc_now_iso_z()
 
 
 class OutcomeDatabase:

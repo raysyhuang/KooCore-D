@@ -17,6 +17,8 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+from src.utils.time import utc_now_iso_z
+
 # Module availability flag
 DEBATE_AVAILABLE = True
 
@@ -350,7 +352,7 @@ def run_debate(
         key_risks=judge_data.get("key_risks", []),
         key_catalysts=judge_data.get("key_catalysts", []),
         debate_rounds=max_rounds,
-        timestamp=datetime.utcnow().isoformat() + "Z",
+        timestamp=utc_now_iso_z(),
     )
 
 
@@ -407,7 +409,7 @@ def run_batch_debate(
                 key_risks=["Debate analysis unavailable"],
                 key_catalysts=[],
                 debate_rounds=0,
-                timestamp=datetime.utcnow().isoformat() + "Z",
+                timestamp=utc_now_iso_z(),
             )
     
     return results

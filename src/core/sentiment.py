@@ -21,6 +21,8 @@ import requests
 
 logger = logging.getLogger(__name__)
 
+from src.utils.time import utc_now
+
 
 def _safe_float(value, default: float = 0.0) -> float:
     """Safely convert value to float, handling None and invalid types."""
@@ -608,8 +610,8 @@ def fetch_fmp_earnings_calendar(
     
     try:
         # FMP Stable Earnings Calendar endpoint (updated URL format)
-        from_date = datetime.now().strftime("%Y-%m-%d")
-        to_date = (datetime.now() + timedelta(days=days_ahead)).strftime("%Y-%m-%d")
+        from_date = utc_now().strftime("%Y-%m-%d")
+        to_date = (utc_now() + timedelta(days=days_ahead)).strftime("%Y-%m-%d")
         
         url = f"https://financialmodelingprep.com/stable/earnings-calendar?from={from_date}&to={to_date}&apikey={api_key}"
         
@@ -860,7 +862,7 @@ def fetch_polygon_news_headlines(
     
     try:
         # Calculate date range
-        published_after = (datetime.now() - timedelta(days=days_back)).strftime("%Y-%m-%d")
+        published_after = (utc_now() - timedelta(days=days_back)).strftime("%Y-%m-%d")
         
         # Polygon News API v2
         url = "https://api.polygon.io/v2/reference/news"

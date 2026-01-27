@@ -26,6 +26,8 @@ except ImportError:
 
 logger = logging.getLogger(__name__)
 
+from src.utils.time import utc_now
+
 
 @dataclass
 class AlertConfig:
@@ -180,7 +182,7 @@ class AlertManager:
             "type": "context",
             "elements": [{
                 "type": "mrkdwn",
-                "text": f"Sent at {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC"
+                "text": f"Sent at {utc_now().strftime('%Y-%m-%d %H:%M:%S')} UTC"
             }]
         })
         
@@ -215,7 +217,7 @@ class AlertManager:
             "title": title,
             "description": message,
             "color": color,
-            "timestamp": datetime.utcnow().isoformat(),
+            "timestamp": utc_now().isoformat().replace("+00:00", ""),
             "footer": {"text": "Momentum Scanner"}
         }
         
@@ -289,7 +291,7 @@ class AlertManager:
         
         html_content += f"""
             <p style="font-size: 12px; color: #888; margin-top: 30px;">
-                Sent at {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC
+                Sent at {utc_now().strftime('%Y-%m-%d %H:%M:%S')} UTC
             </p>
         </body>
         </html>
@@ -458,7 +460,7 @@ class AlertManager:
             log_path = Path(self.config.alert_log_path)
             log_path.parent.mkdir(parents=True, exist_ok=True)
             
-            timestamp = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
+            timestamp = utc_now().strftime("%Y-%m-%d %H:%M:%S UTC")
             
             with open(log_path, "a", encoding="utf-8") as f:
                 f.write(f"\n{'='*60}\n")

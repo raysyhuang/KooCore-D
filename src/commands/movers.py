@@ -11,6 +11,7 @@ from src.features.movers.mover_queue import (
     update_mover_queue, get_eligible_movers, load_mover_queue, save_mover_queue
 )
 from src.core.helpers import get_ny_date
+from src.utils.time import utc_now
 
 logger = logging.getLogger(__name__)
 
@@ -52,10 +53,10 @@ def cmd_movers(args) -> int:
     movers_filtered = filter_movers(movers_raw, technicals_df=None, config=movers_config)
     
     queue_df = load_mover_queue()
-    queue_df = update_mover_queue(movers_filtered, datetime.utcnow(), movers_config)
+    queue_df = update_mover_queue(movers_filtered, utc_now(), movers_config)
     save_mover_queue(queue_df)
     
-    eligible = get_eligible_movers(queue_df, datetime.utcnow())
+    eligible = get_eligible_movers(queue_df, utc_now())
     logger.info(f"\n✓ Eligible movers: {len(eligible)} tickers")
     if eligible:
         for t in eligible[:20]:

@@ -19,6 +19,8 @@ import requests
 
 logger = logging.getLogger(__name__)
 
+from src.utils.time import utc_today
+
 
 class OptionsEvidence(TypedDict):
     """Options evidence structure for scoring."""
@@ -212,7 +214,7 @@ def fetch_options_contracts_polygon(
         call_put_ratio = len(calls) / len(puts) if puts else None
         
         # Get near-term expirations (within 30 days)
-        today = datetime.now().date()
+        today = utc_today()
         near_term_contracts = []
         
         for c in contracts:

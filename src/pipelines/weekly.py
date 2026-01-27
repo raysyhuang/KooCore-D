@@ -22,6 +22,7 @@ from ..core.technicals import compute_technicals
 from ..core.scoring import compute_technical_score_weekly
 from ..core.io import get_run_dir, save_csv, save_json, save_run_metadata
 from ..core.helpers import get_ny_date, get_trading_date
+from ..utils.time import utc_now, utc_now_iso_z
 
 # PR1: Data validation and quality ledger
 from ..core.asof import validate_ohlcv, enforce_asof
@@ -243,10 +244,10 @@ def run_weekly(
                 load_mover_queue, update_mover_queue, get_eligible_movers, save_mover_queue
             )
             queue_df = load_mover_queue()
-            queue_df = update_mover_queue(movers_filtered, datetime.now(timezone.utc), movers_config)
+            queue_df = update_mover_queue(movers_filtered, utc_now(), movers_config)
             save_mover_queue(queue_df)
             
-            eligible_movers = get_eligible_movers(queue_df, datetime.now(timezone.utc))
+            eligible_movers = get_eligible_movers(queue_df, utc_now())
             if eligible_movers:
                 # Tag movers with source
                 mover_source_tags = {t: ["DAILY_MOVER"] for t in eligible_movers}
@@ -517,7 +518,7 @@ def run_weekly(
             last_date = pd.Timestamp(df.index[-1])
             asof_price_utc = last_date.isoformat() + "Z"
         except (IndexError, ValueError, TypeError):
-            asof_price_utc = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+            asof_price_utc = utc_now_iso_z()
         
         # Store basic candidate data (company info fetched later for top candidates only)
         # This avoids making thousands of API calls during screening
@@ -852,7 +853,7 @@ def run_weekly(
     # Save packets JSON
     packets_json = run_dir / f"weekly_scanner_packets_{output_date_str}.json"
     save_json({
-        "run_timestamp_utc": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+        "run_timestamp_utc": utc_now_iso_z(),
         "method_version": get_config_value(config, "runtime", "method_version", default="v3.0"),
         "universe_note": universe_note,
         "packets": packets,
@@ -955,7 +956,7 @@ def run_weekly(
     
     return {
         "universe_note": universe_note,
-        "run_timestamp_utc": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+        "run_timestamp_utc": utc_now_iso_z(),
         "run_dir": run_dir,
         "candidates_csv": candidates_csv,
         "packets_json": packets_json,

@@ -440,3 +440,27 @@ api:
   host: "0.0.0.0"
   port: 8000
   cors_origins: ["http://localhost:3000"]
+
+# -----------------------------------------------------------------------------
+# Phase 3/4 Overlays (Disabled by Default)
+# -----------------------------------------------------------------------------
+phase3:
+  enabled: false
+  movers_filters:
+    enabled: false
+    min_price: 5
+    rsi_min: 45
+    rsi_max: 70
+    atr_pct_max: 0.08
+
+phase4:
+  enabled: false
+  conviction:
+    enabled: false
+  sizing:
+    enabled: false
+
+phase5:
+  enabled: false
+  persist: false
+  summarize: false

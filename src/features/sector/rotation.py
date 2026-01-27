@@ -21,6 +21,7 @@ from dataclasses import dataclass
 from typing import Optional
 import requests
 
+from ...utils.time import utc_now
 try:
     import pandas as pd
     import numpy as np
@@ -100,7 +101,7 @@ def fetch_price_history(ticker: str, days: int = 30) -> pd.Series:
         # Fallback to yfinance
         try:
             import yfinance as yf
-            end = datetime.now()
+            end = utc_now()
             start = end - timedelta(days=days + 10)
             df = yf.download(ticker, start=start, end=end, progress=False)
             if not df.empty:
@@ -109,7 +110,7 @@ def fetch_price_history(ticker: str, days: int = 30) -> pd.Series:
             logger.warning(f"yfinance fallback failed for {ticker}: {e}")
         return pd.Series(dtype=float)
     
-    end = datetime.now()
+    end = utc_now()
     start = end - timedelta(days=days + 10)
     
     url = f"https://api.polygon.io/v2/aggs/ticker/{ticker}/range/1/day/{start.strftime('%Y-%m-%d')}/{end.strftime('%Y-%m-%d')}"

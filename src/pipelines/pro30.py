@@ -19,6 +19,7 @@ from ..core.io import get_run_dir, save_csv, save_json, save_run_metadata
 from ..core.helpers import fetch_news_for_tickers, load_manual_headlines, get_trading_date, get_ny_date, validate_required_columns
 from ..core.regime import check_regime
 from ..core.universe import load_tickers_from_file
+from ..utils.time import utc_now
 
 # Pro30-specific imports
 from .pro30_screening import (
@@ -219,7 +220,7 @@ def _get_eligible_daily_movers(params: dict, universe_tickers: list[str]) -> tup
     print(f"[DAILY_MOVERS] {len(passed)} candidates passed filters")
     
     # Update queue
-    asof_utc = datetime.utcnow()
+    asof_utc = utc_now()
     queue_df = load_mover_queue()
     queue_df = update_mover_queue(passed, asof_utc, movers_config)
     save_mover_queue(queue_df)

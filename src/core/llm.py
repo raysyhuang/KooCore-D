@@ -14,6 +14,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+from src.utils.time import utc_now_iso_z
 # Import debate and memory modules (optional features)
 try:
     from src.core.debate import run_batch_debate, format_debate_summary, debate_result_to_dict
@@ -349,8 +350,6 @@ def rank_weekly_candidates(
     Returns:
         Dict with top5 ranking results
     """
-    import datetime as dt
-    
     # Set model defaults
     if not model:
         if provider == "openai":
@@ -371,7 +370,7 @@ def rank_weekly_candidates(
     result = extract_json_from_response(response_text)
     
     # Add metadata
-    result["run_timestamp_utc"] = dt.datetime.utcnow().isoformat() + "Z"
+    result["run_timestamp_utc"] = utc_now_iso_z()
     result["method_version"] = "v3.0"
     if "universe_note" not in result:
         result["universe_note"] = "SP500 + NASDAQ100 + R2000 (liquid proxy universe)"
@@ -409,8 +408,6 @@ def rank_with_debate(
     Returns:
         Dict with enhanced ranking results including debate analysis
     """
-    import datetime as dt
-    
     model = model or "gpt-5.2"
     api_key = api_key or os.getenv("OPENAI_API_KEY")
     
@@ -489,7 +486,7 @@ def rank_with_debate(
     
     # Build enhanced result
     result = {
-        "run_timestamp_utc": dt.datetime.utcnow().isoformat() + "Z",
+        "run_timestamp_utc": utc_now_iso_z(),
         "method_version": "v4.0-debate",
         "universe_note": "SP500 + NASDAQ100 + R2000 (with debate analysis)",
         "model_used": model,

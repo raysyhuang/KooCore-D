@@ -5,10 +5,12 @@ Retraining cadence rules and model versioning.
 Determines when models should be retrained and manages version metadata.
 """
 from __future__ import annotations
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from typing import Dict, Any, Optional
 import subprocess
 import os
+
+from src.utils.time import utc_now, utc_now_iso_z
 
 
 # Minimum new samples required to trigger retraining
@@ -52,7 +54,9 @@ def should_retrain(
     # Check time threshold
     try:
         last = datetime.fromisoformat(last_train_date.replace("Z", "+00:00").split("T")[0])
-        days_since = (datetime.utcnow() - last).days
+        if last.tzinfo is None:
+            last = last.replace(tzinfo=timezone.utc)
+        days_since = (utc_now() - last).days
         
         if days_since < min_days:
             return {
@@ -132,13 +136,13 @@ def build_version_metadata(
     Returns:
         Version metadata dict
     """
-    train_date = datetime.utcnow().strftime("%Y-%m-%d")
+    train_date = utc_now().strftime("%Y-%m-%d")
     git_commit = get_git_commit_hash()
     
     return {
         "model_version": generate_model_version(regime, train_date),
         "regime": regime,
-        "trained_at": datetime.utcnow().isoformat() + "Z",
+        "trained_at": utc_now_iso_z(),
         "training_window": f"{train_start} → {train_end}",
         "train_start": train_start,
         "train_end": train_end,

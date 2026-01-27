@@ -39,6 +39,7 @@ from ..core.helpers import (
     validate_required_columns,
 )
 from ..core.io import save_csv, save_json, save_run_metadata
+from ..utils.time import utc_now_iso_z
 from ..core.packets import build_weekly_scanner_packet
 from ..core.signal_history import (
     load_signal_history,
@@ -389,7 +390,7 @@ def run_swing(
             last_date = pd.Timestamp(df.index[-1])
             asof_price_utc = last_date.isoformat() + "Z"
         except Exception:
-            asof_price_utc = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+            asof_price_utc = utc_now_iso_z()
 
         tech_evidence = dict(tech.evidence)
         tech_evidence["breakout"] = {"score": br.breakout_score, **br.evidence}
@@ -586,7 +587,7 @@ def run_swing(
 
     packets_json = run_dir / f"swing_packets_{output_date_str}.json"
     save_json({
-        "run_timestamp_utc": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+        "run_timestamp_utc": utc_now_iso_z(),
         "method_version": get_config_value(config, "runtime", "method_version", default="v3.2"),
         "regime": current_regime,
         "universe_note": f"Universe: {len(universe)} tickers",

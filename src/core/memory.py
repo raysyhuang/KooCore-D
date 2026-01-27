@@ -25,6 +25,8 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+from src.utils.time import utc_now
+
 
 def _safe_float(value, default: float = 0.0) -> float:
     """Safely convert value to float, handling None and invalid types."""
@@ -223,8 +225,8 @@ class TradingMemory:
         
         # Generate ID
         ticker = situation.get("ticker", "UNK")
-        entry_date = situation.get("entry_date", datetime.now().strftime("%Y-%m-%d"))
-        memory_id = f"{ticker}_{entry_date}_{datetime.now().strftime('%H%M%S')}"
+        entry_date = situation.get("entry_date", utc_now().strftime("%Y-%m-%d"))
+        memory_id = f"{ticker}_{entry_date}_{utc_now().strftime('%H%M%S')}"
         
         # Convert situation to searchable text
         situation_text = self._situation_to_text(situation)
@@ -454,7 +456,7 @@ def build_situation_from_packet(packet: dict, source: str = "weekly") -> dict:
     """Convert a scanner packet to a situation dict for memory."""
     return {
         "ticker": packet.get("ticker"),
-        "entry_date": packet.get("asof_date", datetime.now().strftime("%Y-%m-%d")),
+        "entry_date": packet.get("asof_date", utc_now().strftime("%Y-%m-%d")),
         "entry_price": packet.get("current_price", packet.get("price")),
         "sector": packet.get("sector", ""),
         "source": source,

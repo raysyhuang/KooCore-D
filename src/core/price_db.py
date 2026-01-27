@@ -25,6 +25,8 @@ import numpy as np
 
 logger = logging.getLogger(__name__)
 
+from src.utils.time import utc_now
+
 # Database path
 DEFAULT_DB_PATH = "data/prices.db"
 
@@ -184,7 +186,7 @@ class PriceDatabase:
             return 0
         
         ticker = ticker.upper()
-        now = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
+        now = utc_now().strftime("%Y-%m-%d %H:%M:%S")
         records = 0
         
         with self._get_connection() as conn:

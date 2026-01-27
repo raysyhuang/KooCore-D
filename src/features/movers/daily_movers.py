@@ -23,6 +23,7 @@ from pathlib import Path
 from ...core.yf import get_ticker_df, download_daily_range_cached
 from ...core.helpers import get_ny_date
 from ...core.polygon import download_polygon_batch
+from ...utils.time import utc_now
 
 logger = logging.getLogger(__name__)
 
@@ -83,7 +84,7 @@ def _compute_movers_from_dataframes(
                 "volume": volume,
                 "high": high,
                 "low": low,
-                "asof_date_utc": datetime.utcnow().isoformat(),
+                "asof_date_utc": utc_now().isoformat().replace("+00:00", ""),
                 "source": source
             })
         except Exception as e:

@@ -11,6 +11,7 @@ from typing import List, Dict, Any
 from datetime import datetime
 import os
 
+from src.utils.time import utc_now_iso_z
 
 class PointInTimeViolation(Exception):
     """Raised when point-in-time integrity is violated."""
@@ -92,7 +93,7 @@ def write_decision_snapshot(
             validate_pit_integrity(row)
     
     # Add snapshot timestamp for audit trail
-    snapshot_ts = datetime.utcnow().isoformat() + "Z"
+    snapshot_ts = utc_now_iso_z()
     for row in rows:
         if "snapshot_timestamp" not in row:
             row["snapshot_timestamp"] = snapshot_ts

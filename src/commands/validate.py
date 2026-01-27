@@ -19,6 +19,8 @@ from typing import Any, Optional
 
 import pandas as pd
 
+from src.utils.time import utc_now
+
 # Load environment variables
 try:
     from dotenv import load_dotenv
@@ -409,7 +411,7 @@ def run_full_backtest(
     
     max_period = max(holding_periods)
     price_end = (datetime.strptime(all_dates[-1], "%Y-%m-%d") + timedelta(days=max_period * 2)).strftime("%Y-%m-%d")
-    today = datetime.now().strftime("%Y-%m-%d")
+    today = utc_now().strftime("%Y-%m-%d")
     price_end = min(price_end, today)
     
     prices = download_prices(all_tickers, all_dates[0], price_end)
@@ -673,7 +675,7 @@ def run_validation(
     # Save results
     out_path = Path(output_dir)
     out_path.mkdir(parents=True, exist_ok=True)
-    timestamp = datetime.now().strftime("%Y-%m-%d")
+    timestamp = utc_now().strftime("%Y-%m-%d")
     
     df.to_csv(out_path / f"validation_detail_{timestamp}.csv", index=False)
     with open(out_path / f"validation_scorecard_{timestamp}.json", "w") as f:

@@ -15,6 +15,7 @@ import pandas as pd
 
 # Import NY timezone helper
 from .helpers import get_ny_date
+from src.utils.time import utc_now_iso_z
 
 
 def get_run_dir(base_date: Optional[date] = None, root_dir: str = "outputs") -> Path:
@@ -106,7 +107,7 @@ def save_run_metadata(
     """
     metadata = {
         "method_version": method_version,
-        "run_timestamp_utc": datetime.utcnow().isoformat() + "Z",
+        "run_timestamp_utc": utc_now_iso_z(),
         "run_timestamp_et": pd.Timestamp.now(tz="America/New_York").isoformat(),
     }
     

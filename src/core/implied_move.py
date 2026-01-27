@@ -15,9 +15,11 @@ from __future__ import annotations
 import os
 import logging
 from typing import Optional, Dict, Any, Tuple
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 logger = logging.getLogger(__name__)
+
+from src.utils.time import utc_now
 
 
 def get_implied_move(
@@ -72,14 +74,14 @@ def get_implied_move(
         # ═══════════════════════════════════════════════════════════════════════════
         # Step 2: Find nearest option expiration to target_days
         # ═══════════════════════════════════════════════════════════════════════════
-        target_date = datetime.now() + timedelta(days=target_days)
+        target_date = utc_now() + timedelta(days=target_days)
         
         # Get options chain
         chain_url = f"https://api.polygon.io/v3/reference/options/contracts"
         chain_params = {
             "underlying_ticker": ticker,
-            "expiration_date.gte": datetime.now().strftime("%Y-%m-%d"),
-            "expiration_date.lte": (datetime.now() + timedelta(days=target_days + 14)).strftime("%Y-%m-%d"),
+            "expiration_date.gte": utc_now().strftime("%Y-%m-%d"),
+            "expiration_date.lte": (utc_now() + timedelta(days=target_days + 14)).strftime("%Y-%m-%d"),
             "limit": 250,
             "apiKey": api_key,
         }
@@ -99,11 +101,14 @@ def get_implied_move(
             return None
         
         # Pick expiration closest to target_days
+        def _expiry_dt(expiry_str: str) -> datetime:
+            return datetime.strptime(expiry_str, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+
         best_expiry = min(expirations, key=lambda x: abs(
-            (datetime.strptime(x, "%Y-%m-%d") - target_date).days
+            (_expiry_dt(x) - target_date).days
         ))
         
-        days_to_expiry = (datetime.strptime(best_expiry, "%Y-%m-%d") - datetime.now()).days
+        days_to_expiry = (_expiry_dt(best_expiry) - utc_now()).days
         
         # ═══════════════════════════════════════════════════════════════════════════
         # Step 3: Find ATM strike (closest to spot)

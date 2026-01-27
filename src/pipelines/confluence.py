@@ -29,6 +29,8 @@ from pathlib import Path
 from typing import Optional
 import json
 
+from ..utils.time import utc_now
+
 try:
     import pandas as pd
 except ImportError:
@@ -224,7 +226,7 @@ def run_confluence_scan(
             from src.core.helpers import get_trading_date, get_ny_date
             date = get_trading_date(get_ny_date()).strftime("%Y-%m-%d")
         except ImportError:
-            date = datetime.now().strftime("%Y-%m-%d")
+            date = utc_now().strftime("%Y-%m-%d")
     
     logger.info(f"Running confluence scan for {date}")
     logger.info(f"Minimum signals required: {min_signals}")
@@ -448,7 +450,7 @@ def save_confluence_results(
             from src.core.helpers import get_trading_date, get_ny_date
             date = get_trading_date(get_ny_date()).strftime("%Y-%m-%d")
         except ImportError:
-            date = datetime.now().strftime("%Y-%m-%d")
+            date = utc_now().strftime("%Y-%m-%d")
     
     out_path = Path(output_dir) / date
     out_path.mkdir(parents=True, exist_ok=True)

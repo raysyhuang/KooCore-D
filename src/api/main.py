@@ -17,6 +17,8 @@ from contextlib import asynccontextmanager
 
 logger = logging.getLogger(__name__)
 
+from src.utils.time import utc_now
+
 # Check for FastAPI availability
 try:
     from fastapi import FastAPI, HTTPException, Query
@@ -250,7 +252,7 @@ if FASTAPI_AVAILABLE:
             """Health check endpoint."""
             return HealthResponse(
                 status="healthy",
-                timestamp=datetime.utcnow().isoformat(),
+                timestamp=utc_now().isoformat().replace("+00:00", ""),
                 version=version,
             )
         

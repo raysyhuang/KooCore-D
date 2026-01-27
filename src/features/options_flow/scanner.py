@@ -33,6 +33,8 @@ logger = logging.getLogger(__name__)
 
 POLYGON_API_KEY = os.getenv("POLYGON_API_KEY")
 
+from ...utils.time import utc_now
+
 
 @dataclass
 class OptionsFlowSignal:
@@ -83,7 +85,7 @@ def fetch_options_trades(ticker: str, api_key: str, date: str = None) -> list[di
         return []
     
     if date is None:
-        date = datetime.now().strftime("%Y-%m-%d")
+        date = utc_now().strftime("%Y-%m-%d")
     
     # Get aggregated options activity
     url = f"https://api.polygon.io/v3/trades/options/{ticker}"
@@ -174,7 +176,7 @@ def analyze_options_flow(ticker: str, api_key: str = None) -> Optional[OptionsFl
             signal_type="unusual_volume",
             strength=strength,
             details={"volume_oi_ratio": round(volume_oi_ratio, 2)},
-            timestamp=datetime.now(),
+            timestamp=utc_now(),
         ))
     
     # Signal 2: Bullish Skew (Heavy call buying)
@@ -185,7 +187,7 @@ def analyze_options_flow(ticker: str, api_key: str = None) -> Optional[OptionsFl
             signal_type="bullish_skew",
             strength=strength,
             details={"bullish_pct": round(bullish_flow_pct * 100, 1)},
-            timestamp=datetime.now(),
+            timestamp=utc_now(),
         ))
     
     # Signal 3: Low Put/Call Ratio (Bullish sentiment)
@@ -196,7 +198,7 @@ def analyze_options_flow(ticker: str, api_key: str = None) -> Optional[OptionsFl
             signal_type="low_put_call",
             strength=strength,
             details={"put_call_ratio": round(put_call_ratio, 2)},
-            timestamp=datetime.now(),
+            timestamp=utc_now(),
         ))
     
     # Signal 4: High IV (Market expects move)
@@ -207,7 +209,7 @@ def analyze_options_flow(ticker: str, api_key: str = None) -> Optional[OptionsFl
             signal_type="elevated_iv",
             strength=strength,
             details={"avg_iv": round(avg_iv * 100, 1)},
-            timestamp=datetime.now(),
+            timestamp=utc_now(),
         ))
     
     if not signals:

@@ -9,7 +9,7 @@ import os
 import json
 import sqlite3
 import logging
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Optional, Any
 from contextlib import contextmanager
@@ -17,6 +17,8 @@ import pandas as pd
 import hashlib
 
 logger = logging.getLogger(__name__)
+
+from src.utils.time import utc_now
 
 
 class CacheBackend:
@@ -98,13 +100,15 @@ class SQLiteCache(CacheBackend):
                 else:
                     # Handle space-separated format
                     expires_at = datetime.strptime(expires_str, "%Y-%m-%d %H:%M:%S")
+                if expires_at.tzinfo is None:
+                    expires_at = expires_at.replace(tzinfo=timezone.utc)
             except (ValueError, TypeError):
                 # If parsing fails, treat as expired
                 conn.execute("DELETE FROM cache WHERE key = ?", (key,))
                 conn.commit()
                 return None
             
-            if datetime.utcnow() > expires_at:
+            if utc_now() > expires_at:
                 # Expired, delete it
                 conn.execute("DELETE FROM cache WHERE key = ?", (key,))
                 conn.commit()
@@ -115,7 +119,7 @@ class SQLiteCache(CacheBackend):
     def set(self, key: str, value: Any, ttl_seconds: int = 3600) -> bool:
         """Set value in cache with TTL."""
         try:
-            expires_at = datetime.utcnow() + timedelta(seconds=ttl_seconds)
+            expires_at = utc_now() + timedelta(seconds=ttl_seconds)
             value_json = json.dumps(value, default=str)
             
             with self._get_connection() as conn:
@@ -162,7 +166,7 @@ class SQLiteCache(CacheBackend):
     
     def cleanup_expired(self) -> int:
         """Remove all expired entries. Returns count removed."""
-        now_str = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
+        now_str = utc_now().strftime("%Y-%m-%d %H:%M:%S")
         with self._get_connection() as conn:
             cursor = conn.execute(
                 "DELETE FROM cache WHERE expires_at < ?",
@@ -173,7 +177,7 @@ class SQLiteCache(CacheBackend):
     
     def get_stats(self) -> dict:
         """Get cache statistics."""
-        now_str = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
+        now_str = utc_now().strftime("%Y-%m-%d %H:%M:%S")
         with self._get_connection() as conn:
             total = conn.execute("SELECT COUNT(*) FROM cache").fetchone()[0]
             expired = conn.execute(
@@ -406,14 +410,14 @@ class PriceCache:
             "start": data.index.min().strftime("%Y-%m-%d") if not data.empty else start_date,
             "end": data.index.max().strftime("%Y-%m-%d") if not data.empty else end_date,
             "interval": interval,
-            "cached_at": datetime.utcnow().isoformat()
+            "cached_at": utc_now().isoformat().replace("+00:00", "")
         }
         
         # Determine TTL: use 30 days for historical data, 1 hour for recent
         if ttl_seconds is None:
             try:
-                end_dt = datetime.strptime(end_date, "%Y-%m-%d")
-                is_historical = (datetime.utcnow() - end_dt).days > 3
+                end_dt = datetime.strptime(end_date, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+                is_historical = (utc_now() - end_dt).days > 3
                 ttl_seconds = 86400 * 30 if is_historical else self.price_ttl  # 30 days or 1 hour
             except Exception:
                 ttl_seconds = self.price_ttl

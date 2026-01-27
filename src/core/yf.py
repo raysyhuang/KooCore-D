@@ -7,13 +7,14 @@ Includes caching layer for reproducible backtests and reduced API calls.
 
 from __future__ import annotations
 from typing import Optional
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import time
 import logging
 import pandas as pd
 import numpy as np
 import yfinance as yf
 
+from src.utils.time import utc_now
 logger = logging.getLogger(__name__)
 
 # Cache TTL settings
@@ -74,7 +75,11 @@ def _is_historical_range(end_date: datetime) -> bool:
     """Check if the date range is historical (ended more than 3 days ago)."""
     if end_date is None:
         return False
-    now = datetime.utcnow()
+    if end_date.tzinfo is None:
+        end_date = end_date.replace(tzinfo=timezone.utc)
+    else:
+        end_date = end_date.astimezone(timezone.utc)
+    now = utc_now()
     return (now - end_date).days > 3
 
 

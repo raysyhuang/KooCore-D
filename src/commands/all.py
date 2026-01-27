@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import pandas as pd
 from pathlib import Path
+from types import SimpleNamespace
 from datetime import datetime
 import logging
 from src.core.config import load_config
@@ -22,6 +23,7 @@ from src.features.movers.mover_queue import (
 from src.core.llm import rank_weekly_candidates, rank_with_debate
 from src.core.decision_summary_v2 import build_decision_summary_v2
 from src.core.decision_context import build_decision_context
+from src.utils.time import utc_now
 
 # Check if debate is available
 try:
@@ -73,6 +75,11 @@ def cmd_all(args) -> int:
         output_date_str = output_date.strftime("%Y-%m-%d")
     asof_date = get_trading_date(output_date)
     config = load_config(args.config)
+    cfg = SimpleNamespace(
+        phase3=config.get("phase3", {}),
+        phase4=config.get("phase4", {}),
+        phase5=config.get("phase5", {}),
+    )
     
     if args.no_movers:
         config["movers"]["enabled"] = False
@@ -141,10 +148,12 @@ def cmd_all(args) -> int:
         except Exception:
             tech_df = None
         movers_filtered = filter_movers(movers_raw, technicals_df=tech_df if tech_df is not None and not tech_df.empty else None, config=movers_config)
+        from src.overlays.phase3_filters import apply_phase3_filters
+        movers_filtered = apply_phase3_filters(movers_filtered, {}, cfg.phase3)
         queue_df = load_mover_queue()
-        queue_df = update_mover_queue(movers_filtered, datetime.utcnow(), movers_config)
+        queue_df = update_mover_queue(movers_filtered, utc_now(), movers_config)
         save_mover_queue(queue_df)
-        eligible_movers = get_eligible_movers(queue_df, datetime.utcnow())
+        eligible_movers = get_eligible_movers(queue_df, utc_now())
         results["movers"] = {"count": len(eligible_movers), "tickers": eligible_movers}
         logger.info(f"  ✓ Found {len(eligible_movers)} eligible movers")
     except Exception as e:
@@ -182,6 +191,19 @@ def cmd_all(args) -> int:
         )
         results["weekly"] = weekly_result
         logger.info("  ✓ Weekly scanner complete")
+        
+        phase4_cfg = cfg.phase4
+        phase4_enabled = phase4_cfg.get("enabled", False) if isinstance(phase4_cfg, dict) else bool(getattr(phase4_cfg, "enabled", False))
+        if phase4_enabled:
+            trade_plan_path = output_dir / f"trade_plan_{output_date_str}.csv"
+            if trade_plan_path.exists():
+                try:
+                    trade_plan_rows = pd.read_csv(trade_plan_path).to_dict(orient="records")
+                    from src.overlays.phase4_conviction import apply_phase4_overlay
+                    trade_plan_rows = apply_phase4_overlay(trade_plan_rows, results, {}, phase4_cfg)
+                    pd.DataFrame(trade_plan_rows).to_csv(trade_plan_path, index=False)
+                except Exception as e:
+                    logger.warning(f"Phase4 overlay skipped (trade plan): {e}")
     except Exception as e:
         logger.error(f"  ✗ Weekly scanner failed: {e}", exc_info=True)
         results["weekly"] = None
@@ -607,7 +629,7 @@ def cmd_all(args) -> int:
         from src.commands.validate import run_full_backtest, generate_scorecard
         from datetime import timedelta
         
-        cutoff = (datetime.now() - timedelta(days=14)).strftime("%Y-%m-%d")
+        cutoff = (utc_now() - timedelta(days=14)).strftime("%Y-%m-%d")
         val_df = run_full_backtest(
             start_date=cutoff,
             holding_periods=[5, 7],
@@ -770,6 +792,33 @@ def cmd_all(args) -> int:
                     logger.debug(f"Position alert sending failed: {e}")
         
         tracker.save()
+        
+        phase5_cfg = cfg.phase5
+        phase5_enabled = phase5_cfg.get("enabled", False) if isinstance(phase5_cfg, dict) else bool(getattr(phase5_cfg, "enabled", False))
+        if phase5_enabled:
+            try:
+                from src.core.outcome_db import get_outcome_db
+                db = get_outcome_db()
+                outcomes_df = db.get_training_data()
+                if not outcomes_df.empty and "closed_at" in outcomes_df.columns:
+                    outcomes_df["closed_at"] = outcomes_df["closed_at"].astype(str)
+                    outcomes_df = outcomes_df[outcomes_df["closed_at"].str.startswith(output_date_str)]
+                outcomes = outcomes_df.to_dict(orient="records") if not outcomes_df.empty else []
+                
+                from src.overlays.phase5_learning import record_phase5_learning
+                from src.learning.phase5_store import persist_learning
+                from src.learning.phase5_analyzer import summarize_learning
+                
+                phase5_records = record_phase5_learning(outcomes, results, {"regime": primary_regime or "unknown"}, phase5_cfg)
+                
+                if phase5_cfg.get("persist", False):
+                    persist_learning(phase5_records)
+                
+                if phase5_cfg.get("summarize", False):
+                    summary = summarize_learning(phase5_records)
+                    logger.info(f"📘 Phase 5 Learning Summary: {summary}")
+            except Exception as e:
+                logger.warning(f"Phase5 learning skipped: {e}")
     except Exception as e:
         logger.debug(f"Position tracking skipped: {e}")
     
@@ -896,7 +945,7 @@ def _append_model_history(
     history_path = Path("outputs/model_history.md")
     
     # Build the entry
-    timestamp = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
+    timestamp = utc_now().strftime("%Y-%m-%d %H:%M UTC")
     
     lines = [
         f"\n### {date_str} (run: {timestamp})",

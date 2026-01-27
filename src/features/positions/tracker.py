@@ -17,6 +17,8 @@ import pandas as pd
 
 logger = logging.getLogger(__name__)
 
+from ...utils.time import utc_now_iso_z
+
 
 @dataclass
 class Position:
@@ -102,7 +104,7 @@ class PositionTracker:
         """Save positions to file."""
         try:
             data = {
-                "last_updated": datetime.utcnow().isoformat() + "Z",
+            "last_updated": utc_now_iso_z(),
                 "positions": {ticker: asdict(pos) for ticker, pos in self.positions.items()}
             }
             with open(self.positions_file, "w") as f:
@@ -375,7 +377,7 @@ class PositionTracker:
             logger.warning("Price monitoring skipped: empty price data response")
             return alerts
         
-        now = datetime.utcnow().isoformat() + "Z"
+        now = utc_now_iso_z()
         
         for ticker, pos in self.positions.items():
             if pos.status != "open":
@@ -619,7 +621,7 @@ class PositionTracker:
                 
                 for pos in closed.values():
                     history["archived_positions"].append({
-                        "archived_at": datetime.utcnow().isoformat() + "Z",
+                        "archived_at": utc_now_iso_z(),
                         **asdict(pos)
                     })
                 

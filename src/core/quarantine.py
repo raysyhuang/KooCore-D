@@ -8,24 +8,28 @@ and temporarily excludes them from the universe.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Optional
 import json
 
+from src.utils.time import utc_now
 
 DEFAULT_QUARANTINE_PATH = Path("data/bad_tickers.json")
 
 
 def _utcnow() -> datetime:
-    return datetime.utcnow()
+    return utc_now()
 
 
 def _parse_ts(value: Optional[str]) -> Optional[datetime]:
     if not value:
         return None
     try:
-        return datetime.fromisoformat(value.replace("Z", ""))
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+        if parsed.tzinfo is None:
+            return parsed.replace(tzinfo=timezone.utc)
+        return parsed
     except Exception:
         return None
 
