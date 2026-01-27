@@ -34,3 +34,6 @@ env/
 .env.*
 *.key
 credentials.json
+
+# Archive
+project.zip
