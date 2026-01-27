@@ -20,6 +20,8 @@ from src.features.movers.mover_queue import (
     update_mover_queue, get_eligible_movers, load_mover_queue, save_mover_queue
 )
 from src.core.llm import rank_weekly_candidates, rank_with_debate
+from src.core.decision_summary_v2 import build_decision_summary_v2
+from src.core.decision_context import build_decision_context
 
 # Check if debate is available
 try:
@@ -532,6 +534,7 @@ def cmd_all(args) -> int:
     # CONVICTION RANKER (Self-Improving Model)
     # ═══════════════════════════════════════════════════════════════════════════════
     conviction_result = None
+    conviction_picks = []
     try:
         from src.pipelines.conviction_ranker import rank_candidates, format_conviction_picks
         from src.core.adaptive_scorer import get_adaptive_scorer
@@ -563,6 +566,7 @@ def cmd_all(args) -> int:
             conviction_file = output_dir / f"conviction_picks_{output_date_str}.json"
             save_json(conviction_result, conviction_file)
             logger.info(f"  ✓ Conviction picks saved to {conviction_file}")
+            conviction_picks = conviction_result.get("top_picks", [])
         else:
             logger.info("  ℹ No picks meet conviction threshold today")
         
@@ -644,6 +648,7 @@ def cmd_all(args) -> int:
     
     # Step 7: Confluence Analysis
     logger.info("\n[7/7] Confluence Analysis (Multi-Signal Alignment)...")
+    confluence_picks = []
     try:
         from src.pipelines.confluence import run_confluence_scan, save_confluence_results
         
@@ -665,6 +670,22 @@ def cmd_all(args) -> int:
             logger.info("  ℹ No confluence picks today (no multi-signal alignment)")
     except Exception as e:
         logger.warning(f"  ⚠ Confluence scan skipped: {e}")
+    
+    hybrid_sources = []
+    for pick in results.get("hybrid_top3", []):
+        hybrid_sources.extend(pick.get("sources", []) or [])
+    
+    ctx = build_decision_context(
+        regime=primary_regime or "unknown",
+        weekly_count=len(primary_top5_tickers),
+        pro30_count=len(pro30_tickers),
+        confluence_count=len(confluence_picks),
+        conviction_count=len(conviction_picks),
+        hybrid_sources=hybrid_sources,
+    )
+    
+    decision = build_decision_summary_v2(ctx)
+    logger.info(decision.render())
     
     # Auto-track positions from this scan
     # Primary: Hybrid Top 3 (best across all models by weighted scoring)
@@ -705,13 +726,17 @@ def cmd_all(args) -> int:
                     pick["confidence"] = conviction_map[ticker].get("confidence")
         
         # Track Hybrid Top 3 as the primary picks
-        added = tracker.add_positions_from_scan(
-            scan_date=output_date_str,
-            weekly_picks=hybrid_top3_data,  # Use Hybrid Top 3 as primary
-            pro30_picks=pro30_list,
-            movers_picks=movers_list,
-            config=config,
-        )
+        if decision.allow_new_positions:
+            added = tracker.add_positions_from_scan(
+                scan_date=output_date_str,
+                weekly_picks=hybrid_top3_data,  # Use Hybrid Top 3 as primary
+                pro30_picks=pro30_list,
+                movers_picks=movers_list,
+                config=config,
+            )
+        else:
+            logger.info("🚫 New positions suppressed due to defensive posture")
+            added = 0
         
         if added > 0:
             logger.info(f"  📊 Position tracker: Added {added} new positions")
