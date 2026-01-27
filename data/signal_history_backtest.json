@@ -1,0 +1,1450 @@
+{
+  "EXPE": [
+    {
+      "date": "2026-01-12",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-14",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-15",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-16",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-20",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-21",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-22",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-23",
+      "score": 8.55,
+      "source": "swing"
+    }
+  ],
+  "FITB": [
+    {
+      "date": "2026-01-12",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-14",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-15",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-16",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-20",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-21",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-22",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-23",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "CCL": [
+    {
+      "date": "2026-01-12",
+      "score": 8.55,
+      "source": "swing"
+    }
+  ],
+  "PFG": [
+    {
+      "date": "2026-01-12",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-14",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-15",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-16",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-20",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-21",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-22",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-23",
+      "score": 8.55,
+      "source": "swing"
+    }
+  ],
+  "GM": [
+    {
+      "date": "2026-01-12",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-13",
+      "score": 8.55,
+      "source": "swing"
+    }
+  ],
+  "RF": [
+    {
+      "date": "2026-01-12",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-14",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "LLY": [
+    {
+      "date": "2026-01-12",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-13",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "EPAM": [
+    {
+      "date": "2026-01-12",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-13",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-15",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-16",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-20",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-21",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-22",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-23",
+      "score": 8.55,
+      "source": "swing"
+    }
+  ],
+  "UAL": [
+    {
+      "date": "2026-01-12",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-15",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-16",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-20",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-21",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-22",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-23",
+      "score": 8.55,
+      "source": "swing"
+    }
+  ],
+  "RL": [
+    {
+      "date": "2026-01-12",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-13",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-14",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-15",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-16",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-20",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-21",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-22",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-23",
+      "score": 8.55,
+      "source": "swing"
+    }
+  ],
+  "KKR": [
+    {
+      "date": "2026-01-12",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "RNA": [
+    {
+      "date": "2026-01-12",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "RUN": [
+    {
+      "date": "2026-01-12",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "PLD": [
+    {
+      "date": "2026-01-12",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "USB": [
+    {
+      "date": "2026-01-12",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "MPWR": [
+    {
+      "date": "2026-01-12",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "APA": [
+    {
+      "date": "2026-01-12",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "ITW": [
+    {
+      "date": "2026-01-12",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-13",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "JPM": [
+    {
+      "date": "2026-01-12",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "JBL": [
+    {
+      "date": "2026-01-12",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "HST": [
+    {
+      "date": "2026-01-12",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-13",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-15",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-16",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-20",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-21",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-22",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-23",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "GWW": [
+    {
+      "date": "2026-01-12",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-13",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "FTV": [
+    {
+      "date": "2026-01-12",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-14",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-15",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-16",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-20",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-21",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-22",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-23",
+      "score": 8.55,
+      "source": "swing"
+    }
+  ],
+  "ES": [
+    {
+      "date": "2026-01-12",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "DY": [
+    {
+      "date": "2026-01-12",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-13",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-14",
+      "score": 8.55,
+      "source": "swing"
+    }
+  ],
+  "CYTK": [
+    {
+      "date": "2026-01-12",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-14",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "CFG": [
+    {
+      "date": "2026-01-12",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-15",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-16",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-20",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-21",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-22",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-23",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "CELC": [
+    {
+      "date": "2026-01-12",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-13",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "WFC": [
+    {
+      "date": "2026-01-12",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "APGE": [
+    {
+      "date": "2026-01-13",
+      "score": 8.55,
+      "source": "swing"
+    }
+  ],
+  "DVN": [
+    {
+      "date": "2026-01-13",
+      "score": 8.55,
+      "source": "swing"
+    }
+  ],
+  "NUE": [
+    {
+      "date": "2026-01-13",
+      "score": 8.55,
+      "source": "swing"
+    }
+  ],
+  "MTB": [
+    {
+      "date": "2026-01-13",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-14",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "EIX": [
+    {
+      "date": "2026-01-13",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-14",
+      "score": 7.87,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-15",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-16",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-20",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-21",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-22",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-23",
+      "score": 8.55,
+      "source": "swing"
+    }
+  ],
+  "WBD": [
+    {
+      "date": "2026-01-13",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-14",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "CRH": [
+    {
+      "date": "2026-01-13",
+      "score": 8.55,
+      "source": "swing"
+    }
+  ],
+  "CAH": [
+    {
+      "date": "2026-01-13",
+      "score": 8.55,
+      "source": "swing"
+    }
+  ],
+  "TJX": [
+    {
+      "date": "2026-01-13",
+      "score": 7.55,
+      "source": "swing"
+    }
+  ],
+  "KO": [
+    {
+      "date": "2026-01-13",
+      "score": 7.55,
+      "source": "swing"
+    }
+  ],
+  "MSCI": [
+    {
+      "date": "2026-01-13",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "STT": [
+    {
+      "date": "2026-01-13",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "SMTC": [
+    {
+      "date": "2026-01-13",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "RJF": [
+    {
+      "date": "2026-01-13",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "PWR": [
+    {
+      "date": "2026-01-13",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "PRU": [
+    {
+      "date": "2026-01-13",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "NDAQ": [
+    {
+      "date": "2026-01-13",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-14",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-15",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-16",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-20",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-21",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-22",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-23",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "CBRE": [
+    {
+      "date": "2026-01-13",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-14",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "COP": [
+    {
+      "date": "2026-01-13",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "JKHY": [
+    {
+      "date": "2026-01-13",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "BOOT": [
+    {
+      "date": "2026-01-13",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "HCA": [
+    {
+      "date": "2026-01-13",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "CDNS": [
+    {
+      "date": "2026-01-13",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-15",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-16",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-20",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-21",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-22",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-23",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "GLW": [
+    {
+      "date": "2026-01-13",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-14",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "FANG": [
+    {
+      "date": "2026-01-13",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-15",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-16",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-20",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-21",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-22",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-23",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "ROL": [
+    {
+      "date": "2026-01-13",
+      "score": 5.87,
+      "source": "swing"
+    }
+  ],
+  "MNST": [
+    {
+      "date": "2026-01-13",
+      "score": 5.87,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-14",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "IBM": [
+    {
+      "date": "2026-01-14",
+      "score": 8.55,
+      "source": "swing"
+    }
+  ],
+  "CTSH": [
+    {
+      "date": "2026-01-14",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-15",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-16",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-20",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-21",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-22",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-23",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "MAR": [
+    {
+      "date": "2026-01-14",
+      "score": 8.55,
+      "source": "swing"
+    }
+  ],
+  "SCHW": [
+    {
+      "date": "2026-01-14",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-15",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-16",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-20",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-21",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-22",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-23",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "VMC": [
+    {
+      "date": "2026-01-14",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-15",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-16",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-20",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-21",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-22",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-23",
+      "score": 8.55,
+      "source": "swing"
+    }
+  ],
+  "LYV": [
+    {
+      "date": "2026-01-14",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "OMC": [
+    {
+      "date": "2026-01-14",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-15",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-16",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-20",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-21",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-22",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-23",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "MDT": [
+    {
+      "date": "2026-01-14",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-15",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-16",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-20",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-21",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-22",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-23",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "AME": [
+    {
+      "date": "2026-01-14",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "LMND": [
+    {
+      "date": "2026-01-14",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "AMP": [
+    {
+      "date": "2026-01-14",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-15",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-16",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-20",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-21",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-22",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-23",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "GILD": [
+    {
+      "date": "2026-01-14",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "GE": [
+    {
+      "date": "2026-01-14",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-15",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-16",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-20",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-21",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-22",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-23",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "CVNA": [
+    {
+      "date": "2026-01-14",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "BX": [
+    {
+      "date": "2026-01-14",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "WMB": [
+    {
+      "date": "2026-01-14",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "GVA": [
+    {
+      "date": "2026-01-15",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-16",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-20",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-21",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-22",
+      "score": 8.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-23",
+      "score": 8.55,
+      "source": "swing"
+    }
+  ],
+  "AKAM": [
+    {
+      "date": "2026-01-15",
+      "score": 7.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-16",
+      "score": 7.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-20",
+      "score": 7.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-21",
+      "score": 7.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-22",
+      "score": 7.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-23",
+      "score": 7.55,
+      "source": "swing"
+    }
+  ],
+  "TROW": [
+    {
+      "date": "2026-01-15",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-16",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-20",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-21",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-22",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-23",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "TPR": [
+    {
+      "date": "2026-01-15",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-16",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-20",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-21",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-22",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-23",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "STLD": [
+    {
+      "date": "2026-01-15",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-16",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-20",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-21",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-22",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-23",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "CIEN": [
+    {
+      "date": "2026-01-15",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-16",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-20",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-21",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-22",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-23",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ],
+  "KEY": [
+    {
+      "date": "2026-01-15",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-16",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-20",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-21",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-22",
+      "score": 6.55,
+      "source": "swing"
+    },
+    {
+      "date": "2026-01-23",
+      "score": 6.55,
+      "source": "swing"
+    }
+  ]
+}

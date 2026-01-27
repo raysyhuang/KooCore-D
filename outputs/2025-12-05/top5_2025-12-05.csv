@@ -1,0 +1,6 @@
+rank,ticker,name,sector,current_price,composite_score,verdict,confidence,technical_score,catalyst_score,options_score,sentiment_score,primary_catalyst,target_price,upside_pct_min,upside_pct_max
+1,WBD,"Warner Bros. Discovery, Inc.",Communication Services,26.079999923706055,5.38,SPECULATIVE,SPECULATIVE,8,6.5,3,4,M&A headline: reported Netflix all-cash bid / bid structure update,28.69,10,25
+2,MUR,Murphy Oil Corporation,Energy,32.75,5.13,SPECULATIVE,SPECULATIVE,8,5.5,3,4,Major oil discovery offshore Vietnam (follow-on details/coverage),36.03,10,16
+3,RIG,Transocean Ltd.,Energy,4.440000057220459,5.0,SPECULATIVE,SPECULATIVE,8,5.0,3,4,New rig contracts/extensions add $168M to backlog (Brazil & Norway),4.88,10,20
+4,PTGX,"Protagonist Therapeutics, Inc.",Healthcare,89.6500015258789,4.88,SPECULATIVE,SPECULATIVE,8,4.5,3,4,Regulatory: Takeda and Protagonist seek FDA approval for rusfertide (PV),98.62,10,18
+5,TTMI,"TTM Technologies, Inc.",Technology,73.73999786376953,4.63,SPECULATIVE,SPECULATIVE,8,3.5,3,4,Conference spotlight: investor focus ahead of Needham Growth Conference,81.11,10,15

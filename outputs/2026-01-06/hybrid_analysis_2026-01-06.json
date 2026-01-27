@@ -1,0 +1,475 @@
+{
+  "date": "2026-01-06",
+  "summary": {
+    "weekly_top5_count": 5,
+    "pro30_candidates_count": 3,
+    "movers_count": 0
+  },
+  "overlaps": {
+    "all_three": [],
+    "weekly_pro30": [],
+    "weekly_movers": [],
+    "pro30_movers": []
+  },
+  "weekly_top5": [
+    {
+      "rank": 1,
+      "ticker": "LITE",
+      "name": "Lumentum Holdings Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Technology",
+      "current_price": 397.4200134277344,
+      "market_cap_usd": 28182083584,
+      "avg_dollar_volume_20d": 1318368351.8529906,
+      "asof_price_utc": "2026-01-06T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 437.1620147705078,
+        "base_case_upside_pct_range": [
+          10,
+          18
+        ],
+        "bear_case_note": "Setup weakens if price loses short-term trend support (fails to hold above rising short-term MAs) and post-catalyst guidance disappoints, triggering a reversal on heavy volume."
+      },
+      "primary_catalyst": {
+        "title": "Earnings (imminent / 'ahead of earnings' newsflow)",
+        "key_date_local": null,
+        "timing": null,
+        "why_it_matters": "Multiple headlines indicate the stock is moving 'ahead of earnings', implying an upcoming earnings event within the near-term window; earnings can re-rate AI/optical demand expectations and drive a >10% move given elevated realized volatility.",
+        "sources": [
+          {
+            "title": "Lumentum (LITE) Soars 11% Ahead of Earnings",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-07"
+          },
+          {
+            "title": "AI Stocks Pressured In Early 2026 Test. Lumentum, Ciena Jump, Nvidia Edges Down",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-06"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 8.0,
+        "catalyst": 5.0,
+        "options": 3.0,
+        "sentiment": 4.0
+      },
+      "composite_score": 5.0,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 1.28,
+          "rsi14": 64.42,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 111.29
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "mixed"
+        }
+      },
+      "risk_factors": [
+        "Earnings timing not explicitly provided in packet; catalyst date/time uncertainty increases gap risk.",
+        "Very high short-term realized volatility (5d annualized ~111%) increases whipsaw risk; a miss/guide-down can produce a sharp drawdown."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Cannot verify last-5-trading-days % move from packets to enforce >15% exclusion.",
+        "Options data unavailable in packets; options score capped at 3.0.",
+        "Social sentiment data unavailable in packets; sentiment score capped at 4.0.",
+        "Earnings date/time not provided; catalyst score penalized and kept moderate."
+      ]
+    },
+    {
+      "rank": 2,
+      "ticker": "BK",
+      "name": "The Bank of New York Mellon Corporation",
+      "exchange": "NYSE",
+      "sector": "Financial Services",
+      "current_price": 121.30999755859375,
+      "market_cap_usd": 85552766976,
+      "avg_dollar_volume_20d": 424630333.6423813,
+      "asof_price_utc": "2026-01-06T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 133.44199731445312,
+        "base_case_upside_pct_range": [
+          10,
+          14
+        ],
+        "bear_case_note": "Invalidated if earnings/guidance disappoints (NII/fees/expense trajectory) and the stock breaks trend support, leading to a failed breakout near highs."
+      },
+      "primary_catalyst": {
+        "title": "Earnings (next week)",
+        "key_date_local": null,
+        "timing": null,
+        "why_it_matters": "A 'reports next week' setup provides a near-term, high-impact scheduled catalyst; banks can gap on NII, fee growth, and capital return commentary.",
+        "sources": [
+          {
+            "title": "The Bank of New York Mellon Corporation (BK) Reports Next Week: Wall Street Expects Earnings Growth",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-06"
+          },
+          {
+            "title": "What to Expect From Bank of New York Mellon's Q4 2025 Earnings Report",
+            "publisher": "",
+            "url": "",
+            "published_at": "2025-12-18"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 8.0,
+        "catalyst": 6.0,
+        "options": 3.0,
+        "sentiment": 4.0
+      },
+      "composite_score": 5.25,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 1.11,
+          "rsi14": 64.04,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 26.27
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "positive"
+        }
+      },
+      "risk_factors": [
+        "Earnings date/time not explicitly stated; 'next week' is less reproducible than a confirmed calendar timestamp.",
+        "Macro sensitivity: rates/curve and credit headlines can dominate bank earnings reactions."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Cannot verify last-5-trading-days % move from packets to enforce >15% exclusion.",
+        "Options data unavailable in packets; options score capped at 3.0.",
+        "Social sentiment data unavailable in packets; sentiment score capped at 4.0.",
+        "Exact earnings date/time not provided in packet headlines."
+      ]
+    },
+    {
+      "rank": 3,
+      "ticker": "DAL",
+      "name": "Delta Air Lines, Inc.",
+      "exchange": "NYSE",
+      "sector": "Industrials",
+      "current_price": 72.22000122070312,
+      "market_cap_usd": 47156969472,
+      "avg_dollar_volume_20d": 504140904.2849884,
+      "asof_price_utc": "2026-01-06T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 79.44200134277344,
+        "base_case_upside_pct_range": [
+          10,
+          16
+        ],
+        "bear_case_note": "Invalidated if earnings/guidance disappoints (unit revenue, costs, capacity) or if geopolitical/travel disruption headlines pressure the group and DAL breaks trend support."
+      },
+      "primary_catalyst": {
+        "title": "Earnings (Q4 preview / upcoming report)",
+        "key_date_local": null,
+        "timing": null,
+        "why_it_matters": "Multiple earnings-preview headlines indicate an imminent report; airlines can move sharply on guidance for demand, yields, and fuel/cost outlook.",
+        "sources": [
+          {
+            "title": "Earnings Preview: Delta Air Lines (DAL) Q4 Earnings Expected to Decline",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-06"
+          },
+          {
+            "title": "Delta Air Lines to Report Q4 Earnings: What's in the Offing?",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-06"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 8.0,
+        "catalyst": 6.0,
+        "options": 3.0,
+        "sentiment": 4.0
+      },
+      "composite_score": 5.25,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 1.02,
+          "rsi14": 54.28,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 29.27
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "mixed"
+        }
+      },
+      "risk_factors": [
+        "Earnings date/time not explicitly provided; catalyst timing uncertainty.",
+        "Airline stocks are sensitive to fuel price swings and geopolitical/travel restriction headlines (gap risk)."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Cannot verify last-5-trading-days % move from packets to enforce >15% exclusion.",
+        "Options data unavailable in packets; options score capped at 3.0.",
+        "Social sentiment data unavailable in packets; sentiment score capped at 4.0.",
+        "Exact earnings date/time not provided in packet headlines."
+      ]
+    },
+    {
+      "rank": 4,
+      "ticker": "INCY",
+      "name": "Incyte Corporation",
+      "exchange": "NASDAQ",
+      "sector": "Healthcare",
+      "current_price": 106.66000366210938,
+      "market_cap_usd": 20939780096,
+      "avg_dollar_volume_20d": 219504597.16648102,
+      "asof_price_utc": "2026-01-06T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 117.32600402832033,
+        "base_case_upside_pct_range": [
+          10,
+          15
+        ],
+        "bear_case_note": "Invalidated if follow-through buying fails after the clinical update and the stock reverses below short-term moving averages on expanding volume."
+      },
+      "primary_catalyst": {
+        "title": "Clinical catalyst: Phase III Monjuvi study results headline",
+        "key_date_local": "2026-01-06",
+        "timing": null,
+        "why_it_matters": "A positive Phase III readout can drive rapid re-pricing of peak-sales assumptions and partnership/label-expansion expectations, supporting a momentum continuation move.",
+        "sources": [
+          {
+            "title": "INCY's Phase III Monjuvi Study Meets Key Goals in First-Line Lymphoma",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-06"
+          },
+          {
+            "title": "The Bull Case For Incyte (INCY) Could Change Following New Minjuvi And Zynyz Approvals In Europe And Japan",
+            "publisher": "",
+            "url": "",
+            "published_at": "2025-12-23"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 8.0,
+        "catalyst": 5.0,
+        "options": 3.0,
+        "sentiment": 4.0
+      },
+      "composite_score": 5.0,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 1.37,
+          "rsi14": 69.93,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 35.24
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "positive"
+        }
+      },
+      "risk_factors": [
+        "Biopharma headline risk: subsequent details (subgroup, safety, endpoints) can reverse initial reaction.",
+        "If the market views results as already priced, upside follow-through may be limited."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Cannot verify last-5-trading-days % move from packets to enforce >15% exclusion.",
+        "Options data unavailable in packets; options score capped at 3.0.",
+        "Social sentiment data unavailable in packets; sentiment score capped at 4.0."
+      ]
+    },
+    {
+      "rank": 5,
+      "ticker": "PNC",
+      "name": "The PNC Financial Services Group, Inc.",
+      "exchange": "NYSE",
+      "sector": "Financial Services",
+      "current_price": 218.0399932861328,
+      "market_cap_usd": 85675982848,
+      "avg_dollar_volume_20d": 400666968.3830231,
+      "asof_price_utc": "2026-01-06T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 239.8439926147461,
+        "base_case_upside_pct_range": [
+          10,
+          13
+        ],
+        "bear_case_note": "Invalidated if the market interprets the acquisition integration/capital impact negatively or if the stock fails to hold near highs and breaks below short-term trend support."
+      },
+      "primary_catalyst": {
+        "title": "M&A integration / completion: FirstBank acquisition closed",
+        "key_date_local": "2026-01-06",
+        "timing": null,
+        "why_it_matters": "Deal completion can shift focus to synergy capture, balance-sheet impacts, and forward guidance; banks can re-rate quickly if the market expects accretion and improved growth footprint.",
+        "sources": [
+          {
+            "title": "PNC Financial Expands Colorado, Arizona Reach With FirstBank Buyout",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-06"
+          },
+          {
+            "title": "PNC completes $4.1bn purchase of FirstBank",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-06"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 8.0,
+        "catalyst": 4.0,
+        "options": 3.0,
+        "sentiment": 4.0
+      },
+      "composite_score": 4.75,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 1.36,
+          "rsi14": 65.69,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 20.64
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "positive"
+        }
+      },
+      "risk_factors": [
+        "M&A completion may be largely priced; incremental upside depends on management commentary and early integration signals.",
+        "Bank macro sensitivity (rates/credit) can overwhelm company-specific M&A narrative in the short window."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Cannot verify last-5-trading-days % move from packets to enforce >15% exclusion.",
+        "Options data unavailable in packets; options score capped at 3.0.",
+        "Social sentiment data unavailable in packets; sentiment score capped at 4.0."
+      ]
+    }
+  ],
+  "pro30_tickers": [
+    "CENX",
+    "SNDK",
+    "WDC"
+  ],
+  "movers_tickers": []
+}

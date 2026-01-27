@@ -1,0 +1,180 @@
+==============================
+TICKER: PATH
+==============================
+
+Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
+Objective: Decide if PATH has >60% probability of achieving +10% within 30 calendar days.
+
+Hard constraints:
+- You MUST penalize "Unknown" earnings + missing headlines (no assuming hidden catalysts).
+- You MUST still score based on tape structure: RVOL, ATR%, RSI, distance to 52W high, setup type.
+- You MUST output at most 2 BUY ratings across the entire batch (if you are given multiple tickers).
+- If catalyst data is weak, default to WATCH/IGNORE even if technicals look good.
+- If Dilution risk flag = 1 (headline scan), cap Verdict at WATCH unless there is a clear positive catalyst that outweighs it.
+- For Breakouts, require structural confirmation: Above_MA20=1 and Above_MA50=1; otherwise downgrade Technical Alignment.
+
+Inputs:
+Market regime snapshot (best-effort):
+- SPY=682.37 vs MA20=671.51 (OK); VIX=15.78 (<= 25.00 is OK).
+- Regime Gate OK: True
+
+Earnings (best-effort): Unknown
+
+Screener metrics:
+- Last: 18.48
+- RVOL: 4.66
+- ATR%: 4.84 (≈ $0.89 ATR/day)
+- RSI14: 78.9
+- Dist_to_52W_High%: 1.39
+
+- MA20: 14.10
+- MA50: 14.77
+- Above_MA20: 1 (1=yes, 0=no)
+- Above_MA50: 1 (1=yes, 0=no)
+- Ret20d%: 27.01%
+- Setup: Breakout
+- Score: 27.22
+- Leveraged ETF: NO
+- Source tags: BASE_UNIVERSE
+- Dilution risk flag (headline scan): 0
+- Catalyst tags (headline scan): None
+
+
+Catalyst completeness (penalize Unknowns):
+- Completeness Score: 55/100
+- Earnings known: False (earnings=Unknown)
+- Recent headline count (14d): 10
+- Manual headlines: False
+- Penalties:
+  * Earnings date Unknown (penalize catalyst clarity).
+
+
+Recent headlines:
+- [2026-01-13 20:01 UTC] : ChatGPT Thinks UiPath Stock Will Close At This Price In The Next 60 Days
+- [2026-01-13 17:00 UTC] : Why UiPath (PATH) Shares Are Sliding Today
+- [2026-01-13 17:00 UTC] : UiPath (PATH) is a Great Momentum Stock: Should You Buy?
+- [2026-01-13 14:48 UTC] : UiPath is Regaining Market Confidence: What Should Investors Do Next?
+- [2026-01-13 13:35 UTC] : 3 AI Stocks That Could Go Parabolic
+- [2026-01-12 17:31 UTC] : The Next Market Leaders? 5 Growth Stocks to Watch in 2026
+- [2026-01-12 14:00 UTC] : UiPath, Inc. (PATH) is Attracting Investor Attention: Here is What You Should Know
+- [2026-01-11 15:10 UTC] : 3 Millionaire-Maker Technology Stocks Worth a Look
+- [2026-01-08 18:17 UTC] : UiPath (PATH) Is Up 8.8% After S&P Adds It And AI Orchestration Advances - Has The Bull Case Changed?
+- [2026-01-08 17:57 UTC] : PATH's Financial Strength: Cash, Liquidity and Flexibility Explained
+
+Standard trade plan template (by setup):
+- Entry: Break & hold above prior day high OR key resistance on ≥1.5× volume; avoid chasing if >2× ATR extension.
+- Stop: 1.2× ATR below breakout level (or below prior day low if tighter and logical).
+- TPs: TP1 = +1.0× ATR, TP2 = +2.0× ATR; trail stop after TP1.
+- Position sizing: risk 1–2% of account per trade. Shares = (AccountRisk$) / (StopDistance$).
+
+
+If data is missing, explicitly state Unknown and list checks:
+- Confirm next earnings date (company IR site / Nasdaq earnings calendar).
+- Check upcoming: FDA/clinical readouts, contracts, secondary offering/ATM, lockup expiry, guidance updates.
+- Check technical context: multi-year resistance, gap levels, supply zones, post-earnings drift behavior.
+
+Scoring rubric (0–100):
+- Catalyst Immediacy (0–30)
+- Narrative Velocity (0–25)
+- Volatility Fit (0–20)
+- Technical Alignment (0–25)
+
+Output format (STRICT):
+- Total Score: X/100
+- Verdict: BUY / WATCH / IGNORE
+- Setup: Breakout or Reversal
+- 1-line Spark: what specifically could trigger +10%
+- 1-line Trap: what invalidates the thesis
+- Trade Plan: entry trigger, stop anchor, TP1/TP2, position size rule (risk 1–2%)
+
+
+==============================
+TICKER: ACLX
+==============================
+
+Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
+Objective: Decide if ACLX has >60% probability of achieving +10% within 30 calendar days.
+
+Hard constraints:
+- You MUST penalize "Unknown" earnings + missing headlines (no assuming hidden catalysts).
+- You MUST still score based on tape structure: RVOL, ATR%, RSI, distance to 52W high, setup type.
+- You MUST output at most 2 BUY ratings across the entire batch (if you are given multiple tickers).
+- If catalyst data is weak, default to WATCH/IGNORE even if technicals look good.
+- If Dilution risk flag = 1 (headline scan), cap Verdict at WATCH unless there is a clear positive catalyst that outweighs it.
+- For Breakouts, require structural confirmation: Above_MA20=1 and Above_MA50=1; otherwise downgrade Technical Alignment.
+
+Inputs:
+Market regime snapshot (best-effort):
+- SPY=682.37 vs MA20=671.51 (OK); VIX=15.78 (<= 25.00 is OK).
+- Regime Gate OK: True
+
+Earnings (best-effort): Unknown
+
+Screener metrics:
+- Last: 68.45
+- RVOL: 2.0
+- ATR%: 7.9 (≈ $5.41 ATR/day)
+- RSI14: 22.8
+- Dist_to_52W_High%: 27.24
+
+- MA20: 82.12
+- MA50: 84.20
+- Above_MA20: 0 (1=yes, 0=no)
+- Above_MA50: 0 (1=yes, 0=no)
+- Ret20d%: -21.78%
+- Setup: Reversal
+- Score: 24.13
+- Leveraged ETF: NO
+- Source tags: BASE_UNIVERSE
+- Dilution risk flag (headline scan): 1
+- Catalyst tags (headline scan): earnings,fda,product,upgrade
+
+
+Catalyst completeness (penalize Unknowns):
+- Completeness Score: 25/100
+- Earnings known: False (earnings=Unknown)
+- Recent headline count (14d): 0
+- Manual headlines: False
+- Penalties:
+  * Earnings date Unknown (penalize catalyst clarity).
+  * No recent headlines found (penalize narrative visibility).
+
+
+Recent headlines:
+- [2025-12-24 00:14 UTC] : Arcellx (ACLX) Valuation Check After Wells Fargo Launches Coverage on Its Multiple Myeloma CAR‑T Program
+- [2025-12-22 14:47 UTC] : Arcellx initiated, Cummins upgraded: Wall Street's top analyst calls
+- [2025-12-22 13:12 UTC] : Here Are Monday’s Top Wall Street Analyst Research Calls: BlackSky Technology, Cummins, Lamb Watson, Ollie’s Bargain Outlet, Sealed Air, Volaris, and More
+- [2025-12-11 12:44 UTC] : Arcellx, Inc. (ACLX) Makes Progress on Multiple Myeloma Treatment
+- [2025-12-09 20:31 UTC] : Cancer Study Buoys These Small Biotechs
+- [2025-12-08 07:07 UTC] : Assessing Arcellx (ACLX) Valuation Following Positive Pivotal CAR T Data and Commercial Launch Plans
+- [2025-11-30 10:42 UTC] : CAR-Therapy Keeps Analyst Confidence in Arcellx (ACLX) High Ahead of the ASH Meeting
+- [2025-11-07 20:10 UTC] : How Investors Are Reacting To Arcellx (ACLX) Missing Revenue Estimates and Reporting Wider Losses
+- [2025-11-05 22:10 UTC] : Arcellx, Inc. (ACLX) Reports Q3 Loss, Misses Revenue Estimates
+- [2025-11-04 12:45 UTC] : Kura Oncology (KURA) Reports Q3 Loss, Lags Revenue Estimates
+
+Standard trade plan template (by setup):
+- Entry: Reclaim MA20 (or prior swing level) AND RSI curl up; confirm with a green day + elevated volume.
+- Stop: Below recent swing low OR 1.0–1.3× ATR below entry (whichever is tighter and logical).
+- TPs: TP1 = MA50 / prior supply zone, TP2 = gap-fill / next resistance; reduce into strength.
+- Position sizing: risk 1–2% of account per trade. Shares = (AccountRisk$) / (StopDistance$).
+
+
+If data is missing, explicitly state Unknown and list checks:
+- Confirm next earnings date (company IR site / Nasdaq earnings calendar).
+- Pull 14–30d headlines from a second source (SEC, PR, major outlets, terminal).
+- Check upcoming: FDA/clinical readouts, contracts, secondary offering/ATM, lockup expiry, guidance updates.
+- Check technical context: multi-year resistance, gap levels, supply zones, post-earnings drift behavior.
+
+Scoring rubric (0–100):
+- Catalyst Immediacy (0–30)
+- Narrative Velocity (0–25)
+- Volatility Fit (0–20)
+- Technical Alignment (0–25)
+
+Output format (STRICT):
+- Total Score: X/100
+- Verdict: BUY / WATCH / IGNORE
+- Setup: Breakout or Reversal
+- 1-line Spark: what specifically could trigger +10%
+- 1-line Trap: what invalidates the thesis
+- Trade Plan: entry trigger, stop anchor, TP1/TP2, position size rule (risk 1–2%)

@@ -1,0 +1,2443 @@
+ticker,stage,reason
+A,signal,chop_threshold_not_met
+AAMI,filters,"$ADV20 $10,407,560 < $75,000,000"
+AAOI,scoring,score_below_min
+AAP,scoring,score_below_min
+AAPL,scoring,score_below_min
+AARD,filters,"$ADV20 $3,105,199 < $75,000,000; 5d return 15.6% > 15.0% (avoiding chased names)"
+AAT,filters,"$ADV20 $8,346,287 < $75,000,000"
+ABAT,filters,"Price $4.90 < $5.00; $ADV20 $29,432,159 < $75,000,000"
+ABBV,scoring,score_below_min
+ABCB,filters,"$ADV20 $36,184,614 < $75,000,000"
+ABEO,filters,"$ADV20 $5,639,450 < $75,000,000"
+ABG,filters,"$ADV20 $46,607,015 < $75,000,000"
+ABL,filters,"$ADV20 $5,598,495 < $75,000,000"
+ABM,filters,"$ADV20 $41,207,345 < $75,000,000"
+ABNB,signal,chop_threshold_not_met
+ABR,filters,"$ADV20 $30,241,337 < $75,000,000"
+ABSI,filters,"Price $3.31 < $5.00; $ADV20 $12,641,126 < $75,000,000"
+ABT,scoring,score_below_min
+ABTC,filters,"Price $1.87 < $5.00; $ADV20 $24,392,294 < $75,000,000"
+ABUS,filters,"Price $4.74 < $5.00; $ADV20 $6,517,186 < $75,000,000"
+ACA,filters,"$ADV20 $22,481,422 < $75,000,000"
+ACAD,filters,"$ADV20 $35,063,762 < $75,000,000"
+ACCO,filters,"Price $4.01 < $5.00; $ADV20 $2,809,290 < $75,000,000"
+ACDC,filters,"Price $4.49 < $5.00; $ADV20 $3,876,789 < $75,000,000"
+ACEL,filters,"$ADV20 $5,328,078 < $75,000,000"
+ACGL,scoring,score_below_min
+ACHR,signal,chop_threshold_not_met
+ACIC,filters,"$ADV20 $1,783,923 < $75,000,000"
+ACIW,filters,"$ADV20 $32,230,630 < $75,000,000"
+ACLS,filters,"$ADV20 $43,232,997 < $75,000,000"
+ACLX,filters,"$ADV20 $60,467,733 < $75,000,000"
+ACMR,filters,"$ADV20 $63,194,010 < $75,000,000"
+ACN,signal,chop_threshold_not_met
+ACNB,filters,"$ADV20 $1,307,655 < $75,000,000"
+ACNT,filters,"$ADV20 $862,558 < $75,000,000"
+ACR,filters,"$ADV20 $866,197 < $75,000,000"
+ACRE,filters,"Price $4.91 < $5.00; $ADV20 $3,510,334 < $75,000,000"
+ACRS,filters,"Price $2.71 < $5.00; $ADV20 $3,120,479 < $75,000,000"
+ACT,filters,"$ADV20 $10,527,649 < $75,000,000"
+ACTG,filters,"Price $3.83 < $5.00; $ADV20 $646,739 < $75,000,000"
+ACTU,filters,"$ADV20 $593,815 < $75,000,000"
+ACU,filters,"$ADV20 $345,704 < $75,000,000"
+ACVA,filters,"$ADV20 $20,318,924 < $75,000,000"
+ADAM,filters,"$ADV20 $5,937,719 < $75,000,000"
+ADBE,scoring,score_below_min
+ADCT,filters,"Price $3.70 < $5.00; $ADV20 $3,890,115 < $75,000,000"
+ADEA,filters,"$ADV20 $17,880,716 < $75,000,000"
+ADI,signal,chop_threshold_not_met
+ADM,signal,chop_threshold_not_met
+ADMA,filters,"$ADV20 $42,646,032 < $75,000,000"
+ADNT,filters,"$ADV20 $22,787,731 < $75,000,000"
+ADP,scoring,score_below_min
+ADPT,filters,"$ADV20 $37,172,278 < $75,000,000"
+ADSK,scoring,score_below_min
+ADTN,filters,"$ADV20 $9,126,954 < $75,000,000"
+ADUS,filters,"$ADV20 $17,038,432 < $75,000,000"
+ADV,filters,"Price $0.83 < $5.00; $ADV20 $967,752 < $75,000,000"
+AEBI,filters,"$ADV20 $2,349,093 < $75,000,000"
+AEE,scoring,score_below_min
+AEHR,filters,"$ADV20 $21,155,958 < $75,000,000"
+AEIS,signal,chop_threshold_not_met
+AEO,scoring,score_below_min
+AEP,scoring,score_below_min
+AES,scoring,score_below_min
+AESI,filters,"$ADV20 $23,400,179 < $75,000,000"
+AEVA,filters,"$ADV20 $58,218,057 < $75,000,000"
+AEYE,filters,"$ADV20 $1,191,730 < $75,000,000"
+AFCG,filters,"Price $2.62 < $5.00; $ADV20 $980,178 < $75,000,000"
+AFL,scoring,score_below_min
+AFRI,filters,"$ADV20 $268,602 < $75,000,000"
+AGIO,filters,"$ADV20 $41,916,773 < $75,000,000"
+AGL,filters,"Price $0.95 < $5.00; $ADV20 $4,922,201 < $75,000,000; 5d return 16.4% > 15.0% (avoiding chased names)"
+AGM,filters,"$ADV20 $17,423,275 < $75,000,000"
+AGX,scoring,score_below_min
+AGYS,filters,"$ADV20 $19,623,960 < $75,000,000"
+AHCO,filters,"$ADV20 $10,889,978 < $75,000,000"
+AHH,filters,"$ADV20 $5,295,451 < $75,000,000"
+AHL,filters,"$ADV20 $12,240,298 < $75,000,000"
+AHR,scoring,score_below_min
+AI,scoring,score_below_min
+AIG,scoring,score_below_min
+AII,filters,"$ADV20 $2,708,658 < $75,000,000"
+AIN,filters,"$ADV20 $16,759,366 < $75,000,000"
+AIOT,filters,"$ADV20 $5,791,552 < $75,000,000"
+AIP,filters,"$ADV20 $6,867,465 < $75,000,000"
+AIR,filters,"$ADV20 $55,551,657 < $75,000,000"
+AIRJ,filters,"Price $3.97 < $5.00; $ADV20 $2,056,777 < $75,000,000"
+AIRO,filters,"$ADV20 $8,625,146 < $75,000,000; 5d return 15.5% > 15.0% (avoiding chased names)"
+AIRS,filters,"Price $2.40 < $5.00; $ADV20 $2,166,883 < $75,000,000"
+AISP,filters,"Price $3.14 < $5.00; $ADV20 $2,490,072 < $75,000,000"
+AIV,filters,"$ADV20 $13,591,889 < $75,000,000"
+AIZ,scoring,score_below_min
+AJG,scoring,score_below_min
+AKAM,signal,chop_threshold_not_met
+AKBA,filters,"Price $1.38 < $5.00; $ADV20 $4,760,208 < $75,000,000"
+AKR,filters,"$ADV20 $31,745,878 < $75,000,000"
+ALAB,signal,chop_threshold_not_met
+ALB,signal,chop_threshold_not_met
+ALCO,filters,"$ADV20 $980,032 < $75,000,000"
+ALDX,filters,"Price $4.14 < $5.00; $ADV20 $6,775,972 < $75,000,000"
+ALEC,filters,"Price $1.92 < $5.00; $ADV20 $1,740,215 < $75,000,000"
+ALEX,filters,"$ADV20 $17,775,459 < $75,000,000"
+ALG,filters,"$ADV20 $21,290,416 < $75,000,000"
+ALGN,signal,chop_threshold_not_met
+ALGT,filters,"$ADV20 $34,802,459 < $75,000,000"
+ALH,filters,"$ADV20 $33,165,912 < $75,000,000"
+ALHC,filters,"$ADV20 $52,356,909 < $75,000,000"
+ALIT,filters,"Price $1.61 < $5.00; $ADV20 $26,395,728 < $75,000,000"
+ALKS,filters,"$ADV20 $50,118,956 < $75,000,000"
+ALKT,filters,"$ADV20 $23,685,847 < $75,000,000"
+ALL,scoring,score_below_min
+ALLE,scoring,score_below_min
+ALLO,filters,"Price $1.64 < $5.00; $ADV20 $5,731,178 < $75,000,000; 5d return 16.3% > 15.0% (avoiding chased names)"
+ALMS,filters,5d return 36.2% > 15.0% (avoiding chased names)
+ALMU,filters,"$ADV20 $7,827,243 < $75,000,000"
+ALNT,filters,"$ADV20 $8,913,274 < $75,000,000"
+ALRM,filters,"$ADV20 $18,979,617 < $75,000,000"
+ALRS,filters,"$ADV20 $2,841,382 < $75,000,000"
+ALT,filters,"Price $4.01 < $5.00; $ADV20 $24,696,837 < $75,000,000"
+ALTG,filters,"$ADV20 $1,303,358 < $75,000,000"
+ALTI,filters,"Price $3.94 < $5.00; $ADV20 $631,471 < $75,000,000"
+ALX,filters,"$ADV20 $15,613,175 < $75,000,000"
+AMAL,filters,"$ADV20 $6,672,040 < $75,000,000"
+AMAT,signal,chop_threshold_not_met
+AMBA,filters,"$ADV20 $68,552,621 < $75,000,000"
+AMBP,filters,"Price $4.31 < $5.00; $ADV20 $4,001,631 < $75,000,000"
+AMBQ,filters,"$ADV20 $3,123,127 < $75,000,000"
+AMC,filters,"Price $1.61 < $5.00; $ADV20 $54,422,150 < $75,000,000"
+AMCR,signal,chop_threshold_not_met
+AMCX,filters,"$ADV20 $4,685,757 < $75,000,000"
+AMD,scoring,score_below_min
+AME,signal,chop_threshold_not_met
+AMGN,scoring,score_below_min
+AMLX,filters,"$ADV20 $21,151,300 < $75,000,000"
+AMN,filters,"$ADV20 $13,846,299 < $75,000,000"
+AMP,scoring,score_below_min
+AMPH,filters,"$ADV20 $9,819,087 < $75,000,000"
+AMPL,filters,"$ADV20 $12,828,760 < $75,000,000"
+AMPX,filters,"$ADV20 $55,939,791 < $75,000,000"
+AMR,filters,"$ADV20 $57,344,793 < $75,000,000"
+AMRC,filters,"$ADV20 $12,602,186 < $75,000,000"
+AMRX,filters,"$ADV20 $21,897,247 < $75,000,000"
+AMSC,filters,"$ADV20 $25,277,248 < $75,000,000"
+AMSF,filters,"$ADV20 $5,769,859 < $75,000,000"
+AMT,scoring,score_below_min
+AMTB,filters,"$ADV20 $4,928,869 < $75,000,000"
+AMWD,filters,"$ADV20 $7,441,067 < $75,000,000"
+AMZN,signal,chop_threshold_not_met
+ANAB,filters,"$ADV20 $24,558,350 < $75,000,000"
+ANDE,filters,"$ADV20 $19,485,387 < $75,000,000"
+ANET,scoring,score_below_min
+ANF,scoring,score_below_min
+ANGI,filters,"$ADV20 $11,620,520 < $75,000,000"
+ANGO,filters,"$ADV20 $9,057,938 < $75,000,000"
+ANIK,filters,"$ADV20 $1,436,642 < $75,000,000"
+ANIP,filters,"$ADV20 $42,533,352 < $75,000,000"
+ANNX,filters,"$ADV20 $14,543,481 < $75,000,000; 5d return 21.4% > 15.0% (avoiding chased names)"
+AOMR,filters,"$ADV20 $886,545 < $75,000,000"
+AON,scoring,score_below_min
+AORT,filters,"$ADV20 $14,614,617 < $75,000,000"
+AOS,signal,chop_threshold_not_met
+AOSL,filters,"$ADV20 $6,506,160 < $75,000,000"
+AOUT,filters,"$ADV20 $680,058 < $75,000,000"
+APA,scoring,score_below_min
+APAM,filters,"$ADV20 $20,031,516 < $75,000,000"
+APD,scoring,score_below_min
+APEI,filters,"$ADV20 $9,731,251 < $75,000,000"
+APH,signal,chop_threshold_not_met
+APLD,filters,5d return 21.3% > 15.0% (avoiding chased names)
+APLE,filters,"$ADV20 $27,233,457 < $75,000,000"
+APO,scoring,score_below_min
+APOG,filters,"$ADV20 $12,046,411 < $75,000,000"
+APP,scoring,score_below_min
+APPN,filters,"$ADV20 $23,101,945 < $75,000,000"
+APPS,filters,"$ADV20 $11,232,029 < $75,000,000"
+APTV,scoring,score_below_min
+AQST,filters,"Price $3.42 < $5.00; $ADV20 $25,213,134 < $75,000,000"
+ARAY,filters,"Price $0.86 < $5.00; $ADV20 $909,096 < $75,000,000"
+ARCB,filters,"$ADV20 $32,734,111 < $75,000,000"
+ARCT,filters,"$ADV20 $4,067,111 < $75,000,000"
+ARDT,filters,"$ADV20 $3,768,786 < $75,000,000"
+ARDX,filters,"$ADV20 $34,937,681 < $75,000,000; 5d return 26.6% > 15.0% (avoiding chased names)"
+ARE,scoring,score_below_min
+AREN,filters,"Price $4.21 < $5.00; $ADV20 $423,604 < $75,000,000"
+ARES,scoring,score_below_min
+ARHS,filters,"$ADV20 $13,683,601 < $75,000,000"
+ARI,filters,"$ADV20 $11,151,171 < $75,000,000"
+ARKO,filters,"Price $4.95 < $5.00; $ADV20 $2,334,281 < $75,000,000"
+ARL,filters,"$ADV20 $33,329 < $75,000,000"
+ARLO,filters,"$ADV20 $16,875,470 < $75,000,000"
+AROC,filters,"$ADV20 $37,184,250 < $75,000,000"
+AROW,filters,"$ADV20 $2,306,649 < $75,000,000"
+ARQ,filters,"Price $3.66 < $5.00; $ADV20 $1,367,810 < $75,000,000"
+ARQT,filters,"$ADV20 $56,062,343 < $75,000,000"
+ARR,filters,"$ADV20 $63,120,328 < $75,000,000"
+ARRY,filters,"$ADV20 $53,796,873 < $75,000,000"
+ARVN,filters,"$ADV20 $9,174,775 < $75,000,000"
+ARWR,scoring,score_below_min
+ASAN,filters,"$ADV20 $42,472,390 < $75,000,000"
+ASB,filters,"$ADV20 $57,377,528 < $75,000,000"
+ASC,filters,"$ADV20 $6,668,966 < $75,000,000"
+ASGN,filters,"$ADV20 $24,249,351 < $75,000,000"
+ASIC,filters,"$ADV20 $1,689,321 < $75,000,000"
+ASIX,filters,"$ADV20 $11,090,459 < $75,000,000"
+ASLE,filters,"$ADV20 $2,165,035 < $75,000,000"
+ASO,signal,chop_threshold_not_met
+ASPI,filters,"$ADV20 $35,374,540 < $75,000,000"
+ASPN,filters,"Price $3.46 < $5.00; $ADV20 $6,062,155 < $75,000,000"
+ASTE,filters,"$ADV20 $9,171,054 < $75,000,000"
+ASTH,filters,"$ADV20 $13,844,753 < $75,000,000"
+ASTI,filters,"$ADV20 $18,443,238 < $75,000,000"
+ASTS,scoring,score_below_min
+ASUR,filters,"$ADV20 $762,754 < $75,000,000"
+ATEC,filters,"$ADV20 $56,672,252 < $75,000,000"
+ATEN,filters,"$ADV20 $12,503,496 < $75,000,000"
+ATEX,filters,"$ADV20 $4,680,759 < $75,000,000"
+ATGE,filters,"$ADV20 $42,203,197 < $75,000,000"
+ATKR,filters,"$ADV20 $24,757,469 < $75,000,000"
+ATLC,filters,"$ADV20 $4,268,531 < $75,000,000"
+ATLO,filters,"$ADV20 $650,356 < $75,000,000"
+ATMU,filters,"$ADV20 $29,961,435 < $75,000,000"
+ATNI,filters,"$ADV20 $1,101,394 < $75,000,000"
+ATO,scoring,score_below_min
+ATOM,filters,"Price $2.29 < $5.00; $ADV20 $994,188 < $75,000,000"
+ATRC,filters,"$ADV20 $17,205,117 < $75,000,000"
+ATRO,filters,"$ADV20 $49,896,746 < $75,000,000"
+ATXS,filters,"$ADV20 $10,458,781 < $75,000,000"
+ATYR,filters,"Price $0.71 < $5.00; $ADV20 $1,469,139 < $75,000,000"
+AUB,filters,"$ADV20 $40,686,943 < $75,000,000"
+AUPH,filters,"$ADV20 $15,967,773 < $75,000,000"
+AURA,filters,"$ADV20 $1,104,792 < $75,000,000"
+AVA,filters,"$ADV20 $29,634,954 < $75,000,000"
+AVAH,filters,"$ADV20 $10,783,606 < $75,000,000"
+AVAV,scoring,score_below_min
+AVB,scoring,score_below_min
+AVBH,filters,"$ADV20 $2,156,489 < $75,000,000"
+AVBP,filters,"$ADV20 $9,705,957 < $75,000,000; 5d return 16.1% > 15.0% (avoiding chased names)"
+AVD,filters,"Price $3.84 < $5.00; $ADV20 $755,920 < $75,000,000"
+AVDL,filters,"$ADV20 $31,809,291 < $75,000,000"
+AVGO,scoring,score_below_min
+AVIR,filters,"Price $3.51 < $5.00; $ADV20 $1,338,265 < $75,000,000"
+AVNS,filters,"$ADV20 $6,224,995 < $75,000,000"
+AVNT,filters,"$ADV20 $24,716,919 < $75,000,000"
+AVNW,filters,"$ADV20 $2,052,531 < $75,000,000"
+AVO,filters,"$ADV20 $8,050,733 < $75,000,000"
+AVPT,filters,"$ADV20 $30,451,129 < $75,000,000"
+AVR,filters,"Price $4.49 < $5.00; $ADV20 $1,071,212 < $75,000,000"
+AVXL,filters,"Price $4.64 < $5.00; $ADV20 $8,315,624 < $75,000,000; 5d return 15.7% > 15.0% (avoiding chased names)"
+AVY,signal,chop_threshold_not_met
+AWK,scoring,score_below_min
+AWR,filters,"$ADV20 $16,599,292 < $75,000,000"
+AX,filters,"$ADV20 $32,069,104 < $75,000,000"
+AXGN,filters,"$ADV20 $25,310,219 < $75,000,000"
+AXL,filters,"$ADV20 $18,184,538 < $75,000,000"
+AXON,signal,chop_threshold_not_met
+AXP,scoring,score_below_min
+AXSM,signal,chop_threshold_not_met
+AZO,scoring,score_below_min
+AZTA,filters,"$ADV20 $21,200,628 < $75,000,000"
+AZZ,filters,"$ADV20 $20,143,569 < $75,000,000"
+BA,signal,chop_threshold_not_met
+BABA,signal,chop_threshold_not_met
+BAC,scoring,score_below_min
+BALL,scoring,score_below_min
+BALY,filters,"$ADV20 $1,703,097 < $75,000,000"
+BANC,filters,"$ADV20 $35,651,936 < $75,000,000"
+BAND,filters,"$ADV20 $2,593,319 < $75,000,000"
+BANF,filters,"$ADV20 $14,922,308 < $75,000,000"
+BANR,filters,"$ADV20 $12,316,474 < $75,000,000"
+BARK,filters,"Price $0.79 < $5.00; $ADV20 $1,472,293 < $75,000,000; 5d return 42.3% > 15.0% (avoiding chased names)"
+BATRA,filters,"$ADV20 $2,115,695 < $75,000,000"
+BATRK,filters,"$ADV20 $12,714,480 < $75,000,000"
+BAX,scoring,score_below_min
+BBAI,scoring,score_below_min
+BBBY,filters,"$ADV20 $12,463,786 < $75,000,000"
+BBCP,filters,"$ADV20 $577,604 < $75,000,000"
+BBIO,signal,chop_threshold_not_met
+BBNX,filters,"$ADV20 $37,962,054 < $75,000,000"
+BBSI,filters,"$ADV20 $5,314,417 < $75,000,000"
+BBT,filters,"$ADV20 $20,215,219 < $75,000,000"
+BBUC,filters,"$ADV20 $3,441,971 < $75,000,000"
+BBW,filters,"$ADV20 $21,217,512 < $75,000,000"
+BBY,scoring,score_below_min
+BCAL,filters,"$ADV20 $4,249,282 < $75,000,000"
+BCAX,filters,"$ADV20 $10,097,488 < $75,000,000"
+BCBP,filters,"$ADV20 $628,202 < $75,000,000"
+BCC,filters,"$ADV20 $31,347,027 < $75,000,000"
+BCML,filters,"$ADV20 $641,123 < $75,000,000"
+BCO,filters,"$ADV20 $31,866,387 < $75,000,000"
+BCPC,filters,"$ADV20 $31,646,661 < $75,000,000"
+BCRX,filters,"$ADV20 $29,673,770 < $75,000,000"
+BDC,filters,"$ADV20 $35,044,674 < $75,000,000"
+BDN,filters,"Price $2.95 < $5.00; $ADV20 $20,579,344 < $75,000,000"
+BDX,scoring,score_below_min
+BE,filters,5d return 35.6% > 15.0% (avoiding chased names)
+BEAM,filters,"$ADV20 $51,720,782 < $75,000,000; 5d return 21.9% > 15.0% (avoiding chased names)"
+BEEP,filters,"Price $2.75 < $5.00; $ADV20 $237,532 < $75,000,000"
+BELFA,filters,"$ADV20 $7,134,647 < $75,000,000"
+BELFB,filters,"$ADV20 $22,927,194 < $75,000,000"
+BEN,signal,chop_threshold_not_met
+BETR,filters,"$ADV20 $17,218,458 < $75,000,000"
+BF-B,scoring,score_below_min
+BFC,filters,"$ADV20 $7,207,635 < $75,000,000"
+BFH,filters,"$ADV20 $62,640,073 < $75,000,000"
+BFLY,filters,"Price $4.40 < $5.00; $ADV20 $19,403,416 < $75,000,000"
+BFS,filters,"$ADV20 $2,323,848 < $75,000,000"
+BFST,filters,"$ADV20 $3,040,786 < $75,000,000"
+BG,signal,chop_threshold_not_met
+BGC,filters,"$ADV20 $20,311,360 < $75,000,000"
+BGS,filters,"Price $4.18 < $5.00; $ADV20 $7,118,558 < $75,000,000"
+BH,filters,"$ADV20 $25,104,079 < $75,000,000; 5d return 17.2% > 15.0% (avoiding chased names)"
+BHB,filters,"$ADV20 $2,478,887 < $75,000,000"
+BHE,filters,"$ADV20 $14,103,643 < $75,000,000"
+BHR,filters,"Price $2.91 < $5.00; $ADV20 $1,455,046 < $75,000,000"
+BHRB,filters,"$ADV20 $6,069,996 < $75,000,000"
+BHVN,filters,"$ADV20 $39,695,423 < $75,000,000"
+BIDU,signal,chop_threshold_not_met
+BIIB,scoring,score_below_min
+BIOA,filters,"$ADV20 $10,540,684 < $75,000,000; 5d return 34.3% > 15.0% (avoiding chased names)"
+BIPC,filters,"$ADV20 $23,530,814 < $75,000,000"
+BJRI,filters,"$ADV20 $17,590,379 < $75,000,000"
+BK,signal,chop_threshold_not_met
+BKD,filters,"$ADV20 $33,992,865 < $75,000,000"
+BKE,filters,"$ADV20 $31,005,424 < $75,000,000"
+BKH,filters,"$ADV20 $66,769,285 < $75,000,000"
+BKKT,filters,"$ADV20 $20,580,846 < $75,000,000; 5d return 21.1% > 15.0% (avoiding chased names)"
+BKNG,scoring,score_below_min
+BKR,signal,chop_threshold_not_met
+BKSY,filters,"$ADV20 $31,036,692 < $75,000,000"
+BKTI,filters,"$ADV20 $3,385,271 < $75,000,000"
+BKU,filters,"$ADV20 $33,109,677 < $75,000,000"
+BKV,filters,"$ADV20 $20,800,706 < $75,000,000"
+BL,filters,"$ADV20 $34,671,414 < $75,000,000"
+BLBD,filters,"$ADV20 $18,983,005 < $75,000,000"
+BLDR,signal,chop_threshold_not_met
+BLFS,filters,"$ADV20 $8,611,232 < $75,000,000"
+BLFY,filters,"$ADV20 $4,515,972 < $75,000,000"
+BLK,scoring,score_below_min
+BLKB,filters,"$ADV20 $18,470,594 < $75,000,000"
+BLMN,filters,"$ADV20 $14,153,456 < $75,000,000"
+BLND,filters,"Price $3.17 < $5.00; $ADV20 $6,200,172 < $75,000,000"
+BLSH,filters,"$ADV20 $63,539,510 < $75,000,000"
+BLX,filters,"$ADV20 $6,040,951 < $75,000,000"
+BLZE,filters,"Price $4.94 < $5.00; $ADV20 $3,520,667 < $75,000,000"
+BMBL,filters,"Price $3.62 < $5.00; $ADV20 $10,918,221 < $75,000,000"
+BMI,filters,"$ADV20 $40,829,908 < $75,000,000"
+BMNR,scoring,score_below_min
+BMRC,filters,"$ADV20 $2,266,968 < $75,000,000"
+BMY,signal,chop_threshold_not_met
+BNED,filters,"$ADV20 $3,077,093 < $75,000,000"
+BNL,filters,"$ADV20 $35,146,847 < $75,000,000"
+BNTC,filters,"$ADV20 $2,504,380 < $75,000,000"
+BOC,filters,"$ADV20 $2,113,088 < $75,000,000"
+BOH,filters,"$ADV20 $24,350,298 < $75,000,000"
+BOOM,filters,"$ADV20 $1,066,933 < $75,000,000"
+BORR,filters,"Price $4.38 < $5.00; $ADV20 $18,837,649 < $75,000,000"
+BOW,filters,"$ADV20 $5,141,368 < $75,000,000"
+BOX,filters,"$ADV20 $63,362,754 < $75,000,000"
+BPRN,filters,"$ADV20 $397,531 < $75,000,000"
+BR,scoring,score_below_min
+BRBS,filters,"Price $4.27 < $5.00; $ADV20 $808,996 < $75,000,000"
+BRCB,filters,"$ADV20 $12,733,915 < $75,000,000"
+BRCC,filters,"Price $1.06 < $5.00; $ADV20 $1,011,608 < $75,000,000"
+BRK-B,scoring,score_below_min
+BRO,scoring,score_below_min
+BRSL,filters,"$ADV20 $23,812,085 < $75,000,000"
+BRSP,filters,"$ADV20 $4,396,668 < $75,000,000"
+BRT,filters,"$ADV20 $834,084 < $75,000,000"
+BRZE,filters,"$ADV20 $58,017,017 < $75,000,000"
+BSET,filters,"$ADV20 $252,709 < $75,000,000"
+BSRR,filters,"$ADV20 $1,901,481 < $75,000,000"
+BSVN,filters,"$ADV20 $678,860 < $75,000,000"
+BSX,scoring,score_below_min
+BTBT,filters,"Price $2.35 < $5.00; $ADV20 $66,073,197 < $75,000,000"
+BTDR,filters,"$ADV20 $53,140,698 < $75,000,000"
+BTMD,filters,"Price $2.43 < $5.00; $ADV20 $432,148 < $75,000,000"
+BTSG,filters,"$ADV20 $71,557,752 < $75,000,000"
+BTU,signal,chop_threshold_not_met
+BULL,scoring,score_below_min
+BUR,filters,"$ADV20 $14,976,336 < $75,000,000"
+BUSE,filters,"$ADV20 $11,119,566 < $75,000,000"
+BV,filters,"$ADV20 $6,841,890 < $75,000,000"
+BVFL,filters,"$ADV20 $343,816 < $75,000,000"
+BVS,filters,"$ADV20 $1,976,417 < $75,000,000"
+BWB,filters,"$ADV20 $1,488,908 < $75,000,000"
+BWFG,filters,"$ADV20 $2,336,006 < $75,000,000"
+BWIN,filters,"$ADV20 $27,457,824 < $75,000,000"
+BWMN,filters,"$ADV20 $4,598,351 < $75,000,000"
+BX,scoring,score_below_min
+BXC,filters,"$ADV20 $6,615,536 < $75,000,000; 5d return 16.5% > 15.0% (avoiding chased names)"
+BXMT,filters,"$ADV20 $28,940,521 < $75,000,000"
+BXP,scoring,score_below_min
+BY,filters,"$ADV20 $5,505,772 < $75,000,000"
+BYND,filters,"Price $0.95 < $5.00; $ADV20 $60,059,178 < $75,000,000"
+BYRN,filters,"$ADV20 $8,454,592 < $75,000,000"
+BZAI,filters,"Price $2.20 < $5.00; $ADV20 $3,090,162 < $75,000,000"
+BZH,filters,"$ADV20 $8,755,445 < $75,000,000; 5d return 16.3% > 15.0% (avoiding chased names)"
+C,scoring,score_below_min
+CABO,filters,"$ADV20 $16,328,885 < $75,000,000"
+CAC,filters,"$ADV20 $3,952,627 < $75,000,000"
+CADE,scoring,score_below_min
+CADL,filters,"$ADV20 $3,825,379 < $75,000,000"
+CAG,scoring,score_below_min
+CAKE,filters,"$ADV20 $67,602,738 < $75,000,000"
+CAL,filters,"$ADV20 $10,469,247 < $75,000,000"
+CALM,scoring,score_below_min
+CALX,filters,"$ADV20 $39,996,036 < $75,000,000"
+CAPR,filters,"$ADV20 $34,702,106 < $75,000,000"
+CARE,filters,"$ADV20 $1,711,676 < $75,000,000"
+CARG,filters,"$ADV20 $31,598,588 < $75,000,000"
+CARL,filters,"$ADV20 $957,899 < $75,000,000"
+CARR,signal,chop_threshold_not_met
+CARS,filters,"$ADV20 $10,428,116 < $75,000,000"
+CASS,filters,"$ADV20 $3,641,695 < $75,000,000"
+CAT,signal,chop_threshold_not_met
+CATX,filters,"Price $2.51 < $5.00; $ADV20 $3,711,654 < $75,000,000"
+CATY,filters,"$ADV20 $23,066,920 < $75,000,000"
+CB,scoring,score_below_min
+CBAN,filters,"$ADV20 $1,824,840 < $75,000,000"
+CBFV,filters,"$ADV20 $241,444 < $75,000,000"
+CBK,filters,"$ADV20 $2,907,651 < $75,000,000"
+CBL,filters,"$ADV20 $5,204,858 < $75,000,000"
+CBLL,filters,"$ADV20 $10,247,890 < $75,000,000"
+CBNA,filters,"$ADV20 $240,734 < $75,000,000"
+CBNK,filters,"$ADV20 $1,387,943 < $75,000,000"
+CBOE,scoring,score_below_min
+CBRL,filters,"$ADV20 $48,626,964 < $75,000,000"
+CBT,filters,"$ADV20 $30,725,711 < $75,000,000"
+CBU,filters,"$ADV20 $14,035,522 < $75,000,000"
+CBZ,filters,"$ADV20 $25,691,441 < $75,000,000"
+CC,filters,"$ADV20 $30,061,238 < $75,000,000"
+CCB,filters,"$ADV20 $12,805,152 < $75,000,000"
+CCBG,filters,"$ADV20 $2,817,274 < $75,000,000"
+CCI,scoring,score_below_min
+CCL,scoring,score_below_min
+CCNE,filters,"$ADV20 $3,507,824 < $75,000,000"
+CCOI,filters,"$ADV20 $27,658,639 < $75,000,000"
+CCRN,filters,"$ADV20 $5,938,270 < $75,000,000"
+CCS,filters,"$ADV20 $15,875,818 < $75,000,000; 5d return 16.1% > 15.0% (avoiding chased names)"
+CCSI,filters,"$ADV20 $4,252,554 < $75,000,000"
+CD,filters,"$ADV20 $1,186,800 < $75,000,000"
+CDE,signal,chop_threshold_not_met
+CDNA,filters,"$ADV20 $14,923,733 < $75,000,000"
+CDP,filters,"$ADV20 $31,524,249 < $75,000,000"
+CDRE,filters,"$ADV20 $8,908,109 < $75,000,000"
+CDW,scoring,score_below_min
+CDXS,filters,"Price $1.71 < $5.00; $ADV20 $1,622,743 < $75,000,000"
+CDZI,filters,"$ADV20 $4,451,014 < $75,000,000"
+CECO,filters,"$ADV20 $16,625,554 < $75,000,000"
+CEG,scoring,score_below_min
+CENT,filters,"$ADV20 $2,143,737 < $75,000,000"
+CENTA,filters,"$ADV20 $7,041,215 < $75,000,000"
+CENX,scoring,score_below_min
+CERS,filters,"Price $2.52 < $5.00; $ADV20 $3,054,954 < $75,000,000; 5d return 21.7% > 15.0% (avoiding chased names)"
+CEVA,filters,"$ADV20 $11,024,374 < $75,000,000"
+CF,signal,chop_threshold_not_met
+CFBK,filters,"$ADV20 $1,939,519 < $75,000,000"
+CFFI,filters,"$ADV20 $394,740 < $75,000,000"
+CFFN,filters,"$ADV20 $7,694,838 < $75,000,000"
+CFG,scoring,score_below_min
+CGEM,filters,"$ADV20 $9,573,667 < $75,000,000"
+CGON,filters,"$ADV20 $58,871,774 < $75,000,000; 5d return 30.2% > 15.0% (avoiding chased names)"
+CHCO,filters,"$ADV20 $12,764,328 < $75,000,000"
+CHCT,filters,"$ADV20 $3,385,689 < $75,000,000"
+CHD,signal,chop_threshold_not_met
+CHEF,filters,"$ADV20 $24,767,363 < $75,000,000"
+CHMG,filters,"$ADV20 $388,153 < $75,000,000"
+CHRS,filters,"Price $1.70 < $5.00; $ADV20 $1,741,295 < $75,000,000; 5d return 25.0% > 15.0% (avoiding chased names)"
+CHRW,signal,chop_threshold_not_met
+CHTR,scoring,score_below_min
+CI,scoring,score_below_min
+CIA,filters,"$ADV20 $528,001 < $75,000,000"
+CIEN,signal,chop_threshold_not_met
+CIFR,signal,chop_threshold_not_met
+CIM,filters,"$ADV20 $11,132,455 < $75,000,000"
+CINF,scoring,score_below_min
+CIVB,filters,"$ADV20 $2,588,238 < $75,000,000"
+CIX,filters,"$ADV20 $159,231 < $75,000,000"
+CL,signal,chop_threshold_not_met
+CLAR,filters,"Price $3.72 < $5.00; $ADV20 $446,427 < $75,000,000"
+CLB,filters,"$ADV20 $6,338,812 < $75,000,000"
+CLBK,filters,"$ADV20 $1,681,595 < $75,000,000"
+CLDT,filters,"$ADV20 $1,961,885 < $75,000,000"
+CLDX,filters,"$ADV20 $19,522,840 < $75,000,000"
+CLFD,filters,"$ADV20 $3,595,730 < $75,000,000"
+CLMB,filters,"$ADV20 $11,754,169 < $75,000,000"
+CLMT,filters,"$ADV20 $15,925,876 < $75,000,000"
+CLNE,filters,"Price $2.21 < $5.00; $ADV20 $2,394,366 < $75,000,000"
+CLOV,filters,"Price $2.54 < $5.00; $ADV20 $11,217,572 < $75,000,000"
+CLPR,filters,"Price $3.59 < $5.00; $ADV20 $309,308 < $75,000,000"
+CLPT,filters,"$ADV20 $10,432,627 < $75,000,000"
+CLSK,scoring,score_below_min
+CLW,filters,"$ADV20 $3,978,659 < $75,000,000"
+CLX,scoring,score_below_min
+CMC,signal,chop_threshold_not_met
+CMCL,filters,"$ADV20 $6,039,219 < $75,000,000"
+CMCO,filters,"$ADV20 $3,860,131 < $75,000,000"
+CMCSA,scoring,score_below_min
+CMDB,filters,"$ADV20 $612,468 < $75,000,000"
+CME,scoring,score_below_min
+CMG,signal,chop_threshold_not_met
+CMI,signal,chop_threshold_not_met
+CMP,filters,"$ADV20 $11,206,882 < $75,000,000"
+CMPO,filters,"$ADV20 $23,792,988 < $75,000,000"
+CMPR,filters,"$ADV20 $11,003,225 < $75,000,000; 5d return 16.7% > 15.0% (avoiding chased names)"
+CMPX,filters,"$ADV20 $11,342,608 < $75,000,000"
+CMRC,filters,"Price $4.05 < $5.00; $ADV20 $2,947,752 < $75,000,000"
+CMRE,filters,"$ADV20 $7,176,630 < $75,000,000"
+CMS,scoring,score_below_min
+CMT,filters,"$ADV20 $640,965 < $75,000,000"
+CMTG,filters,"Price $2.80 < $5.00; $ADV20 $1,102,816 < $75,000,000"
+CNC,scoring,score_below_min
+CNDT,filters,"Price $2.00 < $5.00; $ADV20 $2,352,618 < $75,000,000"
+CNK,filters,"$ADV20 $70,443,751 < $75,000,000"
+CNMD,filters,"$ADV20 $23,971,059 < $75,000,000"
+CNNE,filters,"$ADV20 $11,037,409 < $75,000,000"
+CNO,filters,"$ADV20 $29,296,025 < $75,000,000"
+CNOB,filters,"$ADV20 $7,168,610 < $75,000,000"
+CNP,scoring,score_below_min
+CNR,filters,"$ADV20 $62,447,025 < $75,000,000"
+CNS,filters,"$ADV20 $19,029,444 < $75,000,000"
+CNX,scoring,score_below_min
+CNXN,filters,"$ADV20 $4,386,312 < $75,000,000"
+COCO,filters,"$ADV20 $31,208,278 < $75,000,000"
+CODI,filters,"$ADV20 $6,930,298 < $75,000,000"
+COF,scoring,score_below_min
+COFS,filters,"$ADV20 $3,331,868 < $75,000,000"
+COGT,scoring,score_below_min
+COHR,scoring,score_below_min
+COHU,filters,"$ADV20 $14,786,227 < $75,000,000"
+COIN,scoring,score_below_min
+COLL,filters,"$ADV20 $23,773,931 < $75,000,000"
+COMM,filters,"$ADV20 $61,170,327 < $75,000,000"
+COMP,signal,chop_threshold_not_met
+CON,filters,"$ADV20 $15,151,627 < $75,000,000"
+COO,scoring,score_below_min
+COOK,filters,"Price $0.99 < $5.00; $ADV20 $465,186 < $75,000,000"
+COR,scoring,score_below_min
+CORZ,signal,chop_threshold_not_met
+COSO,filters,"$ADV20 $2,183,862 < $75,000,000"
+COST,scoring,score_below_min
+COUR,filters,"$ADV20 $34,466,878 < $75,000,000"
+CPAY,signal,chop_threshold_not_met
+CPB,scoring,score_below_min
+CPF,filters,"$ADV20 $5,375,786 < $75,000,000"
+CPK,filters,"$ADV20 $15,530,297 < $75,000,000"
+CPRI,filters,"$ADV20 $55,500,456 < $75,000,000"
+CPRT,signal,chop_threshold_not_met
+CPRX,filters,"$ADV20 $29,870,458 < $75,000,000"
+CPS,filters,"$ADV20 $5,819,324 < $75,000,000"
+CPSS,filters,"$ADV20 $168,654 < $75,000,000"
+CPT,scoring,score_below_min
+CRAI,filters,"$ADV20 $24,069,811 < $75,000,000"
+CRC,filters,"$ADV20 $43,754,501 < $75,000,000"
+CRCL,scoring,score_below_min
+CRCT,filters,"Price $4.95 < $5.00; $ADV20 $2,255,717 < $75,000,000"
+CRDF,filters,"Price $2.87 < $5.00; $ADV20 $3,153,598 < $75,000,000"
+CRDO,filters,5d return 21.4% > 15.0% (avoiding chased names)
+CRGY,filters,"$ADV20 $52,469,844 < $75,000,000"
+CRI,filters,"$ADV20 $36,610,896 < $75,000,000"
+CRK,filters,"$ADV20 $54,617,684 < $75,000,000"
+CRL,signal,chop_threshold_not_met
+CRM,scoring,score_below_min
+CRMD,filters,"$ADV20 $38,293,475 < $75,000,000"
+CRML,signal,chop_threshold_not_met
+CRMT,filters,"$ADV20 $4,458,648 < $75,000,000"
+CRNC,filters,"$ADV20 $9,181,784 < $75,000,000"
+CRNX,filters,5d return 18.2% > 15.0% (avoiding chased names)
+CRSP,scoring,score_below_min
+CRSR,filters,"$ADV20 $6,621,074 < $75,000,000"
+CRVL,filters,"$ADV20 $12,446,938 < $75,000,000"
+CRVS,filters,"$ADV20 $12,801,615 < $75,000,000"
+CRWD,scoring,score_below_min
+CSCO,scoring,score_below_min
+CSGP,scoring,score_below_min
+CSGS,filters,"$ADV20 $40,607,868 < $75,000,000"
+CSPI,filters,"$ADV20 $280,863 < $75,000,000"
+CSR,filters,"$ADV20 $10,793,174 < $75,000,000"
+CSTL,filters,"$ADV20 $13,348,004 < $75,000,000"
+CSTM,filters,"$ADV20 $24,669,736 < $75,000,000"
+CSV,filters,"$ADV20 $3,131,350 < $75,000,000"
+CSW,filters,"$ADV20 $48,170,955 < $75,000,000"
+CSX,scoring,score_below_min
+CTAS,scoring,score_below_min
+CTBI,filters,"$ADV20 $4,107,628 < $75,000,000"
+CTEV,filters,"$ADV20 $9,902,534 < $75,000,000"
+CTGO,filters,"$ADV20 $7,125,463 < $75,000,000"
+CTKB,filters,"$ADV20 $5,301,962 < $75,000,000"
+CTLP,filters,"$ADV20 $8,711,551 < $75,000,000"
+CTO,filters,"$ADV20 $5,474,407 < $75,000,000"
+CTOS,filters,"$ADV20 $5,554,739 < $75,000,000"
+CTRA,scoring,score_below_min
+CTRE,filters,"$ADV20 $65,026,908 < $75,000,000"
+CTRI,filters,"$ADV20 $38,374,824 < $75,000,000"
+CTRN,filters,"$ADV20 $6,081,476 < $75,000,000"
+CTS,filters,"$ADV20 $7,589,751 < $75,000,000"
+CTSH,scoring,score_below_min
+CTVA,signal,chop_threshold_not_met
+CUBI,filters,"$ADV20 $30,047,242 < $75,000,000"
+CURB,filters,"$ADV20 $15,269,804 < $75,000,000"
+CURI,filters,"Price $3.66 < $5.00; $ADV20 $2,700,013 < $75,000,000"
+CURV,filters,"Price $1.25 < $5.00; $ADV20 $459,060 < $75,000,000"
+CV,filters,"$ADV20 $2,824,798 < $75,000,000"
+CVBF,filters,"$ADV20 $33,781,926 < $75,000,000"
+CVCO,scoring,score_below_min
+CVGW,filters,"$ADV20 $5,222,970 < $75,000,000"
+CVI,filters,"$ADV20 $35,349,914 < $75,000,000"
+CVLG,filters,"$ADV20 $3,339,706 < $75,000,000"
+CVLT,scoring,score_below_min
+CVNA,signal,chop_threshold_not_met
+CVRX,filters,"$ADV20 $1,632,780 < $75,000,000"
+CVS,scoring,score_below_min
+CVX,scoring,score_below_min
+CWAN,scoring,score_below_min
+CWBC,filters,"$ADV20 $3,274,848 < $75,000,000"
+CWCO,filters,"$ADV20 $2,458,594 < $75,000,000"
+CWH,filters,"$ADV20 $21,471,162 < $75,000,000"
+CWK,filters,"$ADV20 $25,437,139 < $75,000,000"
+CWST,scoring,score_below_min
+CWT,filters,"$ADV20 $17,399,616 < $75,000,000"
+CXDO,filters,"$ADV20 $775,934 < $75,000,000"
+CXM,filters,"$ADV20 $12,298,154 < $75,000,000"
+CXW,filters,"$ADV20 $16,371,296 < $75,000,000"
+CYH,filters,"Price $3.29 < $5.00; $ADV20 $3,771,386 < $75,000,000"
+CYRX,filters,"$ADV20 $3,654,869 < $75,000,000"
+CYTK,scoring,score_below_min
+CZFS,filters,"$ADV20 $571,314 < $75,000,000"
+CZNC,filters,"$ADV20 $1,420,933 < $75,000,000"
+CZWI,filters,"$ADV20 $734,341 < $75,000,000"
+D,scoring,score_below_min
+DAKT,filters,"$ADV20 $10,350,162 < $75,000,000"
+DAL,scoring,score_below_min
+DAN,filters,"$ADV20 $47,601,439 < $75,000,000"
+DASH,scoring,score_below_min
+DAVE,scoring,score_below_min
+DAWN,filters,"$ADV20 $25,685,017 < $75,000,000; 5d return 22.6% > 15.0% (avoiding chased names)"
+DAY,scoring,score_below_min
+DBD,filters,"$ADV20 $14,505,478 < $75,000,000"
+DBI,filters,"$ADV20 $8,630,149 < $75,000,000"
+DBRG,scoring,score_below_min
+DC,filters,"$ADV20 $6,684,381 < $75,000,000"
+DCGO,filters,"Price $0.87 < $5.00; $ADV20 $604,350 < $75,000,000"
+DCO,filters,"$ADV20 $12,044,800 < $75,000,000"
+DCOM,filters,"$ADV20 $8,097,286 < $75,000,000"
+DCTH,filters,"$ADV20 $4,777,645 < $75,000,000"
+DD,signal,chop_threshold_not_met
+DDD,filters,"Price $2.36 < $5.00; $ADV20 $9,867,681 < $75,000,000"
+DDOG,scoring,score_below_min
+DE,signal,chop_threshold_not_met
+DEA,filters,"$ADV20 $12,107,626 < $75,000,000"
+DEC,filters,"$ADV20 $7,586,223 < $75,000,000"
+DECK,scoring,score_below_min
+DEI,filters,"$ADV20 $24,300,360 < $75,000,000"
+DELL,scoring,score_below_min
+DENN,filters,"$ADV20 $8,191,203 < $75,000,000"
+DERM,filters,"$ADV20 $1,000,175 < $75,000,000"
+DFH,filters,"$ADV20 $8,585,264 < $75,000,000"
+DFIN,filters,"$ADV20 $11,490,836 < $75,000,000"
+DG,signal,chop_threshold_not_met
+DGICA,filters,"$ADV20 $2,004,875 < $75,000,000"
+DGII,filters,"$ADV20 $13,083,206 < $75,000,000"
+DGX,scoring,score_below_min
+DH,filters,"Price $2.47 < $5.00; $ADV20 $1,627,064 < $75,000,000"
+DHC,filters,"$ADV20 $6,255,417 < $75,000,000"
+DHI,scoring,score_below_min
+DHIL,filters,"$ADV20 $7,015,132 < $75,000,000"
+DHR,signal,chop_threshold_not_met
+DHT,filters,"$ADV20 $23,881,587 < $75,000,000"
+DIN,filters,"$ADV20 $15,952,715 < $75,000,000"
+DIOD,filters,"$ADV20 $14,082,591 < $75,000,000"
+DIS,scoring,score_below_min
+DJCO,filters,"$ADV20 $42,691,180 < $75,000,000"
+DK,filters,"$ADV20 $39,743,110 < $75,000,000"
+DLR,signal,chop_threshold_not_met
+DLTR,signal,chop_threshold_not_met
+DLX,filters,"$ADV20 $8,221,839 < $75,000,000"
+DMAC,filters,"$ADV20 $2,747,038 < $75,000,000"
+DMRC,filters,"$ADV20 $1,700,438 < $75,000,000"
+DNA,filters,"$ADV20 $8,576,634 < $75,000,000"
+DNLI,filters,"$ADV20 $23,201,678 < $75,000,000"
+DNOW,filters,"$ADV20 $26,107,909 < $75,000,000"
+DNTH,filters,"$ADV20 $32,008,924 < $75,000,000; 5d return 23.9% > 15.0% (avoiding chased names)"
+DNUT,filters,"Price $4.31 < $5.00; $ADV20 $9,519,017 < $75,000,000"
+DOC,scoring,score_below_min
+DOCN,signal,chop_threshold_not_met
+DOLE,filters,"$ADV20 $10,448,246 < $75,000,000"
+DOMO,filters,"$ADV20 $7,155,004 < $75,000,000"
+DORM,filters,"$ADV20 $21,141,389 < $75,000,000"
+DOUG,filters,"Price $2.53 < $5.00; $ADV20 $979,715 < $75,000,000"
+DOV,signal,chop_threshold_not_met
+DOW,scoring,score_below_min
+DPZ,scoring,score_below_min
+DRH,filters,"$ADV20 $20,149,448 < $75,000,000"
+DRI,scoring,score_below_min
+DRUG,filters,"$ADV20 $26,002,097 < $75,000,000"
+DRVN,filters,"$ADV20 $11,425,571 < $75,000,000"
+DSGN,filters,"$ADV20 $4,645,724 < $75,000,000"
+DSGR,filters,"$ADV20 $1,851,781 < $75,000,000"
+DSP,filters,"$ADV20 $2,402,956 < $75,000,000"
+DTE,scoring,score_below_min
+DUK,scoring,score_below_min
+DVA,scoring,score_below_min
+DVAX,scoring,score_below_min
+DX,signal,chop_threshold_not_met
+DXCM,signal,chop_threshold_not_met
+DXPE,filters,"$ADV20 $15,167,544 < $75,000,000"
+DYN,filters,"$ADV20 $39,828,561 < $75,000,000"
+EA,signal,chop_threshold_not_met
+EAT,signal,chop_threshold_not_met
+EB,filters,"Price $4.46 < $5.00; $ADV20 $7,574,090 < $75,000,000"
+EBAY,scoring,score_below_min
+EBC,filters,"$ADV20 $35,635,351 < $75,000,000"
+EBF,filters,"$ADV20 $4,009,023 < $75,000,000"
+EBMT,filters,"$ADV20 $680,751 < $75,000,000"
+EBS,filters,"$ADV20 $10,481,673 < $75,000,000"
+ECBK,filters,"$ADV20 $190,646 < $75,000,000"
+ECL,signal,chop_threshold_not_met
+ECPG,filters,"$ADV20 $10,550,325 < $75,000,000"
+ECVT,filters,"$ADV20 $12,855,116 < $75,000,000"
+ED,scoring,score_below_min
+EDIT,filters,"Price $2.09 < $5.00; $ADV20 $3,933,517 < $75,000,000"
+EE,filters,"$ADV20 $8,036,036 < $75,000,000"
+EEX,filters,"Price $4.91 < $5.00; $ADV20 $547,718 < $75,000,000"
+EFC,filters,"$ADV20 $26,010,474 < $75,000,000"
+EFSC,filters,"$ADV20 $10,295,989 < $75,000,000"
+EFSI,filters,"$ADV20 $598,045 < $75,000,000"
+EFX,scoring,score_below_min
+EG,scoring,score_below_min
+EGAN,filters,"$ADV20 $2,559,944 < $75,000,000"
+EGBN,filters,"$ADV20 $7,210,050 < $75,000,000"
+EGHT,filters,"Price $1.86 < $5.00; $ADV20 $1,383,694 < $75,000,000"
+EGY,filters,"Price $3.90 < $5.00; $ADV20 $3,392,851 < $75,000,000"
+EHAB,filters,"$ADV20 $3,752,677 < $75,000,000; 5d return 16.0% > 15.0% (avoiding chased names)"
+EHTH,filters,"Price $3.81 < $5.00; $ADV20 $1,808,791 < $75,000,000"
+EIG,filters,"$ADV20 $15,210,816 < $75,000,000"
+EL,signal,chop_threshold_not_met
+ELA,filters,"$ADV20 $1,489,937 < $75,000,000"
+ELDN,filters,"Price $1.97 < $5.00; $ADV20 $1,490,020 < $75,000,000; 5d return 18.7% > 15.0% (avoiding chased names)"
+ELMD,filters,"$ADV20 $1,616,119 < $75,000,000"
+ELME,filters,"Price $2.86 < $5.00; $ADV20 $43,726,672 < $75,000,000"
+ELV,scoring,score_below_min
+ELVN,filters,"$ADV20 $30,707,389 < $75,000,000; 5d return 70.1% > 15.0% (avoiding chased names)"
+EMBC,filters,"$ADV20 $7,457,521 < $75,000,000"
+EME,signal,chop_threshold_not_met
+EML,filters,"$ADV20 $345,764 < $75,000,000"
+EMR,signal,chop_threshold_not_met
+ENOV,filters,"$ADV20 $25,506,610 < $75,000,000"
+ENPH,signal,chop_threshold_not_met
+ENR,filters,"$ADV20 $20,031,293 < $75,000,000"
+ENS,filters,"$ADV20 $61,793,022 < $75,000,000"
+ENSG,filters,"$ADV20 $62,101,600 < $75,000,000"
+ENTA,filters,"$ADV20 $5,795,642 < $75,000,000"
+ENVA,filters,"$ADV20 $45,587,406 < $75,000,000"
+ENVX,filters,"$ADV20 $47,214,584 < $75,000,000"
+EOG,signal,chop_threshold_not_met
+EOLS,filters,"$ADV20 $7,104,988 < $75,000,000"
+EOSE,filters,5d return 18.9% > 15.0% (avoiding chased names)
+EP,filters,"Price $3.09 < $5.00; $ADV20 $126,334 < $75,000,000"
+EPAC,filters,"$ADV20 $25,189,367 < $75,000,000"
+EPC,filters,"$ADV20 $11,035,337 < $75,000,000"
+EPM,filters,"Price $3.55 < $5.00; $ADV20 $2,085,582 < $75,000,000"
+EPRT,filters,"$ADV20 $56,628,351 < $75,000,000"
+EPSN,filters,"Price $4.44 < $5.00; $ADV20 $752,180 < $75,000,000"
+EQBK,filters,"$ADV20 $3,542,213 < $75,000,000"
+EQIX,signal,chop_threshold_not_met
+EQR,scoring,score_below_min
+EQT,scoring,score_below_min
+ERAS,filters,"$ADV20 $33,106,933 < $75,000,000; 5d return 106.7% > 15.0% (avoiding chased names)"
+ERIE,filters,"$ADV20 $47,760,442 < $75,000,000"
+ERII,filters,"$ADV20 $5,764,813 < $75,000,000"
+ES,scoring,score_below_min
+ESCA,filters,"$ADV20 $322,050 < $75,000,000"
+ESE,filters,"$ADV20 $37,490,135 < $75,000,000"
+ESNT,filters,"$ADV20 $42,452,120 < $75,000,000"
+ESOA,filters,"$ADV20 $1,372,755 < $75,000,000"
+ESPR,filters,"Price $3.30 < $5.00; $ADV20 $21,211,608 < $75,000,000"
+ESQ,filters,"$ADV20 $6,194,504 < $75,000,000"
+ESRT,filters,"$ADV20 $8,793,011 < $75,000,000"
+ESS,scoring,score_below_min
+ETD,filters,"$ADV20 $7,275,763 < $75,000,000"
+ETN,scoring,score_below_min
+ETON,filters,"$ADV20 $3,496,100 < $75,000,000"
+ETR,signal,chop_threshold_not_met
+EU,filters,"Price $2.87 < $5.00; $ADV20 $8,551,325 < $75,000,000"
+EVC,filters,"Price $3.14 < $5.00; $ADV20 $688,751 < $75,000,000"
+EVCM,filters,"$ADV20 $3,440,022 < $75,000,000"
+EVER,filters,"$ADV20 $8,796,029 < $75,000,000"
+EVEX,filters,"Price $4.40 < $5.00; $ADV20 $6,907,968 < $75,000,000"
+EVGO,filters,"Price $2.97 < $5.00; $ADV20 $9,593,000 < $75,000,000"
+EVH,filters,"Price $4.01 < $5.00; $ADV20 $11,115,929 < $75,000,000"
+EVI,filters,"$ADV20 $495,163 < $75,000,000"
+EVLV,filters,"$ADV20 $20,323,568 < $75,000,000"
+EVRG,scoring,score_below_min
+EVTC,filters,"$ADV20 $10,868,553 < $75,000,000"
+EW,scoring,score_below_min
+EWCZ,filters,"Price $3.95 < $5.00; $ADV20 $1,273,704 < $75,000,000"
+EWTX,filters,"$ADV20 $44,125,070 < $75,000,000"
+EXC,scoring,score_below_min
+EXE,scoring,score_below_min
+EXFY,filters,"Price $1.41 < $5.00; $ADV20 $796,831 < $75,000,000"
+EXPD,scoring,score_below_min
+EXPE,signal,chop_threshold_not_met
+EXPI,filters,"$ADV20 $10,278,796 < $75,000,000"
+EXPO,filters,"$ADV20 $29,872,892 < $75,000,000"
+EXR,scoring,score_below_min
+EXTR,filters,"$ADV20 $18,826,329 < $75,000,000"
+EYE,filters,"$ADV20 $32,214,688 < $75,000,000"
+EYPT,filters,"$ADV20 $19,695,362 < $75,000,000"
+F,signal,chop_threshold_not_met
+FA,filters,"$ADV20 $8,258,057 < $75,000,000"
+FAST,signal,chop_threshold_not_met
+FATE,filters,"Price $1.02 < $5.00; $ADV20 $1,633,708 < $75,000,000"
+FBIZ,filters,"$ADV20 $1,399,759 < $75,000,000"
+FBK,filters,"$ADV20 $18,597,704 < $75,000,000"
+FBLA,filters,"$ADV20 $1,441,420 < $75,000,000"
+FBNC,filters,"$ADV20 $11,676,065 < $75,000,000"
+FBP,filters,"$ADV20 $25,601,266 < $75,000,000"
+FBRT,filters,"$ADV20 $8,525,095 < $75,000,000"
+FBYD,filters,"$ADV20 $3,150,743 < $75,000,000"
+FC,filters,"$ADV20 $2,413,543 < $75,000,000"
+FCAP,filters,"$ADV20 $1,417,540 < $75,000,000"
+FCBC,filters,"$ADV20 $1,677,229 < $75,000,000"
+FCCO,filters,"$ADV20 $1,220,518 < $75,000,000"
+FCF,filters,"$ADV20 $12,512,185 < $75,000,000"
+FCFS,filters,"$ADV20 $39,726,524 < $75,000,000"
+FCPT,filters,"$ADV20 $23,397,382 < $75,000,000"
+FCX,signal,chop_threshold_not_met
+FDBC,filters,"$ADV20 $426,104 < $75,000,000"
+FDMT,filters,"$ADV20 $10,122,509 < $75,000,000"
+FDP,filters,"$ADV20 $10,718,639 < $75,000,000"
+FDS,scoring,score_below_min
+FDX,scoring,score_below_min
+FE,scoring,score_below_min
+FEIM,filters,"$ADV20 $15,028,845 < $75,000,000"
+FELE,filters,"$ADV20 $24,342,592 < $75,000,000"
+FENC,filters,"$ADV20 $1,325,902 < $75,000,000"
+FET,filters,"$ADV20 $5,033,586 < $75,000,000"
+FF,filters,"Price $3.32 < $5.00; $ADV20 $703,455 < $75,000,000"
+FFAI,filters,"Price $1.09 < $5.00; $ADV20 $7,362,256 < $75,000,000"
+FFBC,filters,"$ADV20 $21,532,319 < $75,000,000"
+FFIC,filters,"$ADV20 $8,234,137 < $75,000,000"
+FFIN,filters,"$ADV20 $25,686,682 < $75,000,000"
+FFIV,scoring,score_below_min
+FFWM,filters,"$ADV20 $2,923,340 < $75,000,000"
+FG,filters,"$ADV20 $32,164,039 < $75,000,000"
+FHTX,filters,"$ADV20 $1,019,898 < $75,000,000; 5d return 35.5% > 15.0% (avoiding chased names)"
+FIBK,filters,"$ADV20 $36,016,950 < $75,000,000"
+FICO,scoring,score_below_min
+FIG,scoring,score_below_min
+FIGS,filters,"$ADV20 $24,867,034 < $75,000,000"
+FIHL,filters,"$ADV20 $9,057,355 < $75,000,000"
+FINW,filters,"$ADV20 $430,204 < $75,000,000"
+FIP,filters,"$ADV20 $4,487,549 < $75,000,000"
+FIS,scoring,score_below_min
+FISI,filters,"$ADV20 $4,671,733 < $75,000,000"
+FISV,scoring,score_below_min
+FITB,scoring,score_below_min
+FIVN,filters,"$ADV20 $32,409,975 < $75,000,000"
+FIX,signal,chop_threshold_not_met
+FIZZ,filters,"$ADV20 $10,883,262 < $75,000,000"
+FLG,filters,"$ADV20 $64,137,729 < $75,000,000"
+FLGT,filters,"$ADV20 $5,589,063 < $75,000,000"
+FLNC,signal,chop_threshold_not_met
+FLNG,filters,"$ADV20 $8,695,379 < $75,000,000"
+FLOC,filters,"$ADV20 $4,326,933 < $75,000,000"
+FLR,signal,chop_threshold_not_met
+FLWS,filters,"Price $4.46 < $5.00; $ADV20 $4,317,910 < $75,000,000"
+FLXS,filters,"$ADV20 $1,084,563 < $75,000,000"
+FLY,scoring,score_below_min
+FLYW,filters,"$ADV20 $17,111,773 < $75,000,000"
+FMAO,filters,"$ADV20 $692,607 < $75,000,000"
+FMBH,filters,"$ADV20 $4,108,064 < $75,000,000"
+FMNB,filters,"$ADV20 $2,625,761 < $75,000,000"
+FN,signal,chop_threshold_not_met
+FNKO,filters,"Price $3.54 < $5.00; $ADV20 $2,560,639 < $75,000,000"
+FNLC,filters,"$ADV20 $613,932 < $75,000,000"
+FNWD,filters,"$ADV20 $549,070 < $75,000,000"
+FOA,filters,"$ADV20 $3,640,986 < $75,000,000"
+FOLD,scoring,score_below_min
+FOR,filters,"$ADV20 $3,901,730 < $75,000,000"
+FORM,filters,"$ADV20 $70,238,229 < $75,000,000"
+FORR,filters,"$ADV20 $758,089 < $75,000,000"
+FOX,scoring,score_below_min
+FOXA,scoring,score_below_min
+FOXF,filters,"$ADV20 $13,228,037 < $75,000,000"
+FPI,filters,"$ADV20 $5,292,121 < $75,000,000"
+FRAF,filters,"$ADV20 $4,055,357 < $75,000,000"
+FRBA,filters,"$ADV20 $1,101,368 < $75,000,000"
+FRD,filters,"$ADV20 $313,388 < $75,000,000"
+FRGE,filters,"$ADV20 $10,805,920 < $75,000,000"
+FRME,filters,"$ADV20 $10,435,064 < $75,000,000"
+FRPH,filters,"$ADV20 $1,641,606 < $75,000,000"
+FRSH,filters,"$ADV20 $39,976,241 < $75,000,000"
+FRST,filters,"$ADV20 $1,039,647 < $75,000,000"
+FRT,filters,"$ADV20 $66,699,336 < $75,000,000"
+FSBC,filters,"$ADV20 $2,520,119 < $75,000,000"
+FSBW,filters,"$ADV20 $446,834 < $75,000,000"
+FSFG,filters,"$ADV20 $508,749 < $75,000,000"
+FSLR,scoring,score_below_min
+FSLY,filters,"$ADV20 $29,846,855 < $75,000,000"
+FSP,filters,"Price $0.92 < $5.00; $ADV20 $388,711 < $75,000,000"
+FSS,filters,"$ADV20 $44,530,515 < $75,000,000"
+FSTR,filters,"$ADV20 $590,044 < $75,000,000"
+FSUN,filters,"$ADV20 $4,216,133 < $75,000,000"
+FTDR,filters,"$ADV20 $31,685,313 < $75,000,000"
+FTK,filters,"$ADV20 $6,525,130 < $75,000,000"
+FTLF,filters,"$ADV20 $264,168 < $75,000,000"
+FTNT,scoring,score_below_min
+FTRE,filters,"$ADV20 $23,095,100 < $75,000,000"
+FTV,scoring,score_below_min
+FUBO,filters,"Price $2.57 < $5.00; $ADV20 $26,586,605 < $75,000,000"
+FUL,filters,"$ADV20 $22,335,511 < $75,000,000"
+FULC,filters,"$ADV20 $10,506,509 < $75,000,000"
+FULT,filters,"$ADV20 $36,396,112 < $75,000,000"
+FUN,filters,"$ADV20 $42,911,889 < $75,000,000"
+FUNC,filters,"$ADV20 $1,071,436 < $75,000,000"
+FVCB,filters,"$ADV20 $504,223 < $75,000,000"
+FVR,filters,"$ADV20 $3,389,541 < $75,000,000"
+FWRD,filters,"$ADV20 $10,719,694 < $75,000,000"
+FWRG,filters,"$ADV20 $20,262,803 < $75,000,000"
+FXNC,filters,"$ADV20 $650,301 < $75,000,000"
+GABC,filters,"$ADV20 $5,332,187 < $75,000,000"
+GAIA,filters,"Price $3.91 < $5.00; $ADV20 $386,801 < $75,000,000"
+GAMB,filters,"$ADV20 $2,995,439 < $75,000,000"
+GATX,filters,"$ADV20 $25,153,200 < $75,000,000"
+GBCI,filters,"$ADV20 $40,205,515 < $75,000,000"
+GBFH,filters,"$ADV20 $1,905,053 < $75,000,000"
+GBTG,filters,"$ADV20 $13,212,866 < $75,000,000"
+GBX,filters,"$ADV20 $24,185,376 < $75,000,000"
+GCBC,filters,"$ADV20 $352,297 < $75,000,000"
+GCMG,filters,"$ADV20 $5,927,813 < $75,000,000"
+GCO,filters,"$ADV20 $5,873,225 < $75,000,000; 5d return 26.9% > 15.0% (avoiding chased names)"
+GCT,filters,"$ADV20 $20,952,388 < $75,000,000"
+GD,signal,chop_threshold_not_met
+GDDY,scoring,score_below_min
+GDEN,filters,"$ADV20 $6,209,650 < $75,000,000"
+GDOT,filters,"$ADV20 $7,656,721 < $75,000,000"
+GDYN,filters,"$ADV20 $9,386,621 < $75,000,000"
+GE,signal,chop_threshold_not_met
+GEF,filters,"$ADV20 $17,615,913 < $75,000,000"
+GEHC,scoring,score_below_min
+GEN,scoring,score_below_min
+GENC,filters,"$ADV20 $410,444 < $75,000,000"
+GENI,filters,"$ADV20 $37,413,840 < $75,000,000"
+GEO,filters,"$ADV20 $28,229,911 < $75,000,000"
+GERN,filters,"Price $1.31 < $5.00; $ADV20 $10,382,565 < $75,000,000"
+GETY,filters,"Price $1.29 < $5.00; $ADV20 $2,784,460 < $75,000,000"
+GEV,scoring,score_below_min
+GEVO,filters,"Price $2.03 < $5.00; $ADV20 $5,540,744 < $75,000,000"
+GFF,filters,"$ADV20 $20,122,998 < $75,000,000"
+GH,signal,chop_threshold_not_met
+GHC,filters,"$ADV20 $21,882,813 < $75,000,000"
+GHM,filters,"$ADV20 $7,920,357 < $75,000,000"
+GIC,filters,"$ADV20 $2,405,342 < $75,000,000"
+GIII,filters,"$ADV20 $14,378,965 < $75,000,000"
+GILD,scoring,score_below_min
+GIS,scoring,score_below_min
+GKOS,filters,"$ADV20 $68,854,692 < $75,000,000"
+GL,filters,"$ADV20 $69,005,045 < $75,000,000"
+GLDD,filters,"$ADV20 $5,751,392 < $75,000,000"
+GLNG,filters,"$ADV20 $38,779,277 < $75,000,000"
+GLRE,filters,"$ADV20 $2,793,545 < $75,000,000"
+GLSI,filters,"$ADV20 $16,771,310 < $75,000,000; 5d return 41.4% > 15.0% (avoiding chased names)"
+GLUE,filters,"$ADV20 $59,795,418 < $75,000,000; 5d return 49.8% > 15.0% (avoiding chased names)"
+GMGI,filters,"Price $0.66 < $5.00; $ADV20 $166,217 < $75,000,000"
+GMRE,filters,"$ADV20 $3,594,056 < $75,000,000"
+GNE,filters,"$ADV20 $1,448,694 < $75,000,000"
+GNK,filters,"$ADV20 $6,235,054 < $75,000,000"
+GNL,filters,"$ADV20 $18,539,049 < $75,000,000"
+GNRC,scoring,score_below_min
+GNW,filters,"$ADV20 $35,133,709 < $75,000,000"
+GO,filters,"$ADV20 $28,295,531 < $75,000,000"
+GOCO,filters,"Price $2.31 < $5.00; $ADV20 $180,437 < $75,000,000"
+GOGO,filters,"Price $4.94 < $5.00; $ADV20 $15,618,142 < $75,000,000"
+GOLD,filters,"$ADV20 $25,761,566 < $75,000,000"
+GOLF,filters,"$ADV20 $29,098,299 < $75,000,000"
+GOOD,filters,"$ADV20 $5,272,471 < $75,000,000"
+GOOG,scoring,score_below_min
+GOOGL,scoring,score_below_min
+GOSS,filters,"Price $2.66 < $5.00; $ADV20 $16,575,833 < $75,000,000"
+GPC,scoring,score_below_min
+GPI,filters,"$ADV20 $59,887,515 < $75,000,000"
+GPN,scoring,score_below_min
+GPOR,filters,"$ADV20 $48,046,356 < $75,000,000"
+GPRE,filters,"$ADV20 $9,359,966 < $75,000,000; 5d return 15.1% > 15.0% (avoiding chased names)"
+GRAL,filters,"$ADV20 $71,677,267 < $75,000,000"
+GRBK,filters,"$ADV20 $16,125,455 < $75,000,000; 5d return 15.1% > 15.0% (avoiding chased names)"
+GRC,filters,"$ADV20 $4,306,084 < $75,000,000"
+GRDN,filters,"$ADV20 $8,524,633 < $75,000,000"
+GRMN,scoring,score_below_min
+GRND,filters,"$ADV20 $15,610,856 < $75,000,000"
+GRNT,filters,"Price $4.51 < $5.00; $ADV20 $3,767,845 < $75,000,000"
+GRPN,filters,"$ADV20 $18,199,396 < $75,000,000"
+GS,signal,chop_threshold_not_met
+GSAT,filters,"$ADV20 $47,253,433 < $75,000,000"
+GSBC,filters,"$ADV20 $3,383,093 < $75,000,000"
+GSHD,filters,"$ADV20 $18,180,630 < $75,000,000"
+GSM,filters,"Price $4.97 < $5.00; $ADV20 $3,939,722 < $75,000,000"
+GT,filters,"$ADV20 $46,274,676 < $75,000,000"
+GTLS,scoring,score_below_min
+GTN,filters,"Price $4.27 < $5.00; $ADV20 $5,917,697 < $75,000,000"
+GTX,filters,"$ADV20 $42,398,759 < $75,000,000"
+GTY,filters,"$ADV20 $12,951,840 < $75,000,000"
+GVA,signal,chop_threshold_not_met
+GWRS,filters,"$ADV20 $704,463 < $75,000,000"
+GYRE,filters,"$ADV20 $738,638 < $75,000,000"
+HAE,filters,"$ADV20 $51,526,191 < $75,000,000"
+HAFC,filters,"$ADV20 $10,779,845 < $75,000,000"
+HAIN,filters,"Price $1.17 < $5.00; $ADV20 $2,288,562 < $75,000,000"
+HAL,signal,chop_threshold_not_met
+HAS,signal,chop_threshold_not_met
+HASI,filters,"$ADV20 $32,156,183 < $75,000,000"
+HBAN,scoring,score_below_min
+HBB,filters,"$ADV20 $505,653 < $75,000,000; 5d return 17.6% > 15.0% (avoiding chased names)"
+HBCP,filters,"$ADV20 $1,393,561 < $75,000,000"
+HBNC,filters,"$ADV20 $7,118,876 < $75,000,000"
+HBT,filters,"$ADV20 $890,934 < $75,000,000"
+HCAT,filters,"Price $2.40 < $5.00; $ADV20 $1,327,177 < $75,000,000"
+HCC,filters,"$ADV20 $66,152,087 < $75,000,000"
+HCI,filters,"$ADV20 $24,703,686 < $75,000,000"
+HCKT,filters,"$ADV20 $5,042,723 < $75,000,000"
+HCSG,filters,"$ADV20 $17,100,826 < $75,000,000"
+HD,scoring,score_below_min
+HDSN,filters,"$ADV20 $1,947,627 < $75,000,000"
+HE,filters,"$ADV20 $66,893,255 < $75,000,000"
+HELE,filters,"$ADV20 $22,789,261 < $75,000,000"
+HFFG,filters,"Price $2.18 < $5.00; $ADV20 $280,170 < $75,000,000"
+HFWA,filters,"$ADV20 $5,179,362 < $75,000,000"
+HG,filters,"$ADV20 $12,780,523 < $75,000,000"
+HGV,filters,"$ADV20 $34,832,912 < $75,000,000"
+HI,filters,"$ADV20 $26,601,379 < $75,000,000"
+HIFS,filters,"$ADV20 $26,258,400 < $75,000,000"
+HIG,scoring,score_below_min
+HII,signal,chop_threshold_not_met
+HIMS,scoring,score_below_min
+HIPO,filters,"$ADV20 $5,152,634 < $75,000,000"
+HL,signal,chop_threshold_not_met
+HLF,filters,"$ADV20 $27,528,836 < $75,000,000"
+HLIO,filters,"$ADV20 $16,911,706 < $75,000,000"
+HLIT,filters,"$ADV20 $10,209,334 < $75,000,000"
+HLLY,filters,"Price $4.18 < $5.00; $ADV20 $3,194,158 < $75,000,000"
+HLMN,filters,"$ADV20 $10,854,006 < $75,000,000"
+HLT,signal,chop_threshold_not_met
+HLX,filters,"$ADV20 $10,705,271 < $75,000,000"
+HMN,filters,"$ADV20 $11,107,830 < $75,000,000"
+HNI,filters,"$ADV20 $31,862,424 < $75,000,000"
+HNRG,filters,"$ADV20 $10,193,848 < $75,000,000"
+HNST,filters,"Price $2.55 < $5.00; $ADV20 $5,678,882 < $75,000,000"
+HNVR,filters,"$ADV20 $293,573 < $75,000,000"
+HOLX,scoring,score_below_min
+HOMB,filters,"$ADV20 $35,723,749 < $75,000,000"
+HON,scoring,score_below_min
+HOOD,scoring,score_below_min
+HOPE,filters,"$ADV20 $11,548,041 < $75,000,000"
+HOV,filters,"$ADV20 $10,788,958 < $75,000,000; 5d return 26.8% > 15.0% (avoiding chased names)"
+HP,filters,"$ADV20 $41,526,670 < $75,000,000"
+HPE,scoring,score_below_min
+HPK,filters,"Price $4.68 < $5.00; $ADV20 $3,673,347 < $75,000,000"
+HPP,filters,"$ADV20 $15,547,238 < $75,000,000"
+HPQ,scoring,score_below_min
+HQI,filters,"$ADV20 $481,169 < $75,000,000"
+HQY,scoring,score_below_min
+HRI,filters,"$ADV20 $64,026,398 < $75,000,000"
+HRL,scoring,score_below_min
+HRMY,filters,"$ADV20 $24,698,276 < $75,000,000"
+HROW,filters,"$ADV20 $30,099,540 < $75,000,000"
+HRTG,filters,"$ADV20 $8,991,807 < $75,000,000"
+HRTX,filters,"Price $1.48 < $5.00; $ADV20 $2,835,053 < $75,000,000; 5d return 21.3% > 15.0% (avoiding chased names)"
+HSHP,filters,"$ADV20 $1,080,095 < $75,000,000"
+HSIC,scoring,score_below_min
+HSTM,filters,"$ADV20 $6,251,311 < $75,000,000"
+HSY,signal,chop_threshold_not_met
+HTB,filters,"$ADV20 $3,422,635 < $75,000,000"
+HTBK,filters,"$ADV20 $16,996,696 < $75,000,000"
+HTFL,filters,"$ADV20 $27,086,578 < $75,000,000"
+HTH,filters,"$ADV20 $9,857,183 < $75,000,000"
+HTLD,filters,"$ADV20 $5,736,302 < $75,000,000"
+HTO,filters,"$ADV20 $17,990,640 < $75,000,000"
+HTZ,filters,"$ADV20 $30,892,990 < $75,000,000"
+HUBB,signal,chop_threshold_not_met
+HUBG,filters,"$ADV20 $33,114,209 < $75,000,000"
+HUM,scoring,score_below_min
+HUMA,filters,"Price $1.11 < $5.00; $ADV20 $6,014,053 < $75,000,000"
+HURA,filters,"Price $0.73 < $5.00; $ADV20 $340,501 < $75,000,000"
+HURN,filters,"$ADV20 $26,912,356 < $75,000,000"
+HUT,signal,chop_threshold_not_met
+HVT,filters,"$ADV20 $2,157,836 < $75,000,000"
+HWBK,filters,"$ADV20 $345,450 < $75,000,000"
+HWC,filters,"$ADV20 $49,017,765 < $75,000,000"
+HWKN,filters,"$ADV20 $25,350,230 < $75,000,000"
+HWM,signal,chop_threshold_not_met
+HY,filters,"$ADV20 $3,607,898 < $75,000,000"
+HYLN,filters,"Price $2.08 < $5.00; $ADV20 $2,069,019 < $75,000,000"
+HZO,filters,"$ADV20 $7,079,899 < $75,000,000"
+IART,filters,"$ADV20 $9,152,052 < $75,000,000"
+IBCP,filters,"$ADV20 $4,639,082 < $75,000,000"
+IBEX,filters,"$ADV20 $3,318,331 < $75,000,000"
+IBKR,signal,chop_threshold_not_met
+IBM,scoring,score_below_min
+IBOC,filters,"$ADV20 $18,515,910 < $75,000,000"
+IBP,signal,chop_threshold_not_met
+IBRX,filters,"Price $2.82 < $5.00; $ADV20 $31,979,493 < $75,000,000; 5d return 31.8% > 15.0% (avoiding chased names)"
+IBTA,filters,"$ADV20 $7,662,022 < $75,000,000"
+ICE,signal,chop_threshold_not_met
+ICFI,filters,"$ADV20 $11,342,321 < $75,000,000"
+ICHR,filters,"$ADV20 $13,424,708 < $75,000,000"
+ICUI,filters,"$ADV20 $31,394,512 < $75,000,000"
+IDCC,scoring,score_below_min
+IDR,filters,"$ADV20 $33,500,360 < $75,000,000"
+IDT,filters,"$ADV20 $10,724,585 < $75,000,000"
+IDXX,scoring,score_below_min
+IDYA,filters,"$ADV20 $32,920,665 < $75,000,000"
+IE,filters,"$ADV20 $27,623,963 < $75,000,000"
+IESC,filters,"$ADV20 $62,206,533 < $75,000,000"
+IEX,signal,chop_threshold_not_met
+IFF,signal,chop_threshold_not_met
+IHRT,filters,"Price $3.91 < $5.00; $ADV20 $3,533,934 < $75,000,000"
+III,filters,"$ADV20 $1,579,759 < $75,000,000"
+IIIN,filters,"$ADV20 $4,319,602 < $75,000,000"
+IIIV,filters,"$ADV20 $7,031,238 < $75,000,000"
+IIPR,filters,"$ADV20 $27,606,048 < $75,000,000"
+IKT,filters,"Price $1.68 < $5.00; $ADV20 $1,313,021 < $75,000,000"
+ILLR,filters,"Price $0.04 < $5.00; $ADV20 $291,584 < $75,000,000; 5d return 56.9% > 15.0% (avoiding chased names)"
+ILPT,filters,"$ADV20 $2,422,733 < $75,000,000"
+IMAX,filters,"$ADV20 $45,949,440 < $75,000,000"
+IMKTA,filters,"$ADV20 $7,939,237 < $75,000,000"
+IMMR,filters,"$ADV20 $3,360,856 < $75,000,000"
+IMNM,filters,"$ADV20 $73,775,311 < $75,000,000"
+IMVT,filters,"$ADV20 $47,020,982 < $75,000,000"
+IMXI,filters,"$ADV20 $3,236,315 < $75,000,000"
+INBK,filters,"$ADV20 $1,165,356 < $75,000,000"
+INBX,filters,"$ADV20 $20,245,504 < $75,000,000"
+INCY,scoring,score_below_min
+INDB,filters,"$ADV20 $25,826,552 < $75,000,000"
+INDI,filters,"Price $4.11 < $5.00; $ADV20 $10,209,699 < $75,000,000"
+INDV,scoring,score_below_min
+INGN,filters,"$ADV20 $1,270,183 < $75,000,000"
+INMB,filters,"Price $1.50 < $5.00; $ADV20 $594,673 < $75,000,000"
+INN,filters,"Price $4.69 < $5.00; $ADV20 $3,584,628 < $75,000,000"
+INNV,filters,"$ADV20 $732,091 < $75,000,000"
+INOD,filters,"$ADV20 $60,997,486 < $75,000,000"
+INR,filters,"$ADV20 $3,418,071 < $75,000,000"
+INSE,filters,"$ADV20 $936,171 < $75,000,000"
+INSG,filters,"$ADV20 $1,819,816 < $75,000,000"
+INSW,filters,"$ADV20 $27,926,778 < $75,000,000; 5d return 15.2% > 15.0% (avoiding chased names)"
+INTA,filters,"$ADV20 $21,325,882 < $75,000,000"
+INTC,filters,5d return 18.1% > 15.0% (avoiding chased names)
+INTU,scoring,score_below_min
+INV,filters,"Price $3.97 < $5.00; $ADV20 $8,003,444 < $75,000,000"
+INVA,filters,"$ADV20 $18,148,835 < $75,000,000"
+INVH,scoring,score_below_min
+INVX,filters,"$ADV20 $8,955,574 < $75,000,000"
+IONQ,scoring,score_below_min
+IOSP,filters,"$ADV20 $16,396,576 < $75,000,000"
+IOVA,filters,"Price $2.35 < $5.00; $ADV20 $32,334,597 < $75,000,000"
+IP,signal,chop_threshold_not_met
+IPAR,filters,"$ADV20 $25,304,557 < $75,000,000"
+IPI,filters,"$ADV20 $3,973,305 < $75,000,000"
+IQV,scoring,score_below_min
+IR,signal,chop_threshold_not_met
+IREN,filters,5d return 15.4% > 15.0% (avoiding chased names)
+IRM,scoring,score_below_min
+IRMD,filters,"$ADV20 $8,627,995 < $75,000,000"
+IRON,filters,"$ADV20 $52,615,427 < $75,000,000"
+IRT,filters,"$ADV20 $44,194,502 < $75,000,000"
+IRTC,scoring,score_below_min
+IRWD,filters,"Price $4.64 < $5.00; $ADV20 $31,021,690 < $75,000,000"
+ISPR,filters,"Price $2.77 < $5.00; $ADV20 $89,355 < $75,000,000"
+ISRG,scoring,score_below_min
+ISTR,filters,"$ADV20 $1,281,780 < $75,000,000"
+IT,scoring,score_below_min
+ITGR,filters,"$ADV20 $49,612,581 < $75,000,000"
+ITIC,filters,"$ADV20 $3,941,156 < $75,000,000"
+ITRI,filters,"$ADV20 $55,033,250 < $75,000,000"
+IVR,filters,"$ADV20 $20,844,777 < $75,000,000"
+IVT,filters,"$ADV20 $14,899,568 < $75,000,000"
+IVZ,signal,chop_threshold_not_met
+J,scoring,score_below_min
+JACK,filters,"$ADV20 $12,606,483 < $75,000,000"
+JAKK,filters,"$ADV20 $1,598,457 < $75,000,000"
+JAMF,filters,"$ADV20 $17,282,918 < $75,000,000"
+JANX,filters,"$ADV20 $30,803,994 < $75,000,000"
+JBGS,filters,"$ADV20 $9,917,368 < $75,000,000"
+JBHT,signal,chop_threshold_not_met
+JBI,filters,"$ADV20 $10,149,441 < $75,000,000"
+JBIO,filters,"$ADV20 $6,579,746 < $75,000,000"
+JBL,signal,chop_threshold_not_met
+JBLU,filters,Price $4.84 < $5.00
+JBSS,filters,"$ADV20 $3,575,039 < $75,000,000"
+JBTM,filters,"$ADV20 $71,738,661 < $75,000,000"
+JCAP,filters,"$ADV20 $11,051,525 < $75,000,000"
+JCI,scoring,score_below_min
+JD,signal,chop_threshold_not_met
+JELD,filters,"Price $2.71 < $5.00; $ADV20 $3,071,375 < $75,000,000"
+JILL,filters,"$ADV20 $1,806,442 < $75,000,000"
+JJSF,filters,"$ADV20 $18,987,914 < $75,000,000"
+JMSB,filters,"$ADV20 $378,834 < $75,000,000"
+JNJ,signal,chop_threshold_not_met
+JOBY,scoring,score_below_min
+JOE,filters,"$ADV20 $14,067,008 < $75,000,000"
+JOUT,filters,"$ADV20 $2,440,339 < $75,000,000"
+JPM,scoring,score_below_min
+JRVR,filters,"$ADV20 $1,892,612 < $75,000,000"
+JXN,filters,"$ADV20 $55,025,179 < $75,000,000"
+JYNT,filters,"$ADV20 $620,273 < $75,000,000"
+KAI,filters,"$ADV20 $47,224,974 < $75,000,000"
+KALU,filters,"$ADV20 $24,371,613 < $75,000,000"
+KALV,filters,"$ADV20 $20,716,003 < $75,000,000"
+KAR,filters,"$ADV20 $26,507,789 < $75,000,000"
+KBH,scoring,score_below_min
+KDP,scoring,score_below_min
+KE,filters,"$ADV20 $4,739,153 < $75,000,000"
+KELYA,filters,"$ADV20 $4,190,464 < $75,000,000"
+KEY,scoring,score_below_min
+KEYS,signal,chop_threshold_not_met
+KFRC,filters,"$ADV20 $6,629,639 < $75,000,000"
+KFS,filters,"$ADV20 $1,246,371 < $75,000,000"
+KFY,filters,"$ADV20 $32,491,246 < $75,000,000"
+KG,filters,"$ADV20 $301,811 < $75,000,000"
+KGEI,filters,"Price $3.55 < $5.00; $ADV20 $383,552 < $75,000,000"
+KGS,filters,"$ADV20 $49,322,013 < $75,000,000"
+KHC,scoring,score_below_min
+KIDS,filters,"$ADV20 $3,056,824 < $75,000,000"
+KIM,scoring,score_below_min
+KINS,filters,"$ADV20 $2,239,304 < $75,000,000"
+KKR,scoring,score_below_min
+KLAC,signal,chop_threshold_not_met
+KLC,filters,"Price $4.24 < $5.00; $ADV20 $2,956,992 < $75,000,000"
+KLIC,filters,"$ADV20 $30,236,056 < $75,000,000"
+KLTR,filters,"Price $1.52 < $5.00; $ADV20 $427,541 < $75,000,000"
+KMB,scoring,score_below_min
+KMI,scoring,score_below_min
+KMT,filters,"$ADV20 $23,878,832 < $75,000,000"
+KMTS,filters,"$ADV20 $8,743,633 < $75,000,000"
+KN,filters,"$ADV20 $17,095,877 < $75,000,000"
+KNF,filters,"$ADV20 $31,764,602 < $75,000,000"
+KNTK,filters,"$ADV20 $33,439,230 < $75,000,000"
+KOD,filters,"$ADV20 $31,091,954 < $75,000,000"
+KODK,filters,"$ADV20 $8,089,402 < $75,000,000"
+KOP,filters,"$ADV20 $3,947,656 < $75,000,000"
+KOPN,filters,"Price $2.99 < $5.00; $ADV20 $8,805,899 < $75,000,000"
+KOS,filters,"Price $1.24 < $5.00; $ADV20 $20,698,335 < $75,000,000; 5d return 24.0% > 15.0% (avoiding chased names)"
+KR,scoring,score_below_min
+KREF,filters,"$ADV20 $8,251,417 < $75,000,000"
+KRG,filters,"$ADV20 $50,380,016 < $75,000,000"
+KRKNF,filters,"$ADV20 $6,217,176 < $75,000,000; 5d return 22.5% > 15.0% (avoiding chased names)"
+KRMD,filters,"$ADV20 $1,038,751 < $75,000,000"
+KRNY,filters,"$ADV20 $3,340,133 < $75,000,000"
+KRO,filters,"$ADV20 $1,850,407 < $75,000,000"
+KROS,filters,"$ADV20 $10,373,606 < $75,000,000"
+KRRO,filters,"$ADV20 $1,609,450 < $75,000,000"
+KRT,filters,"$ADV20 $1,823,729 < $75,000,000"
+KRUS,filters,"$ADV20 $23,504,024 < $75,000,000; 5d return 22.5% > 15.0% (avoiding chased names)"
+KRYS,filters,5d return 17.1% > 15.0% (avoiding chased names)
+KSS,scoring,score_below_min
+KTB,filters,"$ADV20 $50,898,991 < $75,000,000"
+KTOS,filters,5d return 30.2% > 15.0% (avoiding chased names)
+KULR,filters,"Price $3.45 < $5.00; $ADV20 $4,965,041 < $75,000,000"
+KURA,filters,"$ADV20 $17,052,834 < $75,000,000"
+KVUE,scoring,score_below_min
+KW,filters,"$ADV20 $8,452,100 < $75,000,000"
+KWR,filters,"$ADV20 $19,492,112 < $75,000,000"
+KYMR,filters,"$ADV20 $65,276,460 < $75,000,000"
+L,filters,"$ADV20 $74,430,243 < $75,000,000"
+LAB,filters,"Price $1.63 < $5.00; $ADV20 $2,791,497 < $75,000,000; 5d return 28.3% > 15.0% (avoiding chased names)"
+LADR,filters,"$ADV20 $8,537,765 < $75,000,000"
+LAKE,filters,"$ADV20 $2,529,243 < $75,000,000"
+LAND,filters,"$ADV20 $5,184,830 < $75,000,000"
+LARK,filters,"$ADV20 $206,215 < $75,000,000"
+LASR,filters,"$ADV20 $24,057,644 < $75,000,000"
+LAUR,filters,"$ADV20 $35,064,909 < $75,000,000"
+LAW,filters,"$ADV20 $1,111,659 < $75,000,000"
+LBRT,filters,"$ADV20 $67,144,612 < $75,000,000"
+LBRX,filters,"$ADV20 $10,556,233 < $75,000,000"
+LC,filters,"$ADV20 $31,809,330 < $75,000,000"
+LCII,filters,"$ADV20 $28,583,325 < $75,000,000"
+LCNB,filters,"$ADV20 $418,770 < $75,000,000"
+LDI,filters,"Price $2.67 < $5.00; $ADV20 $10,903,119 < $75,000,000; 5d return 16.6% > 15.0% (avoiding chased names)"
+LDOS,signal,chop_threshold_not_met
+LE,filters,"$ADV20 $2,398,624 < $75,000,000"
+LEG,filters,"$ADV20 $17,586,530 < $75,000,000"
+LEGH,filters,"$ADV20 $2,162,950 < $75,000,000"
+LEN,filters,5d return 15.9% > 15.0% (avoiding chased names)
+LENZ,filters,"$ADV20 $16,762,928 < $75,000,000"
+LEU,signal,chop_threshold_not_met
+LFCR,filters,"$ADV20 $1,372,040 < $75,000,000"
+LFMD,filters,"Price $3.98 < $5.00; $ADV20 $5,022,266 < $75,000,000"
+LFST,filters,"$ADV20 $15,895,222 < $75,000,000"
+LFT,filters,"Price $1.45 < $5.00; $ADV20 $373,023 < $75,000,000"
+LFVN,filters,"$ADV20 $1,148,158 < $75,000,000"
+LGIH,filters,"$ADV20 $20,407,659 < $75,000,000; 5d return 22.6% > 15.0% (avoiding chased names)"
+LGN,filters,"$ADV20 $70,484,651 < $75,000,000"
+LGND,filters,"$ADV20 $43,827,036 < $75,000,000"
+LH,scoring,score_below_min
+LHX,signal,chop_threshold_not_met
+LIF,filters,"$ADV20 $56,786,592 < $75,000,000"
+LII,signal,chop_threshold_not_met
+LILA,filters,"$ADV20 $2,827,954 < $75,000,000"
+LILAK,filters,"$ADV20 $7,596,432 < $75,000,000"
+LIN,scoring,score_below_min
+LINC,filters,"$ADV20 $5,237,264 < $75,000,000"
+LIND,filters,"$ADV20 $8,240,493 < $75,000,000; 5d return 17.3% > 15.0% (avoiding chased names)"
+LION,filters,"$ADV20 $31,458,866 < $75,000,000"
+LITE,scoring,score_below_min
+LIVN,filters,"$ADV20 $32,298,236 < $75,000,000"
+LKFN,filters,"$ADV20 $11,759,694 < $75,000,000"
+LMAT,filters,"$ADV20 $14,304,443 < $75,000,000"
+LMB,filters,"$ADV20 $11,422,229 < $75,000,000"
+LMND,scoring,score_below_min
+LMNR,filters,"$ADV20 $1,533,974 < $75,000,000"
+LMT,signal,chop_threshold_not_met
+LNKB,filters,"$ADV20 $2,249,074 < $75,000,000"
+LNN,filters,"$ADV20 $17,620,444 < $75,000,000"
+LNSR,filters,"$ADV20 $478,012 < $75,000,000"
+LNT,scoring,score_below_min
+LNTH,filters,"$ADV20 $71,176,377 < $75,000,000"
+LOB,filters,"$ADV20 $11,372,216 < $75,000,000"
+LOCO,filters,"$ADV20 $2,425,951 < $75,000,000"
+LOVE,filters,"$ADV20 $5,774,765 < $75,000,000"
+LOW,signal,chop_threshold_not_met
+LPG,filters,"$ADV20 $12,828,272 < $75,000,000"
+LPRO,filters,"Price $2.17 < $5.00; $ADV20 $1,297,020 < $75,000,000; 5d return 23.3% > 15.0% (avoiding chased names)"
+LQDA,filters,"$ADV20 $58,193,651 < $75,000,000; 5d return 24.0% > 15.0% (avoiding chased names)"
+LQDT,filters,"$ADV20 $5,046,514 < $75,000,000"
+LRCX,signal,chop_threshold_not_met
+LRMR,filters,"Price $3.33 < $5.00; $ADV20 $4,116,737 < $75,000,000"
+LRN,filters,"$ADV20 $74,367,846 < $75,000,000"
+LTBR,filters,"$ADV20 $16,205,267 < $75,000,000"
+LTC,filters,"$ADV20 $13,916,453 < $75,000,000"
+LTH,filters,"$ADV20 $50,717,206 < $75,000,000"
+LUCD,filters,"Price $1.19 < $5.00; $ADV20 $664,044 < $75,000,000"
+LULU,scoring,score_below_min
+LUMN,scoring,score_below_min
+LUNG,filters,"Price $1.95 < $5.00; $ADV20 $1,335,023 < $75,000,000"
+LUNR,scoring,score_below_min
+LUV,signal,chop_threshold_not_met
+LVS,scoring,score_below_min
+LVWR,filters,"Price $3.09 < $5.00; $ADV20 $267,945 < $75,000,000"
+LW,scoring,score_below_min
+LWAY,filters,"$ADV20 $1,549,043 < $75,000,000"
+LXEO,filters,"$ADV20 $17,748,703 < $75,000,000"
+LXFR,filters,"$ADV20 $1,441,385 < $75,000,000"
+LXP,filters,"$ADV20 $30,131,779 < $75,000,000"
+LXU,filters,"$ADV20 $3,544,917 < $75,000,000"
+LYB,scoring,score_below_min
+LYTS,filters,"$ADV20 $2,299,301 < $75,000,000"
+LYV,signal,chop_threshold_not_met
+LZ,filters,"$ADV20 $16,555,153 < $75,000,000"
+LZB,filters,"$ADV20 $18,530,399 < $75,000,000"
+LZM,filters,"$ADV20 $1,311,816 < $75,000,000"
+MA,scoring,score_below_min
+MAA,scoring,score_below_min
+MAC,filters,"$ADV20 $30,419,298 < $75,000,000"
+MAGN,filters,"$ADV20 $8,608,777 < $75,000,000"
+MAMA,filters,"$ADV20 $5,350,707 < $75,000,000"
+MAPS,filters,"Price $0.85 < $5.00; $ADV20 $1,651,525 < $75,000,000"
+MAR,signal,chop_threshold_not_met
+MARA,scoring,score_below_min
+MAS,scoring,score_below_min
+MASS,filters,"$ADV20 $2,971,769 < $75,000,000"
+MATV,filters,"$ADV20 $3,589,903 < $75,000,000"
+MATW,filters,"$ADV20 $6,539,851 < $75,000,000"
+MATX,filters,"$ADV20 $40,179,190 < $75,000,000"
+MAX,filters,"$ADV20 $4,620,897 < $75,000,000"
+MAZE,filters,"$ADV20 $17,477,943 < $75,000,000"
+MBC,filters,"$ADV20 $14,822,160 < $75,000,000"
+MBCN,filters,"$ADV20 $535,978 < $75,000,000"
+MBI,filters,"$ADV20 $3,157,950 < $75,000,000"
+MBIN,filters,"$ADV20 $5,880,901 < $75,000,000"
+MBUU,filters,"$ADV20 $5,411,498 < $75,000,000"
+MBWM,filters,"$ADV20 $5,634,493 < $75,000,000"
+MBX,filters,"$ADV20 $24,794,793 < $75,000,000; 5d return 26.5% > 15.0% (avoiding chased names)"
+MC,filters,"$ADV20 $53,454,353 < $75,000,000"
+MCB,filters,"$ADV20 $8,607,660 < $75,000,000"
+MCBS,filters,"$ADV20 $1,311,589 < $75,000,000"
+MCD,scoring,score_below_min
+MCFT,filters,"$ADV20 $2,122,096 < $75,000,000"
+MCHB,filters,"$ADV20 $12,924,800 < $75,000,000"
+MCHP,signal,chop_threshold_not_met
+MCK,scoring,score_below_min
+MCO,signal,chop_threshold_not_met
+MCRI,filters,"$ADV20 $7,542,435 < $75,000,000"
+MCS,filters,"$ADV20 $2,751,695 < $75,000,000"
+MCW,filters,"$ADV20 $6,752,073 < $75,000,000"
+MCY,filters,"$ADV20 $19,572,818 < $75,000,000"
+MD,filters,"$ADV20 $16,584,798 < $75,000,000"
+MDGL,scoring,score_below_min
+MDLZ,signal,chop_threshold_not_met
+MDT,scoring,score_below_min
+MDV,filters,"$ADV20 $513,608 < $75,000,000"
+MDWD,filters,"$ADV20 $1,674,083 < $75,000,000"
+MDXG,filters,"$ADV20 $5,514,340 < $75,000,000"
+MEC,filters,"$ADV20 $3,283,865 < $75,000,000"
+MED,filters,"$ADV20 $3,360,870 < $75,000,000"
+MEG,filters,"$ADV20 $7,252,586 < $75,000,000"
+MEI,filters,"$ADV20 $1,753,845 < $75,000,000"
+MET,scoring,score_below_min
+META,scoring,score_below_min
+METC,filters,"$ADV20 $48,294,761 < $75,000,000"
+MFA,filters,"$ADV20 $13,155,030 < $75,000,000"
+MFIN,filters,"$ADV20 $423,667 < $75,000,000"
+MG,filters,"$ADV20 $2,866,312 < $75,000,000"
+MGEE,filters,"$ADV20 $10,515,665 < $75,000,000"
+MGM,scoring,score_below_min
+MGNI,filters,"$ADV20 $32,820,067 < $75,000,000"
+MGPI,filters,"$ADV20 $10,067,539 < $75,000,000"
+MGRC,filters,"$ADV20 $12,885,009 < $75,000,000"
+MGTX,filters,"$ADV20 $3,413,888 < $75,000,000"
+MGY,filters,"$ADV20 $46,655,808 < $75,000,000"
+MH,filters,"$ADV20 $11,206,000 < $75,000,000"
+MHO,filters,"$ADV20 $26,823,940 < $75,000,000"
+MIAX,filters,"$ADV20 $53,994,026 < $75,000,000"
+MIR,filters,"$ADV20 $53,904,600 < $75,000,000"
+MIRM,filters,"$ADV20 $72,893,684 < $75,000,000; 5d return 18.3% > 15.0% (avoiding chased names)"
+MITK,filters,"$ADV20 $6,622,628 < $75,000,000"
+MITT,filters,"$ADV20 $2,033,127 < $75,000,000"
+MKC,scoring,score_below_min
+MKTW,filters,"$ADV20 $192,474 < $75,000,000"
+MLAB,filters,"$ADV20 $8,310,594 < $75,000,000"
+MLKN,filters,"$ADV20 $14,400,444 < $75,000,000"
+MLM,signal,chop_threshold_not_met
+MLP,filters,"$ADV20 $345,395 < $75,000,000"
+MLR,filters,"$ADV20 $3,099,105 < $75,000,000"
+MLYS,filters,"$ADV20 $53,453,606 < $75,000,000"
+MMI,filters,"$ADV20 $7,620,992 < $75,000,000"
+MMM,signal,chop_threshold_not_met
+MMS,filters,"$ADV20 $51,510,619 < $75,000,000"
+MMSI,filters,"$ADV20 $62,520,373 < $75,000,000"
+MNKD,filters,"$ADV20 $21,337,907 < $75,000,000"
+MNMD,filters,"$ADV20 $31,042,444 < $75,000,000"
+MNPR,filters,"$ADV20 $21,285,188 < $75,000,000"
+MNRO,filters,"$ADV20 $13,118,586 < $75,000,000"
+MNSB,filters,"$ADV20 $690,298 < $75,000,000"
+MNTK,filters,"Price $1.44 < $5.00; $ADV20 $224,979 < $75,000,000"
+MO,signal,chop_threshold_not_met
+MOD,scoring,score_below_min
+MODG,filters,"$ADV20 $31,950,663 < $75,000,000"
+MOFG,filters,"$ADV20 $7,094,750 < $75,000,000"
+MOH,scoring,score_below_min
+MOS,scoring,score_below_min
+MOV,filters,"$ADV20 $3,040,081 < $75,000,000"
+MPAA,filters,"$ADV20 $1,581,082 < $75,000,000"
+MPB,filters,"$ADV20 $2,815,714 < $75,000,000"
+MPC,scoring,score_below_min
+MPLT,filters,"$ADV20 $6,734,703 < $75,000,000"
+MPTI,filters,"$ADV20 $2,587,974 < $75,000,000"
+MPWR,signal,chop_threshold_not_met
+MPX,filters,"$ADV20 $257,100 < $75,000,000"
+MQ,filters,"Price $4.52 < $5.00; $ADV20 $17,687,319 < $75,000,000"
+MRBK,filters,"$ADV20 $1,508,495 < $75,000,000"
+MRCY,filters,"$ADV20 $53,467,003 < $75,000,000; 5d return 17.7% > 15.0% (avoiding chased names)"
+MRK,signal,chop_threshold_not_met
+MRNA,signal,chop_threshold_not_met
+MRTN,filters,"$ADV20 $11,010,707 < $75,000,000"
+MRVI,filters,"Price $4.02 < $5.00; $ADV20 $4,275,892 < $75,000,000"
+MRX,filters,"$ADV20 $19,212,095 < $75,000,000"
+MS,scoring,score_below_min
+MSBI,filters,"$ADV20 $3,857,622 < $75,000,000"
+MSEX,filters,"$ADV20 $6,088,488 < $75,000,000"
+MSFT,scoring,score_below_min
+MSGE,filters,"$ADV20 $15,013,111 < $75,000,000"
+MSI,scoring,score_below_min
+MSTR,scoring,score_below_min
+MTCH,scoring,score_below_min
+MTD,scoring,score_below_min
+MTH,filters,"$ADV20 $63,962,809 < $75,000,000; 5d return 16.7% > 15.0% (avoiding chased names)"
+MTRN,filters,"$ADV20 $18,169,912 < $75,000,000"
+MTRX,filters,"$ADV20 $2,763,412 < $75,000,000"
+MTUS,filters,"$ADV20 $6,181,845 < $75,000,000"
+MTW,filters,"$ADV20 $2,959,396 < $75,000,000"
+MTX,filters,"$ADV20 $11,599,988 < $75,000,000"
+MU,signal,chop_threshold_not_met
+MUR,filters,"$ADV20 $73,343,674 < $75,000,000"
+MVBF,filters,"$ADV20 $1,312,249 < $75,000,000"
+MVIS,filters,"Price $0.95 < $5.00; $ADV20 $4,136,602 < $75,000,000"
+MVST,filters,"Price $3.28 < $5.00; $ADV20 $12,465,589 < $75,000,000"
+MWA,filters,"$ADV20 $28,907,947 < $75,000,000"
+MXCT,filters,"Price $1.31 < $5.00; $ADV20 $894,880 < $75,000,000"
+MXL,filters,"$ADV20 $18,112,677 < $75,000,000"
+MYE,filters,"$ADV20 $4,373,012 < $75,000,000"
+MYFW,filters,"$ADV20 $776,692 < $75,000,000"
+MYGN,filters,"$ADV20 $6,036,026 < $75,000,000"
+MYO,filters,"Price $0.94 < $5.00; $ADV20 $607,672 < $75,000,000"
+MYPS,filters,"Price $0.60 < $5.00; $ADV20 $128,486 < $75,000,000"
+MYRG,filters,"$ADV20 $46,607,053 < $75,000,000"
+MZTI,filters,"$ADV20 $23,148,196 < $75,000,000"
+NABL,filters,"$ADV20 $5,846,161 < $75,000,000"
+NAGE,filters,"$ADV20 $5,501,874 < $75,000,000"
+NAK,filters,"Price $2.13 < $5.00; $ADV20 $14,750,556 < $75,000,000"
+NAT,filters,"Price $4.06 < $5.00; $ADV20 $11,176,862 < $75,000,000; 5d return 17.7% > 15.0% (avoiding chased names)"
+NATH,filters,"$ADV20 $2,826,505 < $75,000,000"
+NATL,filters,"$ADV20 $14,568,747 < $75,000,000"
+NATR,filters,"$ADV20 $2,071,464 < $75,000,000"
+NAVI,filters,"$ADV20 $10,322,768 < $75,000,000"
+NAVN,filters,"$ADV20 $42,574,260 < $75,000,000"
+NB,filters,"$ADV20 $21,903,924 < $75,000,000"
+NBBK,filters,"$ADV20 $4,115,647 < $75,000,000"
+NBHC,filters,"$ADV20 $14,370,240 < $75,000,000"
+NBIS,signal,chop_threshold_not_met
+NBN,filters,"$ADV20 $12,622,803 < $75,000,000"
+NBR,filters,"$ADV20 $20,994,536 < $75,000,000"
+NBTB,filters,"$ADV20 $9,607,094 < $75,000,000"
+NC,filters,"$ADV20 $508,407 < $75,000,000"
+NCLH,scoring,score_below_min
+NCMI,filters,"Price $3.81 < $5.00; $ADV20 $1,241,794 < $75,000,000"
+NDSN,scoring,score_below_min
+NE,filters,"$ADV20 $44,890,947 < $75,000,000"
+NECB,filters,"$ADV20 $1,138,012 < $75,000,000"
+NEE,scoring,score_below_min
+NEM,signal,chop_threshold_not_met
+NEO,filters,"$ADV20 $21,973,380 < $75,000,000"
+NEOG,filters,"$ADV20 $36,342,648 < $75,000,000; 5d return 24.0% > 15.0% (avoiding chased names)"
+NEON,filters,"Price $1.88 < $5.00; $ADV20 $411,022 < $75,000,000"
+NESR,filters,"$ADV20 $14,233,019 < $75,000,000"
+NEWT,filters,"$ADV20 $3,606,242 < $75,000,000; 5d return 17.1% > 15.0% (avoiding chased names)"
+NEXN,filters,"$ADV20 $2,604,235 < $75,000,000"
+NEXT,filters,"$ADV20 $18,132,174 < $75,000,000"
+NFBK,filters,"$ADV20 $1,673,950 < $75,000,000"
+NFE,filters,"Price $1.26 < $5.00; $ADV20 $11,294,432 < $75,000,000"
+NFLX,scoring,score_below_min
+NG,filters,"$ADV20 $22,530,635 < $75,000,000"
+NGNE,filters,"$ADV20 $3,629,359 < $75,000,000"
+NGS,filters,"$ADV20 $3,579,513 < $75,000,000"
+NGVC,filters,"$ADV20 $6,803,860 < $75,000,000"
+NGVT,filters,"$ADV20 $17,627,873 < $75,000,000"
+NHC,filters,"$ADV20 $13,129,594 < $75,000,000"
+NHI,filters,"$ADV20 $16,527,916 < $75,000,000"
+NI,scoring,score_below_min
+NIC,filters,"$ADV20 $18,228,267 < $75,000,000"
+NJR,filters,"$ADV20 $25,453,546 < $75,000,000"
+NKE,scoring,score_below_min
+NKSH,filters,"$ADV20 $494,749 < $75,000,000"
+NKTX,filters,"Price $2.05 < $5.00; $ADV20 $1,399,727 < $75,000,000"
+NL,filters,"$ADV20 $351,267 < $75,000,000"
+NLOP,filters,"$ADV20 $4,245,934 < $75,000,000"
+NMAX,filters,"$ADV20 $9,198,822 < $75,000,000"
+NMIH,filters,"$ADV20 $15,472,562 < $75,000,000"
+NMRK,filters,"$ADV20 $15,847,445 < $75,000,000"
+NN,filters,"$ADV20 $16,586,356 < $75,000,000"
+NNE,filters,"$ADV20 $67,158,086 < $75,000,000"
+NNI,filters,"$ADV20 $19,825,368 < $75,000,000"
+NNOX,filters,"Price $3.04 < $5.00; $ADV20 $3,518,456 < $75,000,000"
+NOC,signal,chop_threshold_not_met
+NODK,filters,"$ADV20 $174,149 < $75,000,000"
+NOG,filters,"$ADV20 $48,510,647 < $75,000,000"
+NOVT,filters,"$ADV20 $63,433,214 < $75,000,000"
+NOW,scoring,score_below_min
+NPB,filters,"$ADV20 $8,513,591 < $75,000,000"
+NPCE,filters,"$ADV20 $4,334,356 < $75,000,000"
+NPK,filters,"$ADV20 $7,577,792 < $75,000,000"
+NPKI,filters,"$ADV20 $6,811,703 < $75,000,000"
+NPO,filters,"$ADV20 $40,832,048 < $75,000,000"
+NPWR,filters,"Price $2.82 < $5.00; $ADV20 $2,489,876 < $75,000,000"
+NRC,filters,"$ADV20 $1,536,018 < $75,000,000"
+NRDS,filters,"$ADV20 $10,460,172 < $75,000,000"
+NRDY,filters,"Price $1.03 < $5.00; $ADV20 $1,576,076 < $75,000,000"
+NREF,filters,"$ADV20 $927,381 < $75,000,000"
+NRG,scoring,score_below_min
+NRIM,filters,"$ADV20 $4,726,498 < $75,000,000"
+NRIX,filters,"$ADV20 $29,381,063 < $75,000,000"
+NSC,scoring,score_below_min
+NSIT,filters,"$ADV20 $33,608,446 < $75,000,000"
+NSP,filters,"$ADV20 $58,629,224 < $75,000,000"
+NSSC,filters,"$ADV20 $12,948,989 < $75,000,000"
+NTAP,scoring,score_below_min
+NTB,filters,"$ADV20 $7,589,542 < $75,000,000"
+NTCT,filters,"$ADV20 $14,564,221 < $75,000,000"
+NTGR,filters,"$ADV20 $9,115,194 < $75,000,000"
+NTLA,filters,"$ADV20 $41,441,471 < $75,000,000; 5d return 20.7% > 15.0% (avoiding chased names)"
+NTRS,signal,chop_threshold_not_met
+NTST,filters,"$ADV20 $25,733,550 < $75,000,000"
+NU,scoring,score_below_min
+NUAI,filters,"Price $4.41 < $5.00; $ADV20 $22,388,171 < $75,000,000; 5d return 34.9% > 15.0% (avoiding chased names)"
+NUS,filters,"$ADV20 $4,290,749 < $75,000,000"
+NUTX,filters,"$ADV20 $26,908,128 < $75,000,000"
+NUVB,filters,"$ADV20 $51,491,921 < $75,000,000"
+NUVL,filters,"$ADV20 $56,156,355 < $75,000,000"
+NVAX,filters,"$ADV20 $27,077,170 < $75,000,000; 5d return 16.5% > 15.0% (avoiding chased names)"
+NVCR,filters,"$ADV20 $17,839,859 < $75,000,000"
+NVCT,filters,"$ADV20 $707,234 < $75,000,000"
+NVDA,scoring,score_below_min
+NVEC,filters,"$ADV20 $3,971,607 < $75,000,000"
+NVGS,filters,"$ADV20 $4,899,314 < $75,000,000"
+NVR,scoring,score_below_min
+NVRI,filters,"$ADV20 $26,362,467 < $75,000,000"
+NVTS,signal,chop_threshold_not_met
+NWBI,filters,"$ADV20 $9,412,465 < $75,000,000"
+NWE,filters,"$ADV20 $34,294,520 < $75,000,000"
+NWFL,filters,"$ADV20 $927,282 < $75,000,000"
+NWN,filters,"$ADV20 $13,312,144 < $75,000,000"
+NWPX,filters,"$ADV20 $4,099,257 < $75,000,000"
+NWS,filters,"$ADV20 $29,171,943 < $75,000,000"
+NWSA,scoring,score_below_min
+NX,filters,"$ADV20 $14,774,239 < $75,000,000"
+NXDR,filters,"Price $1.98 < $5.00; $ADV20 $12,295,823 < $75,000,000"
+NXDT,filters,"Price $4.25 < $5.00; $ADV20 $2,439,596 < $75,000,000"
+NXPI,signal,chop_threshold_not_met
+NXRT,filters,"$ADV20 $7,105,417 < $75,000,000"
+NXT,signal,chop_threshold_not_met
+NXXT,filters,"Price $1.17 < $5.00; $ADV20 $2,959,443 < $75,000,000"
+O,signal,chop_threshold_not_met
+OABI,filters,"Price $1.90 < $5.00; $ADV20 $1,023,441 < $75,000,000"
+OBK,filters,"$ADV20 $5,907,169 < $75,000,000"
+OBT,filters,"$ADV20 $1,050,089 < $75,000,000"
+OCFC,filters,"$ADV20 $12,626,921 < $75,000,000"
+OCUL,filters,"$ADV20 $37,635,637 < $75,000,000"
+ODC,filters,"$ADV20 $3,484,098 < $75,000,000"
+ODFL,scoring,score_below_min
+OEC,filters,"$ADV20 $3,080,584 < $75,000,000"
+OFG,filters,"$ADV20 $10,376,697 < $75,000,000"
+OFIX,filters,"$ADV20 $3,231,361 < $75,000,000"
+OFLX,filters,"$ADV20 $1,301,216 < $75,000,000"
+OGS,filters,"$ADV20 $31,204,313 < $75,000,000"
+OI,filters,"$ADV20 $36,992,221 < $75,000,000"
+OII,filters,"$ADV20 $22,031,872 < $75,000,000"
+OIS,filters,"$ADV20 $5,423,200 < $75,000,000"
+OKE,scoring,score_below_min
+OKLO,signal,chop_threshold_not_met
+OLMA,filters,"$ADV20 $55,274,529 < $75,000,000"
+OLP,filters,"$ADV20 $2,044,545 < $75,000,000"
+OLPX,filters,"Price $1.65 < $5.00; $ADV20 $3,679,224 < $75,000,000; 5d return 22.2% > 15.0% (avoiding chased names)"
+OM,filters,"$ADV20 $9,082,364 < $75,000,000; 5d return 19.3% > 15.0% (avoiding chased names)"
+OMC,scoring,score_below_min
+OMCL,filters,"$ADV20 $27,500,469 < $75,000,000"
+OMDA,filters,"$ADV20 $13,797,020 < $75,000,000"
+OMER,filters,"$ADV20 $62,963,728 < $75,000,000"
+OMI,filters,"Price $2.80 < $5.00; $ADV20 $5,423,812 < $75,000,000"
+ON,signal,chop_threshold_not_met
+ONB,filters,"$ADV20 $58,893,884 < $75,000,000"
+ONDS,scoring,score_below_min
+ONEW,filters,"$ADV20 $2,408,717 < $75,000,000"
+ONIT,filters,"$ADV20 $3,688,438 < $75,000,000"
+ONTF,filters,"$ADV20 $3,728,507 < $75,000,000"
+OOMA,filters,"$ADV20 $2,246,952 < $75,000,000"
+OPAL,filters,"Price $2.51 < $5.00; $ADV20 $1,014,617 < $75,000,000; 5d return 15.1% > 15.0% (avoiding chased names)"
+OPBK,filters,"$ADV20 $580,482 < $75,000,000"
+OPCH,filters,"$ADV20 $61,861,519 < $75,000,000"
+OPFI,filters,"$ADV20 $5,639,546 < $75,000,000"
+OPK,filters,"Price $1.34 < $5.00; $ADV20 $5,176,495 < $75,000,000"
+OPRT,filters,"$ADV20 $1,547,254 < $75,000,000"
+OPRX,filters,"$ADV20 $3,332,218 < $75,000,000"
+OPTU,filters,"Price $1.90 < $5.00; $ADV20 $4,752,351 < $75,000,000"
+ORA,filters,"$ADV20 $61,370,610 < $75,000,000"
+ORC,filters,"$ADV20 $48,827,215 < $75,000,000"
+ORCL,scoring,score_below_min
+ORGO,filters,"Price $4.08 < $5.00; $ADV20 $7,157,688 < $75,000,000"
+ORIC,filters,"$ADV20 $13,488,566 < $75,000,000; 5d return 24.6% > 15.0% (avoiding chased names)"
+ORKA,filters,"$ADV20 $22,120,587 < $75,000,000; 5d return 17.7% > 15.0% (avoiding chased names)"
+ORLY,scoring,score_below_min
+ORN,filters,"$ADV20 $2,067,911 < $75,000,000"
+ORRF,filters,"$ADV20 $8,795,834 < $75,000,000"
+OSBC,filters,"$ADV20 $5,510,743 < $75,000,000"
+OSCR,scoring,score_below_min
+OSG,filters,"$ADV20 $5,351,011 < $75,000,000"
+OSIS,filters,"$ADV20 $68,823,206 < $75,000,000"
+OSPN,filters,"$ADV20 $6,858,719 < $75,000,000"
+OSUR,filters,"Price $2.60 < $5.00; $ADV20 $1,664,058 < $75,000,000"
+OSW,filters,"$ADV20 $10,427,451 < $75,000,000"
+OTIS,signal,chop_threshold_not_met
+OTTR,filters,"$ADV20 $22,579,331 < $75,000,000"
+OUST,filters,"$ADV20 $42,646,575 < $75,000,000"
+OUT,filters,"$ADV20 $31,120,694 < $75,000,000"
+OVBC,filters,"$ADV20 $452,842 < $75,000,000"
+OVLY,filters,"$ADV20 $394,284 < $75,000,000"
+OXM,filters,"$ADV20 $18,537,645 < $75,000,000"
+OXY,signal,chop_threshold_not_met
+PACB,filters,"Price $2.13 < $5.00; $ADV20 $13,995,860 < $75,000,000"
+PACK,filters,"$ADV20 $1,705,622 < $75,000,000"
+PACS,filters,"$ADV20 $43,466,704 < $75,000,000"
+PAGS,filters,"$ADV20 $32,293,594 < $75,000,000"
+PAHC,filters,"$ADV20 $9,501,730 < $75,000,000"
+PAL,filters,"$ADV20 $1,624,451 < $75,000,000"
+PAMT,filters,"$ADV20 $327,598 < $75,000,000"
+PANL,filters,"$ADV20 $1,899,798 < $75,000,000"
+PANW,scoring,score_below_min
+PAR,filters,"$ADV20 $19,061,093 < $75,000,000"
+PARR,filters,"$ADV20 $47,221,278 < $75,000,000"
+PATH,scoring,score_below_min
+PATK,filters,"$ADV20 $29,698,653 < $75,000,000"
+PAX,filters,"$ADV20 $8,408,810 < $75,000,000"
+PAYC,scoring,score_below_min
+PAYO,filters,"$ADV20 $17,149,594 < $75,000,000"
+PAYS,filters,"Price $4.82 < $5.00; $ADV20 $1,378,709 < $75,000,000"
+PAYX,scoring,score_below_min
+PBF,filters,5d return 20.8% > 15.0% (avoiding chased names)
+PBFS,filters,"$ADV20 $240,411 < $75,000,000"
+PBH,filters,"$ADV20 $23,947,930 < $75,000,000"
+PBI,filters,"$ADV20 $23,849,674 < $75,000,000"
+PBYI,filters,"$ADV20 $2,228,196 < $75,000,000"
+PCAR,signal,chop_threshold_not_met
+PCB,filters,"$ADV20 $504,674 < $75,000,000"
+PCG,scoring,score_below_min
+PCH,filters,"$ADV20 $24,598,442 < $75,000,000"
+PCRX,filters,"$ADV20 $23,404,978 < $75,000,000"
+PCT,filters,"$ADV20 $37,998,818 < $75,000,000"
+PCVX,filters,"$ADV20 $54,265,587 < $75,000,000"
+PCYO,filters,"$ADV20 $429,270 < $75,000,000"
+PD,filters,"$ADV20 $20,809,474 < $75,000,000"
+PDEX,filters,"$ADV20 $1,367,632 < $75,000,000"
+PDFS,filters,"$ADV20 $7,256,840 < $75,000,000"
+PDLB,filters,"$ADV20 $1,616,727 < $75,000,000"
+PDM,filters,"$ADV20 $6,229,127 < $75,000,000"
+PDYN,filters,"$ADV20 $11,977,949 < $75,000,000; 5d return 22.5% > 15.0% (avoiding chased names)"
+PEB,filters,"$ADV20 $23,624,427 < $75,000,000"
+PEBK,filters,"$ADV20 $434,472 < $75,000,000"
+PEBO,filters,"$ADV20 $6,059,448 < $75,000,000"
+PECO,filters,"$ADV20 $36,601,784 < $75,000,000"
+PEG,scoring,score_below_min
+PENG,filters,"$ADV20 $26,993,924 < $75,000,000"
+PEP,scoring,score_below_min
+PESI,filters,"$ADV20 $1,273,345 < $75,000,000"
+PFBC,filters,"$ADV20 $8,554,882 < $75,000,000"
+PFE,scoring,score_below_min
+PFG,scoring,score_below_min
+PFIS,filters,"$ADV20 $1,268,918 < $75,000,000"
+PFS,filters,"$ADV20 $16,118,057 < $75,000,000"
+PFSI,filters,"$ADV20 $41,291,330 < $75,000,000"
+PG,scoring,score_below_min
+PGC,filters,"$ADV20 $2,761,847 < $75,000,000"
+PGEN,filters,"Price $4.17 < $5.00; $ADV20 $24,011,913 < $75,000,000"
+PGNY,filters,"$ADV20 $38,572,178 < $75,000,000"
+PGR,scoring,score_below_min
+PGY,filters,"$ADV20 $68,728,560 < $75,000,000"
+PH,signal,chop_threshold_not_met
+PHAT,filters,"$ADV20 $21,727,275 < $75,000,000"
+PHIN,filters,"$ADV20 $28,330,486 < $75,000,000"
+PHM,scoring,score_below_min
+PHR,filters,"$ADV20 $17,758,969 < $75,000,000"
+PI,signal,chop_threshold_not_met
+PII,filters,"$ADV20 $60,185,295 < $75,000,000"
+PINE,filters,"$ADV20 $3,200,897 < $75,000,000"
+PIPR,filters,"$ADV20 $48,326,813 < $75,000,000"
+PJT,filters,"$ADV20 $36,062,580 < $75,000,000"
+PKBK,filters,"$ADV20 $1,449,392 < $75,000,000"
+PKE,filters,"$ADV20 $4,731,253 < $75,000,000"
+PKG,signal,chop_threshold_not_met
+PKOH,filters,"$ADV20 $620,218 < $75,000,000"
+PKST,filters,"$ADV20 $3,048,418 < $75,000,000"
+PL,filters,5d return 15.9% > 15.0% (avoiding chased names)
+PLAB,filters,"$ADV20 $42,310,095 < $75,000,000"
+PLAY,filters,"$ADV20 $17,874,452 < $75,000,000"
+PLBC,filters,"$ADV20 $633,407 < $75,000,000"
+PLD,signal,chop_threshold_not_met
+PLMR,filters,"$ADV20 $27,134,492 < $75,000,000"
+PLOW,filters,"$ADV20 $4,740,550 < $75,000,000"
+PLPC,filters,"$ADV20 $21,335,820 < $75,000,000"
+PLSE,filters,"$ADV20 $2,798,869 < $75,000,000"
+PLTK,filters,"Price $3.67 < $5.00; $ADV20 $3,923,978 < $75,000,000"
+PLTR,scoring,score_below_min
+PLUG,filters,Price $2.28 < $5.00
+PLUS,filters,"$ADV20 $14,269,884 < $75,000,000"
+PLX,filters,"Price $2.02 < $5.00; $ADV20 $1,546,029 < $75,000,000"
+PLXS,filters,"$ADV20 $28,414,898 < $75,000,000"
+PLYM,filters,"$ADV20 $24,438,600 < $75,000,000"
+PM,scoring,score_below_min
+PMT,filters,"$ADV20 $16,762,550 < $75,000,000"
+PMTS,filters,"$ADV20 $511,100 < $75,000,000"
+PNBK,filters,"Price $1.56 < $5.00; $ADV20 $641,017 < $75,000,000"
+PNC,scoring,score_below_min
+PNR,scoring,score_below_min
+PNRG,filters,"$ADV20 $10,855,064 < $75,000,000"
+PNTG,filters,"$ADV20 $5,682,161 < $75,000,000"
+PNW,signal,chop_threshold_not_met
+PODD,scoring,score_below_min
+POET,filters,"$ADV20 $45,138,792 < $75,000,000"
+PONY,filters,"$ADV20 $71,031,122 < $75,000,000"
+POOL,scoring,score_below_min
+POR,filters,"$ADV20 $47,332,901 < $75,000,000"
+POWI,filters,"$ADV20 $48,073,741 < $75,000,000"
+POWL,filters,"$ADV20 $68,436,815 < $75,000,000"
+POWW,filters,"Price $1.92 < $5.00; $ADV20 $643,819 < $75,000,000"
+PPG,signal,chop_threshold_not_met
+PPIH,filters,"$ADV20 $3,487,137 < $75,000,000"
+PPL,scoring,score_below_min
+PPTA,filters,"$ADV20 $53,143,377 < $75,000,000"
+PRA,filters,"$ADV20 $11,023,899 < $75,000,000"
+PRAA,filters,"$ADV20 $6,444,719 < $75,000,000"
+PRAX,scoring,score_below_min
+PRCH,filters,"$ADV20 $11,841,556 < $75,000,000"
+PRCT,filters,"$ADV20 $35,886,859 < $75,000,000"
+PRDO,filters,"$ADV20 $18,562,280 < $75,000,000"
+PRG,filters,"$ADV20 $16,466,436 < $75,000,000"
+PRGS,filters,"$ADV20 $24,161,251 < $75,000,000"
+PRIM,signal,chop_threshold_not_met
+PRK,filters,"$ADV20 $10,419,085 < $75,000,000"
+PRKS,filters,"$ADV20 $35,892,815 < $75,000,000"
+PRLB,filters,"$ADV20 $7,972,898 < $75,000,000"
+PRM,filters,"$ADV20 $23,695,509 < $75,000,000"
+PRME,filters,"Price $4.16 < $5.00; $ADV20 $13,990,785 < $75,000,000"
+PROP,filters,"Price $1.98 < $5.00; $ADV20 $2,689,641 < $75,000,000"
+PRSU,filters,"$ADV20 $9,102,894 < $75,000,000"
+PRTA,filters,"$ADV20 $6,562,737 < $75,000,000"
+PRTH,filters,"$ADV20 $1,969,842 < $75,000,000"
+PRVA,filters,"$ADV20 $15,775,208 < $75,000,000"
+PSA,scoring,score_below_min
+PSFE,filters,"$ADV20 $4,733,188 < $75,000,000"
+PSIX,filters,"$ADV20 $29,309,979 < $75,000,000"
+PSKY,scoring,score_below_min
+PSMT,filters,"$ADV20 $27,255,338 < $75,000,000"
+PSNL,filters,"$ADV20 $10,882,325 < $75,000,000"
+PSTL,filters,"$ADV20 $3,955,698 < $75,000,000"
+PSX,signal,chop_threshold_not_met
+PTC,scoring,score_below_min
+PTCT,scoring,score_below_min
+PTEN,filters,"$ADV20 $65,589,920 < $75,000,000"
+PTGX,filters,"$ADV20 $73,609,270 < $75,000,000"
+PTLO,filters,"$ADV20 $13,227,661 < $75,000,000"
+PTON,filters,"$ADV20 $52,111,637 < $75,000,000"
+PUBM,filters,"$ADV20 $4,043,728 < $75,000,000"
+PUMP,filters,"$ADV20 $17,855,477 < $75,000,000"
+PVLA,filters,"$ADV20 $30,970,485 < $75,000,000"
+PWP,filters,"$ADV20 $14,618,068 < $75,000,000"
+PX,filters,"$ADV20 $3,650,724 < $75,000,000"
+PXED,filters,"$ADV20 $5,053,100 < $75,000,000"
+PYPL,scoring,score_below_min
+PZZA,filters,"$ADV20 $31,858,717 < $75,000,000"
+Q,scoring,score_below_min
+QBTS,scoring,score_below_min
+QCOM,scoring,score_below_min
+QCRH,filters,"$ADV20 $7,527,226 < $75,000,000"
+QDEL,filters,"$ADV20 $25,508,085 < $75,000,000"
+QLYS,filters,"$ADV20 $57,943,938 < $75,000,000"
+QNST,filters,"$ADV20 $7,658,750 < $75,000,000"
+QS,scoring,score_below_min
+QSI,filters,"Price $1.27 < $5.00; $ADV20 $6,577,161 < $75,000,000"
+QTRX,filters,"$ADV20 $4,894,100 < $75,000,000"
+QTWO,filters,"$ADV20 $37,589,521 < $75,000,000"
+QUAD,filters,"$ADV20 $1,139,464 < $75,000,000"
+QUBT,scoring,score_below_min
+RAMP,filters,"$ADV20 $15,267,141 < $75,000,000"
+RAPP,filters,"$ADV20 $12,484,247 < $75,000,000"
+RBB,filters,"$ADV20 $989,359 < $75,000,000"
+RBBN,filters,"Price $2.89 < $5.00; $ADV20 $1,671,374 < $75,000,000"
+RBCAA,filters,"$ADV20 $2,226,774 < $75,000,000"
+RBKB,filters,"$ADV20 $85,645 < $75,000,000"
+RC,filters,"Price $2.07 < $5.00; $ADV20 $13,503,390 < $75,000,000"
+RCAT,filters,5d return 20.7% > 15.0% (avoiding chased names)
+RCEL,filters,"Price $3.30 < $5.00; $ADV20 $767,621 < $75,000,000"
+RCKT,filters,"Price $3.80 < $5.00; $ADV20 $6,799,319 < $75,000,000"
+RCKY,filters,"$ADV20 $903,011 < $75,000,000"
+RCL,scoring,score_below_min
+RCMT,filters,"$ADV20 $761,139 < $75,000,000"
+RCUS,filters,"$ADV20 $40,960,041 < $75,000,000"
+RDN,filters,"$ADV20 $31,906,255 < $75,000,000"
+RDNT,filters,"$ADV20 $70,584,344 < $75,000,000"
+RDVT,filters,"$ADV20 $5,554,328 < $75,000,000"
+RDW,scoring,score_below_min
+REAL,filters,"$ADV20 $41,604,365 < $75,000,000"
+REAX,filters,"Price $4.08 < $5.00; $ADV20 $7,098,507 < $75,000,000"
+REFI,filters,"$ADV20 $2,153,073 < $75,000,000"
+REG,scoring,score_below_min
+REGN,scoring,score_below_min
+RELL,filters,"$ADV20 $827,471 < $75,000,000"
+RELY,filters,"$ADV20 $35,136,716 < $75,000,000"
+REPL,filters,"$ADV20 $11,158,573 < $75,000,000"
+REPX,filters,"$ADV20 $4,376,512 < $75,000,000"
+RES,filters,"$ADV20 $11,333,635 < $75,000,000"
+REVG,filters,"$ADV20 $36,204,330 < $75,000,000"
+REX,filters,"$ADV20 $7,037,018 < $75,000,000"
+REZI,filters,"$ADV20 $42,780,837 < $75,000,000"
+RF,scoring,score_below_min
+RGCO,filters,"$ADV20 $297,080 < $75,000,000"
+RGNX,filters,"$ADV20 $10,580,896 < $75,000,000"
+RGP,filters,"Price $4.64 < $5.00; $ADV20 $1,873,710 < $75,000,000"
+RGR,filters,"$ADV20 $13,817,943 < $75,000,000"
+RGTI,scoring,score_below_min
+RHLD,filters,"$ADV20 $24,711,623 < $75,000,000"
+RHP,filters,"$ADV20 $44,144,212 < $75,000,000"
+RICK,filters,"$ADV20 $2,471,249 < $75,000,000"
+RIG,filters,Price $4.29 < $5.00
+RIGL,filters,"$ADV20 $25,419,200 < $75,000,000"
+RIOT,signal,chop_threshold_not_met
+RKLB,signal,chop_threshold_not_met
+RLAY,filters,"$ADV20 $18,199,402 < $75,000,000"
+RLGT,filters,"$ADV20 $961,996 < $75,000,000"
+RLJ,filters,"$ADV20 $14,498,326 < $75,000,000"
+RM,filters,"$ADV20 $2,004,116 < $75,000,000"
+RMAX,filters,"$ADV20 $1,175,980 < $75,000,000"
+RMBI,filters,"$ADV20 $235,445 < $75,000,000"
+RMBS,scoring,score_below_min
+RMD,signal,chop_threshold_not_met
+RMNI,filters,"Price $3.97 < $5.00; $ADV20 $931,864 < $75,000,000"
+RMR,filters,"$ADV20 $2,747,285 < $75,000,000"
+RNA,signal,chop_threshold_not_met
+RNAC,filters,"$ADV20 $1,551,793 < $75,000,000"
+RNGR,filters,"$ADV20 $2,506,100 < $75,000,000"
+RNST,filters,"$ADV20 $20,698,020 < $75,000,000"
+ROAD,filters,"$ADV20 $53,578,651 < $75,000,000"
+ROCK,filters,"$ADV20 $14,582,739 < $75,000,000"
+ROG,filters,"$ADV20 $12,900,281 < $75,000,000"
+ROK,signal,chop_threshold_not_met
+ROOT,filters,"$ADV20 $20,033,431 < $75,000,000"
+ROP,scoring,score_below_min
+ROST,scoring,score_below_min
+RPAY,filters,"Price $3.53 < $5.00; $ADV20 $3,507,248 < $75,000,000"
+RPD,filters,"$ADV20 $16,140,285 < $75,000,000"
+RPT,filters,"$ADV20 $598,917 < $75,000,000"
+RR,filters,Price $3.91 < $5.00
+RRBI,filters,"$ADV20 $2,841,965 < $75,000,000"
+RRR,filters,"$ADV20 $40,487,405 < $75,000,000"
+RSG,scoring,score_below_min
+RSI,filters,"$ADV20 $26,712,882 < $75,000,000"
+RSVR,filters,"$ADV20 $470,695 < $75,000,000"
+RTX,signal,chop_threshold_not_met
+RUM,filters,"$ADV20 $13,732,151 < $75,000,000"
+RUN,scoring,score_below_min
+RUSHA,filters,"$ADV20 $27,892,748 < $75,000,000"
+RUSHB,filters,"$ADV20 $1,694,115 < $75,000,000"
+RVLV,filters,"$ADV20 $32,118,375 < $75,000,000"
+RVSB,filters,"$ADV20 $266,633 < $75,000,000"
+RVTY,scoring,score_below_min
+RWT,filters,"$ADV20 $10,982,482 < $75,000,000"
+RXO,filters,"$ADV20 $32,122,653 < $75,000,000"
+RXRX,filters,Price $4.69 < $5.00
+RXST,filters,"$ADV20 $9,308,222 < $75,000,000"
+RXT,filters,"Price $0.97 < $5.00; $ADV20 $1,067,603 < $75,000,000"
+RYAM,filters,"$ADV20 $4,882,217 < $75,000,000"
+RYI,filters,"$ADV20 $8,539,664 < $75,000,000"
+RYTM,scoring,score_below_min
+RZLT,filters,"Price $2.48 < $5.00; $ADV20 $18,269,598 < $75,000,000; 5d return 29.8% > 15.0% (avoiding chased names)"
+RZLV,filters,Price $3.64 < $5.00; 5d return 20.1% > 15.0% (avoiding chased names)
+SABR,filters,"Price $1.24 < $5.00; $ADV20 $7,553,286 < $75,000,000"
+SAFE,filters,"$ADV20 $7,429,805 < $75,000,000"
+SAFT,filters,"$ADV20 $5,945,229 < $75,000,000"
+SAFX,filters,"Price $0.17 < $5.00; $ADV20 $817,450 < $75,000,000"
+SAH,filters,"$ADV20 $10,212,870 < $75,000,000"
+SAMG,filters,"$ADV20 $676,641 < $75,000,000"
+SANA,filters,"Price $4.70 < $5.00; $ADV20 $15,801,386 < $75,000,000"
+SANM,signal,chop_threshold_not_met
+SATL,filters,"Price $3.57 < $5.00; $ADV20 $17,352,997 < $75,000,000; 5d return 63.0% > 15.0% (avoiding chased names)"
+SATS,signal,chop_threshold_not_met
+SB,filters,"$ADV20 $2,313,705 < $75,000,000"
+SBAC,scoring,score_below_min
+SBC,filters,"Price $4.46 < $5.00; $ADV20 $327,434 < $75,000,000"
+SBCF,filters,"$ADV20 $24,689,717 < $75,000,000"
+SBFG,filters,"$ADV20 $287,019 < $75,000,000"
+SBGI,filters,"$ADV20 $5,839,561 < $75,000,000"
+SBH,filters,"$ADV20 $24,134,162 < $75,000,000"
+SBRA,filters,"$ADV20 $45,785,678 < $75,000,000"
+SBSI,filters,"$ADV20 $3,506,733 < $75,000,000"
+SBUX,signal,chop_threshold_not_met
+SCHL,filters,"$ADV20 $15,229,501 < $75,000,000"
+SCHW,scoring,score_below_min
+SCL,filters,"$ADV20 $8,832,138 < $75,000,000"
+SCSC,filters,"$ADV20 $8,430,373 < $75,000,000"
+SCVL,filters,"$ADV20 $14,071,570 < $75,000,000"
+SD,filters,"$ADV20 $4,236,230 < $75,000,000"
+SDGR,filters,"$ADV20 $16,040,239 < $75,000,000"
+SDRL,filters,"$ADV20 $27,451,534 < $75,000,000"
+SEAT,filters,"$ADV20 $848,834 < $75,000,000"
+SEG,filters,"$ADV20 $1,370,944 < $75,000,000"
+SEI,scoring,score_below_min
+SEM,filters,"$ADV20 $13,779,447 < $75,000,000"
+SEMR,filters,"$ADV20 $25,715,599 < $75,000,000"
+SENEA,filters,"$ADV20 $7,766,544 < $75,000,000"
+SEPN,filters,"$ADV20 $8,175,757 < $75,000,000"
+SERV,scoring,score_below_min
+SEVN,filters,"$ADV20 $1,260,505 < $75,000,000"
+SEZL,filters,"$ADV20 $53,937,497 < $75,000,000"
+SFBC,filters,"$ADV20 $272,223 < $75,000,000"
+SFBS,filters,"$ADV20 $21,414,115 < $75,000,000"
+SFIX,filters,"$ADV20 $10,800,609 < $75,000,000"
+SFL,filters,"$ADV20 $9,697,515 < $75,000,000"
+SFNC,filters,"$ADV20 $18,171,758 < $75,000,000"
+SFST,filters,"$ADV20 $2,950,205 < $75,000,000"
+SG,filters,"$ADV20 $31,884,448 < $75,000,000"
+SGC,filters,"$ADV20 $449,020 < $75,000,000"
+SGHC,filters,"$ADV20 $22,194,947 < $75,000,000"
+SGHT,filters,"$ADV20 $2,745,630 < $75,000,000"
+SGRY,filters,"$ADV20 $23,222,373 < $75,000,000"
+SHAK,scoring,score_below_min
+SHBI,filters,"$ADV20 $3,126,623 < $75,000,000"
+SHEN,filters,"$ADV20 $3,796,651 < $75,000,000"
+SHLS,filters,"$ADV20 $29,699,461 < $75,000,000"
+SHO,filters,"$ADV20 $15,475,860 < $75,000,000"
+SHOO,filters,"$ADV20 $40,032,978 < $75,000,000"
+SHW,scoring,score_below_min
+SI,filters,"$ADV20 $787,694 < $75,000,000"
+SIBN,filters,"$ADV20 $10,560,173 < $75,000,000"
+SIEB,filters,"Price $3.10 < $5.00; $ADV20 $78,648 < $75,000,000"
+SIG,filters,"$ADV20 $69,520,820 < $75,000,000"
+SIGA,filters,"$ADV20 $2,220,220 < $75,000,000"
+SIGI,filters,"$ADV20 $36,123,504 < $75,000,000"
+SILA,filters,"$ADV20 $9,938,698 < $75,000,000"
+SION,filters,"$ADV20 $14,923,967 < $75,000,000"
+SITC,filters,"$ADV20 $11,913,834 < $75,000,000"
+SITM,scoring,score_below_min
+SJM,scoring,score_below_min
+SKIL,filters,"$ADV20 $2,781,253 < $75,000,000"
+SKIN,filters,"Price $1.53 < $5.00; $ADV20 $570,845 < $75,000,000"
+SKT,filters,"$ADV20 $33,230,830 < $75,000,000"
+SKWD,filters,"$ADV20 $16,870,149 < $75,000,000"
+SKY,filters,"$ADV20 $57,366,118 < $75,000,000"
+SKYH,filters,"$ADV20 $1,014,200 < $75,000,000"
+SKYT,filters,"$ADV20 $49,485,796 < $75,000,000"
+SKYW,filters,"$ADV20 $28,114,226 < $75,000,000"
+SKYX,filters,"Price $2.18 < $5.00; $ADV20 $2,514,382 < $75,000,000"
+SLAB,filters,"$ADV20 $36,580,780 < $75,000,000"
+SLB,signal,chop_threshold_not_met
+SLDB,filters,"$ADV20 $5,535,783 < $75,000,000"
+SLDE,filters,"$ADV20 $26,064,233 < $75,000,000"
+SLDP,filters,"$ADV20 $27,331,785 < $75,000,000"
+SLG,filters,"$ADV20 $52,767,172 < $75,000,000"
+SLND,filters,"Price $3.36 < $5.00; $ADV20 $164,056 < $75,000,000"
+SLNH,filters,"Price $1.71 < $5.00; $ADV20 $8,385,692 < $75,000,000"
+SLNO,filters,"$ADV20 $71,701,145 < $75,000,000"
+SLP,filters,"$ADV20 $5,978,767 < $75,000,000"
+SLQT,filters,"Price $1.53 < $5.00; $ADV20 $1,698,673 < $75,000,000"
+SLS,filters,"Price $4.15 < $5.00; $ADV20 $50,765,125 < $75,000,000"
+SLSN,filters,"Price $1.52 < $5.00; $ADV20 $64,077 < $75,000,000"
+SLVM,filters,"$ADV20 $18,075,266 < $75,000,000"
+SM,filters,"$ADV20 $56,706,403 < $75,000,000"
+SMA,filters,"$ADV20 $24,999,490 < $75,000,000"
+SMBC,filters,"$ADV20 $2,940,538 < $75,000,000"
+SMBK,filters,"$ADV20 $3,240,989 < $75,000,000"
+SMC,filters,"$ADV20 $1,559,770 < $75,000,000"
+SMCI,scoring,score_below_min
+SMHI,filters,"$ADV20 $762,561 < $75,000,000"
+SMID,filters,"$ADV20 $297,925 < $75,000,000"
+SMLR,filters,"$ADV20 $10,167,522 < $75,000,000"
+SMP,filters,"$ADV20 $5,784,302 < $75,000,000"
+SMPL,filters,"$ADV20 $41,358,445 < $75,000,000"
+SMR,scoring,score_below_min
+SMTI,filters,"$ADV20 $925,508 < $75,000,000"
+SNA,signal,chop_threshold_not_met
+SNAP,scoring,score_below_min
+SNBR,filters,"$ADV20 $5,561,976 < $75,000,000; 5d return 33.7% > 15.0% (avoiding chased names)"
+SNCR,filters,"$ADV20 $1,318,288 < $75,000,000"
+SNCY,filters,"$ADV20 $22,676,920 < $75,000,000"
+SNDA,filters,"$ADV20 $1,172,110 < $75,000,000"
+SNDK,signal,chop_threshold_not_met
+SNDX,filters,"$ADV20 $27,940,016 < $75,000,000"
+SNEX,filters,"$ADV20 $28,307,909 < $75,000,000"
+SNFCA,filters,"$ADV20 $351,526 < $75,000,000"
+SNOW,scoring,score_below_min
+SNPS,signal,chop_threshold_not_met
+SNWV,filters,"$ADV20 $1,571,662 < $75,000,000"
+SO,scoring,score_below_min
+SOC,scoring,score_below_min
+SOFI,scoring,score_below_min
+SOLV,scoring,score_below_min
+SONO,filters,"$ADV20 $24,785,363 < $75,000,000"
+SOUN,scoring,score_below_min
+SPB,filters,"$ADV20 $17,981,507 < $75,000,000"
+SPFI,filters,"$ADV20 $2,602,816 < $75,000,000"
+SPG,scoring,score_below_min
+SPGI,scoring,score_below_min
+SPHR,filters,"$ADV20 $73,408,363 < $75,000,000"
+SPIR,filters,"$ADV20 $8,230,993 < $75,000,000"
+SPNT,filters,"$ADV20 $16,322,259 < $75,000,000"
+SPOK,filters,"$ADV20 $2,187,605 < $75,000,000"
+SPRY,filters,"$ADV20 $20,891,753 < $75,000,000"
+SPSC,filters,"$ADV20 $49,141,389 < $75,000,000"
+SPT,filters,"$ADV20 $10,643,400 < $75,000,000"
+SPWR,filters,"Price $1.57 < $5.00; $ADV20 $1,993,417 < $75,000,000"
+SPXC,scoring,score_below_min
+SR,filters,"$ADV20 $34,401,718 < $75,000,000"
+SRBK,filters,"$ADV20 $669,277 < $75,000,000"
+SRCE,filters,"$ADV20 $6,009,792 < $75,000,000"
+SRE,signal,chop_threshold_not_met
+SRRK,filters,"$ADV20 $46,481,249 < $75,000,000"
+SRTA,filters,"$ADV20 $4,592,285 < $75,000,000"
+SSP,filters,"Price $3.66 < $5.00; $ADV20 $3,032,841 < $75,000,000"
+SSRM,filters,"$ADV20 $60,588,402 < $75,000,000"
+SSTI,filters,"$ADV20 $1,437,139 < $75,000,000"
+SSTK,filters,"$ADV20 $4,349,729 < $75,000,000"
+STAA,filters,"$ADV20 $39,470,604 < $75,000,000"
+STBA,filters,"$ADV20 $7,407,448 < $75,000,000"
+STC,filters,"$ADV20 $18,008,514 < $75,000,000"
+STE,signal,chop_threshold_not_met
+STEL,filters,"$ADV20 $8,306,441 < $75,000,000"
+STEP,filters,"$ADV20 $46,415,586 < $75,000,000"
+STGW,filters,"$ADV20 $7,568,967 < $75,000,000"
+STIM,filters,"Price $1.80 < $5.00; $ADV20 $2,549,253 < $75,000,000"
+STKL,filters,"Price $4.49 < $5.00; $ADV20 $3,853,675 < $75,000,000; 5d return 22.0% > 15.0% (avoiding chased names)"
+STLD,scoring,score_below_min
+STNE,filters,"$ADV20 $70,294,331 < $75,000,000"
+STNG,filters,"$ADV20 $57,103,641 < $75,000,000; 5d return 16.2% > 15.0% (avoiding chased names)"
+STOK,filters,"$ADV20 $27,429,060 < $75,000,000"
+STRA,filters,"$ADV20 $17,724,584 < $75,000,000"
+STRL,scoring,score_below_min
+STRS,filters,"$ADV20 $346,778 < $75,000,000"
+STRT,filters,"$ADV20 $4,244,243 < $75,000,000"
+STRW,filters,"$ADV20 $390,096 < $75,000,000"
+STRZ,filters,"$ADV20 $1,358,860 < $75,000,000"
+STX,signal,chop_threshold_not_met
+STXS,filters,"Price $2.68 < $5.00; $ADV20 $1,472,892 < $75,000,000"
+STZ,scoring,score_below_min
+SUNS,filters,"$ADV20 $1,212,456 < $75,000,000"
+SUPN,filters,"$ADV20 $31,970,110 < $75,000,000"
+SVC,filters,"Price $2.13 < $5.00; $ADV20 $2,363,326 < $75,000,000"
+SVCO,filters,"Price $4.41 < $5.00; $ADV20 $733,965 < $75,000,000"
+SVRA,filters,"$ADV20 $17,906,028 < $75,000,000"
+SVV,filters,"$ADV20 $7,914,365 < $75,000,000"
+SW,scoring,score_below_min
+SWBI,filters,"$ADV20 $5,806,241 < $75,000,000"
+SWIM,filters,"$ADV20 $5,146,117 < $75,000,000"
+SWK,scoring,score_below_min
+SWKH,filters,"$ADV20 $201,716 < $75,000,000"
+SWKS,scoring,score_below_min
+SWX,filters,"$ADV20 $33,035,699 < $75,000,000"
+SXC,filters,"$ADV20 $9,078,025 < $75,000,000"
+SXI,filters,"$ADV20 $30,799,913 < $75,000,000"
+SXT,filters,"$ADV20 $23,418,593 < $75,000,000"
+SYBT,filters,"$ADV20 $9,619,653 < $75,000,000"
+SYF,scoring,score_below_min
+SYK,scoring,score_below_min
+SYNA,filters,"$ADV20 $42,736,765 < $75,000,000"
+SYRE,filters,"$ADV20 $25,026,930 < $75,000,000"
+SYY,scoring,score_below_min
+T,scoring,score_below_min
+TALK,filters,"Price $3.98 < $5.00; $ADV20 $5,054,319 < $75,000,000"
+TALO,filters,"$ADV20 $19,724,256 < $75,000,000"
+TAP,scoring,score_below_min
+TARA,filters,"Price $4.92 < $5.00; $ADV20 $4,597,394 < $75,000,000"
+TARS,filters,"$ADV20 $56,925,290 < $75,000,000"
+TBBK,filters,"$ADV20 $45,091,518 < $75,000,000"
+TBCH,filters,"$ADV20 $2,948,333 < $75,000,000"
+TBI,filters,"$ADV20 $1,072,643 < $75,000,000"
+TBPH,filters,"$ADV20 $8,988,854 < $75,000,000"
+TBRG,filters,"$ADV20 $1,712,474 < $75,000,000"
+TCBI,filters,"$ADV20 $37,842,878 < $75,000,000"
+TCBK,filters,"$ADV20 $6,086,495 < $75,000,000"
+TCBX,filters,"$ADV20 $2,615,360 < $75,000,000"
+TCI,filters,"$ADV20 $180,590 < $75,000,000"
+TCMD,filters,"$ADV20 $9,925,731 < $75,000,000"
+TCX,filters,"$ADV20 $514,071 < $75,000,000"
+TDAY,filters,"$ADV20 $6,708,207 < $75,000,000"
+TDG,scoring,score_below_min
+TDOC,filters,"$ADV20 $32,908,004 < $75,000,000"
+TDS,filters,"$ADV20 $45,481,113 < $75,000,000"
+TDUP,filters,"$ADV20 $11,831,853 < $75,000,000"
+TDW,filters,"$ADV20 $34,840,909 < $75,000,000"
+TDY,scoring,score_below_min
+TE,scoring,score_below_min
+TEAD,filters,"Price $0.64 < $5.00; $ADV20 $420,090 < $75,000,000"
+TECH,scoring,score_below_min
+TECX,filters,"$ADV20 $6,421,032 < $75,000,000"
+TEL,scoring,score_below_min
+TENB,filters,"$ADV20 $39,111,619 < $75,000,000"
+TER,signal,chop_threshold_not_met
+TERN,scoring,score_below_min
+TEX,filters,"$ADV20 $66,019,176 < $75,000,000"
+TFC,scoring,score_below_min
+TFIN,filters,"$ADV20 $16,434,728 < $75,000,000"
+TG,filters,"$ADV20 $1,072,218 < $75,000,000"
+TGLS,filters,"$ADV20 $18,070,059 < $75,000,000"
+TGNA,filters,"$ADV20 $20,006,662 < $75,000,000"
+TGT,scoring,score_below_min
+TGTX,filters,"$ADV20 $55,747,965 < $75,000,000"
+TH,filters,"$ADV20 $2,234,223 < $75,000,000"
+THFF,filters,"$ADV20 $3,428,278 < $75,000,000"
+THR,filters,"$ADV20 $8,997,704 < $75,000,000"
+THRM,filters,"$ADV20 $6,425,692 < $75,000,000"
+THRY,filters,"$ADV20 $6,391,268 < $75,000,000"
+THS,filters,"$ADV20 $15,942,694 < $75,000,000"
+TIC,filters,"$ADV20 $22,974,789 < $75,000,000"
+TILE,filters,"$ADV20 $9,122,777 < $75,000,000"
+TIPT,filters,"$ADV20 $4,008,229 < $75,000,000"
+TITN,filters,"$ADV20 $2,774,319 < $75,000,000"
+TK,filters,"$ADV20 $4,927,314 < $75,000,000"
+TKNO,filters,"Price $4.12 < $5.00; $ADV20 $828,743 < $75,000,000"
+TKO,scoring,score_below_min
+TLS,filters,"$ADV20 $4,873,022 < $75,000,000"
+TLSI,filters,"$ADV20 $1,332,182 < $75,000,000"
+TMCI,filters,"Price $2.71 < $5.00; $ADV20 $2,432,386 < $75,000,000"
+TMDX,signal,chop_threshold_not_met
+TMHC,filters,"$ADV20 $61,711,100 < $75,000,000"
+TMO,signal,chop_threshold_not_met
+TMP,filters,"$ADV20 $4,429,401 < $75,000,000"
+TMUS,scoring,score_below_min
+TNC,filters,"$ADV20 $11,172,191 < $75,000,000"
+TNDM,filters,"$ADV20 $30,245,420 < $75,000,000"
+TNET,filters,"$ADV20 $23,247,964 < $75,000,000"
+TNGX,filters,"$ADV20 $30,551,242 < $75,000,000"
+TNK,filters,"$ADV20 $22,187,774 < $75,000,000"
+TNXP,filters,"$ADV20 $7,701,475 < $75,000,000"
+TOI,filters,"Price $3.53 < $5.00; $ADV20 $6,481,685 < $75,000,000"
+TOWN,filters,"$ADV20 $12,903,233 < $75,000,000"
+TPB,filters,"$ADV20 $46,618,742 < $75,000,000"
+TPC,filters,"$ADV20 $30,780,699 < $75,000,000"
+TPH,filters,"$ADV20 $32,643,734 < $75,000,000"
+TPL,signal,chop_threshold_not_met
+TPR,signal,chop_threshold_not_met
+TR,filters,"$ADV20 $4,537,064 < $75,000,000"
+TRAK,filters,"$ADV20 $1,313,363 < $75,000,000"
+TRC,filters,"$ADV20 $1,816,798 < $75,000,000"
+TRDA,filters,"$ADV20 $1,967,853 < $75,000,000"
+TREE,filters,"$ADV20 $10,444,912 < $75,000,000; 5d return 15.2% > 15.0% (avoiding chased names)"
+TRGP,scoring,score_below_min
+TRIP,filters,"$ADV20 $32,518,941 < $75,000,000"
+TRMB,scoring,score_below_min
+TRMK,filters,"$ADV20 $12,068,595 < $75,000,000"
+TRN,filters,"$ADV20 $18,902,266 < $75,000,000"
+TRNO,filters,"$ADV20 $39,469,135 < $75,000,000"
+TRNS,filters,"$ADV20 $6,716,896 < $75,000,000"
+TROW,scoring,score_below_min
+TROX,filters,"$ADV20 $17,499,302 < $75,000,000"
+TRS,filters,"$ADV20 $17,437,176 < $75,000,000"
+TRST,filters,"$ADV20 $4,828,069 < $75,000,000"
+TRTX,filters,"$ADV20 $8,093,734 < $75,000,000"
+TRUE,filters,"Price $2.09 < $5.00; $ADV20 $2,128,794 < $75,000,000"
+TRUP,filters,"$ADV20 $12,970,398 < $75,000,000"
+TRV,scoring,score_below_min
+TRVI,filters,"$ADV20 $18,763,585 < $75,000,000"
+TSBK,filters,"$ADV20 $582,833 < $75,000,000"
+TSCO,scoring,score_below_min
+TSE,filters,"Price $0.59 < $5.00; $ADV20 $1,005,521 < $75,000,000"
+TSHA,filters,"Price $4.90 < $5.00; $ADV20 $17,573,191 < $75,000,000"
+TSLA,scoring,score_below_min
+TSN,scoring,score_below_min
+TSSI,filters,"$ADV20 $8,466,938 < $75,000,000"
+TT,scoring,score_below_min
+TTAM,filters,"$ADV20 $3,957,535 < $75,000,000"
+TTD,scoring,score_below_min
+TTEC,filters,"Price $3.22 < $5.00; $ADV20 $960,500 < $75,000,000"
+TTGT,filters,"$ADV20 $1,801,214 < $75,000,000"
+TTI,filters,"$ADV20 $18,202,310 < $75,000,000"
+TTMI,filters,5d return 32.3% > 15.0% (avoiding chased names)
+TTSH,filters,"Price $4.10 < $5.00; $ADV20 $3,916,876 < $75,000,000"
+TTWO,scoring,score_below_min
+TUSK,filters,"Price $2.19 < $5.00; $ADV20 $691,089 < $75,000,000"
+TVGN,filters,"Price $0.31 < $5.00; $ADV20 $250,252 < $75,000,000"
+TVRD,filters,"Price $4.56 < $5.00; $ADV20 $631,070 < $75,000,000; 5d return 16.0% > 15.0% (avoiding chased names)"
+TVTX,scoring,score_below_min
+TWI,filters,"$ADV20 $6,103,174 < $75,000,000"
+TWO,filters,"$ADV20 $55,353,431 < $75,000,000; 5d return 19.0% > 15.0% (avoiding chased names)"
+TWST,filters,"$ADV20 $42,899,612 < $75,000,000"
+TXG,filters,"$ADV20 $42,361,720 < $75,000,000"
+TXN,signal,chop_threshold_not_met
+TXNM,filters,"$ADV20 $48,092,287 < $75,000,000"
+TXT,signal,chop_threshold_not_met
+TYL,scoring,score_below_min
+TYRA,filters,"$ADV20 $15,649,695 < $75,000,000"
+TZOO,filters,"$ADV20 $920,633 < $75,000,000"
+UAL,scoring,score_below_min
+UAMY,scoring,score_below_min
+UBER,scoring,score_below_min
+UBFO,filters,"$ADV20 $574,377 < $75,000,000"
+UBSI,filters,"$ADV20 $37,126,755 < $75,000,000"
+UCB,filters,"$ADV20 $23,733,705 < $75,000,000"
+UCTT,filters,"$ADV20 $19,909,862 < $75,000,000; 5d return 18.4% > 15.0% (avoiding chased names)"
+UDMY,filters,"$ADV20 $25,533,350 < $75,000,000"
+UDR,scoring,score_below_min
+UE,filters,"$ADV20 $17,938,453 < $75,000,000"
+UEC,scoring,score_below_min
+UFCS,filters,"$ADV20 $4,389,448 < $75,000,000"
+UFPI,filters,"$ADV20 $38,886,158 < $75,000,000"
+UFPT,filters,"$ADV20 $37,446,095 < $75,000,000"
+UHS,scoring,score_below_min
+UHT,filters,"$ADV20 $3,400,221 < $75,000,000"
+UIS,filters,"Price $3.25 < $5.00; $ADV20 $1,991,530 < $75,000,000"
+ULCC,filters,"$ADV20 $17,482,775 < $75,000,000"
+ULH,filters,"$ADV20 $741,462 < $75,000,000"
+ULTA,scoring,score_below_min
+UMBF,filters,"$ADV20 $56,861,131 < $75,000,000"
+UMH,filters,"$ADV20 $9,005,477 < $75,000,000"
+UNB,filters,"$ADV20 $412,377 < $75,000,000"
+UNF,filters,"$ADV20 $54,172,143 < $75,000,000"
+UNFI,filters,"$ADV20 $30,836,733 < $75,000,000"
+UNH,scoring,score_below_min
+UNIT,filters,"$ADV20 $19,714,011 < $75,000,000"
+UNP,scoring,score_below_min
+UNTY,filters,"$ADV20 $2,510,841 < $75,000,000"
+UPB,filters,"$ADV20 $19,062,539 < $75,000,000; 5d return 26.0% > 15.0% (avoiding chased names)"
+UPBD,filters,"$ADV20 $14,280,138 < $75,000,000"
+UPS,scoring,score_below_min
+UPST,scoring,score_below_min
+UPWK,filters,"$ADV20 $47,468,360 < $75,000,000"
+URBN,scoring,score_below_min
+URGN,filters,"$ADV20 $16,004,773 < $75,000,000"
+URI,scoring,score_below_min
+USAR,scoring,score_below_min
+USAU,filters,"$ADV20 $8,051,430 < $75,000,000"
+USB,scoring,score_below_min
+USCB,filters,"$ADV20 $731,084 < $75,000,000"
+USD,filters,"$ADV20 $34,091,370 < $75,000,000"
+USLM,filters,"$ADV20 $11,104,807 < $75,000,000"
+USNA,filters,"$ADV20 $2,661,969 < $75,000,000"
+USPH,filters,"$ADV20 $15,458,236 < $75,000,000"
+UTI,filters,"$ADV20 $16,797,676 < $75,000,000"
+UTL,filters,"$ADV20 $5,541,388 < $75,000,000"
+UTMD,filters,"$ADV20 $827,094 < $75,000,000"
+UTZ,filters,"$ADV20 $15,773,613 < $75,000,000"
+UUUU,scoring,score_below_min
+UVE,filters,"$ADV20 $6,866,230 < $75,000,000"
+UVSP,filters,"$ADV20 $6,011,944 < $75,000,000"
+UVV,filters,"$ADV20 $9,476,443 < $75,000,000"
+V,scoring,score_below_min
+VABK,filters,"$ADV20 $300,402 < $75,000,000"
+VAC,filters,"$ADV20 $44,454,168 < $75,000,000"
+VAL,filters,"$ADV20 $51,900,593 < $75,000,000"
+VALU,filters,"$ADV20 $128,602 < $75,000,000"
+VC,filters,"$ADV20 $42,159,958 < $75,000,000"
+VCEL,filters,"$ADV20 $22,488,015 < $75,000,000"
+VCTR,filters,"$ADV20 $19,263,495 < $75,000,000"
+VCYT,filters,"$ADV20 $29,092,243 < $75,000,000"
+VECO,filters,"$ADV20 $17,641,498 < $75,000,000"
+VEL,filters,"$ADV20 $2,377,278 < $75,000,000"
+VERA,filters,"$ADV20 $63,761,881 < $75,000,000"
+VERX,filters,"$ADV20 $22,202,992 < $75,000,000"
+VGAS,filters,"Price $2.03 < $5.00; $ADV20 $32,947 < $75,000,000"
+VHI,filters,"$ADV20 $249,095 < $75,000,000"
+VIA,filters,"$ADV20 $22,252,241 < $75,000,000"
+VIAV,filters,"$ADV20 $55,316,297 < $75,000,000"
+VICI,scoring,score_below_min
+VICR,scoring,score_below_min
+VIR,filters,"$ADV20 $10,857,460 < $75,000,000"
+VIRC,filters,"$ADV20 $343,978 < $75,000,000"
+VITL,filters,"$ADV20 $46,832,545 < $75,000,000"
+VLGEA,filters,"$ADV20 $1,552,677 < $75,000,000"
+VLO,signal,chop_threshold_not_met
+VLTO,scoring,score_below_min
+VLY,filters,"$ADV20 $68,754,141 < $75,000,000"
+VMC,signal,chop_threshold_not_met
+VMD,filters,"$ADV20 $1,044,222 < $75,000,000"
+VNDA,filters,"$ADV20 $24,154,140 < $75,000,000"
+VOXR,filters,"Price $4.89 < $5.00; $ADV20 $3,346,218 < $75,000,000"
+VOYG,filters,"$ADV20 $48,450,123 < $75,000,000"
+VPG,filters,"$ADV20 $5,740,885 < $75,000,000"
+VRDN,filters,"$ADV20 $50,182,792 < $75,000,000"
+VRE,filters,"$ADV20 $9,476,593 < $75,000,000"
+VREX,filters,"$ADV20 $3,589,547 < $75,000,000"
+VRM,filters,"$ADV20 $70,674 < $75,000,000"
+VRNS,filters,"$ADV20 $71,103,592 < $75,000,000"
+VRRM,filters,"$ADV20 $27,625,268 < $75,000,000"
+VRSK,scoring,score_below_min
+VRSN,scoring,score_below_min
+VRT,signal,chop_threshold_not_met
+VRTS,filters,"$ADV20 $12,402,110 < $75,000,000"
+VRTX,scoring,score_below_min
+VSAT,filters,"$ADV20 $63,161,927 < $75,000,000"
+VSCO,signal,chop_threshold_not_met
+VSEC,filters,"$ADV20 $55,399,748 < $75,000,000"
+VSH,filters,"$ADV20 $18,277,659 < $75,000,000"
+VST,signal,chop_threshold_not_met
+VSTM,filters,"$ADV20 $16,101,947 < $75,000,000"
+VSTS,filters,"$ADV20 $17,286,295 < $75,000,000"
+VTEX,filters,"Price $3.65 < $5.00; $ADV20 $2,819,576 < $75,000,000"
+VTOL,filters,"$ADV20 $5,913,895 < $75,000,000"
+VTR,scoring,score_below_min
+VTRS,signal,chop_threshold_not_met
+VTS,filters,"$ADV20 $8,441,060 < $75,000,000"
+VUZI,filters,"Price $3.42 < $5.00; $ADV20 $11,001,792 < $75,000,000"
+VVX,filters,"$ADV20 $22,158,404 < $75,000,000"
+VYGR,filters,"Price $4.02 < $5.00; $ADV20 $1,744,526 < $75,000,000"
+VYX,filters,"$ADV20 $18,471,992 < $75,000,000"
+VZ,scoring,score_below_min
+WAB,signal,chop_threshold_not_met
+WABC,filters,"$ADV20 $7,073,397 < $75,000,000"
+WAFD,filters,"$ADV20 $18,252,009 < $75,000,000"
+WALD,filters,"Price $1.62 < $5.00; $ADV20 $132,042 < $75,000,000"
+WASH,filters,"$ADV20 $3,526,976 < $75,000,000"
+WAT,signal,chop_threshold_not_met
+WAY,filters,"$ADV20 $57,854,212 < $75,000,000"
+WBTN,filters,"$ADV20 $4,043,314 < $75,000,000"
+WD,filters,"$ADV20 $17,206,880 < $75,000,000"
+WDAY,scoring,score_below_min
+WDC,signal,chop_threshold_not_met
+WDFC,filters,"$ADV20 $38,858,342 < $75,000,000"
+WEAV,filters,"$ADV20 $8,982,170 < $75,000,000"
+WEC,scoring,score_below_min
+WELL,scoring,score_below_min
+WERN,filters,"$ADV20 $26,064,584 < $75,000,000"
+WEST,filters,"Price $4.41 < $5.00; $ADV20 $1,912,050 < $75,000,000; 5d return 17.9% > 15.0% (avoiding chased names)"
+WEYS,filters,"$ADV20 $402,140 < $75,000,000"
+WFC,scoring,score_below_min
+WGO,filters,"$ADV20 $32,933,851 < $75,000,000"
+WGS,filters,"$ADV20 $64,331,535 < $75,000,000"
+WHD,filters,"$ADV20 $35,522,211 < $75,000,000"
+WHG,filters,"$ADV20 $302,079 < $75,000,000"
+WINA,filters,"$ADV20 $38,021,634 < $75,000,000"
+WK,filters,"$ADV20 $59,620,346 < $75,000,000"
+WKC,filters,"$ADV20 $28,827,874 < $75,000,000"
+WLDN,filters,"$ADV20 $31,034,918 < $75,000,000"
+WLFC,filters,"$ADV20 $7,496,343 < $75,000,000"
+WLY,filters,"$ADV20 $17,515,636 < $75,000,000"
+WM,scoring,score_below_min
+WMB,signal,chop_threshold_not_met
+WMK,filters,"$ADV20 $9,190,374 < $75,000,000"
+WMT,signal,chop_threshold_not_met
+WNC,filters,"$ADV20 $4,885,539 < $75,000,000"
+WNEB,filters,"$ADV20 $605,695 < $75,000,000"
+WOOF,filters,"Price $3.08 < $5.00; $ADV20 $5,706,034 < $75,000,000"
+WOR,filters,"$ADV20 $12,750,177 < $75,000,000"
+WRB,scoring,score_below_min
+WRBY,scoring,score_below_min
+WRLD,filters,"$ADV20 $15,003,484 < $75,000,000"
+WS,filters,"$ADV20 $10,133,283 < $75,000,000"
+WSBC,filters,"$ADV20 $16,295,992 < $75,000,000"
+WSBF,filters,"$ADV20 $920,484 < $75,000,000"
+WSFS,filters,"$ADV20 $22,747,718 < $75,000,000"
+WSM,signal,chop_threshold_not_met
+WSR,filters,"$ADV20 $2,943,924 < $75,000,000"
+WST,scoring,score_below_min
+WT,filters,"$ADV20 $43,483,321 < $75,000,000"
+WTBA,filters,"$ADV20 $774,118 < $75,000,000"
+WTI,filters,"Price $1.87 < $5.00; $ADV20 $2,474,220 < $75,000,000; 5d return 21.4% > 15.0% (avoiding chased names)"
+WTS,filters,"$ADV20 $50,171,317 < $75,000,000"
+WTTR,filters,"$ADV20 $7,849,199 < $75,000,000"
+WTW,scoring,score_below_min
+WULF,signal,chop_threshold_not_met
+WVE,filters,"$ADV20 $68,069,441 < $75,000,000"
+WWW,filters,"$ADV20 $32,259,028 < $75,000,000"
+WY,scoring,score_below_min
+WYFI,filters,"$ADV20 $18,771,310 < $75,000,000"
+WYNN,scoring,score_below_min
+XEL,scoring,score_below_min
+XENE,filters,"$ADV20 $42,065,519 < $75,000,000"
+XERS,filters,"$ADV20 $18,747,713 < $75,000,000"
+XHR,filters,"$ADV20 $14,641,065 < $75,000,000"
+XMTR,filters,"$ADV20 $44,936,482 < $75,000,000"
+XNCR,filters,"$ADV20 $12,802,456 < $75,000,000"
+XOM,signal,chop_threshold_not_met
+XOMA,filters,"$ADV20 $12,353,925 < $75,000,000"
+XPEL,filters,"$ADV20 $10,887,934 < $75,000,000"
+XPER,filters,"$ADV20 $2,307,422 < $75,000,000"
+XPOF,filters,"$ADV20 $3,784,045 < $75,000,000"
+XPRO,filters,"$ADV20 $16,358,220 < $75,000,000"
+XRX,filters,"Price $2.46 < $5.00; $ADV20 $8,349,982 < $75,000,000"
+XYL,scoring,score_below_min
+XYZ,scoring,score_below_min
+YELP,filters,"$ADV20 $27,529,457 < $75,000,000"
+YEXT,filters,"$ADV20 $6,783,606 < $75,000,000"
+YORW,filters,"$ADV20 $2,535,243 < $75,000,000"
+YOU,filters,"$ADV20 $49,420,004 < $75,000,000"
+YUM,scoring,score_below_min
+ZBH,scoring,score_below_min
+ZBIO,filters,"$ADV20 $25,100,511 < $75,000,000; 5d return 41.9% > 15.0% (avoiding chased names)"
+ZBRA,signal,chop_threshold_not_met
+ZD,filters,"$ADV20 $19,254,545 < $75,000,000"
+ZETA,scoring,score_below_min
+ZEUS,filters,"$ADV20 $4,075,790 < $75,000,000"
+ZGN,filters,"$ADV20 $5,307,890 < $75,000,000"
+ZIP,filters,"Price $3.08 < $5.00; $ADV20 $4,520,030 < $75,000,000"
+ZSPC,filters,"Price $0.49 < $5.00; $ADV20 $348,551 < $75,000,000"
+ZTS,scoring,score_below_min
+ZUMZ,filters,"$ADV20 $6,830,174 < $75,000,000"
+ZVIA,filters,"Price $1.74 < $5.00; $ADV20 $2,773,552 < $75,000,000"
+ZVRA,filters,"$ADV20 $8,139,467 < $75,000,000"
+ZWS,filters,"$ADV20 $40,040,783 < $75,000,000"
+ZYME,filters,"$ADV20 $22,071,953 < $75,000,000"

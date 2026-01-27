@@ -1,0 +1,2827 @@
+{
+  "run_timestamp_utc": "2026-01-13T05:25:22.783700Z",
+  "method_version": "v3.0",
+  "universe_note": "Universe: 2500 tickers",
+  "packets": [
+    {
+      "ticker": "NUVL",
+      "name": "Nuvalent, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Healthcare",
+      "current_price": 108.01000213623047,
+      "market_cap_usd": 7700489728,
+      "avg_dollar_volume_20d": 77546438.77819061,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 10.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": true,
+        "dist_to_52w_high_pct": 4.31,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 1.89,
+        "rsi14": 60.04,
+        "above_ma10_ma20_ma50": true,
+        "ma10": 99.81,
+        "ma20": 98.14,
+        "ma50": 90.2,
+        "realized_vol_5d_ann_pct": 89.54
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "3 Biotech Stocks With Major 2026 Catalysts",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-29"
+        },
+        {
+          "title": "Nuvalent (NUVL): Assessing an Expensive-Looking Valuation After a Strong Multi-Year Share Price Run",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-24"
+        },
+        {
+          "title": "Nuvalent, Inc. (NUVL) is a Buy On lung Cancer Treatment Prospects",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-09"
+        },
+        {
+          "title": "Does Nuvalent’s Recent Trial Success Justify the Stock’s 36% 2025 Rally?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-11-27"
+        },
+        {
+          "title": "Biotech Stock Gets Booted in Latest Fund Update",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-11-19"
+        },
+        {
+          "title": "Nuvalent aiming for approval on pivotal trial data for NSCLC candidate",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-11-18"
+        },
+        {
+          "title": "Nuvalent Tops A Profit-Taking Zone On Its 'Unprecedented' Test Results In Lung Cancer",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-11-17"
+        },
+        {
+          "title": "Nuvalent Says Neladalkib Offers Clinical Benefit in Phase 1/2 ALK-Positive Lung Cancer Trial",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-11-17"
+        },
+        {
+          "title": "Nuvalent (NUVL): A Closer Look at Valuation as New ALK Inhibitor Data Presentation Approaches",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-11-15"
+        },
+        {
+          "title": "Carvana initiated, AT upgraded: Wall Street's top analyst calls",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-11-12"
+        }
+      ],
+      "dilution_flag": 1,
+      "catalyst_tags": "fda,regulatory,upgrade",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    },
+    {
+      "ticker": "WMT",
+      "name": "Walmart Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Consumer Defensive",
+      "current_price": 107.11000061035156,
+      "market_cap_usd": 940557271040,
+      "avg_dollar_volume_20d": 1783326535.9657288,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 8.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": true,
+        "dist_to_52w_high_pct": 2.25,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 1.74,
+        "rsi14": 70.49,
+        "above_ma10_ma20_ma50": true,
+        "ma10": 102.9,
+        "ma20": 102.78,
+        "ma50": 103.5,
+        "realized_vol_5d_ann_pct": 50.61
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "S&P 500, Dow hit closing record highs; Walmart, tech climb",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Dow Jones Futures: Nvidia, Tesla, Walmart Are Key Movers; CPI Inflation Report Next",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Stock Market Today, Jan. 12: Walmart Jumps on Nasdaq 100 Inclusion",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Stock Market Today: Dow, S&P 500 Close At Highs; Alphabet Hits $4 Trillion Mark (Live Coverage)",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "These Stocks Are Today’s Movers: Capital One, Amex, Citigroup, JPMorgan, Walmart, Moderna, Affirm, and More",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "S&P 500, Dow Clinch New Peaks as Traders Shrug Off Fed Independence Concerns",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Walmart Stock Is Rising. It’s Not Just a Google AI Deal Giving It a Boost.",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Alibaba stock surges amid probe, Citi to cut 1,000 jobs",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Walmart Partners With Alphabet Unit, Expands Drone Deliveries",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Sector Update: Consumer Stocks Rise Late Afternoon",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "merger,product,regulatory",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    },
+    {
+      "ticker": "GILD",
+      "name": "Gilead Sciences, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Healthcare",
+      "current_price": 124.98999786376953,
+      "market_cap_usd": 152122933248,
+      "avg_dollar_volume_20d": 881309045.9209061,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 8.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": true,
+        "dist_to_52w_high_pct": 2.88,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 1.16,
+        "rsi14": 60.43,
+        "above_ma10_ma20_ma50": true,
+        "ma10": 123.75,
+        "ma20": 122.23,
+        "ma50": 118.23,
+        "realized_vol_5d_ann_pct": 28.67
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "Gilead Sciences (GILD) Surpasses Market Returns: Some Facts Worth Knowing",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "UBS and Citi Go Bullish on Gilead Sciences (GILD)",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "The Bull Case For Gilead Sciences (GILD) Could Change Following New OncoNano Drug-Delivery Collaboration",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Is Gilead Sciences (GILD) Pricing Reflecting Recent 38.5% One Year Share Return?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-11"
+        },
+        {
+          "title": "Gilead price target raised to $154 from $144 at BofA",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-10"
+        },
+        {
+          "title": "J&J Strikes Drug Pricing Deal With Trump, Gets Tariff Reprieve",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-09"
+        },
+        {
+          "title": "J&J cuts MFN deal with the Trump administration, bolsters US onshoring efforts",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-09"
+        },
+        {
+          "title": "Assessing Gilead Sciences (GILD) Valuation After Recent Share Price Momentum",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-07"
+        },
+        {
+          "title": "Big Pharma Has More Going for It Than Obesity Drugs",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-06"
+        },
+        {
+          "title": "Gilead Sciences (GILD): Buy, Sell, or Hold Post Q3 Earnings?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-06"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "earnings,merger,product,upgrade",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    },
+    {
+      "ticker": "INDV",
+      "name": "Indivior PLC",
+      "exchange": "NASDAQ",
+      "sector": "Healthcare",
+      "current_price": 31.770000457763672,
+      "market_cap_usd": 4320844288,
+      "avg_dollar_volume_20d": 75315522.96377182,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 8.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": true,
+        "dist_to_52w_high_pct": 4.59,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 0.69,
+        "rsi14": 63.51,
+        "above_ma10_ma20_ma50": true,
+        "ma10": 31.17,
+        "ma20": 29.87,
+        "ma50": 26.18,
+        "realized_vol_5d_ann_pct": 36.0
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "PCRX Stock Down 10% as Preliminary Q4 Revenues Miss Estimates",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Take the Zacks Approach to Beat the Markets: Indivior, FIGS & Ulta Beauty in Focus",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Indivior PLC (INDV) Announces Full-Year 2026 Financial Guidance",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-10"
+        },
+        {
+          "title": "Indivior (NasdaqGS:INDV) Valuation Check After Strong Long Term Returns And Recent Price Consolidation",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-10"
+        },
+        {
+          "title": "AMRN Stock Up 17% as Preliminary Q4 Sales Beat Expectations",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-09"
+        },
+        {
+          "title": "GLUE Stock Up 45% on Positive Interim Data on Inflammation Drug",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-08"
+        },
+        {
+          "title": "4 Stocks Trading Near 52-Week High With Room to Rise Further",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-08"
+        },
+        {
+          "title": "Is Indivior (NasdaqGS:INDV) Still Attractive After A 192% One Year Share Price Jump",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-07"
+        },
+        {
+          "title": "FDA Grants Breakthrough Therapy Designation to ALKS' Narcolepsy Drug",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-07"
+        },
+        {
+          "title": "OTLK Stock Crashes 67% in a Week: Here's What You Need to Know",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-07"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "earnings,fda",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    },
+    {
+      "ticker": "KRYS",
+      "name": "Krystal Biotech, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Healthcare",
+      "current_price": 204.22500610351562,
+      "market_cap_usd": 7891095040,
+      "avg_dollar_volume_20d": 64516882.309036255,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 8.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": true,
+        "dist_to_52w_high_pct": 4.11,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 0.54,
+        "rsi14": 61.38,
+        "above_ma10_ma20_ma50": true,
+        "ma10": 203.22,
+        "ma20": 198.52,
+        "ma50": 184.93,
+        "realized_vol_5d_ann_pct": 24.53
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "KRYS Reports Preliminary Results for 2025, Outlines 2026 Objectives",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Credo Technology Group Holding And 2 Insider Picks For Strong Growth",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Krystal Biotech (KRYS) Is Up 5.9% After Positive KB407 CF Gene Therapy Data And FDA Study Filing",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-10"
+        },
+        {
+          "title": "Is Krystal Biotech (KRYS) Still Attractively Priced After Its Strong Multi Year Share Price Run",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-10"
+        },
+        {
+          "title": "Assessing Krystal Biotech (KRYS) Valuation After Positive KB407 Cystic Fibrosis Trial Update",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-10"
+        },
+        {
+          "title": "Recent Price Trend in Krystal Biotech (KRYS) is Your Friend, Here's Why",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-09"
+        },
+        {
+          "title": "Krystal Biotech Touts Positive KB407 CF Gene Therapy Data, Eyes Repeat Dosing and Registrational Path",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-09"
+        },
+        {
+          "title": "KRYS Stock Surges 57% in a Year: More Upside Potential in 2026?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-08"
+        },
+        {
+          "title": "Biotech Sector Poised for Growth Driven by Trial Data, Pharma Deals, BofA Says",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-06"
+        },
+        {
+          "title": "Exploring High Growth Tech Stocks In The US For December 2025",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-30"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "fda,merger,product,regulatory",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    },
+    {
+      "ticker": "DY",
+      "name": "Dycom Industries, Inc.",
+      "exchange": "NYSE",
+      "sector": "Industrials",
+      "current_price": 323.3699951171875,
+      "market_cap_usd": 10377913344,
+      "avg_dollar_volume_20d": 118479105.54412842,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 8.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": false,
+        "dist_to_52w_high_pct": 7.84,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 1.95,
+        "rsi14": 68.34,
+        "above_ma10_ma20_ma50": true,
+        "ma10": 297.87,
+        "ma20": 292.22,
+        "ma50": 286.73,
+        "realized_vol_5d_ann_pct": 65.65
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "KBR & Tecnicas Reunidas Win FEED Contract for Texas LNG Project",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Will Dycom's Pricing Discipline Drive Stronger Margins in FY27?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Best Growth Stocks to Buy for Jan. 12",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Robust Fiber and 5G Contract Backlog Might Change The Case For Investing In Dycom Industries (DY)",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-08"
+        },
+        {
+          "title": "3 Quality Compounders with Impressive Fundamentals",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-08"
+        },
+        {
+          "title": "Looking for a Growth Stock? 3 Reasons Why Dycom Industries (DY) is a Solid Choice",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-07"
+        },
+        {
+          "title": "Dycom Trades at a Premium: Should Investors Buy the Stock or Wait?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-07"
+        },
+        {
+          "title": "Dycom Industries (DY) is on the Move, Here's Why the Trend Could be Sustainable",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-07"
+        },
+        {
+          "title": "Jacobs' PA Acquisition Deepens Shift to High-Value Advisory",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-06"
+        },
+        {
+          "title": "KBR Secures Up to $350M USGS Technical Support Services Contract",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-06"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "fda,merger,product,regulatory",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    },
+    {
+      "ticker": "MDT",
+      "name": "Medtronic plc",
+      "exchange": "NYSE",
+      "sector": "Healthcare",
+      "current_price": 99.3499984741211,
+      "market_cap_usd": 124349620224,
+      "avg_dollar_volume_20d": 701654867.8911209,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 8.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": true,
+        "dist_to_52w_high_pct": 3.16,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 1.86,
+        "rsi14": 81.32,
+        "above_ma10_ma20_ma50": true,
+        "ma10": 96.48,
+        "ma20": 94.02,
+        "ma50": 94.9,
+        "realized_vol_5d_ann_pct": 36.52
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "Neogen's Q2 Earnings and Revenues Beat Estimates, Stock Climbs",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "How The Medtronic (MDT) Story Is Evolving After Q2 Results And Analyst Revisions",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-11"
+        },
+        {
+          "title": "Is Real‑World MiniMed 780G Data Altering The Investment Case For Medtronic (MDT)?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-11"
+        },
+        {
+          "title": "Aktis Oncology Jumps 27% After $318 Million Upsized IPO",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-09"
+        },
+        {
+          "title": "Prediction: 2 Healthcare Stocks That Will Be Worth More Than Pfizer by the End of 2026",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-09"
+        },
+        {
+          "title": "Can da Vinci 5 Expand Intuitive Surgical's TAM Beyond Core Surgeries?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-09"
+        },
+        {
+          "title": "MDT or ESLOY: Which Is the Better Value Stock Right Now?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-08"
+        },
+        {
+          "title": "ISRG Trading 4% Below All-Time High: Should You Buy the Stock Now?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-07"
+        },
+        {
+          "title": "Medtronic (MDT) Valuation Check After William Blair Upgrade And Key Hugo And Symplicity Spyral Milestones",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-07"
+        },
+        {
+          "title": "CoreWeave initiated, Shopify downgraded: Wall Street's top analyst calls",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-06"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "earnings,upgrade",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    },
+    {
+      "ticker": "GOOGL",
+      "name": "Alphabet Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Communication Services",
+      "current_price": 289.45001220703125,
+      "market_cap_usd": 4019528663040,
+      "avg_dollar_volume_20d": 11006755148.400879,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 8.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": false,
+        "dist_to_52w_high_pct": 5.54,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 1.53,
+        "rsi14": 55.86,
+        "above_ma10_ma20_ma50": true,
+        "ma10": 285.35,
+        "ma20": 280.89,
+        "ma50": 261.21,
+        "realized_vol_5d_ann_pct": 33.3
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "5 Unstoppable Stocks to Buy With $5,000 for 2026",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-13"
+        },
+        {
+          "title": "Trump Touts New Microsoft Data-Center Pledges After Local Backlash",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-13"
+        },
+        {
+          "title": "Did Toast’s New AI-Powered Retail Upgrades Just Shift Toast's (TOST) Investment Narrative?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-13"
+        },
+        {
+          "title": "Heard on the Street Recap: Central Bank Shot",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Stock Market Today, Jan. 12: Markets Dip on DOJ Powell Probe, Rebound With Alphabet",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Apple Investors Are Still Waiting for an AI Siri. A New Deal With Google Could Help It Deliver",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Forget LLMs: Buy these 3 AI \"Pick and Shovel\" Plays Instead",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Why Google's co-founders and Peter Thiel are exiting California",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Alphabet briefly surpassed $4T on news of Apple AI partnership",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Google's market cap hits $4 trillion, cementing its status as an AI trade champion",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "merger,product,upgrade",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    },
+    {
+      "ticker": "AXSM",
+      "name": "Axsome Therapeutics, Inc.",
+      "exchange": "NGM",
+      "sector": "Healthcare",
+      "current_price": 143.30999755859375,
+      "market_cap_usd": 8913963008,
+      "avg_dollar_volume_20d": 83498149.48554993,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 8.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": true,
+        "dist_to_52w_high_pct": 4.14,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 1.17,
+        "rsi14": 64.63,
+        "above_ma10_ma20_ma50": true,
+        "ma10": 141.66,
+        "ma20": 138.08,
+        "ma50": 127.91,
+        "realized_vol_5d_ann_pct": 39.03
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "Is Axsome Therapeutics (AXSM) Pricing Reflect Long Term Growth After Pipeline Milestones And 90% Rally",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-13"
+        },
+        {
+          "title": "HALO or AXSM: Which Is the Better Value Stock Right Now?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-09"
+        },
+        {
+          "title": "Biotech Is Heating Up—These 2 Red-Hot Stocks Stand Out",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-08"
+        },
+        {
+          "title": "2 Healthcare Stocks to Buy for 2026 and Beyond",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-08"
+        },
+        {
+          "title": "Why Axsome Therapeutics (AXSM) Is Up 17.5% After Dual FDA Boosts For AXS-05 And AXS-12 – And What's Next",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-05"
+        },
+        {
+          "title": "Axsome Therapeutics (AXSM): Reassessing Valuation After Key FDA Milestones for AXS-05 and AXS-12",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-05"
+        },
+        {
+          "title": "AXSM Up on FDA Priority Review to AXS-05 sNDA in Alzheimer's Agitation",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-02"
+        },
+        {
+          "title": "Axsome (AXSM) Stock Jumps 22.8%: Will It Continue to Soar?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-02"
+        },
+        {
+          "title": "US Equities Fall in Final 2025 Session; Indexes Still Post Solid Annual Gains",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-31"
+        },
+        {
+          "title": "US Equity Indexes Lower Amid Mixed Economic Data",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-31"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "fda",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    },
+    {
+      "ticker": "ROL",
+      "name": "Rollins, Inc.",
+      "exchange": "NYSE",
+      "sector": "Consumer Cyclical",
+      "current_price": 59.630001068115234,
+      "market_cap_usd": 29354995712,
+      "avg_dollar_volume_20d": 196028091.6329193,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 6.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": true,
+        "dist_to_52w_high_pct": 1.19,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 0.85,
+        "rsi14": 65.17,
+        "above_ma10_ma20_ma50": true,
+        "ma10": 58.56,
+        "ma20": 58.01,
+        "ma50": 57.3,
+        "realized_vol_5d_ann_pct": 11.2
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "Reasons Why You Should Retain Rollins Stock in Your Portfolio",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Is Rollins, Inc.'s (NYSE:ROL) Stock's Recent Performance A Reflection Of Its Financial Health?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-09"
+        },
+        {
+          "title": "1 Safe-and-Steady Stock to Target This Week and 2 We Ignore",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-02"
+        },
+        {
+          "title": "1 Unpopular Stock That Deserves a Second Chance and 2 We Question",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-30"
+        },
+        {
+          "title": "Top Research Reports for Apple, Cisco & IBM",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-29"
+        },
+        {
+          "title": "Has Rollins Recent Surge Left Limited Upside For Investors In 2025?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-19"
+        },
+        {
+          "title": "Spotify initiated, Airbnb upgraded: Wall Street's top analyst calls",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-17"
+        },
+        {
+          "title": "2 Cash-Producing Stocks Worth Investigating and 1 We Question",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-16"
+        },
+        {
+          "title": "Are Business Services Stocks Lagging  Paysign (PAYS) This Year?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-15"
+        },
+        {
+          "title": "Reasons Why Investors Should Bet on Rollins Stock Right Now",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-11"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "regulatory,upgrade",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    },
+    {
+      "ticker": "LQDA",
+      "name": "Liquidia Corporation",
+      "exchange": "NCM",
+      "sector": "Healthcare",
+      "current_price": 28.559999465942383,
+      "market_cap_usd": 3184034560,
+      "avg_dollar_volume_20d": 70469458.77329826,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 6.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": false,
+        "dist_to_52w_high_pct": 7.51,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 1.13,
+        "rsi14": 64.15,
+        "above_ma10_ma20_ma50": true,
+        "ma10": 28.12,
+        "ma20": 26.23,
+        "ma50": 24.53,
+        "realized_vol_5d_ann_pct": 65.21
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "A Look At Liquidia (LQDA) Valuation After Strong YUTREPIA Sales And Cash Flow Update",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-11"
+        },
+        {
+          "title": "Why Liquidia (LQDA) Is Up 14.2% After YUTREPIA’s Cash-Generating 2025 Debut And Pipeline Push",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-10"
+        },
+        {
+          "title": "Why Liquidia Stock Rocked the Market Today",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-10"
+        },
+        {
+          "title": "Sector Update: Health Care Stocks Decline Late Afternoon",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-09"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Friday Amid Jobs Report Release",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-09"
+        },
+        {
+          "title": "HRMY vs. LQDA: Which Stock Is the Better Value Option?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-08"
+        },
+        {
+          "title": "Is It Too Late to Consider Liquidia After Its 1,051% Five Year Surge?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-16"
+        },
+        {
+          "title": "Take the Zacks Approach to Beat the Markets: Liquidia, Western Digital & Johnson & Johnson in Focus",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-15"
+        },
+        {
+          "title": "Arquitos Capital Management’s Updates on Liquidia Corporation (LQDA)",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-11"
+        },
+        {
+          "title": "One Fund Just Dumped $13 Million in This Offshore Drilling Stock — Here's What Long-Term Investors Should Know",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-11-27"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "earnings,regulatory",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    },
+    {
+      "ticker": "HIG",
+      "name": "The Hartford Insurance Group, Inc.",
+      "exchange": "NYSE",
+      "sector": "Financial Services",
+      "current_price": 134.77000427246094,
+      "market_cap_usd": 37718474752,
+      "avg_dollar_volume_20d": 186295199.64065552,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 6.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": true,
+        "dist_to_52w_high_pct": 0.37,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 0.94,
+        "rsi14": 81.84,
+        "above_ma10_ma20_ma50": true,
+        "ma10": 132.38,
+        "ma20": 128.75,
+        "ma50": 129.6,
+        "realized_vol_5d_ann_pct": 20.46
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "Hartford Insurance Strengthens Digital Push With New Columbus Tech Hub",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-08"
+        },
+        {
+          "title": "Hartford Insurance Group Insiders Sell US$1.6m Of Stock, Possibly Signalling Caution",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-08"
+        },
+        {
+          "title": "3 Large-Cap Stocks We’re Skeptical Of",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-05"
+        },
+        {
+          "title": "What You Need to Know Ahead of Hartford's Earnings Release",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-31"
+        },
+        {
+          "title": "Hartford Insurance Up 27% in a Year: Does the Rally Still Have Legs?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-30"
+        },
+        {
+          "title": "Does Hartford’s Strong 2025 Rally Still Offer Attractive Value for Long Term Investors?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-19"
+        },
+        {
+          "title": "The Hartford (HIG): Revisiting Valuation After a Multi‑Year Share Price Surge",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-19"
+        },
+        {
+          "title": "3 S&P 500 Stocks We Steer Clear Of",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-18"
+        },
+        {
+          "title": "Hartford Insurance Stock Hits Record High After Powerful Profit Rebound",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-16"
+        },
+        {
+          "title": "3 Unpopular Stocks That Concern Us",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-15"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "earnings",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    },
+    {
+      "ticker": "HQY",
+      "name": "HealthEquity, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Healthcare",
+      "current_price": 100.7300033569336,
+      "market_cap_usd": 7312355328,
+      "avg_dollar_volume_20d": 81149541.14456177,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 6.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": false,
+        "dist_to_52w_high_pct": 13.65,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 1.26,
+        "rsi14": 64.25,
+        "above_ma10_ma20_ma50": true,
+        "ma10": 100.23,
+        "ma20": 97.45,
+        "ma50": 94.77,
+        "realized_vol_5d_ann_pct": 37.18
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "HealthEquity (NASDAQ:HQY) delivers shareholders decent 16% CAGR over 3 years, surging 3.4% in the last week alone",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-11"
+        },
+        {
+          "title": "Reasons to Hold HealthEquity Stock in Your Portfolio for Now",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-31"
+        },
+        {
+          "title": "HealthEquity, Inc.'s (NASDAQ:HQY) Fundamentals Look Pretty Strong: Could The Market Be Wrong About The Stock?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-25"
+        },
+        {
+          "title": "Is HealthEquity (HQY) a Solid Growth Stock? 3 Reasons to Think \"Yes\"",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-10"
+        },
+        {
+          "title": "HealthEquity (HQY) Moves to Buy: Rationale Behind the Upgrade",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-10"
+        },
+        {
+          "title": "HealthEquity (HQY): Revisiting Valuation After Recent Pullback and Strong Three-Year Shareholder Returns",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-08"
+        },
+        {
+          "title": "HealthEquity Inc (HQY) Q3 2026 Earnings Call Highlights: Robust Growth and Strategic ...",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-04"
+        },
+        {
+          "title": "HealthEquity Stock Gains as Q3 Earnings Beat Estimates, Revenues Up Y/Y",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-04"
+        },
+        {
+          "title": "HealthEquity (HQY) Q3 Earnings: How Key Metrics Compare to Wall Street Estimates",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-04"
+        },
+        {
+          "title": "HealthEquity: Fiscal Q3 Earnings Snapshot",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-03"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "earnings,fda,upgrade",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    },
+    {
+      "ticker": "WBD",
+      "name": "Warner Bros. Discovery, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Communication Services",
+      "current_price": 22.8799991607666,
+      "market_cap_usd": 70417424384,
+      "avg_dollar_volume_20d": 841663512.1451759,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 6.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": false,
+        "dist_to_52w_high_pct": 5.42,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 1.38,
+        "rsi14": 53.94,
+        "above_ma10_ma20_ma50": true,
+        "ma10": 22.85,
+        "ma20": 22.36,
+        "ma50": 20.31,
+        "realized_vol_5d_ann_pct": 50.2
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "Paramount Sues Warner Bros., Plans Proxy Fight. The Ellisons Aren’t Giving Up.",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Paramount files lawsuit in pursuit of Warner Bros. Discovery and threatens proxy fight",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Paramount sues in hostile bid to buy Warner Bros Discover",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Paramount fires back at Warner Bros. bid, launching proxy fight for board seats at annual meeting",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Paramount Skydance sues Warner Bros for details on Netflix deal",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Paramount Plans Proxy Fight to Push Hostile Warner Bid",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Paramount Launches Warner Bros. Proxy Fight, Files Suit",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Netflix’s (NFLX) Deal with Warner Bros Remains on Track",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Paramount sues Warner Bros in attempt to revive hostile takeover",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Paramount launches WBD proxy battle, Meta appoints new president",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "merger,product",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    },
+    {
+      "ticker": "VLO",
+      "name": "Valero Energy Corporation",
+      "exchange": "NYSE",
+      "sector": "Energy",
+      "current_price": 170.82000732421875,
+      "market_cap_usd": 55799263232,
+      "avg_dollar_volume_20d": 424738435.3048706,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 6.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": false,
+        "dist_to_52w_high_pct": 7.97,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 1.53,
+        "rsi14": 51.19,
+        "above_ma10_ma20_ma50": false,
+        "ma10": 178.57,
+        "ma20": 174.88,
+        "ma50": 168.36,
+        "realized_vol_5d_ann_pct": 63.8
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "Valero Energy (VLO) Stock Sinks As Market Gains: Here's Why",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Chevron Bets on Venezuela Oil to Unlock Up to $700M in Cash Flow",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Jim Mellon Says Venezuela's Oil Recovery Is 5+ Years Away, But US Refiners Could Benefit: 'I'd Suggest Loading Up On Oil And Gas'",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-10"
+        },
+        {
+          "title": "Is It Time To Reassess Valero Energy (VLO) After Its Strong Multi‑Year Share Price Run?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-10"
+        },
+        {
+          "title": "Does Valero (VLO) Closing Benicia Refine or Complicate Its Heavy-Crude Advantage Narrative?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-10"
+        },
+        {
+          "title": "Trump pushes for $100 billion in oil investments in Venezuela while Exxon and others say it’s currently ‘uninvestable’ without major reforms",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-10"
+        },
+        {
+          "title": "Trump’s new prediction for ‘massive wealth’ from Venezuelan oil may take a while to play out",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-09"
+        },
+        {
+          "title": "Will Valero Energy (VLO) Beat Estimates Again in Its Next Earnings Report?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-09"
+        },
+        {
+          "title": "How to Boost Your Portfolio with Top Oils-Energy Stocks Set to Beat Earnings",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-09"
+        },
+        {
+          "title": "Dow Jones Futures Rise Before Jobs Data, Trump Tariffs Ruling; Oklo, Revolution Medicines Soar",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-09"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "earnings",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    },
+    {
+      "ticker": "KDP",
+      "name": "Keurig Dr Pepper Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Consumer Defensive",
+      "current_price": 27.209999084472656,
+      "market_cap_usd": 37632753664,
+      "avg_dollar_volume_20d": 545615516.3149929,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 6.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": false,
+        "dist_to_52w_high_pct": 24.67,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 0.6,
+        "rsi14": 50.57,
+        "above_ma10_ma20_ma50": true,
+        "ma10": 26.83,
+        "ma20": 27.09,
+        "ma50": 26.73,
+        "realized_vol_5d_ann_pct": 23.21
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "Keurig Dr Pepper (NASDAQ:KDP) shareholders have endured a 15% loss from investing in the stock three years ago",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-11"
+        },
+        {
+          "title": "Assessing Keurig Dr Pepper (KDP) Valuation After Mixed Short And Long Term Share Returns",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-07"
+        },
+        {
+          "title": "Former consumer goods exec takes stake in Treasury Wine Estates",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-05"
+        },
+        {
+          "title": "SPAR Group names Jean Richer to lead North American sales and marketing",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-05"
+        },
+        {
+          "title": "3 Profitable Stocks We Keep Off Our Radar",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-30"
+        },
+        {
+          "title": "1 Consumer Stock with Impressive Fundamentals and 2 We Turn Down",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-29"
+        },
+        {
+          "title": "Does Keurig Dr Pepper Inc.'s (NASDAQ:KDP) Weak Fundamentals Mean That The Stock Could Move In The Opposite Direction?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-22"
+        },
+        {
+          "title": "1 Nasdaq 100 Stock Worth Your Attention and 2 Facing Headwinds",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-19"
+        },
+        {
+          "title": "Keurig Dr Pepper (KDP): Assessing Valuation After a Year of Slower Share Price Momentum",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-18"
+        },
+        {
+          "title": "Spotify initiated, Airbnb upgraded: Wall Street's top analyst calls",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-17"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "fda,upgrade",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    },
+    {
+      "ticker": "KO",
+      "name": "The Coca-Cola Company",
+      "exchange": "NYSE",
+      "sector": "Consumer Defensive",
+      "current_price": 71.20999908447266,
+      "market_cap_usd": 303408545792,
+      "avg_dollar_volume_20d": 1062361158.3801651,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 6.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": true,
+        "dist_to_52w_high_pct": 4.26,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 0.89,
+        "rsi14": 67.01,
+        "above_ma10_ma20_ma50": true,
+        "ma10": 71.06,
+        "ma20": 70.05,
+        "ma50": 68.27,
+        "realized_vol_5d_ann_pct": 8.29
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "What $6,500 a Month Really Looks Like in Retirement at 67",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "PepsiCo's PFNA Struggles: Can Permissible Snacks Revive Volumes?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "The Bullish Technical Case for Consumer Staples Stocks in 2026",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "The Best Dividend Stocks to Buy and Hold Forever",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Coca-Cola's Innovation Pipeline: Catalyst for Volume Acceleration?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "2 Top Dividend Stocks I'd Own Over the Next Decade",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-11"
+        },
+        {
+          "title": "2 Top Dividend Stocks to Buy in 2026 and Hold for a Lifetime of Passive Income",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-11"
+        },
+        {
+          "title": "Can the Dogs of the Dow Really Beat the Magnificent 7 in 2026?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-10"
+        },
+        {
+          "title": "The Best Warren Buffett Stocks to Buy With $2,500 Right Now",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-09"
+        },
+        {
+          "title": "PepsiCo's Stock Valuation Looks Attractive: Buy or Wait for Now?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-09"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "earnings",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    },
+    {
+      "ticker": "UPWK",
+      "name": "Upwork Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Communication Services",
+      "current_price": 17.15999984741211,
+      "market_cap_usd": 2705174016,
+      "avg_dollar_volume_20d": 66489767.2047472,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 6.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": false,
+        "dist_to_52w_high_pct": 16.46,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 1.6,
+        "rsi14": 55.82,
+        "above_ma10_ma20_ma50": false,
+        "ma10": 17.22,
+        "ma20": 16.83,
+        "ma50": 17.38,
+        "realized_vol_5d_ann_pct": 84.93
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "Assessing Upwork (UPWK) Valuation As Recent Share Price Momentum Meets A Reported Discount To Fair Value",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-10"
+        },
+        {
+          "title": "1 Small-Cap Stock for Long-Term Investors and 2 Facing Headwinds",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-08"
+        },
+        {
+          "title": "Stocks making big moves yesterday: Nubank, Comfort Systems, Upwork, Teledyne, and Strategic Education",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-06"
+        },
+        {
+          "title": "Why Upwork (UPWK) Stock Is Trading Up Today",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-05"
+        },
+        {
+          "title": "Jefferies’ top software stocks to own led by Microsoft, Meta",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-05"
+        },
+        {
+          "title": "Upwork (NASDAQ:UPWK) Knows How To Allocate Capital Effectively",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-05"
+        },
+        {
+          "title": "1 Profitable Stock to Keep an Eye On and 2 We Ignore",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-05"
+        },
+        {
+          "title": "2 Surging  Stocks to Research Further and 1 We Question",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-25"
+        },
+        {
+          "title": "Upwork Inc.'s (NASDAQ:UPWK) Stock's On An Uptrend: Are Strong Financials Guiding The Market?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-21"
+        },
+        {
+          "title": "MarketBeat Week in Review – 12/15 - 12/19",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-20"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "earnings",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    },
+    {
+      "ticker": "TJX",
+      "name": "The TJX Companies, Inc.",
+      "exchange": "NYSE",
+      "sector": "Consumer Cyclical",
+      "current_price": 148.07000732421875,
+      "market_cap_usd": 174842691584,
+      "avg_dollar_volume_20d": 803883353.6362457,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 6.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": true,
+        "dist_to_52w_high_pct": 1.94,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 1.65,
+        "rsi14": 78.42,
+        "above_ma10_ma20_ma50": true,
+        "ma10": 146.22,
+        "ma20": 144.28,
+        "ma50": 142.82,
+        "realized_vol_5d_ann_pct": 12.96
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "Jim Cramer Calls Ralph Lauren a “Terrifically Well-Run” Company",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Retail Picture: What Abercrombie & Birkenstock EPS Suggest",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "What Makes TJX (TJX) a New Buy Stock",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Solid Results Lifted TJX Companies (TJX) in Q4",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Google, Shopify Lead Big 2025 Winners Near New Buy Points",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-10"
+        },
+        {
+          "title": "A Look At TJX Companies (TJX) Valuation As Positive Wall Street Ratings Highlight Off Price Resilience",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-10"
+        },
+        {
+          "title": "TJX (TJX) Surpasses Market Returns: Some Facts Worth Knowing",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-08"
+        },
+        {
+          "title": "Deutsche Bank sees ‘risk-on’ setup for retail in 2026, favors AS and ROST",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-08"
+        },
+        {
+          "title": "Wall Street Analysts Look Bullish on TJX (TJX): Should You Buy?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-08"
+        },
+        {
+          "title": "Do TJX Companies' (NYSE:TJX) Earnings Warrant Your Attention?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-07"
+        }
+      ],
+      "dilution_flag": 1,
+      "catalyst_tags": "earnings",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    },
+    {
+      "ticker": "RL",
+      "name": "Ralph Lauren Corporation",
+      "exchange": "NYSE",
+      "sector": "Consumer Cyclical",
+      "current_price": 326.9599914550781,
+      "market_cap_usd": 22027718656,
+      "avg_dollar_volume_20d": 207566958.61557007,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 6.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": true,
+        "dist_to_52w_high_pct": 4.67,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 0.77,
+        "rsi14": 54.95,
+        "above_ma10_ma20_ma50": false,
+        "ma10": 330.78,
+        "ma20": 326.93,
+        "ma50": 321.88,
+        "realized_vol_5d_ann_pct": 22.74
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "Is It Too Late To Consider Ralph Lauren (RL) After A 55% One Year Surge?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-13"
+        },
+        {
+          "title": "Is lululemon's Guest Experience Revamp Improving Store Traffic?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Jim Cramer Calls Ralph Lauren a “Terrifically Well-Run” Company",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Ralph Lauren (RL): Buy, Sell, or Hold Post Q3 Earnings?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Ralph Lauren (RL) Laps the Stock Market: Here's Why",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-09"
+        },
+        {
+          "title": "Deutsche Bank sees ‘risk-on’ setup for retail in 2026, favors AS and ROST",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-08"
+        },
+        {
+          "title": "Investors Shouldn't Overlook Ralph Lauren's (NYSE:RL) Impressive Returns On Capital",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-06"
+        },
+        {
+          "title": "Ralph Lauren (RL) Upgraded to Buy: Here's What You Should Know",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-05"
+        },
+        {
+          "title": "The Score: Lululemon, Tesla, Delta, Nike and More Stocks That Defined the Week",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-02"
+        },
+        {
+          "title": "The 2025 Stock Market: Tapestry, Ralph Lauren Up; Lululemon Down",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-02"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "earnings,upgrade",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    },
+    {
+      "ticker": "RVTY",
+      "name": "Revvity, Inc.",
+      "exchange": "NYSE",
+      "sector": "Healthcare",
+      "current_price": 94.0199966430664,
+      "market_cap_usd": 12058779648,
+      "avg_dollar_volume_20d": 121033136.41838074,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 6.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": false,
+        "dist_to_52w_high_pct": 26.71,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 0.75,
+        "rsi14": 51.17,
+        "above_ma10_ma20_ma50": true,
+        "ma10": 92.8,
+        "ma20": 93.36,
+        "ma50": 91.11,
+        "realized_vol_5d_ann_pct": 28.52
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "RVTY & Eli Lilly Partner to Expand Access to AI Drug Discovery Models",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Calculating The Fair Value Of Revvity, Inc. (NYSE:RVTY)",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-07"
+        },
+        {
+          "title": "What to Expect From Revvity’s Q4 2025 Earnings Report",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-05"
+        },
+        {
+          "title": "Here’s Why Diamond Hill Mid Cap Composite Purchased Revvity (RVTY) in Q3",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-31"
+        },
+        {
+          "title": "3 Cash-Producing Stocks That Concern Us",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-29"
+        },
+        {
+          "title": "Q3 Earnings Highlights: Revvity (NYSE:RVTY) Vs The Rest Of The Research Tools & Consumables Stocks",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-23"
+        },
+        {
+          "title": "Revvity Advances AI-Driven Scientific Discovery With Signals Xynthetica",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-19"
+        },
+        {
+          "title": "Revvity, Inc. (NYSE:RVTY) Is Going Strong But Fundamentals Appear To Be Mixed : Is There A Clear Direction For The Stock?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-18"
+        },
+        {
+          "title": "3 Reasons RVTY is Risky and 1 Stock to Buy Instead",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-18"
+        },
+        {
+          "title": "How Is Revvity's Stock Performance Compared to Other Health Care Stocks?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-15"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "earnings,fda",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    },
+    {
+      "ticker": "MKC",
+      "name": "McCormick & Company, Incorporated",
+      "exchange": "NYSE",
+      "sector": "Consumer Defensive",
+      "current_price": 67.4800033569336,
+      "market_cap_usd": 17938229248,
+      "avg_dollar_volume_20d": 155723593.86297226,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 6.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": false,
+        "dist_to_52w_high_pct": 21.75,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 1.25,
+        "rsi14": 67.47,
+        "above_ma10_ma20_ma50": true,
+        "ma10": 65.63,
+        "ma20": 65.24,
+        "ma50": 66.04,
+        "realized_vol_5d_ann_pct": 25.18
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "J.M. Smucker's Pet Food Sales Soft: Is Demand Normalizing Yet?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "SMPL Stock Jumps 7% After Posting Earnings & Sales Beat in Q1",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-09"
+        },
+        {
+          "title": "HELE Q3 Earnings Meet Estimates, Home & Outdoor Sales Decline Y/Y",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-09"
+        },
+        {
+          "title": "Service Corporation Revenue Mix: What's Powering the Top Line?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-09"
+        },
+        {
+          "title": "Lamb Weston Streamlines Global Footprint to Improve Efficiency",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-09"
+        },
+        {
+          "title": "Medifast Shifts to Metabolic Health: A Durable Growth Path?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-08"
+        },
+        {
+          "title": "Constellation Brands Posts Q3 Earnings Beat, Soft Wine & Spirits Sales",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-08"
+        },
+        {
+          "title": "Church & Dwight Accelerates Innovation to Defend Market Share",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-08"
+        },
+        {
+          "title": "United Natural Foods' Natural vs. Conventional: Margin Divide Widens?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-08"
+        },
+        {
+          "title": "Flowers Foods Faces Margin Pressure: Can Profitability Recover?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-08"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "earnings",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    },
+    {
+      "ticker": "MUR",
+      "name": "Murphy Oil Corporation",
+      "exchange": "NYSE",
+      "sector": "Energy",
+      "current_price": 30.100000381469727,
+      "market_cap_usd": 4591907328,
+      "avg_dollar_volume_20d": 59345086.5060997,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 6.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": false,
+        "dist_to_52w_high_pct": 12.8,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 1.2,
+        "rsi14": 59.07,
+        "above_ma10_ma20_ma50": true,
+        "ma10": 29.63,
+        "ma20": 28.76,
+        "ma50": 28.48,
+        "realized_vol_5d_ann_pct": 45.94
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "Murphy Oil Makes Southeast Asia’s Largest Oil Discovery in 20 Years",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Murphy Oil’s Vietnam Find And Debt Rework Might Change The Case For Investing In MUR",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-10"
+        },
+        {
+          "title": "Assessing Murphy Oil (MUR) Valuation After Productive Hai Su Vang Appraisal Success",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-10"
+        },
+        {
+          "title": "Murphy Oil Confirms 'Significant' Oil Discovery offshore Vietnam",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-07"
+        },
+        {
+          "title": "Murphy Oil confirms major oil reserves with HSV-2X well off Vietnam",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-07"
+        },
+        {
+          "title": "Assessing Oceaneering International (OII) Valuation After New CFO And Board Appointment",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-05"
+        },
+        {
+          "title": "Insider Stock Buying Reaches US$2.93m On Murphy Oil",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-30"
+        },
+        {
+          "title": "Trump Said 'Drill, Baby, Drill': Oil Companies' Answer At $55 Crude, 'We Can't'",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-18"
+        },
+        {
+          "title": "Carbon TerraVault and Power Deals Reshape CRC Optionality",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-18"
+        },
+        {
+          "title": "CRC Valuation Check and Entry Setup for Pragmatic Buyers",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-17"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "merger,product",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    },
+    {
+      "ticker": "HCA",
+      "name": "HCA Healthcare, Inc.",
+      "exchange": "NYSE",
+      "sector": "Healthcare",
+      "current_price": 476.2799987792969,
+      "market_cap_usd": 110987796480,
+      "avg_dollar_volume_20d": 654429678.084259,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 6.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": true,
+        "dist_to_52w_high_pct": 1.95,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 0.83,
+        "rsi14": 62.5,
+        "above_ma10_ma20_ma50": true,
+        "ma10": 473.03,
+        "ma20": 469.22,
+        "ma50": 439.3,
+        "realized_vol_5d_ann_pct": 11.85
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "This ETF Is Proof That the Healthcare Rebound Is Real",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-11"
+        },
+        {
+          "title": "Should You Think About Buying HCA Healthcare, Inc. (NYSE:HCA) Now?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-10"
+        },
+        {
+          "title": "2 Stocks to Buy If the Market Crashes in 2026",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-09"
+        },
+        {
+          "title": "HCA Healthcare Insiders Sell US$8.9m Of Stock, Possibly Signalling Caution",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-06"
+        },
+        {
+          "title": "Mizuho Sees Improving Margins Supporting HCA Healthcare into 2026",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-02"
+        },
+        {
+          "title": "HCA Healthcare (NYSE:HCA) shareholders have earned a 25% CAGR over the last five years",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-29"
+        },
+        {
+          "title": "These 2 Healthcare Stocks Beat the Market in 2025. Should You Buy Them in 2026?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-26"
+        },
+        {
+          "title": "What HCA Healthcare (HCA)'s Upbeat 2025 Guidance and Buybacks Mean For Shareholders",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-23"
+        },
+        {
+          "title": "What to Expect From HCA Healthcare's Next Quarterly Earnings Report",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-23"
+        },
+        {
+          "title": "1 Unpopular Stock That Deserves Some Love and 2 We Question",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-23"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "earnings",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    },
+    {
+      "ticker": "PCVX",
+      "name": "Vaxcyte, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Healthcare",
+      "current_price": 47.66999816894531,
+      "market_cap_usd": 6000742912,
+      "avg_dollar_volume_20d": 65311017.60147095,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 6.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": false,
+        "dist_to_52w_high_pct": 49.16,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 1.24,
+        "rsi14": 56.66,
+        "above_ma10_ma20_ma50": true,
+        "ma10": 46.47,
+        "ma20": 44.79,
+        "ma50": 40.76,
+        "realized_vol_5d_ann_pct": 59.71
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "Vaxcyte's Chief Technical Ops Officer Sells Shares",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-03"
+        },
+        {
+          "title": "This Pharma Stock Had a Rough Year. Why One Analyst Thinks It Can Rise 250%.",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-22"
+        },
+        {
+          "title": "What Makes Vaxcyte (PCVX) So Attractive",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-22"
+        },
+        {
+          "title": "How Vaxcyte’s Phase 3 Head-to-Head VAX-31 Trial Could Shape Vaxcyte (PCVX) Investors",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-14"
+        },
+        {
+          "title": "Vaxcyte (PCVX): Assessing a Discounted Valuation After a Volatile Year in the Share Price",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-14"
+        },
+        {
+          "title": "Vaxcyte, Inc. (PCVX) Makes Strides on Pneumonia Treatment, Plots Coverage Extension",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-11"
+        },
+        {
+          "title": "Vaccine Stocks Fall After FDA Plans to Impose Stricter Vaccine Rules",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-02"
+        },
+        {
+          "title": "Moderna Slammed By 'Fear, Confusion' After FDA Alleges Covid Shots Killed 10",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-01"
+        },
+        {
+          "title": "Vaxcyte (PCVX): Evaluating Valuation After a 48% Three-Month Share Price Rebound",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-11-21"
+        },
+        {
+          "title": "These 3 Stocks Are Using Buybacks to Signal Market Confidence",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-11-18"
+        }
+      ],
+      "dilution_flag": 1,
+      "catalyst_tags": "fda",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    },
+    {
+      "ticker": "RDNT",
+      "name": "RadNet, Inc.",
+      "exchange": "NGM",
+      "sector": "Healthcare",
+      "current_price": 79.26000213623047,
+      "market_cap_usd": 5900515328,
+      "avg_dollar_volume_20d": 68553935.59490204,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 6.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": false,
+        "dist_to_52w_high_pct": 6.43,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 0.93,
+        "rsi14": 57.42,
+        "above_ma10_ma20_ma50": true,
+        "ma10": 77.65,
+        "ma20": 78.24,
+        "ma50": 77.11,
+        "realized_vol_5d_ann_pct": 26.3
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "Is Oncology Institute (TOI) Quietly Rewiring Its Edge Around AI Talent And Boardroom Financial Discipline?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-09"
+        },
+        {
+          "title": "Assessing RadNet (RDNT) Valuation After Strong Multi Year Returns And AI Investment Momentum",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-09"
+        },
+        {
+          "title": "3 Reasons RDNT is Risky and 1 Stock to Buy Instead",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-23"
+        },
+        {
+          "title": "RadNet (RDNT) Valuation Check After Short-Seller Allegations and Supportive Analyst Rebuttal",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-21"
+        },
+        {
+          "title": "Why Is RadNet (RDNT) Stock Rocketing Higher Today",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-19"
+        },
+        {
+          "title": "RadNet, Inc. (RDNT): A Bear Case Theory",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-18"
+        },
+        {
+          "title": "RadNet (RDNT) Stock Trades Down, Here Is Why",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-16"
+        },
+        {
+          "title": "1 Russell 2000 Stock on Our Buy List and 2 We Find Risky",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-09"
+        },
+        {
+          "title": "Should RadNet’s New Universal Shelf Shape How Investors View Its Capital Flexibility and Dilution Risk (RDNT)?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-08"
+        },
+        {
+          "title": "Q3 Earnings Highlights: RadNet (NASDAQ:RDNT) Vs The Rest Of The Testing & Diagnostics Services Stocks",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-08"
+        }
+      ],
+      "dilution_flag": 1,
+      "catalyst_tags": "earnings",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    },
+    {
+      "ticker": "REGN",
+      "name": "Regeneron Pharmaceuticals, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Healthcare",
+      "current_price": 737.0,
+      "market_cap_usd": 81398349824,
+      "avg_dollar_volume_20d": 795987788.8418579,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 6.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": true,
+        "dist_to_52w_high_pct": 2.19,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 1.42,
+        "rsi14": 72.84,
+        "above_ma10_ma20_ma50": true,
+        "ma10": 692.64,
+        "ma20": 663.21,
+        "ma50": 611.37,
+        "realized_vol_5d_ann_pct": 48.56
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "A big Wall Street flip just changed the Regeneron narrative",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Regeneron (REGN) Upgraded to Strong Buy: What Does It Mean for the Stock?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-09"
+        },
+        {
+          "title": "Analyst Upgrades And Short-Interest Drop Might Change The Case For Investing In Regeneron (REGN)",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-07"
+        },
+        {
+          "title": "Regeneron Stock Lagged Behind the S&P 500 Last Year. Why This Firm Moved Off the Sidelines.",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-07"
+        },
+        {
+          "title": "Will Regeneron (REGN) Beat Estimates Again in Its Next Earnings Report?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-07"
+        },
+        {
+          "title": "REGN vs. ILMN: Which Stock Is the Better Value Option?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-07"
+        },
+        {
+          "title": "Why Regeneron (REGN) Stock Is Trading Up Today",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-07"
+        },
+        {
+          "title": "Regeneron Pharmaceuticals to Have Multiple Pipeline Updates in 2026, BofA Says",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-07"
+        },
+        {
+          "title": "Wayfair upgraded, Instacart initiated: Wall Street's top analyst calls",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-07"
+        },
+        {
+          "title": "BofA double-upgrades Regeneron, citing stronger Eylea outlook and 2026 catalysts",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-07"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "earnings,upgrade",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    },
+    {
+      "ticker": "NEE",
+      "name": "NextEra Energy, Inc.",
+      "exchange": "NYSE",
+      "sector": "Utilities",
+      "current_price": 84.30000305175781,
+      "market_cap_usd": 168941305856,
+      "avg_dollar_volume_20d": 844892706.567955,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 6.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": true,
+        "dist_to_52w_high_pct": 3.69,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 1.1,
+        "rsi14": 64.02,
+        "above_ma10_ma20_ma50": false,
+        "ma10": 84.72,
+        "ma20": 83.68,
+        "ma50": 80.64,
+        "realized_vol_5d_ann_pct": 20.73
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "What $6,500 a Month Really Looks Like in Retirement at 67",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "5 Once-Sleepy Dividend Utility Companies Are Striking Massive Deals With Big Tech",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "How Recent Nuclear And AI Deals Are Shaping The Story For NextEra Energy (NEE)",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-10"
+        },
+        {
+          "title": "Symmetry Deal And Google Cloud Expansion Could Be A Game Changer For NextEra Energy (NEE)",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-10"
+        },
+        {
+          "title": "Here's Why You Should Add NI Stock to Your Portfolio Right Now",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-09"
+        },
+        {
+          "title": "Here's Why You Should Add FTS Stock to Your Portfolio Right Now",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-08"
+        },
+        {
+          "title": "NextEra Energy Is Trading Above 200-Day SMA:  How to Play the Stock?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-08"
+        },
+        {
+          "title": "3 Top Dividend Stocks to Buy in January",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-08"
+        },
+        {
+          "title": "Is It Time To Reconsider NextEra Energy (NEE) After Recent Utilities Sector Headlines?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-08"
+        },
+        {
+          "title": "Why NextEra Energy (NEE) Dipped More Than Broader Market Today",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-07"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "merger,product,regulatory",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    },
+    {
+      "ticker": "ABT",
+      "name": "Abbott Laboratories",
+      "exchange": "NYSE",
+      "sector": "Healthcare",
+      "current_price": 123.97000122070312,
+      "market_cap_usd": 216930811904,
+      "avg_dollar_volume_20d": 762911568.1298828,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 6.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": false,
+        "dist_to_52w_high_pct": 12.22,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 1.59,
+        "rsi14": 51.03,
+        "above_ma10_ma20_ma50": false,
+        "ma10": 127.81,
+        "ma20": 126.53,
+        "ma50": 130.06,
+        "realized_vol_5d_ann_pct": 24.62
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "Abbott (ABT) Stock Sinks As Market Gains: Here's Why",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "Assessing Abbott Laboratories (ABT) Valuation After Libre Assist Expands Its Digital Diabetes Offering",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-09"
+        },
+        {
+          "title": "The Dividend Aristocrats No One’s Talking About (And Their 30+ Year Track Records)",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-08"
+        },
+        {
+          "title": "1 S&P 500 Stock to Consider Right Now and 2 We Turn Down",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-08"
+        },
+        {
+          "title": "PBH or ABT: Which Is the Better Value Stock Right Now?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-07"
+        },
+        {
+          "title": "3 Healthcare Stocks with Exciting Potential",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-07"
+        },
+        {
+          "title": "PBH vs. ABT: Which Stock Is the Better Value Option?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-06"
+        },
+        {
+          "title": "Should Abbott’s AI-Powered Libre Assist Shift Its Diabetes Platform Strategy Narrative for ABT Investors?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-06"
+        },
+        {
+          "title": "Abbott (ABT) Rises Higher Than Market: Key Facts",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-05"
+        },
+        {
+          "title": "Hologic Trading Near 52-Week High: How Should You Play the Stock?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-05"
+        }
+      ],
+      "dilution_flag": 1,
+      "catalyst_tags": "",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    },
+    {
+      "ticker": "GT",
+      "name": "The Goodyear Tire & Rubber Company",
+      "exchange": "NASDAQ",
+      "sector": "Consumer Cyclical",
+      "current_price": 7.639999866485596,
+      "market_cap_usd": 2618372096,
+      "avg_dollar_volume_20d": 62858986.64734125,
+      "asof_price_utc": "2025-11-20T00:00:00Z",
+      "technical_score": 6.0,
+      "technical_evidence": {
+        "within_5pct_52w_high": false,
+        "dist_to_52w_high_pct": 36.49,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 0.8,
+        "rsi14": 62.98,
+        "above_ma10_ma20_ma50": true,
+        "ma10": 7.63,
+        "ma20": 7.43,
+        "ma50": 7.53,
+        "realized_vol_5d_ann_pct": 51.45
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "3 Russell 2000 Stocks We Find Risky",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-12"
+        },
+        {
+          "title": "One Goodyear Tire & Rubber Insider Raised Their Stake In The Previous Year",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-05"
+        },
+        {
+          "title": "1 Value Stock Worth Investigating and 2 We Turn Down",
+          "publisher": "",
+          "url": "",
+          "published_at": "2026-01-05"
+        },
+        {
+          "title": "Goodyear (NASDAQ:GT) Reports Sales Below Analyst Estimates In Q3 CY2025 Earnings",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-31"
+        },
+        {
+          "title": "1 Volatile Stock Worth Your Attention and 2 We Avoid",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-12"
+        },
+        {
+          "title": "Goodyear (GT): Reassessing Valuation After Recent Share Price Rebound",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-08"
+        },
+        {
+          "title": "Did Goodyear's (GT) Goodyear Forward Divestitures Just Shift Its Investment Narrative?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-08"
+        },
+        {
+          "title": "VinFast strengthens its aftersales operations in Indonesia",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-08"
+        },
+        {
+          "title": "The Goodyear Tire & Rubber Company (GT): A Bull Case Theory",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-04"
+        },
+        {
+          "title": "Goodyear (GT) Up 17.4% Since Last Earnings Report: Can It Continue?",
+          "publisher": "",
+          "url": "",
+          "published_at": "2025-12-03"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "earnings",
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ]
+    }
+  ]
+}

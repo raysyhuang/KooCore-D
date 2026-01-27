@@ -1,0 +1,442 @@
+# =============================================================================
+# Momentum Trading System - Default Configuration
+# =============================================================================
+# This file contains all configurable parameters for the screening system.
+# Copy to config/custom.yaml and modify as needed.
+
+# -----------------------------------------------------------------------------
+# Universe Settings
+# -----------------------------------------------------------------------------
+universe:
+  # Mode options: "SP500", "SP500+NASDAQ100", "SP500+NASDAQ100+R2000"
+  mode: "SP500+NASDAQ100+R2000"
+  
+  # Cache settings for universe tickers
+  cache_file: "universe_cache.csv"
+  cache_max_age_days: 7
+  
+  # Manual ticker files (one ticker per line, # for comments)
+  manual_include_file: "tickers/manual_include_tickers.txt"
+  r2000_include_file: "tickers/r2000.txt"
+  
+  # "ALWAYS" = always add manual tickers
+  # "ONLY_IF_IN_UNIVERSE" = only add if ticker exists in base universe
+  manual_include_mode: "ALWAYS"
+
+# -----------------------------------------------------------------------------
+# Liquidity Filters (Hard Gates - Must Pass)
+# -----------------------------------------------------------------------------
+liquidity:
+  # Minimum stock price (excludes penny stocks)
+  price_min: 5.0
+  
+  # Minimum 20-day average dollar volume (USD)
+  # 50M = institutional-grade liquidity
+  min_avg_dollar_volume_20d: 75_000_000
+  
+  # Maximum 5-day return (exclude already-exploded names)
+  # 0.15 = 15%
+  max_5d_return: 0.15
+
+# -----------------------------------------------------------------------------
+# Technical Settings
+# -----------------------------------------------------------------------------
+technicals:
+  # Lookback period for historical data (days)
+  lookback_days: 300
+  
+  # Minimum price for quality filter
+  price_min: 8.0
+
+# -----------------------------------------------------------------------------
+# Weekly Scanner Quality Filters (OPTIMIZED Jan 2026)
+# -----------------------------------------------------------------------------
+# INSIGHT: Composite ≥5.5 has 66.7% hit rate vs 32% for 5.0-5.5
+# INSIGHT: Rank 1=38% hit, Rank 2=29%, Ranks 3-5 underperform
+quality_filters_weekly:
+  # Minimum technical score (0-10) to pass screening
+  # RAISED from 6.0 based on backtest showing higher scores = better outcomes
+  min_technical_score: 6.5
+  
+  # Minimum composite score for final ranking
+  # RAISED from 5.25 - composite ≥5.5 has 2x hit rate
+  min_composite_score: 5.5
+  
+  # Weekly rank filtering - TIGHTENED to Ranks 1-2 only
+  # Rank 1=38% hit, Rank 2=29%, Rank 3+=underperform significantly
+  top_ranks_only: 2
+  
+  # Prefer Rank 1 picks (has 38% hit rate vs 27.6% avg)
+  prefer_rank_1: true
+
+# -----------------------------------------------------------------------------
+# Swing Strategy (5-10 trading day horizon) - NEW
+# -----------------------------------------------------------------------------
+swing_strategy:
+  enabled: true
+  # Use Swing as the primary source for LLM ranking + hybrid analysis
+  use_as_primary: false
+  top_n: 25
+  min_final_score: 5.3
+  block_near_earnings: true
+  earnings_block_days: 3
+  # Optional gates (only applied if calibration model exists)
+  min_prob_hit: 0.30
+  min_expected_value: 0.25
+  risk_on:
+    min_breakout_score: 5.8
+    min_rsi: 52.0
+    max_rsi: 78.0
+    min_vol_ratio: 1.2
+    max_dist_52w_high_pct: 10.0
+  chop:
+    pullback_band_pct: 3.5
+    min_rsi: 38.0
+    max_rsi: 58.0
+    max_vol_ratio: 1.3
+    max_dist_52w_high_pct: 18.0
+    require_ma200: true
+  stress:
+    allow: false
+    min_breakout_score: 8.0
+    min_rsi: 58.0
+  persistence:
+    enabled: true
+    lookback_days: 4
+    min_hits: 1
+    min_score_improve: 0.1
+    allow_new: true
+    min_score_new: 6.2
+    max_days: 30
+    file: "data/signal_history.json"
+
+# -----------------------------------------------------------------------------
+# 30-Day Screener Quality Filters  
+# -----------------------------------------------------------------------------
+# NOTE: Pro30 has 21% hit rate vs Weekly's 9% - prioritize Pro30 picks!
+quality_filters_30d:
+  # Relative volume minimum (today's volume / 20d average)
+  rvol_min: 1.8
+  
+  # ATR as percentage of price minimum
+  atr_pct_min: 3.5
+  
+  # Maximum distance from 52W high for breakout setups (%)
+  near_high_max_pct: 10.0
+  
+  # RSI thresholds
+  rsi_reversal_max: 35.0
+  breakout_rsi_min: 50.0
+  reversal_rsi_max: 35.0
+  
+  # Reversal: minimum distance to 52W high (%)
+  reversal_dist_to_high_min_pct: 12.0
+  
+  # Minimum composite score (backtest-calibrated)
+  # Keeping at 0 since Pro30 already performs well
+  min_score: 0.0
+
+# -----------------------------------------------------------------------------
+# 30-Day Output Controls
+# -----------------------------------------------------------------------------
+outputs_30d:
+  top_n_breakout: 15
+  top_n_reversal: 15
+  top_n_total: 25
+
+# -----------------------------------------------------------------------------
+# Attention Pool Settings (Dynamic Universe Filter)
+# -----------------------------------------------------------------------------
+attention_pool:
+  # Minimum relative volume to enter attention pool
+  rvol_min: 1.8
+  
+  # Minimum ATR% to enter attention pool
+  atr_pct_min: 3.5
+  
+  # Minimum absolute day move (%)
+  min_abs_day_move_pct: 3.0
+  
+  # Lookback for attention pool calculation
+  lookback_days: 120
+  
+  # Batch size for processing
+  chunk_size: 200
+  
+  # Intraday mode settings
+  enable_intraday: false
+  intraday_interval: "5m"
+  intraday_lookback_days: 5
+  market_open_buffer_min: 20
+  intraday_rvol_min: 2.0
+
+# -----------------------------------------------------------------------------
+# Regime Gate (Market Conditions Check)
+# -----------------------------------------------------------------------------
+regime_gate:
+  enabled: true
+  spy_symbol: "SPY"
+  vix_symbol: "^VIX"
+  spy_ma_days: 20
+  vix_max: 25.0
+  # "WARN" = log warning but continue, "BLOCK" = stop if regime is bad
+  action: "WARN"
+
+# -----------------------------------------------------------------------------
+# News Settings
+# -----------------------------------------------------------------------------
+news:
+  # Maximum headlines to fetch per ticker
+  max_items: 25
+  
+  # Headlines to include in LLM packets
+  packet_headlines: 12
+  
+  # Throttle between API calls (seconds)
+  throttle_sec: 0.15
+
+# -----------------------------------------------------------------------------
+# Feature Flags (Options & Sentiment Data)
+# -----------------------------------------------------------------------------
+features:
+  # Fetch options data from Polygon API (requires POLYGON_API_KEY)
+  # Options data enhances scoring with call/put ratios, IV, unusual activity
+  fetch_options: true
+  
+  # Fetch sentiment data from StockTwits, Reddit, Polygon News
+  # Sentiment data enhances scoring with social media buzz and news tone
+  fetch_sentiment: true
+  
+  # Use enhanced sentiment (Adanos for Twitter, FMP for news/earnings)
+  # Requires ADANOS_API_KEY and/or FMP_API_KEY in .env
+  # If false, uses basic sentiment (StockTwits, Reddit, Polygon only)
+  use_enhanced_sentiment: true
+
+# -----------------------------------------------------------------------------
+# Risk Management Settings (OPTIMIZED Jan 2026)
+# -----------------------------------------------------------------------------
+# INSIGHT: Winners avg -2.2% drawdown, losers avg -5.4%
+# INSIGHT: Stocks dropping >5% early have only 17% hit rate
+# INSIGHT: Avg max return = 8.8%, but avg exit = 3.2% (leaving money on table)
+risk_management:
+  # TIGHTENED from -7.0 based on drawdown analysis
+  # Stocks with <5% drawdown have 30-50% hit rate
+  suggested_stop_loss_pct: -6.0
+  
+  # TIGHTENED from -5.0 for earlier warning
+  warning_drawdown_pct: -4.0
+  
+  # Profit target based on avg winner return (keep at 7%)
+  suggested_profit_target_pct: 7.0
+  
+  # Holding period (days) - 7d optimal from hit rate matrix
+  default_holding_days: 7
+  
+  # NEW: Trailing stop to capture more upside
+  # Data shows avg max = 8.8% but avg exit = 3.2%
+  trailing_stop:
+    enabled: true
+    trigger_pct: 5.0       # Activate trailing stop after +5% gain
+    distance_pct: 3.0      # Trail by 3% from high
+  
+  # NEW: Source-specific stops (Pro30 has higher volatility but higher hit rate)
+  source_specific_stops:
+    pro30_stop_pct: -7.0   # Wider stop (higher vol, higher hit rate)
+    weekly_stop_pct: -6.0  # Standard stop
+    movers_stop_pct: -5.0  # Tighter stop (worst historical performance)
+
+# -----------------------------------------------------------------------------
+# Daily Movers Settings (DISABLED - Poor Performance)
+# -----------------------------------------------------------------------------
+# WARNING: Movers have 0% hit rate in backtest (n=2, but still concerning)
+# RECOMMENDATION: Keep disabled until more data shows improvement
+# Can re-enable for research/watchlist purposes only
+movers:
+  enabled: false  # DISABLED based on 0% historical hit rate
+  top_n: 50
+  
+  # Percentage range for gainers [min, max]
+  gainers_pct_range: [7.0, 15.0]
+  
+  # Percentage range for losers [min, max] (negative values)
+  losers_pct_range: [-15.0, -7.0]
+  
+  # Volume spike requirements
+  gainers_volume_spike: 2.0
+  losers_volume_spike: 1.8
+  
+  # Close position in daily range (0.75 = top 25% of range)
+  close_position_min: 0.75
+  
+  # Additional filters
+  price_min: 2.0
+  adv_20d_min: 50_000_000
+  
+  # Cooling period (days before eligible)
+  cooling_days_required: 1
+  max_age_days: 5
+  
+  # NEW: Momentum/Reversal Analysis Settings
+  # Gainers: Look for momentum continuation opportunities
+  # Losers: Look for reversal opportunities
+  momentum_analysis:
+    enabled: true
+    # Minimum momentum score to include (0-10 scale)
+    min_momentum_score: 3
+    # For gainers: RSI threshold above which to flag as overbought
+    gainer_rsi_overbought: 70
+    # For losers: RSI threshold below which to flag as oversold (reversal candidate)
+    loser_rsi_oversold: 30
+    # Volume ratio threshold for "institutional interest"
+    volume_ratio_bullish: 2.0
+    # Volume ratio threshold for "capitulation" in losers
+    volume_ratio_capitulation: 3.0
+
+# -----------------------------------------------------------------------------
+# Hybrid Analysis Weighting (OPTIMIZED Jan 2026)
+# -----------------------------------------------------------------------------
+# BACKTEST DATA:
+# - Pro30: 50% hit rate (+10% in 7d), 68.8% hit rate (+5%)
+# - Weekly Rank 1: 38% hit rate | Rank 2: 29% | Ranks 3-5: <20%
+# - Movers: 0% hit rate (disabled)
+# FORMULA: weight ∝ log(hit_rate / base_rate) * consistency
+hybrid_weighting:
+  # INCREASED from 2.0 - Pro30 has best hit rate (50%)
+  pro30_weight: 2.2
+  
+  # NEW: Swing strategy weights (primary)
+  swing_weight: 1.2
+  swing_rank1_bonus: 0.6
+  swing_rank2_bonus: 0.3
+  
+  # DECREASED from 1.0 - Weekly overall underperforms Pro30
+  weekly_weight: 0.8
+  
+  # INCREASED from 0.5 - Rank 1 significantly outperforms (38% vs 27%)
+  weekly_rank1_bonus: 0.8
+  
+  # NEW: Rank 2 bonus (29% hit rate, still above average)
+  weekly_rank2_bonus: 0.3
+  
+  # ZEROED - Movers have 0% historical hit rate
+  movers_weight: 0.0
+  
+  # INCREASED overlap bonuses - confluence is highest conviction
+  all_three_overlap_bonus: 3.5
+  weekly_pro30_overlap_bonus: 2.0
+
+# -----------------------------------------------------------------------------
+# Data Provider Settings
+# -----------------------------------------------------------------------------
+runtime:
+  # Method version for tracking
+  # v3.2: Optimized weights, tighter filters, trailing stops (Jan 2026)
+  method_version: "v3.2"
+  
+  # yfinance settings
+  yf_auto_adjust: false
+  threads: true
+  
+  # Polygon.io settings (requires POLYGON_API_KEY env var)
+  polygon_primary: true
+  polygon_fallback: true
+  polygon_max_workers: 8
+  polygon_intraday: false
+  polygon_intraday_interval: 5
+  polygon_intraday_lookback_days: 5
+  
+  # Corporate actions
+  block_recent_splits: true
+  split_block_days: 7
+  split_lookback_days: 120
+  
+  # Allow partial day data during market hours
+  allow_partial_day_attention: false
+
+# -----------------------------------------------------------------------------
+# Output Settings
+# -----------------------------------------------------------------------------
+outputs:
+  root_dir: "outputs"
+
+# -----------------------------------------------------------------------------
+# Alerts Settings (NEW)
+# -----------------------------------------------------------------------------
+alerts:
+  enabled: true
+  # Channels: telegram, desktop, file, email, slack, discord
+  channels: ["telegram", "desktop", "file"]
+  # Send only one consolidated message per run
+  single_message_only: true
+  
+  # Telegram settings (or set via TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID env vars)
+  telegram:
+    bot_token: null   # Get from @BotFather on Telegram
+    chat_id: null     # Get from @userinfobot or similar
+  
+  # Slack webhook URL (set via SLACK_WEBHOOK_URL env var)
+  slack_webhook: null
+  
+  # Discord webhook URL (set via DISCORD_WEBHOOK_URL env var)
+  discord_webhook: null
+  
+  # Email settings
+  email:
+    smtp_host: "smtp.gmail.com"
+    smtp_port: 587
+    from_address: null
+    to_addresses: []
+  
+  # Alert triggers
+  triggers:
+    all_three_overlap: true
+    weekly_pro30_overlap: true
+    high_composite_score: 7.0
+  
+  # Position alerts (drawdown warnings, profit targets, etc.)
+  # Set to false to disable individual position alerts while keeping scan summary
+  position_alerts_enabled: false
+
+# -----------------------------------------------------------------------------
+# Cache Settings
+# -----------------------------------------------------------------------------
+# Price data is cached for reproducible backtests and reduced API calls.
+# Historical data (>3 days old) uses longer TTL since prices don't change.
+cache:
+  enabled: true
+  backend: "sqlite"  # sqlite, redis
+  
+  # SQLite cache file
+  sqlite_path: "data/price_cache.db"
+  
+  # Redis settings (if using redis backend)
+  redis_url: "redis://localhost:6379/0"
+  
+  # Cache TTL (time-to-live) in seconds
+  price_ttl_seconds: 3600        # 1 hour for live/recent data
+  historical_ttl_seconds: 2592000  # 30 days for historical data (it's immutable)
+  news_ttl_seconds: 1800         # 30 minutes
+
+# -----------------------------------------------------------------------------
+# Data Reliability (Quarantine + Retries)
+# -----------------------------------------------------------------------------
+data_reliability:
+  quarantine:
+    enabled: true
+    days: 7
+    file: "data/bad_tickers.json"
+  yfinance:
+    max_retries: 4
+    backoff_sec: 1.0
+  polygon:
+    max_retries: 3
+    backoff_sec: 0.75
+
+# -----------------------------------------------------------------------------
+# API Settings (NEW - for dashboard)
+# -----------------------------------------------------------------------------
+api:
+  enabled: false
+  host: "0.0.0.0"
+  port: 8000
+  cors_origins: ["http://localhost:3000"]

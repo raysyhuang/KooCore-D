@@ -1,0 +1,462 @@
+{
+  "run_timestamp_utc": "2026-01-13T20:36:31.873038Z",
+  "universe_note": "Ranked only the provided NASDAQ/NYSE packets. Liquidity gate applied using avg_dollar_volume_20d >= 50,000,000 and price >= 2. Exclusion checks for >15% last 5 trading days and trading halts could not be verified from packets; treated as data gaps where relevant. Options and social sentiment data not provided in any packet, so factor score caps applied (options<=3, sentiment<=4).",
+  "method_version": "v3.0",
+  "top5": [
+    {
+      "rank": 1,
+      "ticker": "DLTR",
+      "name": "Dollar Tree, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Consumer Defensive",
+      "current_price": 112.91999816894531,
+      "market_cap_usd": 28123086848,
+      "avg_dollar_volume_20d": 369655339.5966339,
+      "asof_price_utc": "2025-12-03T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 124.21,
+        "base_case_upside_pct_range": [
+          10,
+          16
+        ],
+        "bear_case_note": "Setup invalidation: loses short-term trend (fails to hold above rising MAs) and momentum fades without incremental catalyst/newsflow."
+      },
+      "primary_catalyst": {
+        "title": "Analyst call/newsflow cluster (upgrades/top calls) supporting near-term repricing",
+        "key_date_local": "2026-01-08",
+        "timing": "Anytime (news-driven)",
+        "why_it_matters": "Multiple high-visibility retail commentary items and 'top analyst calls' style coverage can drive incremental institutional flows and short-term momentum continuation when the stock is already near highs.",
+        "sources": [
+          {
+            "title": "Alphabet upgraded, Nike downgraded: Wall Street's top analyst calls",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-08"
+          },
+          {
+            "title": "Zacks Investment Ideas feature highlights: Abercrombie and Fitch, Birkenstock, Dollar Tree and TJX",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-13"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 10,
+        "catalyst": 5,
+        "options": 3,
+        "sentiment": 4
+      },
+      "composite_score": 5.5,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 1.52,
+          "rsi14": 60.54,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 36.42
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "positive"
+        }
+      },
+      "risk_factors": [
+        "Catalyst is not a single dated binary event; follow-through depends on continued positive newsflow/analyst reinforcement.",
+        "Retail/consumer staples factor rotation risk; broad market drawdown could cap upside despite strong technicals."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Options activity data not provided; options score capped at 3.0.",
+        "Social sentiment data not provided; sentiment score capped at 4.0.",
+        "Earnings date/time not provided; cannot use as a confirmed scheduled catalyst within 7 trading days.",
+        "Cannot verify exclusion rule (price up >15% last 5 trading days) from packets."
+      ]
+    },
+    {
+      "rank": 2,
+      "ticker": "CVCO",
+      "name": "Cavco Industries, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Consumer Cyclical",
+      "current_price": 586.6900024414062,
+      "market_cap_usd": 5452883456,
+      "avg_dollar_volume_20d": 73117851.92047119,
+      "asof_price_utc": "2025-12-03T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 645.36,
+        "base_case_upside_pct_range": [
+          10,
+          18
+        ],
+        "bear_case_note": "Setup invalidation: breakout attempt fails and price loses the stacked moving averages; no incremental housing-policy/news catalyst emerges."
+      },
+      "primary_catalyst": {
+        "title": "Manufactured housing policy tailwind headline (legislation theme)",
+        "key_date_local": "2026-01-07",
+        "timing": "Anytime (news-driven)",
+        "why_it_matters": "Policy/legislation narratives can re-rate manufactured housing suppliers quickly, especially when the stock is already in a strong uptrend near highs.",
+        "sources": [
+          {
+            "title": "US legislation could give 'quantum' boost to manufactured housing",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-07"
+          },
+          {
+            "title": "Are You Looking for a Top Momentum Pick? Why Cavco (CVCO) is a Great Choice",
+            "publisher": "",
+            "url": "",
+            "published_at": "2025-12-03"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 10,
+        "catalyst": 4,
+        "options": 3,
+        "sentiment": 4
+      },
+      "composite_score": 5.25,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 1.8,
+          "rsi14": 59.02,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 27.15
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "positive"
+        }
+      },
+      "risk_factors": [
+        "Legislation headline is thematic; without a confirmed vote/decision date, timing risk is high and may already be partially priced.",
+        "Housing-sensitive cyclicality; rates/macro surprises can reverse momentum quickly."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Options activity data not provided; options score capped at 3.0.",
+        "Social sentiment data not provided; sentiment score capped at 4.0.",
+        "Earnings date/time not provided; cannot use as a confirmed scheduled catalyst within 7 trading days.",
+        "Cannot verify exclusion rule (price up >15% last 5 trading days) from packets."
+      ]
+    },
+    {
+      "rank": 3,
+      "ticker": "PATH",
+      "name": "UiPath Inc.",
+      "exchange": "NYSE",
+      "sector": "Technology",
+      "current_price": 14.859999656677246,
+      "market_cap_usd": 8387549184,
+      "avg_dollar_volume_20d": 236556035.56582928,
+      "asof_price_utc": "2025-12-03T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 16.35,
+        "base_case_upside_pct_range": [
+          10,
+          20
+        ],
+        "bear_case_note": "Setup invalidation: fails to hold above short-term MAs and the post-news momentum reverses; any follow-on negative headline accelerates mean reversion."
+      },
+      "primary_catalyst": {
+        "title": "Index inclusion/news-driven repricing (S&P adds UiPath) with follow-on coverage",
+        "key_date_local": "2026-01-08",
+        "timing": "Anytime (news-driven)",
+        "why_it_matters": "Index inclusion can create mechanical buying and renewed attention; follow-on media/analyst coverage can extend the move over the next week if flows persist.",
+        "sources": [
+          {
+            "title": "UiPath (PATH) Is Up 8.8% After S&P Adds It And AI Orchestration Advances - Has The Bull Case Changed?",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-08"
+          },
+          {
+            "title": "UiPath is Regaining Market Confidence: What Should Investors Do Next?",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-13"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 8,
+        "catalyst": 6,
+        "options": 3,
+        "sentiment": 4
+      },
+      "composite_score": 5.25,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": false,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 1.51,
+          "rsi14": 57.38,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 23.25
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "mixed"
+        }
+      },
+      "risk_factors": [
+        "Not near 52-week highs (per packet), so overhead supply risk if prior holders sell into strength.",
+        "AI/software sentiment can be regime-dependent; high beta to NASDAQ risk-on/off swings."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Options activity data not provided; options score capped at 3.0.",
+        "Social sentiment data not provided; sentiment score capped at 4.0.",
+        "Earnings date/time not provided; cannot use as a confirmed scheduled catalyst within 7 trading days.",
+        "Cannot verify exclusion rule (price up >15% last 5 trading days) from packets."
+      ]
+    },
+    {
+      "rank": 4,
+      "ticker": "PSX",
+      "name": "Phillips 66",
+      "exchange": "NYSE",
+      "sector": "Energy",
+      "current_price": 139.85000610351562,
+      "market_cap_usd": 55767126016,
+      "avg_dollar_volume_20d": 298153091.62620544,
+      "asof_price_utc": "2025-12-03T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 153.84,
+        "base_case_upside_pct_range": [
+          10,
+          15
+        ],
+        "bear_case_note": "Setup invalidation: deal-related enthusiasm fades and price breaks below key moving averages; refining margin/oil tape turns against refiners."
+      },
+      "primary_catalyst": {
+        "title": "Deal/news catalyst: Lindsey Refinery deal + refining gains narrative",
+        "key_date_local": "2026-01-10",
+        "timing": "Anytime (news-driven)",
+        "why_it_matters": "M&A/asset deal headlines can re-rate cash flow expectations and trigger multi-day momentum, especially if refining margins cooperate and sell-side commentary follows.",
+        "sources": [
+          {
+            "title": "Why Phillips 66 (PSX) Is Up 8.9% After Lindsey Refinery Deal And Refining Gains",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-10"
+          },
+          {
+            "title": "Is Phillips 66 Poised to Gain From a Favorable Refining Backdrop?",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-13"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 8,
+        "catalyst": 6,
+        "options": 3,
+        "sentiment": 4
+      },
+      "composite_score": 5.25,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 0.96,
+          "rsi14": 52.91,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 22.97
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "positive"
+        }
+      },
+      "risk_factors": [
+        "Energy/refining is highly tape-driven; crude/product spread moves can overwhelm company-specific news.",
+        "Deal impact may be quickly priced; without follow-on guidance, momentum can stall."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Options activity data not provided; options score capped at 3.0.",
+        "Social sentiment data not provided; sentiment score capped at 4.0.",
+        "Earnings date/time not provided; cannot use as a confirmed scheduled catalyst within 7 trading days.",
+        "Cannot verify exclusion rule (price up >15% last 5 trading days) from packets."
+      ]
+    },
+    {
+      "rank": 5,
+      "ticker": "SPHR",
+      "name": "Sphere Entertainment Co.",
+      "exchange": "NYSE",
+      "sector": "Communication Services",
+      "current_price": 81.47000122070312,
+      "market_cap_usd": 3527582720,
+      "avg_dollar_volume_20d": 69624453.74881744,
+      "asof_price_utc": "2025-12-03T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 89.62,
+        "base_case_upside_pct_range": [
+          10,
+          22
+        ],
+        "bear_case_note": "Setup invalidation: partnership headline fails to translate into incremental revenue narrative; stock loses trend support and reverts on small-cap volatility."
+      },
+      "primary_catalyst": {
+        "title": "Commercial partnership/news catalyst: Delta Air Lines expands beyond flight with Sphere partnership",
+        "key_date_local": "2026-01-08",
+        "timing": "Anytime (news-driven)",
+        "why_it_matters": "High-profile brand partnerships can drive short-term attention and re-rating for experiential/venue businesses, especially if investors extrapolate future sponsorship and event monetization.",
+        "sources": [
+          {
+            "title": "Delta Air Lines Expands Beyond Flight With Sphere Partnership",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-08"
+          },
+          {
+            "title": "Why Sphere Entertainment (SPHR) Stock Is Trading Up Today",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-09"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 8,
+        "catalyst": 6,
+        "options": 3,
+        "sentiment": 4
+      },
+      "composite_score": 5.25,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 0.82,
+          "rsi14": 52.95,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 26.97
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "mixed"
+        }
+      },
+      "risk_factors": [
+        "Small/mid-cap venue name can be gap-prone; headline-driven volatility cuts both ways.",
+        "Partnership details may be limited; if economics are modest, the move can fade quickly."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Options activity data not provided; options score capped at 3.0.",
+        "Social sentiment data not provided; sentiment score capped at 4.0.",
+        "Earnings date/time not provided; cannot use as a confirmed scheduled catalyst within 7 trading days.",
+        "Cannot verify exclusion rule (price up >15% last 5 trading days) from packets."
+      ]
+    }
+  ]
+}

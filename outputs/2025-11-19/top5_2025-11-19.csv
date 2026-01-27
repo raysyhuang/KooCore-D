@@ -1,0 +1,6 @@
+rank,ticker,name,sector,current_price,composite_score,verdict,confidence,technical_score,catalyst_score,options_score,sentiment_score,primary_catalyst,target_price,upside_pct_min,upside_pct_max
+1,WBD,"Warner Bros. Discovery, Inc.",Communication Services,23.09000015258789,5.5,SPECULATIVE,SPECULATIVE,8.0,7.0,3.0,4.0,Hostile bid / legal escalation headlines (Paramount lawsuit + proxy fight) driving near-term newsflow,25.39900016784668,10,18
+2,GOOGL,Alphabet Inc.,Communication Services,292.80999755859375,5.75,SPECULATIVE,SPECULATIVE,10.0,6.0,3.0,4.0,Apple AI partnership / deal-related newsflow (market-cap repricing catalyst),322.0909973144531,10,14
+3,KRYS,"Krystal Biotech, Inc.",Healthcare,204.10000610351562,5.375,SPECULATIVE,SPECULATIVE,8.0,6.5,3.0,4.0,Company update: preliminary 2025 results + 2026 objectives; KB407 CF gene therapy data/newsflow,224.5100067138672,10,20
+4,MUR,Murphy Oil Corporation,Energy,30.3799991607666,4.875,SPECULATIVE,SPECULATIVE,6.0,6.5,3.0,4.0,Major offshore Vietnam oil discovery headlines (follow-through newsflow),33.41799907684326,10,17
+5,EW,Edwards Lifesciences Corporation,Healthcare,86.0199966430664,5.125,SPECULATIVE,SPECULATIVE,8.0,5.5,3.0,4.0,Regulatory/legal resolution: JenaValve acquisition called off after FTC injunction approval (repricing event),94.62200030737306,10,13

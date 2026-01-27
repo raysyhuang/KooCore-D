@@ -1,0 +1,492 @@
+{
+  "run_timestamp_utc": "2026-01-13T08:00:14.269582Z",
+  "universe_note": "Ranked only from provided packets. Liquidity gate applied (avg_dollar_volume_20d >= 50,000,000; price >= 2). Exclusion checks for >15% last 5 trading days and dated catalysts within 7 trading days could not be fully validated from packets (no 5d return field; most catalysts lack confirmed future date/time). Options and social sentiment data unavailable per instructions; factor score caps applied.",
+  "method_version": "v3.0",
+  "top5": [
+    {
+      "rank": 1,
+      "ticker": "WBD",
+      "name": "Warner Bros. Discovery, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Communication Services",
+      "current_price": 23.170000076293945,
+      "market_cap_usd": 70417424384,
+      "avg_dollar_volume_20d": 859985528.9600182,
+      "asof_price_utc": "2025-11-21T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 25.48700008392334,
+        "base_case_upside_pct_range": [
+          10,
+          18
+        ],
+        "bear_case_note": "Deal/proxy-fight narrative fades quickly or turns adverse (e.g., court/board actions reduce probability of a transaction), and price loses short-term trend support (fails to hold above key moving averages)."
+      },
+      "primary_catalyst": {
+        "title": "Hostile M&A / proxy fight escalation around Paramount bid for WBD",
+        "key_date_local": null,
+        "timing": "Unscheduled / newsflow-driven",
+        "why_it_matters": "Multiple same-day reports indicate Paramount is suing and planning a proxy fight tied to a hostile bid for WBD, which can drive rapid repricing via deal-probability changes and headline volatility within a 1-week window.",
+        "sources": [
+          {
+            "title": "Paramount sues in hostile bid to buy Warner Bros Discover",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-12"
+          },
+          {
+            "title": "Paramount files lawsuit in pursuit of Warner Bros. Discovery and threatens proxy fight",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-12"
+          },
+          {
+            "title": "Paramount Plans Proxy Fight to Push Hostile Warner Bid",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-12"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 8.0,
+        "catalyst": 6.5,
+        "options": 3.0,
+        "sentiment": 4.0
+      },
+      "composite_score": 5.375,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 1.16,
+          "rsi14": 57.89,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 41.83
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "mixed"
+        }
+      },
+      "risk_factors": [
+        "Binary headline risk: litigation/proxy fight can swing both directions; deal probability can collapse quickly.",
+        "Market regime risk: broad risk-off tape can overwhelm idiosyncratic M&A headlines."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Options data unavailable in packet; options score capped at 3.0.",
+        "Social sentiment data unavailable in packet; sentiment score capped at 4.0.",
+        "No confirmed scheduled catalyst date/time within next 7 trading days; catalyst treated as newsflow-driven.",
+        "No 5-trading-day return provided; cannot enforce >15% 5d move exclusion."
+      ]
+    },
+    {
+      "rank": 2,
+      "ticker": "WMT",
+      "name": "Walmart Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Consumer Defensive",
+      "current_price": 105.31999969482422,
+      "market_cap_usd": 940557271040,
+      "avg_dollar_volume_20d": 1946675366.0783386,
+      "asof_price_utc": "2025-11-21T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 115.85199966430665,
+        "base_case_upside_pct_range": [
+          10,
+          15
+        ],
+        "bear_case_note": "Post-inclusion/news pop mean-reverts; price fails to hold above short-term moving averages and volume dries up."
+      },
+      "primary_catalyst": {
+        "title": "Index inclusion / partnership newsflow (Nasdaq 100 inclusion; Alphabet partnership and drone delivery expansion)",
+        "key_date_local": null,
+        "timing": "Unscheduled / newsflow-driven",
+        "why_it_matters": "Index inclusion can create near-term forced buying and positioning flows; incremental partnership/product headlines can extend momentum over the next week if follow-through coverage continues.",
+        "sources": [
+          {
+            "title": "Stock Market Today, Jan. 12: Walmart Jumps on Nasdaq 100 Inclusion",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-12"
+          },
+          {
+            "title": "Walmart Partners With Alphabet Unit, Expands Drone Deliveries",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-12"
+          },
+          {
+            "title": "Walmart Stock Is Rising. It’s Not Just a Google AI Deal Giving It a Boost.",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-12"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 10.0,
+        "catalyst": 5.5,
+        "options": 3.0,
+        "sentiment": 4.0
+      },
+      "composite_score": 5.625,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 2.01,
+          "rsi14": 61.77,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 53.76
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "positive"
+        }
+      },
+      "risk_factors": [
+        "Already headline-driven: if inclusion/partnership is fully priced, upside may be limited versus 10% target.",
+        "Mega-cap beta: large market cap can make ≥10% in 7 trading days less frequent absent a major surprise."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Options data unavailable in packet; options score capped at 3.0.",
+        "Social sentiment data unavailable in packet; sentiment score capped at 4.0.",
+        "No confirmed scheduled catalyst date/time within next 7 trading days; catalyst treated as newsflow-driven.",
+        "No 5-trading-day return provided; cannot enforce >15% 5d move exclusion."
+      ]
+    },
+    {
+      "rank": 3,
+      "ticker": "GOOGL",
+      "name": "Alphabet Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Communication Services",
+      "current_price": 299.6600036621094,
+      "market_cap_usd": 4019528663040,
+      "avg_dollar_volume_20d": 11745158622.237244,
+      "asof_price_utc": "2025-11-21T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 329.6260040283203,
+        "base_case_upside_pct_range": [
+          10,
+          14
+        ],
+        "bear_case_note": "AI partnership narrative stalls or is reframed as non-material; price fails to hold breakout area and momentum cools."
+      },
+      "primary_catalyst": {
+        "title": "Apple–Alphabet AI partnership confirmation (AI-powered Siri)",
+        "key_date_local": null,
+        "timing": "Unscheduled / follow-through coverage",
+        "why_it_matters": "Confirmation of an Apple AI partnership can shift expectations for distribution and monetization of Alphabet AI capabilities; continued details/coverage can drive a momentum extension over the next week.",
+        "sources": [
+          {
+            "title": "Alphabet briefly surpassed $4T on news of Apple AI partnership",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-12"
+          },
+          {
+            "title": "It's Official: Apple and Alphabet Are Teaming Up for an AI-Powered Siri. Why This Is a Win for Both Companies.",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-13"
+          },
+          {
+            "title": "Google's market cap hits $4 trillion, cementing its status as an AI trade champion",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-12"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 10.0,
+        "catalyst": 5.0,
+        "options": 3.0,
+        "sentiment": 4.0
+      },
+      "composite_score": 5.5,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 1.65,
+          "rsi14": 60.2,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 34.57
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "positive"
+        }
+      },
+      "risk_factors": [
+        "Mega-cap constraint: ≥10% in 7 trading days is less common without incremental surprise beyond partnership headlines.",
+        "Regulatory/DOJ overhang risk can inject volatility and cap upside."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Options data unavailable in packet; options score capped at 3.0.",
+        "Social sentiment data unavailable in packet; sentiment score capped at 4.0.",
+        "No confirmed scheduled catalyst date/time within next 7 trading days; catalyst treated as newsflow-driven.",
+        "No 5-trading-day return provided; cannot enforce >15% 5d move exclusion."
+      ]
+    },
+    {
+      "rank": 4,
+      "ticker": "AAPL",
+      "name": "Apple Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Technology",
+      "current_price": 271.489990234375,
+      "market_cap_usd": 3845545787392,
+      "avg_dollar_volume_20d": 13576932313.682404,
+      "asof_price_utc": "2025-11-21T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 298.6389892578125,
+        "base_case_upside_pct_range": [
+          10,
+          13
+        ],
+        "bear_case_note": "AI Siri timeline remains vague; partnership is viewed as defensive/late; stock fails to follow through and slips back below short-term moving averages."
+      },
+      "primary_catalyst": {
+        "title": "Apple AI Siri narrative boosted by confirmed partnership with Alphabet",
+        "key_date_local": null,
+        "timing": "Unscheduled / follow-through coverage",
+        "why_it_matters": "A confirmed partnership aimed at an AI-powered Siri can re-rate near-term AI product expectations; additional details or analyst commentary can drive a momentum move within a week.",
+        "sources": [
+          {
+            "title": "It's Official: Apple and Alphabet Are Teaming Up for an AI-Powered Siri. Why This Is a Win for Both Companies.",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-13"
+          },
+          {
+            "title": "Apple Investors Are Still Waiting for an AI Siri. A New Deal With Google Could Help It Deliver",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-12"
+          },
+          {
+            "title": "Alphabet Becomes Newest $4 Trillion Company, Joining Nvidia",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-12"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 8.0,
+        "catalyst": 5.0,
+        "options": 3.0,
+        "sentiment": 4.0
+      },
+      "composite_score": 5.0,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 0.96,
+          "rsi14": 54.69,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 22.55
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "mixed"
+        }
+      },
+      "risk_factors": [
+        "Mega-cap constraint: ≥10% in 7 trading days is less common without a discrete product/earnings surprise.",
+        "Narrative risk: partnership could be interpreted as reliance on third parties rather than Apple-led AI."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Options data unavailable in packet; options score capped at 3.0.",
+        "Social sentiment data unavailable in packet; sentiment score capped at 4.0.",
+        "No confirmed scheduled catalyst date/time within next 7 trading days; catalyst treated as newsflow-driven.",
+        "No 5-trading-day return provided; cannot enforce >15% 5d move exclusion."
+      ]
+    },
+    {
+      "rank": 5,
+      "ticker": "STLD",
+      "name": "Steel Dynamics, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Basic Materials",
+      "current_price": 158.16000366210938,
+      "market_cap_usd": 24929097728,
+      "avg_dollar_volume_20d": 190267881.69204712,
+      "asof_price_utc": "2025-11-21T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 173.97600402832032,
+        "base_case_upside_pct_range": [
+          10,
+          17
+        ],
+        "bear_case_note": "Takeover bid narrative is rejected/abandoned with no follow-up; stock loses momentum and reverts with cyclicals/commodities."
+      },
+      "primary_catalyst": {
+        "title": "M&A headline volatility: Steel Dynamics/SGH bid for BlueScope Steel (and response)",
+        "key_date_local": null,
+        "timing": "Unscheduled / newsflow-driven",
+        "why_it_matters": "Active M&A headlines (bid submission and target response) can drive near-term repricing of STLD via capital allocation expectations and sector read-through; continued developments can create a 1-week volatility window.",
+        "sources": [
+          {
+            "title": "Steel Dynamics, SGH Bid $8.8 Billion to Acquire BlueScope Steel",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-06"
+          },
+          {
+            "title": "BlueScope Steel rejects $8.8B takeover bid from Steel Dynamics, SGH",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-07"
+          },
+          {
+            "title": "BlueScope Rejects Steel Dynamics, SGH Takeover Bid",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-07"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 8.0,
+        "catalyst": 5.0,
+        "options": 3.0,
+        "sentiment": 4.0
+      },
+      "composite_score": 5.0,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 0.75,
+          "rsi14": 53.88,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 28.55
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "mixed"
+        }
+      },
+      "risk_factors": [
+        "Cyclical/commodity beta: steel names can be dominated by macro (rates, China demand, tariffs) over a 1-week horizon.",
+        "Capital allocation risk: market may penalize perceived overpaying or deal uncertainty after rejection."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Options data unavailable in packet; options score capped at 3.0.",
+        "Social sentiment data unavailable in packet; sentiment score capped at 4.0.",
+        "No confirmed scheduled catalyst date/time within next 7 trading days; catalyst treated as newsflow-driven.",
+        "No 5-trading-day return provided; cannot enforce >15% 5d move exclusion."
+      ]
+    }
+  ]
+}

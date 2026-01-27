@@ -1,0 +1,460 @@
+{
+  "run_timestamp_utc": "2026-01-13T09:04:32.758885Z",
+  "universe_note": "Ranked only the provided packets. Liquidity gate applied: all selected names have avg_dollar_volume_20d >= 50,000,000 and price >= 2. Exclusion rule (price up >15% last 5 trading days) could not be verified from packets; not applied and flagged as a data gap per name. Options and social sentiment data not provided in packets; factor score caps applied (options<=3, sentiment<=4).",
+  "method_version": "v3.0",
+  "top5": [
+    {
+      "rank": 1,
+      "ticker": "ARWR",
+      "name": "Arrowhead Pharmaceuticals, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Healthcare",
+      "current_price": 44.2599983215332,
+      "market_cap_usd": 9191212032,
+      "avg_dollar_volume_20d": 85257755.02981186,
+      "asof_price_utc": "2025-11-24T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 48.69,
+        "base_case_upside_pct_range": [
+          10,
+          18
+        ],
+        "bear_case_note": "Follow-through fails and price loses short-term trend support (e.g., closes back below rising MA20/MA50) or dilution/financing overhang dominates tape."
+      },
+      "primary_catalyst": {
+        "title": "JPM Healthcare Conference newsflow + recent regulatory/product updates",
+        "key_date_local": "2026-01-12",
+        "timing": "During conference week / market hours",
+        "why_it_matters": "Company-highlighted launch and obesity RNAi data updates at JPM can drive incremental buy-side attention; recent regulatory approval headlines keep near-term newsflow active, supporting a momentum continuation setup.",
+        "sources": [
+          {
+            "title": "Arrowhead Pharmaceuticals Touts Rudemplo Launch, Obesity RNAi Data and $920M Cash at JPM Conference",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-12"
+          },
+          {
+            "title": "Arrowhead Pharmaceuticals Says Health Canada Issues 'Notice of Compliance' for Redemplo for Triglyceride Disorder",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-05"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 10,
+        "catalyst": 5.5,
+        "options": 3,
+        "sentiment": 4
+      },
+      "composite_score": 5.63,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 1.8,
+          "rsi14": 69.7,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 88.65
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "mixed"
+        }
+      },
+      "risk_factors": [
+        "Biotech headline risk: trial/regulatory interpretations can reverse quickly; gap risk elevated.",
+        "Dilution/financing overhang (notes/common/pre-funded warrants headline) can cap upside or add volatility."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Options data unavailable in packet; options score capped at 3.0.",
+        "Social sentiment data unavailable in packet; sentiment score capped at 4.0.",
+        "Cannot verify exclusion filter: price change over last 5 trading days not provided.",
+        "Catalyst timing is conference-week/newsflow rather than a single scheduled binary timestamp; catalyst score moderated."
+      ]
+    },
+    {
+      "rank": 2,
+      "ticker": "AVGO",
+      "name": "Broadcom Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Technology",
+      "current_price": 377.9599914550781,
+      "market_cap_usd": 1669923995648,
+      "avg_dollar_volume_20d": 7929975529.440308,
+      "asof_price_utc": "2025-11-24T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 415.76,
+        "base_case_upside_pct_range": [
+          10,
+          16
+        ],
+        "bear_case_note": "Breakout attempt fails and price loses short-term moving averages; CES product news fails to translate into forward demand narrative."
+      },
+      "primary_catalyst": {
+        "title": "CES 2026 product launch newsflow (Wi‑Fi products)",
+        "key_date_local": "2026-01-12",
+        "timing": "Market hours / newsflow",
+        "why_it_matters": "New product announcements can reinforce AI/enterprise networking demand narratives and trigger incremental revisions/positioning in a high-liquidity mega-cap capable of fast 10% moves during high-volatility regimes.",
+        "sources": [
+          {
+            "title": "Broadcom Inc. (AVGO) Launches new Wi-Fi Products at CES 2026",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-12"
+          },
+          {
+            "title": "Dow Jones Futures: Nvidia, Tesla, Walmart Are Key Movers; CPI Inflation Report Next",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-12"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 10,
+        "catalyst": 4.5,
+        "options": 3,
+        "sentiment": 4
+      },
+      "composite_score": 5.38,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 1.6,
+          "rsi14": 60.73,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 89.26
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "positive"
+        }
+      },
+      "risk_factors": [
+        "Macro sensitivity: CPI/rates and semis risk-on/off can dominate product news in the short window.",
+        "Already near highs; any guidance/AI demand narrative disappointment can cause sharp mean reversion given elevated realized volatility."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Options data unavailable in packet; options score capped at 3.0.",
+        "Social sentiment data unavailable in packet; sentiment score capped at 4.0.",
+        "Cannot verify exclusion filter: price change over last 5 trading days not provided.",
+        "Catalyst is newsflow (product launch) rather than a scheduled binary event; catalyst score moderated."
+      ]
+    },
+    {
+      "rank": 3,
+      "ticker": "SRE",
+      "name": "Sempra",
+      "exchange": "NYSE",
+      "sector": "Utilities",
+      "current_price": 93.91000366210938,
+      "market_cap_usd": 58153922560,
+      "avg_dollar_volume_20d": 374812968.4383774,
+      "asof_price_utc": "2025-11-24T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 103.3,
+        "base_case_upside_pct_range": [
+          10,
+          14
+        ],
+        "bear_case_note": "Regulatory decision/charge narrative worsens or is interpreted as structurally negative; price loses trend support despite defensive sector bid."
+      },
+      "primary_catalyst": {
+        "title": "Regulatory decision/charge impact update (Track 2 proposed decision)",
+        "key_date_local": "2026-01-04",
+        "timing": "Newsflow / after-hours unknown",
+        "why_it_matters": "Regulatory outcomes can re-rate utilities quickly; clarity on earnings impact and allowed returns can trigger a repricing move as investors update forward cash flow expectations.",
+        "sources": [
+          {
+            "title": "Sempra (SRE) Estimates A $471 million After-Tax Impact To Earnings From Track 2 Proposed Decision",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-04"
+          },
+          {
+            "title": "How A US$471 Million Regulatory Charge At Sempra (SRE) Has Changed Its Investment Story",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-06"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 10,
+        "catalyst": 4.0,
+        "options": 3,
+        "sentiment": 4
+      },
+      "composite_score": 5.25,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 1.68,
+          "rsi14": 57.76,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 20.17
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "mixed"
+        }
+      },
+      "risk_factors": [
+        "Utilities typically have lower beta; achieving +10% in 7 trading days is less common without a strong positive regulatory surprise.",
+        "Regulatory headline risk can cut both ways; negative follow-ups could gap down."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Options data unavailable in packet; options score capped at 3.0.",
+        "Social sentiment data unavailable in packet; sentiment score capped at 4.0.",
+        "Cannot verify exclusion filter: price change over last 5 trading days not provided.",
+        "Catalyst date is in the past relative to run timestamp; treated as ongoing repricing/newsflow rather than a future scheduled event, so catalyst score capped at 4.0."
+      ]
+    },
+    {
+      "rank": 4,
+      "ticker": "EXPD",
+      "name": "Expeditors International of Washington, Inc.",
+      "exchange": "NYSE",
+      "sector": "Industrials",
+      "current_price": 144.25999450683594,
+      "market_cap_usd": 21866969088,
+      "avg_dollar_volume_20d": 248859903.31394196,
+      "asof_price_utc": "2025-11-24T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 158.69,
+        "base_case_upside_pct_range": [
+          10,
+          15
+        ],
+        "bear_case_note": "Transportation 'recovery' narrative fades; stock fails to hold breakout area and rolls below short-term moving averages."
+      },
+      "primary_catalyst": {
+        "title": "Analyst upgrade / sector recovery call (BofA transportation)",
+        "key_date_local": "2026-01-11",
+        "timing": "Newsflow",
+        "why_it_matters": "A high-profile sector upgrade can pull in incremental flows and prompt near-term multiple expansion for freight/logistics names positioned for a cyclical recovery.",
+        "sources": [
+          {
+            "title": "Will BofA’s Transportation Upgrade Shift Expeditors’ (EXPD) Freight Recovery Narrative?",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-11"
+          },
+          {
+            "title": "Transportation Sector Poised for 2026 Recovery After Freight Recession, BofA Says",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-09"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 8,
+        "catalyst": 4.0,
+        "options": 3,
+        "sentiment": 4
+      },
+      "composite_score": 4.75,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 0.92,
+          "rsi14": 64.44,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 31.77
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "positive"
+        }
+      },
+      "risk_factors": [
+        "Macro/PMI and rates can overwhelm transport upgrade narratives in a 1–2 week window.",
+        "If freight pricing data points disappoint, the 'recovery' thesis can unwind quickly."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Options data unavailable in packet; options score capped at 3.0.",
+        "Social sentiment data unavailable in packet; sentiment score capped at 4.0.",
+        "Cannot verify exclusion filter: price change over last 5 trading days not provided."
+      ]
+    },
+    {
+      "rank": 5,
+      "ticker": "ROST",
+      "name": "Ross Stores, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Consumer Cyclical",
+      "current_price": 174.1300048828125,
+      "market_cap_usd": 62528000000,
+      "avg_dollar_volume_20d": 454470157.8765106,
+      "asof_price_utc": "2025-11-24T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 191.54,
+        "base_case_upside_pct_range": [
+          10,
+          14
+        ],
+        "bear_case_note": "Overbought momentum (RSI) mean-reverts; price fails to hold recent run-up and breaks below short-term support."
+      },
+      "primary_catalyst": {
+        "title": "Analyst focus list / price target raise (JPMorgan)",
+        "key_date_local": "2026-01-10",
+        "timing": "Newsflow",
+        "why_it_matters": "A major bank adding the stock to a focus list and raising target can drive near-term institutional attention and momentum continuation, especially with strong volume expansion.",
+        "sources": [
+          {
+            "title": "JPMorgan ups Ross Stores target, adds to Analyst Focus List",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-10"
+          },
+          {
+            "title": "Deutsche Bank sees ‘risk-on’ setup for retail in 2026, favors AS and ROST",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-08"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 8,
+        "catalyst": 4.0,
+        "options": 3,
+        "sentiment": 4
+      },
+      "composite_score": 4.75,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 2.2,
+          "rsi14": 76.12,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 58.41
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "positive"
+        }
+      },
+      "risk_factors": [
+        "RSI is very elevated (overbought); higher probability of pullback/sideways consolidation.",
+        "Retail is sensitive to macro data and consumer sentiment; sector rotation risk is high."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Options data unavailable in packet; options score capped at 3.0.",
+        "Social sentiment data unavailable in packet; sentiment score capped at 4.0.",
+        "Cannot verify exclusion filter: price change over last 5 trading days not provided."
+      ]
+    }
+  ]
+}

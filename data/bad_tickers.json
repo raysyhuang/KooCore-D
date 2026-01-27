@@ -1,0 +1,100 @@
+{
+  "MRSH": {
+    "until": "2026-01-31T06:08:09.039516Z",
+    "last_seen": "2026-01-24T06:08:09.039516Z",
+    "source": "polygon",
+    "reason": "no_data",
+    "count": 1
+  },
+  "ABL": {
+    "until": "2026-02-02T01:03:56.006527Z",
+    "last_seen": "2026-01-26T01:03:56.006527Z",
+    "source": "polygon",
+    "reason": "no_data",
+    "count": 1
+  },
+  "BF-B": {
+    "until": "2026-02-02T01:03:56.006527Z",
+    "last_seen": "2026-01-26T01:03:56.006527Z",
+    "source": "polygon",
+    "reason": "no_data",
+    "count": 1
+  },
+  "BRK-B": {
+    "until": "2026-02-02T01:03:56.006527Z",
+    "last_seen": "2026-01-26T01:03:56.006527Z",
+    "source": "polygon",
+    "reason": "no_data",
+    "count": 1
+  },
+  "KAR": {
+    "until": "2026-02-02T01:03:56.006527Z",
+    "last_seen": "2026-01-26T01:03:56.006527Z",
+    "source": "polygon",
+    "reason": "no_data",
+    "count": 1
+  },
+  "OMI": {
+    "until": "2026-02-02T01:03:56.006527Z",
+    "last_seen": "2026-01-26T01:03:56.006527Z",
+    "source": "polygon",
+    "reason": "no_data",
+    "count": 1
+  },
+  "ASTE": {
+    "until": "2026-02-02T01:26:49.729790Z",
+    "last_seen": "2026-01-26T01:26:49.729790Z",
+    "source": "yfinance",
+    "reason": "No data returned",
+    "count": 1
+  },
+  "CHEF": {
+    "until": "2026-02-02T01:28:03.666254Z",
+    "last_seen": "2026-01-26T01:28:03.666254Z",
+    "source": "yfinance",
+    "reason": "No data returned",
+    "count": 1
+  },
+  "CI": {
+    "until": "2026-02-02T01:28:03.666254Z",
+    "last_seen": "2026-01-26T01:28:03.666254Z",
+    "source": "yfinance",
+    "reason": "No data returned",
+    "count": 1
+  },
+  "CNNE": {
+    "until": "2026-02-02T01:28:03.666254Z",
+    "last_seen": "2026-01-26T01:28:03.666254Z",
+    "source": "yfinance",
+    "reason": "No data returned",
+    "count": 1
+  },
+  "HRTX": {
+    "until": "2026-02-02T01:31:26.232167Z",
+    "last_seen": "2026-01-26T01:31:26.232167Z",
+    "source": "yfinance",
+    "reason": "No data returned",
+    "count": 1
+  },
+  "NRDY": {
+    "until": "2026-02-02T01:33:43.288117Z",
+    "last_seen": "2026-01-26T01:33:43.288117Z",
+    "source": "yfinance",
+    "reason": "No data returned",
+    "count": 1
+  },
+  "ORN": {
+    "until": "2026-02-02T01:34:54.017976Z",
+    "last_seen": "2026-01-26T01:34:54.017976Z",
+    "source": "yfinance",
+    "reason": "No data returned",
+    "count": 1
+  },
+  "TPL": {
+    "until": "2026-02-02T01:38:22.330382Z",
+    "last_seen": "2026-01-26T01:38:22.330382Z",
+    "source": "yfinance",
+    "reason": "No data returned",
+    "count": 1
+  }
+}

@@ -1,0 +1,944 @@
+
+============================================================
+[2026-01-14 14:46:34 UTC] [NORMAL] 🚀 Test Alert
+============================================================
+This is a test notification from your trading system!
+
+Details:
+  Ticker: AAPL
+  Score: 7.5
+
+
+============================================================
+[2026-01-14 15:23:29 UTC] [HIGH] ALL THREE Overlap Detected!
+============================================================
+⭐ 2 ticker(s) found in all three overlap:
+AAPL, NVDA
+
+Details:
+  Date: 2026-01-14
+  Overlap Type: all_three
+  Ticker Count: 2
+  Tickers: AAPL, NVDA
+
+
+============================================================
+[2026-01-14 15:23:34 UTC] [LOW] Scan Complete: 2026-01-14
+============================================================
+📊 Daily scan complete for 2026-01-14
+
+• Weekly Top 5: 5
+• Pro30 Candidates: 12
+• Daily Movers: 8
+
+⭐ ALL THREE overlap: AAPL, NVDA
+
+Details:
+  Date: 2026-01-14
+  Weekly Top 5: 5
+  Pro30 Candidates: 12
+  Daily Movers: 8
+  All Three Overlap: AAPL, NVDA
+
+
+============================================================
+[2026-01-15 03:58:43 UTC] [LOW] Scan Complete: 2026-01-14
+============================================================
+📊 Daily scan complete for 2026-01-14
+
+• Weekly Top 5: 5
+• Pro30 Candidates: 1
+• Daily Movers: 0
+
+
+Details:
+  Date: 2026-01-14
+  Weekly Top 5: 5
+  Pro30 Candidates: 1
+  Daily Movers: 0
+  All Three Overlap: None
+
+
+============================================================
+[2026-01-15 06:00:02 UTC] [LOW] Scan Complete: 2026-01-15
+============================================================
+📊 Daily scan complete for 2026-01-15
+
+📈 Weekly Top 5: 0
+
+🎯 Pro30 Candidates: 0
+
+🔥 Daily Movers: 0
+
+
+📊 Model Health:
+   Status: 🟡 Good
+   Hit Rate (+7%): 36.2%
+   Win Rate: 65.2%
+   pro30: 54.5% (n=22)
+   weekly_top5: 28.9% (n=45)
+   movers: 0.0% (n=2)
+
+
+Details:
+  Date: 2026-01-15
+  Weekly Top 5: 0
+  Weekly Tickers: None
+  Pro30 Candidates: 0
+  Pro30 Tickers: None
+  Daily Movers: 0
+  Movers Tickers: None
+  All Three Overlap: None
+  Model Health: 🟡 Good
+
+
+============================================================
+[2026-01-15 09:10:32 UTC] [LOW] Scan Complete: 2026-01-15
+============================================================
+📊 Daily scan complete for 2026-01-15
+
+📈 Weekly Top 5: 0
+
+🎯 Pro30 Candidates: 0
+
+🔥 Daily Movers: 0
+
+
+📊 Model Health:
+   Status: 🟡 Good
+   Hit Rate (+7%): 36.2%
+   Win Rate: 65.2%
+   pro30: 54.5% (n=22)
+   weekly_top5: 28.9% (n=45)
+   movers: 0.0% (n=2)
+
+
+Details:
+  Date: 2026-01-15
+  Weekly Top 5: 0
+  Weekly Tickers: None
+  Pro30 Candidates: 0
+  Pro30 Tickers: None
+  Daily Movers: 0
+  Movers Tickers: None
+  All Three Overlap: None
+  Model Health: 🟡 Good
+
+
+============================================================
+[2026-01-15 14:36:50 UTC] [LOW] Scan Complete: 2026-01-15
+============================================================
+📊 Daily scan complete for 2026-01-15
+
+📈 Weekly Top 5: 0
+
+🎯 Pro30 Candidates: 0
+
+🔥 Daily Movers: 0
+
+
+📊 Model Health:
+   Status: 🟡 Good
+   Hit Rate (+7%): 30.4%
+   Win Rate: 59.4%
+   pro30: 54.5% (n=22)
+   weekly_top5: 20.0% (n=45)
+   movers: 0.0% (n=2)
+
+
+Details:
+  Date: 2026-01-15
+  Weekly Top 5: 0
+  Weekly Tickers: None
+  Pro30 Candidates: 0
+  Pro30 Tickers: None
+  Daily Movers: 0
+  Movers Tickers: None
+  All Three Overlap: None
+  Model Health: 🟡 Good
+
+
+============================================================
+[2026-01-15 23:36:01 UTC] [HIGH] Position Alert: WGS
+============================================================
+🛑 STOP LOSS: WGS down -19.3% (limit: -7.0%)
+
+Details:
+  ticker: WGS
+  entry_date: 2026-01-15
+  entry_price: 135.3800048828125
+  source: movers
+  rank: None
+  composite_score: None
+  holding_days_target: 7
+  stop_loss_pct: -7.0
+  profit_target_pct: 7.0
+  current_price: 109.27999877929688
+  current_return_pct: -19.279070144891993
+  max_price: 109.27999877929688
+  max_return_pct: -19.279070144891993
+  min_price: 109.27999877929688
+  max_drawdown_pct: -19.279070144891993
+  last_updated: 2026-01-15T23:36:00.358205Z
+  status: open
+  days_held: 1
+
+
+============================================================
+[2026-01-15 23:36:03 UTC] [HIGH] Position Alert: CRM
+============================================================
+🛑 STOP LOSS: CRM down -10.2% (limit: -7.0%)
+
+Details:
+  ticker: CRM
+  entry_date: 2026-01-15
+  entry_price: 259.94000244140625
+  source: movers
+  rank: None
+  composite_score: None
+  holding_days_target: 7
+  stop_loss_pct: -7.0
+  profit_target_pct: 7.0
+  current_price: 233.52999877929688
+  current_return_pct: -10.160038245003296
+  max_price: 233.52999877929688
+  max_return_pct: -10.160038245003296
+  min_price: 233.52999877929688
+  max_drawdown_pct: -10.160038245003296
+  last_updated: 2026-01-15T23:36:00.358205Z
+  status: open
+  days_held: 1
+
+
+============================================================
+[2026-01-15 23:36:04 UTC] [HIGH] Position Alert: TVTX
+============================================================
+🛑 STOP LOSS: TVTX down -17.9% (limit: -7.0%)
+
+Details:
+  ticker: TVTX
+  entry_date: 2026-01-15
+  entry_price: 34.58000183105469
+  source: movers
+  rank: None
+  composite_score: None
+  holding_days_target: 7
+  stop_loss_pct: -7.0
+  profit_target_pct: 7.0
+  current_price: 28.399999618530273
+  current_return_pct: -17.871607534081857
+  max_price: 28.399999618530273
+  max_return_pct: -17.871607534081857
+  min_price: 28.399999618530273
+  max_drawdown_pct: -17.871607534081857
+  last_updated: 2026-01-15T23:36:00.358205Z
+  status: open
+  days_held: 1
+
+
+============================================================
+[2026-01-15 23:36:05 UTC] [HIGH] Position Alert: FIG
+============================================================
+🛑 STOP LOSS: FIG down -15.3% (limit: -7.0%)
+
+Details:
+  ticker: FIG
+  entry_date: 2026-01-15
+  entry_price: 37.33000183105469
+  source: movers
+  rank: None
+  composite_score: None
+  holding_days_target: 7
+  stop_loss_pct: -7.0
+  profit_target_pct: 7.0
+  current_price: 31.600000381469727
+  current_return_pct: -15.34958791461455
+  max_price: 31.600000381469727
+  max_return_pct: -15.34958791461455
+  min_price: 31.600000381469727
+  max_drawdown_pct: -15.34958791461455
+  last_updated: 2026-01-15T23:36:00.358205Z
+  status: open
+  days_held: 1
+
+
+============================================================
+[2026-01-15 23:36:07 UTC] [HIGH] Position Alert: PATH
+============================================================
+🛑 STOP LOSS: PATH down -9.4% (limit: -7.0%)
+
+Details:
+  ticker: PATH
+  entry_date: 2026-01-15
+  entry_price: 16.31999969482422
+  source: movers
+  rank: None
+  composite_score: None
+  holding_days_target: 7
+  stop_loss_pct: -7.0
+  profit_target_pct: 7.0
+  current_price: 14.789999961853027
+  current_return_pct: -9.374998539101817
+  max_price: 14.789999961853027
+  max_return_pct: -9.374998539101817
+  min_price: 14.789999961853027
+  max_drawdown_pct: -9.374998539101817
+  last_updated: 2026-01-15T23:36:00.358205Z
+  status: open
+  days_held: 1
+
+
+============================================================
+[2026-01-16 02:16:49 UTC] [LOW] Scan Complete: 2026-01-15
+============================================================
+===================================
+SCAN COMPLETE - 2026-01-15
+===================================
+
+📈 WEEKLY TOP 5: 3
+  1. MS (Score: 4.2, SPECULATIVE)
+  2. CADE (Score: 4.2, SPECULATIVE)
+  3. DAL (Score: 4.2, SPECULATIVE)
+
+🎯 PRO30 CANDIDATES: 7
+  ATEC, BRZE, COHR, DVN, HOUS, OCUL, SEI
+
+🔥 DAILY MOVERS: 7
+  CRM, FIG, IRTC, PATH, STNG, TVTX, WGS
+
+📊 MODEL HEALTH: 🟡 Good
+  Hit Rate (+7%): 31.9%
+  Win Rate: 66.7%
+  pro30: 50.0% (n=22)
+  weekly_top5: 24.4% (n=45)
+  movers: 0.0% (n=2)
+
+===================================
+
+
+============================================================
+[2026-01-16 07:23:02 UTC] [LOW] Scan Complete: 2026-01-16
+============================================================
+===================================
+SCAN COMPLETE - 2026-01-16
+===================================
+
+📈 WEEKLY TOP 5: 3
+  1. CADE (Score: 6.0, SPECULATIVE)
+  2. MS (Score: 5.8, SPECULATIVE)
+  3. DAL (Score: 5.5, SPECULATIVE)
+
+🎯 PRO30 CANDIDATES: 7
+  ATEC, BRZE, COHR, DVN, HOUS, OCUL, SEI
+
+🔥 DAILY MOVERS: 8
+  CRM, FIG, IRTC, PATH, PXED, STNG, TVTX, WGS
+
+📊 MODEL HEALTH: 🟡 Good
+  Hit Rate (+7%): 31.9%
+  Win Rate: 66.7%
+  pro30: 50.0% (n=22)
+  weekly_top5: 24.4% (n=45)
+  movers: 0.0% (n=2)
+
+===================================
+
+
+============================================================
+[2026-01-17 08:14:34 UTC] [LOW] Scan Complete: 2026-01-17
+============================================================
+===================================
+SCAN COMPLETE - 2026-01-17
+===================================
+
+🎯 OVERLAPS (High Conviction):
+  💎 Pro30+Movers: ATEC
+
+📈 WEEKLY TOP 5: 3
+  1. NUE (Score: 4.9, SPECULATIVE)
+  2. MU (Score: 5.0, SPECULATIVE)
+  3. PFG (Score: 4.8, SPECULATIVE)
+
+🎯 PRO30 CANDIDATES: 6
+  ATEC, BRZE, COHR, HOUS, OCUL, SEI
+
+🔥 DAILY MOVERS: 20
+  AEIS, AFCG, APP, ATEC, CRCL, CRM, DAVE, FIG, GKOS, IRON
+
+📊 MODEL HEALTH: 🟠 Needs Attention
+  Hit Rate (+7%): 27.7%
+  Win Rate: 60.2%
+  pro30: 40.7% (n=27)
+  weekly_top5: 25.0% (n=48)
+  movers: 0.0% (n=8)
+
+===================================
+
+
+============================================================
+[2026-01-17 08:14:53 UTC] [HIGH] Position Alert: DAVE
+============================================================
+🛑 STOP LOSS: DAVE down -10.0% (limit: -7.0%)
+
+Details:
+  ticker: DAVE
+  entry_date: 2026-01-17
+  entry_price: 215.50999450683594
+  source: movers
+  rank: None
+  composite_score: None
+  holding_days_target: 7
+  stop_loss_pct: -7.0
+  profit_target_pct: 7.0
+  technical_score: None
+  rsi14: None
+  volume_ratio_3d_to_20d: None
+  dist_to_52w_high_pct: None
+  realized_vol_5d_ann_pct: None
+  above_ma10: None
+  above_ma20: None
+  above_ma50: None
+  sector: None
+  market_cap_usd: None
+  overlap_count: 1
+  overlap_sources: ['movers']
+  conviction_score: None
+  confidence: None
+  current_price: 194.00999450683594
+  current_return_pct: -9.976335459151072
+  max_price: 194.00999450683594
+  max_return_pct: -9.976335459151072
+  min_price: 194.00999450683594
+  max_drawdown_pct: -9.976335459151072
+  last_updated: 2026-01-17T08:14:51.753028Z
+  status: open
+  days_held: 0
+  days_to_peak: 0
+
+
+============================================================
+[2026-01-17 08:14:54 UTC] [HIGH] Position Alert: AFCG
+============================================================
+🛑 STOP LOSS: AFCG down -11.8% (limit: -7.0%)
+
+Details:
+  ticker: AFCG
+  entry_date: 2026-01-17
+  entry_price: 2.880000114440918
+  source: movers
+  rank: None
+  composite_score: None
+  holding_days_target: 7
+  stop_loss_pct: -7.0
+  profit_target_pct: 7.0
+  technical_score: None
+  rsi14: None
+  volume_ratio_3d_to_20d: None
+  dist_to_52w_high_pct: None
+  realized_vol_5d_ann_pct: None
+  above_ma10: None
+  above_ma20: None
+  above_ma50: None
+  sector: None
+  market_cap_usd: None
+  overlap_count: 1
+  overlap_sources: ['movers']
+  conviction_score: None
+  confidence: None
+  current_price: 2.5399999618530273
+  current_return_pct: -11.80556038463538
+  max_price: 2.5399999618530273
+  max_return_pct: -11.80556038463538
+  min_price: 2.5399999618530273
+  max_drawdown_pct: -11.80556038463538
+  last_updated: 2026-01-17T08:14:51.753028Z
+  status: open
+  days_held: 0
+  days_to_peak: 0
+
+
+============================================================
+[2026-01-17 08:14:57 UTC] [HIGH] Position Alert: VIA
+============================================================
+🛑 STOP LOSS: VIA down -9.2% (limit: -7.0%)
+
+Details:
+  ticker: VIA
+  entry_date: 2026-01-17
+  entry_price: 25.229999542236328
+  source: movers
+  rank: None
+  composite_score: None
+  holding_days_target: 7
+  stop_loss_pct: -7.0
+  profit_target_pct: 7.0
+  technical_score: None
+  rsi14: None
+  volume_ratio_3d_to_20d: None
+  dist_to_52w_high_pct: None
+  realized_vol_5d_ann_pct: None
+  above_ma10: None
+  above_ma20: None
+  above_ma50: None
+  sector: None
+  market_cap_usd: None
+  overlap_count: 1
+  overlap_sources: ['movers']
+  conviction_score: None
+  confidence: None
+  current_price: 22.899999618530273
+  current_return_pct: -9.235037518750303
+  max_price: 22.899999618530273
+  max_return_pct: -9.235037518750303
+  min_price: 22.899999618530273
+  max_drawdown_pct: -9.235037518750303
+  last_updated: 2026-01-17T08:14:51.753028Z
+  status: open
+  days_held: 0
+  days_to_peak: 0
+
+
+============================================================
+[2026-01-17 08:14:59 UTC] [HIGH] Position Alert: LZ
+============================================================
+🛑 STOP LOSS: LZ down -13.2% (limit: -7.0%)
+
+Details:
+  ticker: LZ
+  entry_date: 2026-01-17
+  entry_price: 10.220000267028809
+  source: movers
+  rank: None
+  composite_score: None
+  holding_days_target: 7
+  stop_loss_pct: -7.0
+  profit_target_pct: 7.0
+  technical_score: None
+  rsi14: None
+  volume_ratio_3d_to_20d: None
+  dist_to_52w_high_pct: None
+  realized_vol_5d_ann_pct: None
+  above_ma10: None
+  above_ma20: None
+  above_ma50: None
+  sector: None
+  market_cap_usd: None
+  overlap_count: 1
+  overlap_sources: ['movers']
+  conviction_score: None
+  confidence: None
+  current_price: 8.869999885559082
+  current_return_pct: -13.209396733824185
+  max_price: 8.869999885559082
+  max_return_pct: -13.209396733824185
+  min_price: 8.869999885559082
+  max_drawdown_pct: -13.209396733824185
+  last_updated: 2026-01-17T08:14:51.753028Z
+  status: open
+  days_held: 0
+  days_to_peak: 0
+
+
+============================================================
+[2026-01-17 08:15:02 UTC] [HIGH] Position Alert: APP
+============================================================
+🛑 STOP LOSS: APP down -13.6% (limit: -7.0%)
+
+Details:
+  ticker: APP
+  entry_date: 2026-01-17
+  entry_price: 658.6500244140625
+  source: movers
+  rank: None
+  composite_score: None
+  holding_days_target: 7
+  stop_loss_pct: -7.0
+  profit_target_pct: 7.0
+  technical_score: None
+  rsi14: None
+  volume_ratio_3d_to_20d: None
+  dist_to_52w_high_pct: None
+  realized_vol_5d_ann_pct: None
+  above_ma10: None
+  above_ma20: None
+  above_ma50: None
+  sector: None
+  market_cap_usd: None
+  overlap_count: 1
+  overlap_sources: ['movers']
+  conviction_score: None
+  confidence: None
+  current_price: 568.760009765625
+  current_return_pct: -13.647614258938804
+  max_price: 568.760009765625
+  max_return_pct: -13.647614258938804
+  min_price: 568.760009765625
+  max_drawdown_pct: -13.647614258938804
+  last_updated: 2026-01-17T08:14:51.753028Z
+  status: open
+  days_held: 0
+  days_to_peak: 0
+
+
+============================================================
+[2026-01-17 08:15:04 UTC] [HIGH] Position Alert: PI
+============================================================
+🛑 STOP LOSS: PI down -20.4% (limit: -7.0%)
+
+Details:
+  ticker: PI
+  entry_date: 2026-01-17
+  entry_price: 203.41000366210938
+  source: movers
+  rank: None
+  composite_score: None
+  holding_days_target: 7
+  stop_loss_pct: -7.0
+  profit_target_pct: 7.0
+  technical_score: None
+  rsi14: None
+  volume_ratio_3d_to_20d: None
+  dist_to_52w_high_pct: None
+  realized_vol_5d_ann_pct: None
+  above_ma10: None
+  above_ma20: None
+  above_ma50: None
+  sector: None
+  market_cap_usd: None
+  overlap_count: 1
+  overlap_sources: ['movers']
+  conviction_score: None
+  confidence: None
+  current_price: 161.92999267578125
+  current_return_pct: -20.39231612975724
+  max_price: 161.92999267578125
+  max_return_pct: -20.39231612975724
+  min_price: 161.92999267578125
+  max_drawdown_pct: -20.39231612975724
+  last_updated: 2026-01-17T08:14:51.753028Z
+  status: open
+  days_held: 0
+  days_to_peak: 0
+
+
+============================================================
+[2026-01-17 08:15:05 UTC] [HIGH] Position Alert: IRON
+============================================================
+🛑 STOP LOSS: IRON down -10.2% (limit: -7.0%)
+
+Details:
+  ticker: IRON
+  entry_date: 2026-01-17
+  entry_price: 79.0199966430664
+  source: movers
+  rank: None
+  composite_score: None
+  holding_days_target: 7
+  stop_loss_pct: -7.0
+  profit_target_pct: 7.0
+  technical_score: None
+  rsi14: None
+  volume_ratio_3d_to_20d: None
+  dist_to_52w_high_pct: None
+  realized_vol_5d_ann_pct: None
+  above_ma10: None
+  above_ma20: None
+  above_ma50: None
+  sector: None
+  market_cap_usd: None
+  overlap_count: 1
+  overlap_sources: ['movers']
+  conviction_score: None
+  confidence: None
+  current_price: 70.93000030517578
+  current_return_pct: -10.237910252556915
+  max_price: 70.93000030517578
+  max_return_pct: -10.237910252556915
+  min_price: 70.93000030517578
+  max_drawdown_pct: -10.237910252556915
+  last_updated: 2026-01-17T08:14:51.753028Z
+  status: open
+  days_held: 0
+  days_to_peak: 0
+
+
+============================================================
+[2026-01-17 08:15:07 UTC] [NORMAL] Position Drawdown Warnings
+============================================================
+Position Warnings:
+⚠️ DRAWDOWN WARNING: IRTC down -6.8% (approaching -7.0% stop)
+⚠️ DRAWDOWN WARNING: CRCL down -5.2% (approaching -7.0% stop)
+
+
+============================================================
+[2026-01-17 08:15:09 UTC] [LOW] Position Profit Targets
+============================================================
+Position Updates:
+🎯 TARGET HIT: STNG up 7.8% (target: 7.0%)
+🎯 TARGET HIT: MU up 7.8% (target: 7.0%)
+🎯 TARGET HIT: AEIS up 11.5% (target: 7.0%)
+🎯 TARGET HIT: UEC up 12.0% (target: 7.0%)
+🎯 TARGET HIT: GKOS up 8.4% (target: 7.0%)
+
+
+============================================================
+[2026-01-17 15:09:04 UTC] [HIGH] Scan Complete: 2026-01-17
+============================================================
+===================================
+SCAN COMPLETE - 2026-01-17
+===================================
+
+🏆 HYBRID TOP 3 (Best Picks):
+(Pro30=50% hit, Weekly=25% hit)
+  1. ATEC (Pro30, Movers)
+     Score: 2.5 pts | MEDIUM
+  2. OCUL (Pro30)
+     Score: 2.0 pts | MEDIUM
+  3. HOUS (Pro30)
+     Score: 2.0 pts | MEDIUM
+
+🎯 OVERLAPS (High Conviction):
+  💎 Pro30+Movers: ATEC
+
+📊 SUMMARY:
+  Weekly: 3 | Pro30: 6 | Movers: 20
+
+📈 MODEL: 🟠 Needs Attention
+  Hit: 28% | Win: 60%
+  pro30:41% | weekly_top5:25% | movers:0%
+
+===================================
+
+
+============================================================
+[2026-01-18 05:40:21 UTC] [HIGH] Scan Complete: 2026-01-17
+============================================================
+===================================
+SCAN COMPLETE - 2026-01-17
+===================================
+
+🏆 HYBRID TOP 3 (Best Picks):
+(Pro30=50% hit, Weekly=25% hit)
+  1. ATEC (Pro30, Movers)
+     Score: 2.5 pts | MEDIUM
+  2. COHR (Pro30)
+     Score: 2.0 pts | MEDIUM
+  3. SEI (Pro30)
+     Score: 2.0 pts | MEDIUM
+
+🎯 OVERLAPS (High Conviction):
+  💎 Pro30+Movers: ATEC
+
+📊 SUMMARY:
+  Weekly: 3 | Pro30: 6 | Movers: 20
+
+📈 MODEL: 🟠 Needs Attention
+  Hit: 26% | Win: 57%
+  pro30:41% | weekly_top5:21% | movers:0%
+
+===================================
+
+
+============================================================
+[2026-01-18 11:11:25 UTC] [HIGH] Scan Complete: 2026-01-16
+============================================================
+===================================
+SCAN COMPLETE - 2026-01-16
+===================================
+
+🏆 HYBRID TOP 3 (Best Picks):
+(Pro30=50% hit, Weekly=25% hit)
+  1. ATEC (Pro30, Movers)
+     Score: 2.5 pts | MEDIUM
+  2. OCUL (Pro30)
+     Score: 2.0 pts | MEDIUM
+  3. SEI (Pro30)
+     Score: 2.0 pts | MEDIUM
+
+🎯 OVERLAPS (High Conviction):
+  💎 Pro30+Movers: ATEC
+
+📊 SUMMARY:
+  Weekly: 3 | Pro30: 6 | Movers: 20
+
+📈 MODEL: 🟠 Needs Attention
+  Hit: 26% | Win: 57%
+  pro30:41% | weekly_top5:21% | movers:0%
+
+===================================
+
+
+============================================================
+[2026-01-21 03:23:29 UTC] [HIGH] Scan Complete: 2026-01-20
+============================================================
+===================================
+SCAN COMPLETE - 2026-01-20
+===================================
+
+🏆 HYBRID TOP 3 (Best Picks):
+(Pro30=50% hit, Weekly=25% hit)
+  1. BRZE (Pro30)
+     Score: 2.0 pts | MEDIUM
+  2. SEI (Pro30)
+     Score: 2.0 pts | MEDIUM
+  3. HOUS (Pro30)
+     Score: 2.0 pts | MEDIUM
+
+📊 SUMMARY:
+  Weekly: 2 | Pro30: 6 | Movers: 0
+
+📈 MODEL: 🔴 Poor
+  Hit: 20% | Win: 44%
+  pro30:31% | weekly_top5:22% | movers:4%
+
+===================================
+
+
+============================================================
+[2026-01-22 03:36:53 UTC] [HIGH] Scan Complete: 2026-01-21
+============================================================
+===================================
+SCAN COMPLETE - 2026-01-21
+===================================
+
+🏆 HYBRID TOP 3 (Best Picks):
+(Pro30=50% hit, Weekly=25% hit)
+  1. BRZE (Pro30, Movers)
+     Score: 2.5 pts | MEDIUM
+  2. HOUS (Pro30)
+     Score: 2.0 pts | MEDIUM
+  3. OCUL (Pro30)
+     Score: 2.0 pts | MEDIUM
+
+🎯 OVERLAPS (High Conviction):
+  📈 Weekly+Movers: MU
+  💎 Pro30+Movers: BRZE
+
+📊 SUMMARY:
+  Weekly: 2 | Pro30: 6 | Movers: 47
+
+📈 MODEL: 🟠 Needs Attention
+  Hit: 26% | Win: 56%
+  pro30:38% | weekly_top5:30% | movers:7%
+
+===================================
+
+
+============================================================
+[2026-01-23 03:14:24 UTC] [HIGH] Scan Complete: 2026-01-22
+============================================================
+===================================
+SCAN COMPLETE - 2026-01-22
+===================================
+
+🏆 HYBRID TOP 3 (Best Picks):
+(Pro30=50% hit, Weekly=25% hit)
+  1. OCUL (Pro30)
+     Score: 2.0 pts | MEDIUM
+  2. COHR (Pro30)
+     Score: 2.0 pts | MEDIUM
+  3. SEI (Pro30)
+     Score: 2.0 pts | MEDIUM
+
+📊 SUMMARY:
+  Weekly: 2 | Pro30: 5 | Movers: 41
+
+📈 MODEL: 🟠 Needs Attention
+  Hit: 30% | Win: 59%
+  pro30:38% | movers:31% | weekly_top5:17%
+
+===================================
+
+
+============================================================
+[2026-01-24 04:11:36 UTC] [HIGH] Scan Complete: 2026-01-23
+============================================================
+===================================
+SCAN COMPLETE - 2026-01-23
+===================================
+
+🏆 HYBRID TOP 3 (Best Picks):
+(Pro30=50% hit, Weekly=25% hit)
+  1. ATEC (Pro30)
+     Score: 2.0 pts | MEDIUM
+  2. COHR (Pro30)
+     Score: 2.0 pts | MEDIUM
+  3. BRZE (Pro30)
+     Score: 2.0 pts | MEDIUM
+
+🎯 OVERLAPS (High Conviction):
+  📈 Weekly+Movers: MU
+
+📊 SUMMARY:
+  Weekly: 2 | Pro30: 5 | Movers: 49
+
+📈 MODEL: 🟠 Needs Attention
+  Hit: 29% | Win: 44%
+  weekly_top5:41% | pro30:37% | movers:24%
+
+===================================
+
+
+============================================================
+[2026-01-26 02:24:05 UTC] [HIGH] Scan Complete: 2026-01-23 (Weekly)
+============================================================
+===================================
+SCAN COMPLETE - 2026-01-23
+===================================
+Regime: chop
+Primary Strategy: Weekly
+Primary Candidates: 30
+
+🏆 HYBRID TOP 3 (Best Picks):
+  1. COHR (Pro30)
+     Score: 2.0 pts | LOW
+  2. SEI (Pro30)
+     Score: 2.0 pts | LOW
+  3. RKLB (Weekly(1))
+     Score: 1.6 pts | LOW
+
+⭐ Weekly TOP PICKS:
+  - RKLB: 4.91 LOW
+  - MU: 4.91 LOW
+
+📊 SUMMARY:
+  Weekly: 2 | Pro30: 2 | Movers: 11
+
+📈 MODEL: 🟠 Needs Attention
+  Hit: 25% | Win: 42%
+  weekly_top5:41% | pro30:37% | movers:24%
+
+===================================
+
+
+============================================================
+[2026-01-26 04:21:42 UTC] [HIGH] Scan Complete: 2026-01-23 (Weekly)
+============================================================
+===================================
+SCAN COMPLETE - 2026-01-23
+===================================
+Regime: chop
+Primary Strategy: Weekly
+Primary Candidates: 30
+
+🏆 HYBRID TOP 3 (Best Picks):
+  1. COHR (Pro30)
+     Score: 2.0 pts | LOW
+  2. SEI (Pro30)
+     Score: 2.0 pts | LOW
+  3. MU (Weekly(1))
+     Score: 1.6 pts | LOW
+
+⭐ Weekly TOP PICKS:
+  - MU: 4.91 LOW
+  - MS: 4.15 LOW
+
+📊 SUMMARY:
+  Weekly: 2 | Pro30: 2 | Movers: 9
+
+📈 MODEL: 🟠 Needs Attention
+  Hit: 25% | Win: 42%
+  weekly_top5:41% | pro30:37% | movers:24%
+
+===================================
+

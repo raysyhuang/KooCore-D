@@ -1,44 +1,36 @@
-# Python
+# Python cache
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
-.Python
-env/
-venv/
-ENV/
-.venv
+
+# macOS
+.DS_Store
 
 # IDE
 .vscode/
 .idea/
 *.swp
 *.swo
-*~
 
-# OS
-.DS_Store
-Thumbs.db
+# Outputs (optional - uncomment if you don't want to track outputs)
+# outputs/
 
-# Environment variables
-.env
-
-# Data files and outputs
-*.csv
-*.xlsx
-*.xls
-universe_cache*.csv
-
-# Date folders with outputs (optional - uncomment if you want to exclude all outputs)
-# YYYY-MM-DD/
+# Cache files
+*.cache
+universe_cache_*.csv
+data/prices.db
 
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
-*.ipynb_checkpoints
 
-# Logs
-*.log
+# Environment
+venv/
+env/
+.venv/
 
-# Keep specific files in date folders if needed
-!requirements.txt
-
+# Secrets - NEVER commit these
+.env
+.env.*
+*.key
+credentials.json

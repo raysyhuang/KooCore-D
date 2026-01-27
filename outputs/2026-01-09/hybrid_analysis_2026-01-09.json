@@ -1,0 +1,501 @@
+{
+  "date": "2026-01-09",
+  "summary": {
+    "weekly_top5_count": 5,
+    "pro30_candidates_count": 8,
+    "movers_count": 0
+  },
+  "overlaps": {
+    "all_three": [],
+    "weekly_pro30": [],
+    "weekly_movers": [],
+    "pro30_movers": []
+  },
+  "weekly_top5": [
+    {
+      "rank": 1,
+      "ticker": "BK",
+      "name": "The Bank of New York Mellon Corporation",
+      "exchange": "NYSE",
+      "sector": "Financial Services",
+      "current_price": 119.04000091552734,
+      "market_cap_usd": 83951869952,
+      "avg_dollar_volume_20d": 410013418.34884644,
+      "asof_price_utc": "2026-01-09T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 130.9440010070801,
+        "base_case_upside_pct_range": [
+          10,
+          14
+        ],
+        "bear_case_note": "Break below rising short-term trend (loss of MA10/MA20 support) or market-wide risk-off in financials; catalyst fades if tokenized deposit newsflow stalls or is viewed as immaterial."
+      },
+      "primary_catalyst": {
+        "title": "BNY tokenized deposits / on-chain settlement pilot newsflow",
+        "key_date_local": "2026-01-09",
+        "timing": "Newsflow (intraday/multi-day follow-through)",
+        "why_it_matters": "Multiple independent reports describe BNY rolling out/tokenized deposits and partnering with Ripple/Circle for faster institutional settlement—potentially a narrative catalyst for digital-asset infrastructure exposure and incremental fee opportunities.",
+        "sources": [
+          {
+            "title": "BNY Rolls Out Tokenized Deposits for Near Real-Time Institutional Settlement",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-09"
+          },
+          {
+            "title": "World's largest custodial bank BNY to offer tokenized deposits for institutional investors",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-09"
+          },
+          {
+            "title": "Bank of New York Taps Ripple and Circle for Faster Institutional Settlement",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-10"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 8.0,
+        "catalyst": 6.5,
+        "options": 3.0,
+        "sentiment": 4.0
+      },
+      "composite_score": 5.375,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 0.83,
+          "rsi14": 67.04,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 27.99
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "positive"
+        }
+      },
+      "risk_factors": [
+        "Narrative catalyst risk: tokenized deposit pilot may be perceived as incremental/PR rather than near-term earnings driver.",
+        "Financials factor risk: rates/CPI/Fed commentary can dominate stock moves regardless of company-specific news."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Options data unavailable in packet; options score capped at 3.0.",
+        "Social sentiment data unavailable in packet; sentiment score capped at 4.0.",
+        "No verified scheduled catalyst date/time (e.g., earnings date) within next 7 trading days provided in packet.",
+        "Cannot verify 5-day price change to enforce >15% exclusion from packet data."
+      ]
+    },
+    {
+      "rank": 2,
+      "ticker": "DAL",
+      "name": "Delta Air Lines, Inc.",
+      "exchange": "NYSE",
+      "sector": "Industrials",
+      "current_price": 72.30999755859375,
+      "market_cap_usd": 47215734784,
+      "avg_dollar_volume_20d": 476694951.77734375,
+      "asof_price_utc": "2026-01-09T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 79.54099731445314,
+        "base_case_upside_pct_range": [
+          10,
+          16
+        ],
+        "bear_case_note": "If earnings timing is later than the 7-trading-day window or guidance disappoints; also invalidated by sharp oil spike or broad travel/consumer risk-off."
+      },
+      "primary_catalyst": {
+        "title": "Delta earnings on deck + analyst double-upgrade newsflow",
+        "key_date_local": "Unknown",
+        "timing": "Unknown",
+        "why_it_matters": "Multiple headlines flag Delta earnings as imminent ('on deck') and note analyst actions; earnings is a high-impact catalyst that can drive >10% moves in airlines when guidance surprises.",
+        "sources": [
+          {
+            "title": "Airline Scores Breakout, Receives Double Upgrade. Delta Earnings On Deck.",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-09"
+          },
+          {
+            "title": "Dow Jones Futures: It's A Broad, Strong Rally, Do Your Stocks Reflect That? JPMorgan, Goldman, Delta, Taiwan Semi Loom",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-10"
+          },
+          {
+            "title": "Delta, Southwest, FedEx, Marriott: Top Analyst Calls",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-09"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 8.0,
+        "catalyst": 5.0,
+        "options": 3.0,
+        "sentiment": 4.0
+      },
+      "composite_score": 5.0,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 0.96,
+          "rsi14": 59.76,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 30.54
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "positive"
+        }
+      },
+      "risk_factors": [
+        "Binary event risk if earnings occurs within the window: guidance sensitivity can cause large gap moves both directions.",
+        "Macro/commodity risk: jet fuel (oil) and demand signals can overwhelm company-specific positives."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Options data unavailable in packet; options score capped at 3.0.",
+        "Social sentiment data unavailable in packet; sentiment score capped at 4.0.",
+        "Earnings date/time not provided; catalyst timing unclear (penalized).",
+        "Cannot verify 5-day price change to enforce >15% exclusion from packet data."
+      ]
+    },
+    {
+      "rank": 3,
+      "ticker": "BBIO",
+      "name": "BridgeBio Pharma, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Healthcare",
+      "current_price": 77.25,
+      "market_cap_usd": 14886756352,
+      "avg_dollar_volume_20d": 151657025.44010162,
+      "asof_price_utc": "2026-01-09T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 84.975,
+        "base_case_upside_pct_range": [
+          10,
+          20
+        ],
+        "bear_case_note": "If the anticipated Phase 3 readout timing slips beyond the window or expectations are already priced; biotech risk-off can compress multiples quickly."
+      },
+      "primary_catalyst": {
+        "title": "PROPEL 3 'Last Visit' set; Phase 3 readout approaching",
+        "key_date_local": "2026-01-09",
+        "timing": "Newsflow (timing not fully specified)",
+        "why_it_matters": "Company-specific clinical-trial milestone headline indicates the Phase 3 program is nearing readout; biotech names can move >10% on incremental trial timing/expectations shifts.",
+        "sources": [
+          {
+            "title": "BridgeBio Pharma Investor Update: PROPEL 3 “Last Visit” Set as Infigratinib Phase 3 Readout Nears",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-09"
+          },
+          {
+            "title": "BridgeBio Pharma Has 20% Upside Growth Potential, Morgan Stanley Says",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-06"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 8.0,
+        "catalyst": 4.0,
+        "options": 3.0,
+        "sentiment": 4.0
+      },
+      "composite_score": 4.75,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 1.16,
+          "rsi14": 59.08,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 61.68
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "positive"
+        }
+      },
+      "risk_factors": [
+        "Biotech binary risk: trial/readout expectations can reverse sharply on any negative nuance or delay.",
+        "High realized volatility: position sizing and gap risk are material."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Options data unavailable in packet; options score capped at 3.0.",
+        "Social sentiment data unavailable in packet; sentiment score capped at 4.0.",
+        "Catalyst date for the actual Phase 3 readout not confirmed; timing unclear (catalyst score capped/penalized).",
+        "Cannot verify 5-day price change to enforce >15% exclusion from packet data."
+      ]
+    },
+    {
+      "rank": 4,
+      "ticker": "DG",
+      "name": "Dollar General Corporation",
+      "exchange": "NYSE",
+      "sector": "Consumer Defensive",
+      "current_price": 142.74000549316406,
+      "market_cap_usd": 31419768832,
+      "avg_dollar_volume_20d": 493630392.4346161,
+      "asof_price_utc": "2026-01-09T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 157.01400604248047,
+        "base_case_upside_pct_range": [
+          10,
+          13
+        ],
+        "bear_case_note": "If the guidance-hike/upgrade impulse is already priced and follow-through buying fades; also vulnerable to broad retail rotation."
+      },
+      "primary_catalyst": {
+        "title": "Post-guidance hike analyst upgrades / top-ideas inclusion newsflow",
+        "key_date_local": "2026-01-08",
+        "timing": "Newsflow (multi-day)",
+        "why_it_matters": "Headlines cite a profit outlook hike and fresh analyst upgrades; continued follow-through from upgrades/top-ideas lists can extend momentum over a 1–2 week window.",
+        "sources": [
+          {
+            "title": "Dollar General (DG) Is Up 8.5% After Profit Outlook Hike And Analyst Upgrades Has The Bull Case Changed?",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-08"
+          },
+          {
+            "title": "Bank of America Out With Q1 2026 Top US Ideas Dividend Picks",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-07"
+          },
+          {
+            "title": "BofA unveils its top 10 U.S. ideas for Q1 2026",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-02"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 8.0,
+        "catalyst": 4.0,
+        "options": 3.0,
+        "sentiment": 4.0
+      },
+      "composite_score": 4.75,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 0.95,
+          "rsi14": 60.97,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 33.06
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "positive"
+        }
+      },
+      "risk_factors": [
+        "Already-moved risk: headline notes DG up 8.5% after outlook hike; incremental upside may be harder if positioning is crowded.",
+        "Defensive retail can underperform in strong risk-on tape; factor rotation risk."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Options data unavailable in packet; options score capped at 3.0.",
+        "Social sentiment data unavailable in packet; sentiment score capped at 4.0.",
+        "No confirmed scheduled catalyst within next 7 trading days; catalyst is primarily follow-through newsflow.",
+        "Cannot verify 5-day price change to enforce >15% exclusion from packet data."
+      ]
+    },
+    {
+      "rank": 5,
+      "ticker": "CBOE",
+      "name": "Cboe Global Markets, Inc.",
+      "exchange": "BTS",
+      "sector": "Financial Services",
+      "current_price": 260.95001220703125,
+      "market_cap_usd": 27306987520,
+      "avg_dollar_volume_20d": 180634288.1768036,
+      "asof_price_utc": "2026-01-09T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 287.0450134277344,
+        "base_case_upside_pct_range": [
+          10,
+          12
+        ],
+        "bear_case_note": "If implied/realized volatility compresses and exchange volumes cool; also if 'beat earnings again' narrative fails to translate into near-term event."
+      },
+      "primary_catalyst": {
+        "title": "Earnings beat narrative / guidance & fees data discussion (timing unclear)",
+        "key_date_local": "Unknown",
+        "timing": "Unknown",
+        "why_it_matters": "Headlines highlight shifting narrative after fresh guidance/fees data and a setup to beat earnings estimates; while not a confirmed dated event, it can support continued momentum if volumes/fees remain strong.",
+        "sources": [
+          {
+            "title": "Why CBOE (CBOE) is Poised to Beat Earnings Estimates Again",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-08"
+          },
+          {
+            "title": "Why The Narrative Around Cboe Global Markets (CBOE) Is Shifting After Fresh Guidance And Fees Data",
+            "publisher": "",
+            "url": "",
+            "published_at": "2026-01-08"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 10.0,
+        "catalyst": 3.0,
+        "options": 3.0,
+        "sentiment": 4.0
+      },
+      "composite_score": 5.0,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 1.76,
+          "rsi14": 67.44,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 20.41
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "positive"
+        }
+      },
+      "risk_factors": [
+        "Catalyst timing risk: earnings date/time not provided; near-term 7-trading-day trigger may not materialize.",
+        "Lower realized vol vs. other candidates may make a +10% move less likely without a discrete event."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Exchange field in packet is 'BTS' (not explicitly NASDAQ/NYSE); included as provided but may reflect a data vendor mapping issue.",
+        "Options data unavailable in packet; options score capped at 3.0.",
+        "Social sentiment data unavailable in packet; sentiment score capped at 4.0.",
+        "Earnings date/time not provided; catalyst timing unclear (penalized).",
+        "Cannot verify 5-day price change to enforce >15% exclusion from packet data."
+      ]
+    }
+  ],
+  "pro30_tickers": [
+    "APLD",
+    "CGON",
+    "COMP",
+    "GLUE",
+    "HOUS",
+    "INTC",
+    "KTOS",
+    "LQDA"
+  ],
+  "movers_tickers": []
+}

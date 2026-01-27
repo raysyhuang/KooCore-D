@@ -1,0 +1,19 @@
+{
+  "method_version": "v3.0",
+  "run_timestamp_utc": "2026-01-14T01:14:33.804551Z",
+  "run_timestamp_et": "2026-01-13T20:14:33.804555-05:00",
+  "config_hash": "24ff3484df7c",
+  "regime_info": {
+    "ok": true,
+    "spy_last": NaN,
+    "spy_ma": NaN,
+    "vix_last": NaN,
+    "spy_above_ma": null,
+    "vix_ok": null,
+    "message": "Regime data insufficient; skipping gate."
+  },
+  "tickers_screened": 2009,
+  "candidates_count": 0,
+  "breakout_count": 0,
+  "reversal_count": 0
+}

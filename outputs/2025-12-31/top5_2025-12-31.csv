@@ -1,0 +1,6 @@
+rank,ticker,name,sector,current_price,composite_score,verdict,confidence,technical_score,catalyst_score,options_score,sentiment_score,primary_catalyst,target_price,upside_pct_min,upside_pct_max
+1,LHX,"L3Harris Technologies, Inc.",Industrials,295.4700012207031,4.75,SPECULATIVE,SPECULATIVE,6.0,6.0,3.0,4.0,Major contract award newsflow (missile tracking satellites) + follow-through coverage,325.02,10,16
+2,HUT,Hut 8 Corp.,Financial Services,46.279998779296875,4.5,SPECULATIVE,SPECULATIVE,6.0,5.0,3.0,4.0,Analyst target raise/upgrade-driven momentum (colocation execution) + crypto-linked beta,50.91,10,22
+3,LRCX,Lam Research Corporation,Technology,173.77999877929688,4.5,SPECULATIVE,SPECULATIVE,6.0,5.0,3.0,4.0,China domestic equipment requirement headline (semicap newsflow) + analyst spotlight,191.16,10,15
+4,VSCO,Victoria's Secret & Co.,Consumer Cyclical,54.77000045776367,4.75,SPECULATIVE,SPECULATIVE,8.0,4.0,3.0,4.0,Analyst upgrade (momentum-driven) and retail sector positioning into year-end,60.25,10,18
+5,ZETA,Zeta Global Holdings Corp.,Technology,20.799999237060547,4.5,SPECULATIVE,SPECULATIVE,8.0,3.0,3.0,4.0,Business updates / newsflow-driven volatility (recent pre-update move),22.88,10,20

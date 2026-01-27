@@ -1,0 +1,37 @@
+{
+  "date": "2026-01-13",
+  "primary_label": "Swing",
+  "method_version": "swing_tuned_v1",
+  "top5": [
+    {
+      "rank": 1,
+      "ticker": "EPAM",
+      "swing_score": 8.55,
+      "current_price": 211.99
+    },
+    {
+      "rank": 2,
+      "ticker": "EIX",
+      "swing_score": 8.55,
+      "current_price": 60.68
+    },
+    {
+      "rank": 3,
+      "ticker": "CRH",
+      "swing_score": 8.55,
+      "current_price": 127.38
+    },
+    {
+      "rank": 4,
+      "ticker": "CAH",
+      "swing_score": 8.55,
+      "current_price": 208.26
+    },
+    {
+      "rank": 5,
+      "ticker": "LUV",
+      "swing_score": 8.55,
+      "current_price": 43.2
+    }
+  ]
+}

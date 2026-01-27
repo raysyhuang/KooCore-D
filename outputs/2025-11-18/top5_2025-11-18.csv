@@ -1,0 +1,6 @@
+rank,ticker,name,sector,current_price,composite_score,verdict,confidence,technical_score,catalyst_score,options_score,sentiment_score,primary_catalyst,target_price,upside_pct_min,upside_pct_max
+1,MUR,Murphy Oil Corporation,Energy,30.530000686645508,4.875,SPECULATIVE,SPECULATIVE,6.0,6.5,3.0,4.0,Vietnam offshore discovery newsflow (follow-on details/coverage),33.58300075531006,10,18
+2,GOOGL,Alphabet Inc.,Communication Services,284.2799987792969,5.125,SPECULATIVE,SPECULATIVE,8.0,5.5,3.0,4.0,Apple AI partnership / AI-trade newsflow,312.7079986572266,10,15
+3,GOOG,Alphabet Inc.,Communication Services,284.9599914550781,5.125,SPECULATIVE,SPECULATIVE,8.0,5.5,3.0,4.0,Apple AI partnership / AI-trade newsflow,313.45599060058595,10,15
+4,MCK,McKesson Corporation,Healthcare,860.75,4.75,SPECULATIVE,SPECULATIVE,8.0,4.0,3.0,4.0,Earnings (timing not confirmed in packet),946.825,10,14
+5,GILD,"Gilead Sciences, Inc.",Healthcare,127.18000030517578,5.0,SPECULATIVE,SPECULATIVE,8.0,5.0,3.0,4.0,Analyst upgrades / price-target raises and collaboration newsflow,139.89800033569338,10,13

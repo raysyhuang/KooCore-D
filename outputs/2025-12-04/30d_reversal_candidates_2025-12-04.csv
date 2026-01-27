@@ -1,0 +1,2 @@
+Ticker,Last,RVOL,ATR%,RSI14,Dist_to_52W_High%,$ADV20,MA20,MA50,Above_MA20,Above_MA50,Ret20d%,Ret5d%,Setup,Score,Is_Leveraged_ETF
+ACLX,68.45,2.0,7.9,22.8,27.24,86539460.0,82.12,84.2,0,0,-21.78,-6.55,Reversal,24.13,False

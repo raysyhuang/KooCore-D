@@ -1,0 +1,2303 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Momentum Scanner Report — 2025-11-24</title>
+  <style>
+
+:root {
+  --bg: #0b1020;
+  --card: rgba(255,255,255,0.06);
+  --card2: rgba(255,255,255,0.08);
+  --text: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.65);
+  --muted2: rgba(255,255,255,0.5);
+  --accent: #7dd3fc;
+  --accent2: #a78bfa;
+  --good: #86efac;
+  --warn: #fde047;
+  --bad: #fb7185;
+  --border: rgba(255,255,255,0.12);
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+}
+
+html, body {
+  background: radial-gradient(1200px 800px at 20% 0%, rgba(167,139,250,0.18), transparent 60%),
+              radial-gradient(1000px 700px at 80% 20%, rgba(125,211,252,0.18), transparent 55%),
+              var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Layout */
+.wrap {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 28px 18px 70px;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .wrap {
+    grid-template-columns: 1fr;
+  }
+  .toc-sidebar {
+    display: none;
+  }
+}
+
+/* TOC Sidebar */
+.toc-sidebar {
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+.toc-header h4 {
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-list li {
+  margin: 6px 0;
+}
+
+.toc-list a {
+  display: block;
+  padding: 6px 8px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--muted);
+  transition: all 0.2s;
+}
+
+.toc-list a:hover {
+  background: rgba(255,255,255,0.05);
+  color: var(--accent);
+}
+
+.toc-list a.active {
+  background: rgba(125,211,252,0.15);
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Main Content */
+.main-content {
+  min-width: 0;
+}
+
+/* Header */
+header {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.h-title {
+  font-size: 28px;
+  letter-spacing: 0.2px;
+  margin: 0;
+}
+
+.h-sub {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.pillrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pill {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,0.12);
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.pill b {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Executive Summary */
+.exec-summary {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  margin-bottom: 24px;
+}
+
+.exec-summary h2 {
+  margin: 0 0 16px;
+  font-size: 20px;
+}
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.kpi {
+  background: var(--card2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.kpi .label {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.kpi .value {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.kpi .hint {
+  margin-top: 6px;
+  color: var(--muted2);
+  font-size: 11px;
+}
+
+/* Overlap Heat Row */
+.overlap-heat-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.overlap-item {
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card2);
+  font-size: 13px;
+}
+
+.overlap-item.overlap-all {
+  background: rgba(134,239,172,0.15);
+  border-color: var(--good);
+}
+
+.overlap-item.overlap-strong {
+  background: rgba(253,224,71,0.15);
+  border-color: var(--warn);
+}
+
+.overlap-icon {
+  margin-right: 8px;
+}
+
+/* Cards */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  margin-bottom: 24px;
+}
+
+.card h2 {
+  margin: 0 0 16px;
+  font-size: 18px;
+}
+
+.card h3 {
+  margin: 16px 0 12px;
+  font-size: 16px;
+  color: var(--text);
+}
+
+/* Top 5 Table */
+.top5-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.top5-table thead th {
+  position: sticky;
+  top: 0;
+  background: rgba(10,16,32,0.95);
+  border-bottom: 2px solid var(--border);
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.top5-table tbody td {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 12px;
+}
+
+.top5-table tbody tr:hover {
+  background: rgba(255,255,255,0.04);
+}
+
+.top5-table tbody tr td:first-child a {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* Ticker Cards */
+.ticker-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+.ticker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.ticker-title h3 {
+  margin: 0 0 6px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ticker-title .rank {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.ticker-title .ticker-symbol {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.ticker-title .ticker-name {
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.ticker-meta {
+  color: var(--muted2);
+  font-size: 13px;
+}
+
+.ticker-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,0.2);
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.badge-buy {
+  background: rgba(134,239,172,0.2);
+  border-color: var(--good);
+  color: var(--good);
+}
+
+.badge-watch {
+  background: rgba(253,224,71,0.2);
+  border-color: var(--warn);
+  color: var(--warn);
+}
+
+.badge-ignore {
+  background: rgba(251,113,133,0.2);
+  border-color: var(--bad);
+  color: var(--bad);
+}
+
+.badge-high {
+  background: rgba(134,239,172,0.15);
+  color: var(--good);
+}
+
+.badge-medium {
+  background: rgba(253,224,71,0.15);
+  color: var(--warn);
+}
+
+.badge-speculative {
+  background: rgba(251,113,133,0.15);
+  color: var(--bad);
+}
+
+.ticker-body {
+  display: grid;
+  gap: 20px;
+}
+
+.ticker-summary {
+  padding: 12px;
+  background: var(--card2);
+  border-radius: 12px;
+  border-left: 3px solid var(--accent);
+}
+
+.why-included {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.ticker-scores {
+  background: var(--card2);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.score-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 16px;
+}
+
+.score-item {
+  text-align: center;
+}
+
+.score-item.score-composite {
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+  margin-top: 8px;
+}
+
+.score-label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.score-value {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.score-composite .score-value {
+  font-size: 32px;
+}
+
+.ticker-metrics {
+  background: var(--card2);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.metrics-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.metrics-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.metrics-table td:first-child {
+  color: var(--muted);
+  width: 40%;
+}
+
+.metrics-table td:last-child {
+  text-align: right;
+  font-weight: 500;
+}
+
+.risk-panel, .gaps-panel {
+  background: rgba(251,113,133,0.1);
+  border: 1px solid rgba(251,113,133,0.3);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.risk-panel h4, .gaps-panel h4 {
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: var(--bad);
+}
+
+.risk-list, .gaps-list {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* Tables */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 16px 0;
+}
+
+.search {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+input[type="search"] {
+  width: min(520px, 72vw);
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,0.2);
+  color: var(--text);
+  outline: none;
+  font-size: 13px;
+}
+
+input[type="search"]:focus {
+  border-color: var(--accent);
+  background: rgba(0,0,0,0.3);
+}
+
+.btns {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+button {
+  cursor: pointer;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,0.15);
+  color: var(--text);
+  font-size: 13px;
+  transition: all 0.2s;
+}
+
+button:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: var(--accent);
+}
+
+.tablewrap {
+  overflow: auto;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  max-height: 600px;
+}
+
+table.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+table.table thead th {
+  position: sticky;
+  top: 0;
+  background: rgba(10,16,32,0.95);
+  border-bottom: 1px solid var(--border);
+  padding: 10px;
+  text-align: left;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+table.table td {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 8px 10px;
+  white-space: nowrap;
+}
+
+table.table tbody tr:hover td {
+  background: rgba(255,255,255,0.04);
+}
+
+.empty {
+  padding: 24px;
+  border: 1px dashed rgba(255,255,255,0.22);
+  border-radius: 14px;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* Details/Deep Dives */
+details {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  background: rgba(0,0,0,0.14);
+  margin: 16px 0;
+}
+
+details > summary {
+  cursor: pointer;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px;
+  user-select: none;
+}
+
+details > summary:hover {
+  color: var(--accent);
+}
+
+details[open] > summary {
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+}
+
+pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: rgba(255,255,255,0.86);
+  line-height: 1.6;
+}
+
+/* Footer */
+footer {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  color: var(--muted2);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.note {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.mono {
+  font-family: var(--mono);
+}
+
+.ok {
+  color: var(--good);
+}
+
+.warn {
+  color: var(--warn);
+}
+
+.bad {
+  color: var(--bad);
+}
+
+  </style>
+</head>
+<body>
+<div class="wrap">
+  
+    <nav class="toc-sidebar" id="toc-sidebar">
+      <div class="toc-header">
+        <h4>Contents</h4>
+      </div>
+      <ul class="toc-list">
+        <li><a href="#exec-summary">Executive Summary</a></li>
+<li><a href="#top5">Top 5 Candidates</a></li>
+<li><a href="#ticker-cards">Detailed Analysis</a></li>
+<li><a href="#ticker-arwr">  ARWR — Arrowhead Pharmaceut...</a></li>
+<li><a href="#ticker-avgo">  AVGO — Broadcom Inc.</a></li>
+<li><a href="#ticker-sre">  SRE — Sempra</a></li>
+<li><a href="#ticker-expd">  EXPD — Expeditors Internati...</a></li>
+<li><a href="#ticker-rost">  ROST — Ross Stores, Inc.</a></li>
+<li><a href="#pro30-candidates">30-Day Candidates</a></li>
+<li><a href="#reversal-candidates">Reversal Candidates</a></li>
+<li><a href="#weekly-pool">Weekly Candidate Pool</a></li>
+<li><a href="#deep-dive">Deep Dive — LLM Packets</a></li>
+<li><a href="#appendix">Appendix</a></li>
+      </ul>
+    </nav>
+  
+  <div class="main-content">
+    <header>
+      <div>
+        <h1 class="h-title">Momentum Scanner Report — 2025-11-24</h1>
+        <p class="h-sub">Generated locally at <span class="mono">2026-01-13 04:04:32 ET</span></p>
+      </div>
+      <div class="pillrow">
+        <div class="pill"><b>Method</b>: v3.0</div>
+        <div class="pill"><b>Regime Gate</b>: <span class="bad">NOT OK</span></div>
+        <div class="pill"><b>SPY</b>: 666.76 vs MA20 671.73</div>
+        <div class="pill"><b>VIX</b>: 20.52</div>
+      </div>
+    </header>
+
+    
+    <section id="exec-summary" class="exec-summary">
+      <h2>Executive Summary</h2>
+      <div class="kpis">
+        
+    <div class="kpi">
+      <div class="label">Tickers Screened</div>
+      <div class="value">2016</div>
+      <div class="hint">Universe size for PRO30 run</div>
+    </div>
+    <div class="kpi">
+      <div class="label">PRO30 Candidates</div>
+      <div class="value">3</div>
+      <div class="hint">Momentum + reversal screen output</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Weekly Top 5</div>
+      <div class="value">5</div>
+      <div class="hint">Weekly scanner Top 5 JSON</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Daily Movers</div>
+      <div class="value">0</div>
+      <div class="hint">Daily gainers/losers/reversals (if enabled)</div>
+    </div>
+      </div>
+      <div class="overlap-item">No overlaps found.</div>
+      <div class="note" style="margin-top: 16px;">
+        <strong>Regime Gate:</strong> SPY=666.76 vs MA20=671.73 (RISK-OFF); VIX=20.52 (&lt;= 25.00 is OK).<br/>
+        <strong>Data as-of:</strong> 2025-11-24 (UTC in packets)
+      </div>
+    </section>
+    
+    
+    <section id="top5" class="card">
+      <h2>Top 5 Candidates (7 trading days, ≥10% target)</h2>
+      <p class="note">Click ticker symbol to jump to detailed analysis.</p>
+      <div class="toolbar">
+        <div class="search">
+          <span class="badge">Search</span>
+          <input type="search" placeholder="Filter rows by any text…" data-table="weeklyTop5" id="search-weeklyTop5"/>
+        </div>
+        <div class="btns">
+          <button data-export="weeklyTop5">Export CSV (visible rows)</button>
+          <button data-reset="weeklyTop5">Reset</button>
+        </div>
+      </div>
+      <div class="tablewrap">
+        <table class="dataframe dataframe table" id="weeklyTop5">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Rank</th>
+      <th>Ticker</th>
+      <th>Name</th>
+      <th>Composite Score</th>
+      <th>Verdict</th>
+      <th>Technical</th>
+      <th>Catalyst</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><a href="#ticker-arwr">ARWR</a></td>
+      <td>Arrowhead Pharmaceuticals, Inc.</td>
+      <td>5.63</td>
+      <td>SPECULATIVE</td>
+      <td>10</td>
+      <td>5.5</td>
+      <td>44.26</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><a href="#ticker-avgo">AVGO</a></td>
+      <td>Broadcom Inc.</td>
+      <td>5.38</td>
+      <td>SPECULATIVE</td>
+      <td>10</td>
+      <td>4.5</td>
+      <td>377.96</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><a href="#ticker-sre">SRE</a></td>
+      <td>Sempra</td>
+      <td>5.25</td>
+      <td>SPECULATIVE</td>
+      <td>10</td>
+      <td>4</td>
+      <td>93.91</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><a href="#ticker-expd">EXPD</a></td>
+      <td>Expeditors International of Washington, Inc.</td>
+      <td>4.75</td>
+      <td>SPECULATIVE</td>
+      <td>8</td>
+      <td>4</td>
+      <td>144.26</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><a href="#ticker-rost">ROST</a></td>
+      <td>Ross Stores, Inc.</td>
+      <td>4.75</td>
+      <td>SPECULATIVE</td>
+      <td>8</td>
+      <td>4</td>
+      <td>174.13</td>
+    </tr>
+  </tbody>
+</table>
+      </div>
+    </section>
+    
+    
+    <section id="ticker-cards">
+      <h2 style="margin-bottom: 24px; font-size: 20px;">Detailed Analysis — Top 5 Candidates</h2>
+      
+    <div id="ticker-arwr" class="ticker-card">
+      <div class="ticker-header">
+        <div class="ticker-title">
+          <h3>
+            <span class="rank">#1</span>
+            <span class="ticker-symbol">ARWR</span>
+            <span class="ticker-name">Arrowhead Pharmaceuticals, Inc.</span>
+          </h3>
+          <div class="ticker-meta">
+            Healthcare • NASDAQ
+          </div>
+        </div>
+        <div class="ticker-badges">
+          <span class="badge badge-watch">WATCH</span>
+          <span class="badge badge-speculative">SPECULATIVE</span>
+        </div>
+      </div>
+      
+      <div class="ticker-body">
+        <div class="ticker-summary">
+          <p class="why-included"><strong>Why included:</strong> JPM Healthcare Conference newsflow + recent regulatory/product updates (During conference week / market hours)</p>
+        </div>
+        
+        <div class="ticker-scores">
+          <div class="score-grid">
+            <div class="score-item">
+              <div class="score-label">Technical</div>
+              <div class="score-value">10</div>
+            </div>
+            <div class="score-item">
+              <div class="score-label">Catalyst</div>
+              <div class="score-value">5.5</div>
+            </div>
+            <div class="score-item">
+              <div class="score-label">Options</div>
+              <div class="score-value">3</div>
+            </div>
+            <div class="score-item">
+              <div class="score-label">Sentiment</div>
+              <div class="score-value">4</div>
+            </div>
+            <div class="score-item score-composite">
+              <div class="score-label">Composite</div>
+              <div class="score-value">5.63</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="ticker-metrics">
+          <table class="metrics-table">
+            <tbody>
+              <tr>
+                <td>Current Price</td>
+                <td><strong>$44.26</strong></td>
+              </tr>
+              <tr>
+                <td>Target (10% move)</td>
+                <td><strong>$48.69</strong></td>
+              </tr>
+              <tr>
+                <td>Upside Range</td>
+                <td><strong>10.0% - 18.0%</strong></td>
+              </tr>
+              <tr>
+                <td>RSI(14)</td>
+                <td>69.7</td>
+              </tr>
+              <tr>
+                <td>Volume Ratio (3d/20d)</td>
+                <td>1.8</td>
+              </tr>
+              <tr>
+                <td>Realized Vol (5d ann.)</td>
+                <td>88.7%</td>
+              </tr>
+              <tr>
+                <td>Above All MAs</td>
+                <td>✓</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        
+        <div class="risk-panel">
+          <h4>⚠️ Risk Factors</h4>
+          <ul class="risk-list">
+            <li>Biotech headline risk: trial/regulatory interpretations can reverse quickly; gap risk elevated.</li><li>Dilution/financing overhang (notes/common/pre-funded warrants headline) can cap upside or add volatility.</li>
+          </ul>
+        </div>
+        
+        <div class="gaps-panel">
+          <h4>📊 Data Gaps</h4>
+          <ul class="gaps-list">
+            <li>Options data unavailable in packet; options score capped at 3.0.</li><li>Social sentiment data unavailable in packet; sentiment score capped at 4.0.</li><li>Cannot verify exclusion filter: price change over last 5 trading days not provided.</li><li>Catalyst timing is conference-week/newsflow rather than a single scheduled binary timestamp; catalyst score moderated.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="ticker-avgo" class="ticker-card">
+      <div class="ticker-header">
+        <div class="ticker-title">
+          <h3>
+            <span class="rank">#2</span>
+            <span class="ticker-symbol">AVGO</span>
+            <span class="ticker-name">Broadcom Inc.</span>
+          </h3>
+          <div class="ticker-meta">
+            Technology • NASDAQ
+          </div>
+        </div>
+        <div class="ticker-badges">
+          <span class="badge badge-watch">WATCH</span>
+          <span class="badge badge-speculative">SPECULATIVE</span>
+        </div>
+      </div>
+      
+      <div class="ticker-body">
+        <div class="ticker-summary">
+          <p class="why-included"><strong>Why included:</strong> CES 2026 product launch newsflow (Wi‑Fi products) (Market hours / newsflow)</p>
+        </div>
+        
+        <div class="ticker-scores">
+          <div class="score-grid">
+            <div class="score-item">
+              <div class="score-label">Technical</div>
+              <div class="score-value">10</div>
+            </div>
+            <div class="score-item">
+              <div class="score-label">Catalyst</div>
+              <div class="score-value">4.5</div>
+            </div>
+            <div class="score-item">
+              <div class="score-label">Options</div>
+              <div class="score-value">3</div>
+            </div>
+            <div class="score-item">
+              <div class="score-label">Sentiment</div>
+              <div class="score-value">4</div>
+            </div>
+            <div class="score-item score-composite">
+              <div class="score-label">Composite</div>
+              <div class="score-value">5.38</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="ticker-metrics">
+          <table class="metrics-table">
+            <tbody>
+              <tr>
+                <td>Current Price</td>
+                <td><strong>$377.96</strong></td>
+              </tr>
+              <tr>
+                <td>Target (10% move)</td>
+                <td><strong>$415.76</strong></td>
+              </tr>
+              <tr>
+                <td>Upside Range</td>
+                <td><strong>10.0% - 16.0%</strong></td>
+              </tr>
+              <tr>
+                <td>RSI(14)</td>
+                <td>60.7</td>
+              </tr>
+              <tr>
+                <td>Volume Ratio (3d/20d)</td>
+                <td>1.6</td>
+              </tr>
+              <tr>
+                <td>Realized Vol (5d ann.)</td>
+                <td>89.3%</td>
+              </tr>
+              <tr>
+                <td>Above All MAs</td>
+                <td>✓</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        
+        <div class="risk-panel">
+          <h4>⚠️ Risk Factors</h4>
+          <ul class="risk-list">
+            <li>Macro sensitivity: CPI/rates and semis risk-on/off can dominate product news in the short window.</li><li>Already near highs; any guidance/AI demand narrative disappointment can cause sharp mean reversion given elevated realized volatility.</li>
+          </ul>
+        </div>
+        
+        <div class="gaps-panel">
+          <h4>📊 Data Gaps</h4>
+          <ul class="gaps-list">
+            <li>Options data unavailable in packet; options score capped at 3.0.</li><li>Social sentiment data unavailable in packet; sentiment score capped at 4.0.</li><li>Cannot verify exclusion filter: price change over last 5 trading days not provided.</li><li>Catalyst is newsflow (product launch) rather than a scheduled binary event; catalyst score moderated.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="ticker-sre" class="ticker-card">
+      <div class="ticker-header">
+        <div class="ticker-title">
+          <h3>
+            <span class="rank">#3</span>
+            <span class="ticker-symbol">SRE</span>
+            <span class="ticker-name">Sempra</span>
+          </h3>
+          <div class="ticker-meta">
+            Utilities • NYSE
+          </div>
+        </div>
+        <div class="ticker-badges">
+          <span class="badge badge-watch">WATCH</span>
+          <span class="badge badge-speculative">SPECULATIVE</span>
+        </div>
+      </div>
+      
+      <div class="ticker-body">
+        <div class="ticker-summary">
+          <p class="why-included"><strong>Why included:</strong> Regulatory decision/charge impact update (Track 2 proposed decision) (Newsflow / after-hours unknown)</p>
+        </div>
+        
+        <div class="ticker-scores">
+          <div class="score-grid">
+            <div class="score-item">
+              <div class="score-label">Technical</div>
+              <div class="score-value">10</div>
+            </div>
+            <div class="score-item">
+              <div class="score-label">Catalyst</div>
+              <div class="score-value">4</div>
+            </div>
+            <div class="score-item">
+              <div class="score-label">Options</div>
+              <div class="score-value">3</div>
+            </div>
+            <div class="score-item">
+              <div class="score-label">Sentiment</div>
+              <div class="score-value">4</div>
+            </div>
+            <div class="score-item score-composite">
+              <div class="score-label">Composite</div>
+              <div class="score-value">5.25</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="ticker-metrics">
+          <table class="metrics-table">
+            <tbody>
+              <tr>
+                <td>Current Price</td>
+                <td><strong>$93.91</strong></td>
+              </tr>
+              <tr>
+                <td>Target (10% move)</td>
+                <td><strong>$103.30</strong></td>
+              </tr>
+              <tr>
+                <td>Upside Range</td>
+                <td><strong>10.0% - 14.0%</strong></td>
+              </tr>
+              <tr>
+                <td>RSI(14)</td>
+                <td>57.8</td>
+              </tr>
+              <tr>
+                <td>Volume Ratio (3d/20d)</td>
+                <td>1.68</td>
+              </tr>
+              <tr>
+                <td>Realized Vol (5d ann.)</td>
+                <td>20.2%</td>
+              </tr>
+              <tr>
+                <td>Above All MAs</td>
+                <td>✓</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        
+        <div class="risk-panel">
+          <h4>⚠️ Risk Factors</h4>
+          <ul class="risk-list">
+            <li>Utilities typically have lower beta; achieving +10% in 7 trading days is less common without a strong positive regulatory surprise.</li><li>Regulatory headline risk can cut both ways; negative follow-ups could gap down.</li>
+          </ul>
+        </div>
+        
+        <div class="gaps-panel">
+          <h4>📊 Data Gaps</h4>
+          <ul class="gaps-list">
+            <li>Options data unavailable in packet; options score capped at 3.0.</li><li>Social sentiment data unavailable in packet; sentiment score capped at 4.0.</li><li>Cannot verify exclusion filter: price change over last 5 trading days not provided.</li><li>Catalyst date is in the past relative to run timestamp; treated as ongoing repricing/newsflow rather than a future scheduled event, so catalyst score capped at 4.0.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="ticker-expd" class="ticker-card">
+      <div class="ticker-header">
+        <div class="ticker-title">
+          <h3>
+            <span class="rank">#4</span>
+            <span class="ticker-symbol">EXPD</span>
+            <span class="ticker-name">Expeditors International of Washington, Inc.</span>
+          </h3>
+          <div class="ticker-meta">
+            Industrials • NYSE
+          </div>
+        </div>
+        <div class="ticker-badges">
+          <span class="badge badge-watch">WATCH</span>
+          <span class="badge badge-speculative">SPECULATIVE</span>
+        </div>
+      </div>
+      
+      <div class="ticker-body">
+        <div class="ticker-summary">
+          <p class="why-included"><strong>Why included:</strong> Analyst upgrade / sector recovery call (BofA transportation) (Newsflow)</p>
+        </div>
+        
+        <div class="ticker-scores">
+          <div class="score-grid">
+            <div class="score-item">
+              <div class="score-label">Technical</div>
+              <div class="score-value">8</div>
+            </div>
+            <div class="score-item">
+              <div class="score-label">Catalyst</div>
+              <div class="score-value">4</div>
+            </div>
+            <div class="score-item">
+              <div class="score-label">Options</div>
+              <div class="score-value">3</div>
+            </div>
+            <div class="score-item">
+              <div class="score-label">Sentiment</div>
+              <div class="score-value">4</div>
+            </div>
+            <div class="score-item score-composite">
+              <div class="score-label">Composite</div>
+              <div class="score-value">4.75</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="ticker-metrics">
+          <table class="metrics-table">
+            <tbody>
+              <tr>
+                <td>Current Price</td>
+                <td><strong>$144.26</strong></td>
+              </tr>
+              <tr>
+                <td>Target (10% move)</td>
+                <td><strong>$158.69</strong></td>
+              </tr>
+              <tr>
+                <td>Upside Range</td>
+                <td><strong>10.0% - 15.0%</strong></td>
+              </tr>
+              <tr>
+                <td>RSI(14)</td>
+                <td>64.4</td>
+              </tr>
+              <tr>
+                <td>Volume Ratio (3d/20d)</td>
+                <td>0.92</td>
+              </tr>
+              <tr>
+                <td>Realized Vol (5d ann.)</td>
+                <td>31.8%</td>
+              </tr>
+              <tr>
+                <td>Above All MAs</td>
+                <td>✓</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        
+        <div class="risk-panel">
+          <h4>⚠️ Risk Factors</h4>
+          <ul class="risk-list">
+            <li>Macro/PMI and rates can overwhelm transport upgrade narratives in a 1–2 week window.</li><li>If freight pricing data points disappoint, the &#x27;recovery&#x27; thesis can unwind quickly.</li>
+          </ul>
+        </div>
+        
+        <div class="gaps-panel">
+          <h4>📊 Data Gaps</h4>
+          <ul class="gaps-list">
+            <li>Options data unavailable in packet; options score capped at 3.0.</li><li>Social sentiment data unavailable in packet; sentiment score capped at 4.0.</li><li>Cannot verify exclusion filter: price change over last 5 trading days not provided.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="ticker-rost" class="ticker-card">
+      <div class="ticker-header">
+        <div class="ticker-title">
+          <h3>
+            <span class="rank">#5</span>
+            <span class="ticker-symbol">ROST</span>
+            <span class="ticker-name">Ross Stores, Inc.</span>
+          </h3>
+          <div class="ticker-meta">
+            Consumer Cyclical • NASDAQ
+          </div>
+        </div>
+        <div class="ticker-badges">
+          <span class="badge badge-watch">WATCH</span>
+          <span class="badge badge-speculative">SPECULATIVE</span>
+        </div>
+      </div>
+      
+      <div class="ticker-body">
+        <div class="ticker-summary">
+          <p class="why-included"><strong>Why included:</strong> Analyst focus list / price target raise (JPMorgan) (Newsflow)</p>
+        </div>
+        
+        <div class="ticker-scores">
+          <div class="score-grid">
+            <div class="score-item">
+              <div class="score-label">Technical</div>
+              <div class="score-value">8</div>
+            </div>
+            <div class="score-item">
+              <div class="score-label">Catalyst</div>
+              <div class="score-value">4</div>
+            </div>
+            <div class="score-item">
+              <div class="score-label">Options</div>
+              <div class="score-value">3</div>
+            </div>
+            <div class="score-item">
+              <div class="score-label">Sentiment</div>
+              <div class="score-value">4</div>
+            </div>
+            <div class="score-item score-composite">
+              <div class="score-label">Composite</div>
+              <div class="score-value">4.75</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="ticker-metrics">
+          <table class="metrics-table">
+            <tbody>
+              <tr>
+                <td>Current Price</td>
+                <td><strong>$174.13</strong></td>
+              </tr>
+              <tr>
+                <td>Target (10% move)</td>
+                <td><strong>$191.54</strong></td>
+              </tr>
+              <tr>
+                <td>Upside Range</td>
+                <td><strong>10.0% - 14.0%</strong></td>
+              </tr>
+              <tr>
+                <td>RSI(14)</td>
+                <td>76.1</td>
+              </tr>
+              <tr>
+                <td>Volume Ratio (3d/20d)</td>
+                <td>2.2</td>
+              </tr>
+              <tr>
+                <td>Realized Vol (5d ann.)</td>
+                <td>58.4%</td>
+              </tr>
+              <tr>
+                <td>Above All MAs</td>
+                <td>✓</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        
+        <div class="risk-panel">
+          <h4>⚠️ Risk Factors</h4>
+          <ul class="risk-list">
+            <li>RSI is very elevated (overbought); higher probability of pullback/sideways consolidation.</li><li>Retail is sensitive to macro data and consumer sentiment; sector rotation risk is high.</li>
+          </ul>
+        </div>
+        
+        <div class="gaps-panel">
+          <h4>📊 Data Gaps</h4>
+          <ul class="gaps-list">
+            <li>Options data unavailable in packet; options score capped at 3.0.</li><li>Social sentiment data unavailable in packet; sentiment score capped at 4.0.</li><li>Cannot verify exclusion filter: price change over last 5 trading days not provided.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    </section>
+    
+    <section id="pro30-candidates" class="card">
+      <h2>30-Day Candidates</h2>
+      
+    <h3>PRO30 Candidates (30-day screen output)</h3>
+    <div class="toolbar">
+      <div class="search">
+        <span class="badge">Search</span>
+        <input type="search" placeholder="Filter rows by any text…" data-table="pro30Candidates" id="search-pro30Candidates"/>
+      </div>
+      <div class="btns">
+        <button data-export="pro30Candidates">Export CSV (visible rows)</button>
+        <button data-reset="pro30Candidates">Reset</button>
+      </div>
+    </div>
+    <div class="tablewrap">
+      <table class="dataframe dataframe table" id="pro30Candidates">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Ticker</th>
+      <th>Last</th>
+      <th>RVOL</th>
+      <th>ATR%</th>
+      <th>RSI14</th>
+      <th>Dist_to_52W_High%</th>
+      <th>$ADV20</th>
+      <th>MA20</th>
+      <th>MA50</th>
+      <th>Above_MA20</th>
+      <th>Above_MA50</th>
+      <th>Ret20d%</th>
+      <th>Setup</th>
+      <th>Score</th>
+      <th>Is_Leveraged_ETF</th>
+      <th>Ret5d%</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>GRAL</td>
+      <td>111.40</td>
+      <td>2.17</td>
+      <td>8.90</td>
+      <td>73.1</td>
+      <td>0.31</td>
+      <td>107834477.0</td>
+      <td>86.52</td>
+      <td>73.23</td>
+      <td>1</td>
+      <td>1</td>
+      <td>31.06</td>
+      <td>Breakout</td>
+      <td>28.24</td>
+      <td>False</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>ALAB</td>
+      <td>147.75</td>
+      <td>2.10</td>
+      <td>9.27</td>
+      <td>30.4</td>
+      <td>43.80</td>
+      <td>1026231404.0</td>
+      <td>160.94</td>
+      <td>183.44</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-13.23</td>
+      <td>Reversal</td>
+      <td>28.13</td>
+      <td>False</td>
+      <td>4.50</td>
+    </tr>
+    <tr>
+      <td>STNE</td>
+      <td>15.08</td>
+      <td>5.29</td>
+      <td>5.86</td>
+      <td>22.0</td>
+      <td>24.41</td>
+      <td>139414085.0</td>
+      <td>17.36</td>
+      <td>17.99</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-22.23</td>
+      <td>Reversal</td>
+      <td>27.53</td>
+      <td>False</td>
+      <td>-6.63</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+      <p class="note">If this table shows only a few tickers, your filters were strict (or market regime + liquidity gates removed most names).</p>
+    </section>
+    
+    <section id="reversal-candidates" class="card">
+      <h2>Reversal Candidates</h2>
+      
+    <h3>Reversal Candidates (30-day reversal subset)</h3>
+    <div class="toolbar">
+      <div class="search">
+        <span class="badge">Search</span>
+        <input type="search" placeholder="Filter rows by any text…" data-table="reversalCandidates" id="search-reversalCandidates"/>
+      </div>
+      <div class="btns">
+        <button data-export="reversalCandidates">Export CSV (visible rows)</button>
+        <button data-reset="reversalCandidates">Reset</button>
+      </div>
+    </div>
+    <div class="tablewrap">
+      <table class="dataframe dataframe table" id="reversalCandidates">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Ticker</th>
+      <th>Last</th>
+      <th>RVOL</th>
+      <th>ATR%</th>
+      <th>RSI14</th>
+      <th>Dist_to_52W_High%</th>
+      <th>$ADV20</th>
+      <th>MA20</th>
+      <th>MA50</th>
+      <th>Above_MA20</th>
+      <th>Above_MA50</th>
+      <th>Ret20d%</th>
+      <th>Ret5d%</th>
+      <th>Setup</th>
+      <th>Score</th>
+      <th>Is_Leveraged_ETF</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ALAB</td>
+      <td>147.75</td>
+      <td>2.10</td>
+      <td>9.27</td>
+      <td>30.4</td>
+      <td>43.80</td>
+      <td>1026231404.0</td>
+      <td>160.94</td>
+      <td>183.44</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-13.23</td>
+      <td>4.50</td>
+      <td>Reversal</td>
+      <td>28.13</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>STNE</td>
+      <td>15.08</td>
+      <td>5.29</td>
+      <td>5.86</td>
+      <td>22.0</td>
+      <td>24.41</td>
+      <td>139414085.0</td>
+      <td>17.36</td>
+      <td>17.99</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-22.23</td>
+      <td>-6.63</td>
+      <td>Reversal</td>
+      <td>27.53</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+    </section>
+    
+    <section id="weekly-pool" class="card">
+      <h2>Weekly Scanner — Candidate Pool</h2>
+      
+    <h3>Weekly Scanner — Candidate Pool</h3>
+    <div class="toolbar">
+      <div class="search">
+        <span class="badge">Search</span>
+        <input type="search" placeholder="Filter rows by any text…" data-table="weeklyCandidates" id="search-weeklyCandidates"/>
+      </div>
+      <div class="btns">
+        <button data-export="weeklyCandidates">Export CSV (visible rows)</button>
+        <button data-reset="weeklyCandidates">Reset</button>
+      </div>
+    </div>
+    <div class="tablewrap">
+      <table class="dataframe dataframe table" id="weeklyCandidates">
+  <thead>
+    <tr style="text-align: right;">
+      <th>ticker</th>
+      <th>name</th>
+      <th>exchange</th>
+      <th>sector</th>
+      <th>technical_score</th>
+      <th>technical_evidence</th>
+      <th>current_price</th>
+      <th>market_cap_usd</th>
+      <th>avg_dollar_volume_20d</th>
+      <th>asof_price_utc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SRE</td>
+      <td>Sempra</td>
+      <td>NYSE</td>
+      <td>Utilities</td>
+      <td>10.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 1.89, 'resistance_level': None, 'volume_ratio_3d_to_20d': 1.68, 'rsi14': 57.76, 'above_ma10_ma20_ma50': True, 'ma10': 92.22, 'ma20': 92.41, 'ma50': 90.67, 'realized_vol_5d_ann_pct': 20.17}</td>
+      <td>93.910004</td>
+      <td>58153922560</td>
+      <td>3.748130e+08</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>AVGO</td>
+      <td>Broadcom Inc.</td>
+      <td>NASDAQ</td>
+      <td>Technology</td>
+      <td>10.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 2.2, 'resistance_level': None, 'volume_ratio_3d_to_20d': 1.6, 'rsi14': 60.73, 'above_ma10_ma20_ma50': True, 'ma10': 349.22, 'ma20': 356.71, 'ma50': 348.43, 'realized_vol_5d_ann_pct': 89.26}</td>
+      <td>377.959991</td>
+      <td>1669923995648</td>
+      <td>7.929976e+09</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>TJX</td>
+      <td>The TJX Companies, Inc.</td>
+      <td>NYSE</td>
+      <td>Consumer Cyclical</td>
+      <td>10.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 2.44, 'resistance_level': None, 'volume_ratio_3d_to_20d': 1.68, 'rsi14': 68.95, 'above_ma10_ma20_ma50': True, 'ma10': 147.12, 'ma20': 145.03, 'ma50': 143.21, 'realized_vol_5d_ann_pct': 24.11}</td>
+      <td>148.860001</td>
+      <td>174842691584</td>
+      <td>9.255716e+08</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>ARWR</td>
+      <td>Arrowhead Pharmaceuticals, Inc.</td>
+      <td>NASDAQ</td>
+      <td>Healthcare</td>
+      <td>10.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 1.32, 'resistance_level': None, 'volume_ratio_3d_to_20d': 1.8, 'rsi14': 69.7, 'above_ma10_ma20_ma50': True, 'ma10': 40.77, 'ma20': 40.43, 'ma50': 37.26, 'realized_vol_5d_ann_pct': 88.65}</td>
+      <td>44.259998</td>
+      <td>9191212032</td>
+      <td>8.525776e+07</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>AHR</td>
+      <td>American Healthcare REIT, Inc.</td>
+      <td>NYSE</td>
+      <td>Real Estate</td>
+      <td>10.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 3.94, 'resistance_level': None, 'volume_ratio_3d_to_20d': 1.73, 'rsi14': 64.51, 'above_ma10_ma20_ma50': True, 'ma10': 48.62, 'ma20': 47.55, 'ma50': 44.29, 'realized_vol_5d_ann_pct': 31.56}</td>
+      <td>48.799999</td>
+      <td>8855017472</td>
+      <td>1.102784e+08</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>PODD</td>
+      <td>Insulet Corporation</td>
+      <td>NASDAQ</td>
+      <td>Healthcare</td>
+      <td>10.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 4.89, 'resistance_level': None, 'volume_ratio_3d_to_20d': 1.92, 'rsi14': 57.15, 'above_ma10_ma20_ma50': True, 'ma10': 331.79, 'ma20': 325.02, 'ma50': 322.16, 'realized_vol_5d_ann_pct': 96.0}</td>
+      <td>337.529999</td>
+      <td>19607840768</td>
+      <td>2.474671e+08</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>SYF</td>
+      <td>Synchrony Financial</td>
+      <td>NYSE</td>
+      <td>Financial Services</td>
+      <td>10.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 3.73, 'resistance_level': None, 'volume_ratio_3d_to_20d': 1.51, 'rsi14': 54.07, 'above_ma10_ma20_ma50': True, 'ma10': 73.24, 'ma20': 73.57, 'ma50': 73.1, 'realized_vol_5d_ann_pct': 24.01}</td>
+      <td>74.519997</td>
+      <td>29626941440</td>
+      <td>2.773377e+08</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>PPTA</td>
+      <td>Perpetua Resources Corp.</td>
+      <td>NCM</td>
+      <td>Basic Materials</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': False, 'dist_to_52w_high_pct': 25.03, 'resistance_level': None, 'volume_ratio_3d_to_20d': 1.57, 'rsi14': 61.79, 'above_ma10_ma20_ma50': True, 'ma10': 22.73, 'ma20': 22.84, 'ma50': 22.61, 'realized_vol_5d_ann_pct': 87.41}</td>
+      <td>23.730000</td>
+      <td>3788453120</td>
+      <td>7.532073e+07</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>ENSG</td>
+      <td>The Ensign Group, Inc.</td>
+      <td>NASDAQ</td>
+      <td>Healthcare</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 4.86, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.77, 'rsi14': 50.99, 'above_ma10_ma20_ma50': True, 'ma10': 179.85, 'ma20': 181.47, 'ma50': 177.85, 'realized_vol_5d_ann_pct': 21.45}</td>
+      <td>184.580002</td>
+      <td>10237046784</td>
+      <td>9.071678e+07</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>PLD</td>
+      <td>Prologis, Inc.</td>
+      <td>NYSE</td>
+      <td>Real Estate</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 0.87, 'resistance_level': None, 'volume_ratio_3d_to_20d': 1.5, 'rsi14': 58.83, 'above_ma10_ma20_ma50': True, 'ma10': 124.3, 'ma20': 124.35, 'ma50': 120.4, 'realized_vol_5d_ann_pct': 18.66}</td>
+      <td>126.449997</td>
+      <td>119879573504</td>
+      <td>4.649374e+08</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>PPL</td>
+      <td>PPL Corporation</td>
+      <td>NYSE</td>
+      <td>Utilities</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 4.68, 'resistance_level': None, 'volume_ratio_3d_to_20d': 1.86, 'rsi14': 53.37, 'above_ma10_ma20_ma50': False, 'ma10': 36.4, 'ma20': 36.49, 'ma50': 36.73, 'realized_vol_5d_ann_pct': 26.17}</td>
+      <td>36.480000</td>
+      <td>25742923776</td>
+      <td>2.458120e+08</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>D</td>
+      <td>Dominion Energy, Inc.</td>
+      <td>NYSE</td>
+      <td>Utilities</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 1.47, 'resistance_level': None, 'volume_ratio_3d_to_20d': 1.19, 'rsi14': 64.36, 'above_ma10_ma20_ma50': True, 'ma10': 61.1, 'ma20': 60.42, 'ma50': 60.6, 'realized_vol_5d_ann_pct': 20.21}</td>
+      <td>61.599998</td>
+      <td>49859997696</td>
+      <td>3.294636e+08</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>ORA</td>
+      <td>Ormat Technologies, Inc.</td>
+      <td>NYSE</td>
+      <td>Utilities</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 3.61, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.97, 'rsi14': 55.66, 'above_ma10_ma20_ma50': True, 'ma10': 109.14, 'ma20': 109.47, 'ma50': 104.56, 'realized_vol_5d_ann_pct': 30.81}</td>
+      <td>111.540001</td>
+      <td>7236072448</td>
+      <td>6.953105e+07</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>PRAX</td>
+      <td>Praxis Precision Medicines, Inc.</td>
+      <td>NASDAQ</td>
+      <td>Healthcare</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': False, 'dist_to_52w_high_pct': 7.67, 'resistance_level': None, 'volume_ratio_3d_to_20d': 2.13, 'rsi14': 57.31, 'above_ma10_ma20_ma50': True, 'ma10': 182.74, 'ma20': 182.46, 'ma50': 124.12, 'realized_vol_5d_ann_pct': 158.22}</td>
+      <td>190.854996</td>
+      <td>7648721920</td>
+      <td>1.641909e+08</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>CVCO</td>
+      <td>Cavco Industries, Inc.</td>
+      <td>NASDAQ</td>
+      <td>Consumer Cyclical</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 5.0, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.83, 'rsi14': 64.84, 'above_ma10_ma20_ma50': True, 'ma10': 556.5, 'ma20': 550.51, 'ma50': 552.64, 'realized_vol_5d_ann_pct': 40.74}</td>
+      <td>572.460022</td>
+      <td>5360484864</td>
+      <td>7.166108e+07</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>KRYS</td>
+      <td>Krystal Biotech, Inc.</td>
+      <td>NASDAQ</td>
+      <td>Healthcare</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 2.18, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.76, 'rsi14': 66.9, 'above_ma10_ma20_ma50': True, 'ma10': 206.16, 'ma20': 201.07, 'ma50': 187.49, 'realized_vol_5d_ann_pct': 32.97}</td>
+      <td>214.889999</td>
+      <td>7891095040</td>
+      <td>6.792459e+07</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>CSCO</td>
+      <td>Cisco Systems, Inc.</td>
+      <td>NASDAQ</td>
+      <td>Technology</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 4.77, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.99, 'rsi14': 63.61, 'above_ma10_ma20_ma50': True, 'ma10': 76.24, 'ma20': 74.27, 'ma50': 71.02, 'realized_vol_5d_ann_pct': 31.99}</td>
+      <td>76.239998</td>
+      <td>292420517888</td>
+      <td>1.980238e+09</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>ROK</td>
+      <td>Rockwell Automation, Inc.</td>
+      <td>NYSE</td>
+      <td>Industrials</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 3.47, 'resistance_level': None, 'volume_ratio_3d_to_20d': 1.49, 'rsi14': 63.75, 'above_ma10_ma20_ma50': True, 'ma10': 378.38, 'ma20': 373.61, 'ma50': 357.84, 'realized_vol_5d_ann_pct': 27.52}</td>
+      <td>384.369995</td>
+      <td>46561955840</td>
+      <td>4.400049e+08</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>ROST</td>
+      <td>Ross Stores, Inc.</td>
+      <td>NASDAQ</td>
+      <td>Consumer Cyclical</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 1.06, 'resistance_level': None, 'volume_ratio_3d_to_20d': 2.2, 'rsi14': 76.12, 'above_ma10_ma20_ma50': True, 'ma10': 163.64, 'ma20': 162.06, 'ma50': 156.17, 'realized_vol_5d_ann_pct': 58.41}</td>
+      <td>174.130005</td>
+      <td>62528000000</td>
+      <td>4.544702e+08</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>EXPD</td>
+      <td>Expeditors International of Washington, Inc.</td>
+      <td>NYSE</td>
+      <td>Industrials</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 1.37, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.92, 'rsi14': 64.44, 'above_ma10_ma20_ma50': True, 'ma10': 140.41, 'ma20': 134.58, 'ma50': 126.05, 'realized_vol_5d_ann_pct': 31.77}</td>
+      <td>144.259995</td>
+      <td>21866969088</td>
+      <td>2.488599e+08</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>A</td>
+      <td>Agilent Technologies, Inc.</td>
+      <td>NYSE</td>
+      <td>Healthcare</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 0.16, 'resistance_level': None, 'volume_ratio_3d_to_20d': 1.48, 'rsi14': 64.96, 'above_ma10_ma20_ma50': True, 'ma10': 147.73, 'ma20': 146.71, 'ma50': 140.17, 'realized_vol_5d_ann_pct': 29.19}</td>
+      <td>153.600006</td>
+      <td>41955229696</td>
+      <td>2.626208e+08</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>NU</td>
+      <td>Nu Holdings Ltd.</td>
+      <td>NYSE</td>
+      <td>Financial Services</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 3.81, 'resistance_level': None, 'volume_ratio_3d_to_20d': 1.47, 'rsi14': 51.5, 'above_ma10_ma20_ma50': True, 'ma10': 15.77, 'ma20': 15.89, 'ma50': 15.68, 'realized_vol_5d_ann_pct': 40.32}</td>
+      <td>15.920000</td>
+      <td>82568617984</td>
+      <td>6.064472e+08</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>HLT</td>
+      <td>Hilton Worldwide Holdings Inc.</td>
+      <td>NYSE</td>
+      <td>Consumer Cyclical</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 1.96, 'resistance_level': None, 'volume_ratio_3d_to_20d': 1.09, 'rsi14': 68.42, 'above_ma10_ma20_ma50': True, 'ma10': 270.21, 'ma20': 266.79, 'ma50': 264.8, 'realized_vol_5d_ann_pct': 30.16}</td>
+      <td>274.329987</td>
+      <td>70652207104</td>
+      <td>4.377201e+08</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>IVZ</td>
+      <td>Invesco Ltd.</td>
+      <td>NYSE</td>
+      <td>Financial Services</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 3.8, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.95, 'rsi14': 55.19, 'above_ma10_ma20_ma50': True, 'ma10': 23.38, 'ma20': 23.48, 'ma50': 23.2, 'realized_vol_5d_ann_pct': 22.03}</td>
+      <td>23.809999</td>
+      <td>12825918464</td>
+      <td>1.125255e+08</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>LQDA</td>
+      <td>Liquidia Corporation</td>
+      <td>NCM</td>
+      <td>Healthcare</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 3.27, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.79, 'rsi14': 57.78, 'above_ma10_ma20_ma50': True, 'ma10': 28.69, 'ma20': 26.93, 'ma50': 24.66, 'realized_vol_5d_ann_pct': 62.31}</td>
+      <td>29.870001</td>
+      <td>3184034560</td>
+      <td>7.368116e+07</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>INDV</td>
+      <td>Indivior PLC</td>
+      <td>NASDAQ</td>
+      <td>Healthcare</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 1.91, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.73, 'rsi14': 56.57, 'above_ma10_ma20_ma50': True, 'ma10': 31.52, 'ma20': 30.66, 'ma50': 26.56, 'realized_vol_5d_ann_pct': 35.73}</td>
+      <td>32.980000</td>
+      <td>4320844288</td>
+      <td>8.007451e+07</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>INCY</td>
+      <td>Incyte Corporation</td>
+      <td>NASDAQ</td>
+      <td>Healthcare</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 2.78, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.72, 'rsi14': 59.1, 'above_ma10_ma20_ma50': True, 'ma10': 104.54, 'ma20': 102.03, 'ma50': 92.51, 'realized_vol_5d_ann_pct': 37.54}</td>
+      <td>106.239998</td>
+      <td>20874993664</td>
+      <td>2.812012e+08</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>LVS</td>
+      <td>Las Vegas Sands Corp.</td>
+      <td>NYSE</td>
+      <td>Consumer Cyclical</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 3.18, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.95, 'rsi14': 69.24, 'above_ma10_ma20_ma50': True, 'ma10': 65.18, 'ma20': 63.34, 'ma50': 56.78, 'realized_vol_5d_ann_pct': 22.39}</td>
+      <td>65.669998</td>
+      <td>41111707648</td>
+      <td>3.537554e+08</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>IDXX</td>
+      <td>IDEXX Laboratories, Inc.</td>
+      <td>NASDAQ</td>
+      <td>Healthcare</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 0.95, 'resistance_level': None, 'volume_ratio_3d_to_20d': 1.47, 'rsi14': 59.27, 'above_ma10_ma20_ma50': True, 'ma10': 702.11, 'ma20': 691.91, 'ma50': 658.28, 'realized_vol_5d_ann_pct': 43.3}</td>
+      <td>752.140015</td>
+      <td>57984204800</td>
+      <td>4.841301e+08</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>MMS</td>
+      <td>Maximus, Inc.</td>
+      <td>NYSE</td>
+      <td>Industrials</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': False, 'dist_to_52w_high_pct': 5.16, 'resistance_level': None, 'volume_ratio_3d_to_20d': 2.05, 'rsi14': 59.83, 'above_ma10_ma20_ma50': True, 'ma10': 81.31, 'ma20': 82.63, 'ma50': 85.87, 'realized_vol_5d_ann_pct': 43.28}</td>
+      <td>87.730003</td>
+      <td>5442810368</td>
+      <td>5.260552e+07</td>
+      <td>2025-11-24T00:00:00Z</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+    </section>
+    
+    
+    <section id="deep-dive" class="card">
+      <h2>Deep Dive — LLM Packets</h2>
+      <p class="note">Full packet text for detailed review of penalties, gaps, and trade-plan templates.</p>
+      <details>
+        <summary>Show/Hide All Packets</summary>
+        <pre>==============================
+TICKER: GRAL
+==============================
+
+Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
+Objective: Decide if GRAL has &gt;60% probability of achieving +10% within 30 calendar days.
+
+Hard constraints:
+- You MUST penalize &quot;Unknown&quot; earnings + missing headlines (no assuming hidden catalysts).
+- You MUST still score based on tape structure: RVOL, ATR%, RSI, distance to 52W high, setup type.
+- You MUST output at most 2 BUY ratings across the entire batch (if you are given multiple tickers).
+- If catalyst data is weak, default to WATCH/IGNORE even if technicals look good.
+- If Dilution risk flag = 1 (headline scan), cap Verdict at WATCH unless there is a clear positive catalyst that outweighs it.
+- For Breakouts, require structural confirmation: Above_MA20=1 and Above_MA50=1; otherwise downgrade Technical Alignment.
+
+Inputs:
+Market regime snapshot (best-effort):
+- SPY=666.76 vs MA20=671.73 (RISK-OFF); VIX=20.52 (&lt;= 25.00 is OK).
+- Regime Gate OK: False
+
+Earnings (best-effort): Unknown
+
+Screener metrics:
+- Last: 111.4
+- RVOL: 2.17
+- ATR%: 8.9 (≈ $9.91 ATR/day)
+- RSI14: 73.1
+- Dist_to_52W_High%: 0.31
+
+- MA20: 86.52
+- MA50: 73.23
+- Above_MA20: 1 (1=yes, 0=no)
+- Above_MA50: 1 (1=yes, 0=no)
+- Ret20d%: 31.06%
+- Setup: Breakout
+- Score: 28.24
+- Leveraged ETF: NO
+- Source tags: BASE_UNIVERSE
+- Dilution risk flag (headline scan): 0
+- Catalyst tags (headline scan): earnings,fda,product,regulatory,upgrade
+
+
+Catalyst completeness (penalize Unknowns):
+- Completeness Score: 40/100
+- Earnings known: False (earnings=Unknown)
+- Recent headline count (14d): 1
+- Manual headlines: False
+- Penalties:
+  * Earnings date Unknown (penalize catalyst clarity).
+  * Few recent headlines (weak narrative visibility).
+
+
+Recent headlines:
+- [2026-01-03 15:24 UTC] : Small-Cap Standouts: These 3 Stocks Rose Over 300% in 2025
+- [2025-12-28 15:05 UTC] : Morgan Stanley Eyes Emerging Growth for Grail (GRAL) as Sector Valuations Reach Equilibrium
+- [2025-12-16 11:07 UTC] : How Recent Catalysts Are Shifting the Narrative for GRAIL
+- [2025-11-19 15:38 UTC] : Why GRAIL Stock Could Be Biotech’s Next Big Breakout
+- [2025-11-14 01:11 UTC] : GRAIL (GRAL): Evaluating Valuation After Galleri Growth, Samsung Partnership, and Analyst Upgrade
+- [2025-11-13 05:03 UTC] : GRAIL Inc (GRAL) Q3 2025 Earnings Call Highlights: Strong Revenue Growth and Strategic ...
+- [2025-11-12 14:06 UTC] : Here Are Wednesday’s Top Wall Street Analyst Research Calls: AT&amp;T, Beyond Meat, Carvana, Fortinet, Snowflake, Waste Managment and More
+- [2025-11-03 11:11 UTC] : GRAIL (GRAL) Is Up 8.2% After Strong SYMPLIFY Data Underscores Galleri’s Early Cancer Detection Potential
+- [2025-11-02 19:12 UTC] : Why The Story Around GRAIL Is Shifting After Recent Analyst and Clinical Developments
+- [2025-10-25 04:45 UTC] : Jim Cramer on GRAIL: “Don’t Call Yourself Early if You’re Buying This One”
+
+Standard trade plan template (by setup):
+- Entry: Break &amp; hold above prior day high OR key resistance on ≥1.5× volume; avoid chasing if &gt;2× ATR extension.
+- Stop: 1.2× ATR below breakout level (or below prior day low if tighter and logical).
+- TPs: TP1 = +1.0× ATR, TP2 = +2.0× ATR; trail stop after TP1.
+- Position sizing: risk 1–2% of account per trade. Shares = (AccountRisk$) / (StopDistance$).
+
+
+If data is missing, explicitly state Unknown and list checks:
+- Confirm next earnings date (company IR site / Nasdaq earnings calendar).
+- Check upcoming: FDA/clinical readouts, contracts, secondary offering/ATM, lockup expiry, guidance updates.
+- Check technical context: multi-year resistance, gap levels, supply zones, post-earnings drift behavior.
+
+Scoring rubric (0–100):
+- Catalyst Immediacy (0–30)
+- Narrative Velocity (0–25)
+- Volatility Fit (0–20)
+- Technical Alignment (0–25)
+
+Output format (STRICT):
+- Total Score: X/100
+- Verdict: BUY / WATCH / IGNORE
+- Setup: Breakout or Reversal
+- 1-line Spark: what specifically could trigger +10%
+- 1-line Trap: what invalidates the thesis
+- Trade Plan: entry trigger, stop anchor, TP1/TP2, position size rule (risk 1–2%)
+
+
+==============================
+TICKER: ALAB
+==============================
+
+Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
+Objective: Decide if ALAB has &gt;60% probability of achieving +10% within 30 calendar days.
+
+Hard constraints:
+- You MUST penalize &quot;Unknown&quot; earnings + missing headlines (no assuming hidden catalysts).
+- You MUST still score based on tape structure: RVOL, ATR%, RSI, distance to 52W high, setup type.
+- You MUST output at most 2 BUY ratings across the entire batch (if you are given multiple tickers).
+- If catalyst data is weak, default to WATCH/IGNORE even if technicals look good.
+- If Dilution risk flag = 1 (headline scan), cap Verdict at WATCH unless there is a clear positive catalyst that outweighs it.
+- For Breakouts, require structural confirmation: Above_MA20=1 and Above_MA50=1; otherwise downgrade Technical Alignment.
+
+Inputs:
+Market regime snapshot (best-effort):
+- SPY=666.76 vs MA20=671.73 (RISK-OFF); VIX=20.52 (&lt;= 25.00 is OK).
+- Regime Gate OK: False
+
+Earnings (best-effort): Unknown
+
+Screener metrics:
+- Last: 147.75
+- RVOL: 2.1
+- ATR%: 9.27 (≈ $13.70 ATR/day)
+- RSI14: 30.4
+- Dist_to_52W_High%: 43.8
+
+- MA20: 160.94
+- MA50: 183.44
+- Above_MA20: 0 (1=yes, 0=no)
+- Above_MA50: 0 (1=yes, 0=no)
+- Ret20d%: -13.23%
+- Setup: Reversal
+- Score: 28.13
+- Leveraged ETF: NO
+- Source tags: BASE_UNIVERSE
+- Dilution risk flag (headline scan): 0
+- Catalyst tags (headline scan): merger
+
+
+Catalyst completeness (penalize Unknowns):
+- Completeness Score: 55/100
+- Earnings known: False (earnings=Unknown)
+- Recent headline count (14d): 10
+- Manual headlines: False
+- Penalties:
+  * Earnings date Unknown (penalize catalyst clarity).
+
+
+Recent headlines:
+- [2026-01-12 17:36 UTC] : January 2026&#x27;s Top Insider-Owned Growth Stocks
+- [2026-01-12 11:35 UTC] : Credo Technology Group Holding And 2 Insider Picks For Strong Growth
+- [2026-01-09 17:36 UTC] : Top Growth Companies With Significant Insider Ownership
+- [2026-01-09 11:36 UTC] : Top Growth Companies With Insider Ownership In January 2026
+- [2026-01-09 09:21 UTC] : Here’s Why Astera Labs (ALAB) Jumped Around 8% on New Year
+- [2026-01-08 17:36 UTC] : January 2026&#x27;s Top Growth Companies With Insider Confidence
+- [2026-01-08 15:42 UTC] : MRVL Expands AI Connectivity Through Acquisitions: What&#x27;s Next?
+- [2026-01-08 12:56 UTC] : How is Rising AEC Adoption Transforming Credo&#x27;s Growth Trajectory?
+- [2026-01-08 11:35 UTC] : January 2026 Top Growth Stocks With Insider Influence
+- [2026-01-07 17:45 UTC] : 3 Must-Own Artificial Intelligence Stocks for 2026
+
+Standard trade plan template (by setup):
+- Entry: Reclaim MA20 (or prior swing level) AND RSI curl up; confirm with a green day + elevated volume.
+- Stop: Below recent swing low OR 1.0–1.3× ATR below entry (whichever is tighter and logical).
+- TPs: TP1 = MA50 / prior supply zone, TP2 = gap-fill / next resistance; reduce into strength.
+- Position sizing: risk 1–2% of account per trade. Shares = (AccountRisk$) / (StopDistance$).
+
+
+If data is missing, explicitly state Unknown and list checks:
+- Confirm next earnings date (company IR site / Nasdaq earnings calendar).
+- Check upcoming: FDA/clinical readouts, contracts, secondary offering/ATM, lockup expiry, guidance updates.
+- Check technical context: multi-year resistance, gap levels, supply zones, post-earnings drift behavior.
+
+Scoring rubric (0–100):
+- Catalyst Immediacy (0–30)
+- Narrative Velocity (0–25)
+- Volatility Fit (0–20)
+- Technical Alignment (0–25)
+
+Output format (STRICT):
+- Total Score: X/100
+- Verdict: BUY / WATCH / IGNORE
+- Setup: Breakout or Reversal
+- 1-line Spark: what specifically could trigger +10%
+- 1-line Trap: what invalidates the thesis
+- Trade Plan: entry trigger, stop anchor, TP1/TP2, position size rule (risk 1–2%)
+
+
+==============================
+TICKER: STNE
+==============================
+
+Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
+Objective: Decide if STNE has &gt;60% probability of achieving +10% within 30 calendar days.
+
+Hard constraints:
+- You MUST penalize &quot;Unknown&quot; earnings + missing headlines (no assuming hidden catalysts).
+- You MUST still score based on tape structure: RVOL, ATR%, RSI, distance to 52W high, setup type.
+- You MUST output at most 2 BUY ratings across the entire batch (if you are given multiple tickers).
+- If catalyst data is weak, default to WATCH/IGNORE even if technicals look good.
+- If Dilution risk flag = 1 (headline scan), cap Verdict at WATCH unless there is a clear positive catalyst that outweighs it.
+- For Breakouts, require structural confirmation: Above_MA20=1 and Above_MA50=1; otherwise downgrade Technical Alignment.
+
+Inputs:
+Market regime snapshot (best-effort):
+- SPY=666.76 vs MA20=671.73 (RISK-OFF); VIX=20.52 (&lt;= 25.00 is OK).
+- Regime Gate OK: False
+
+Earnings (best-effort): Unknown
+
+Screener metrics:
+- Last: 15.08
+- RVOL: 5.29
+- ATR%: 5.86 (≈ $0.88 ATR/day)
+- RSI14: 22.0
+- Dist_to_52W_High%: 24.41
+
+- MA20: 17.36
+- MA50: 17.99
+- Above_MA20: 0 (1=yes, 0=no)
+- Above_MA50: 0 (1=yes, 0=no)
+- Ret20d%: -22.23%
+- Setup: Reversal
+- Score: 27.53
+- Leveraged ETF: NO
+- Source tags: BASE_UNIVERSE
+- Dilution risk flag (headline scan): 0
+- Catalyst tags (headline scan): regulatory
+
+
+Catalyst completeness (penalize Unknowns):
+- Completeness Score: 25/100
+- Earnings known: False (earnings=Unknown)
+- Recent headline count (14d): 0
+- Manual headlines: False
+- Penalties:
+  * Earnings date Unknown (penalize catalyst clarity).
+  * No recent headlines found (penalize narrative visibility).
+
+
+Recent headlines:
+- [2025-12-29 16:10 UTC] : StoneCo vs. PayPal: Which Fintech Stock Has More Upside Potential?
+- [2025-12-19 15:50 UTC] : Can STNE&#x27;s Pix-Powered Deposit Growth Set the Stage for Profitability?
+- [2025-12-17 15:12 UTC] : StoneCo (NasdaqGS:STNE) Valuation After Proposed Securities Class Action Settlement and 2026 Court Hearing
+- [2025-12-17 07:10 UTC] : The Bull Case For StoneCo (STNE) Could Change Following Proposed US$26.8 Million Class Action Settlement
+- [2025-12-16 09:02 UTC] : Zacks.com featured highlights include StoneCo, General Motors, Enersys, Deutsche, Keros
+- [2025-12-09 17:08 UTC] : StoneCo Stock Up 64.3% in a Year: Buying Opportunity or Risky Timing?
+- [2025-12-09 15:21 UTC] : Block Dips 28.1% YTD: Should Investors Buy, Hold or Fold the Stock?
+- [2025-12-08 17:36 UTC] : Madrone Advisors Bets on StubHub After Its IPO
+- [2025-12-06 19:12 UTC] : Is StoneCo Still Attractive After Its 81% Rebound In 2025?
+- [2025-12-05 14:30 UTC] : Is StoneCo (STNE) a Buy as Wall Street Analysts Look Optimistic?
+
+Standard trade plan template (by setup):
+- Entry: Reclaim MA20 (or prior swing level) AND RSI curl up; confirm with a green day + elevated volume.
+- Stop: Below recent swing low OR 1.0–1.3× ATR below entry (whichever is tighter and logical).
+- TPs: TP1 = MA50 / prior supply zone, TP2 = gap-fill / next resistance; reduce into strength.
+- Position sizing: risk 1–2% of account per trade. Shares = (AccountRisk$) / (StopDistance$).
+
+
+If data is missing, explicitly state Unknown and list checks:
+- Confirm next earnings date (company IR site / Nasdaq earnings calendar).
+- Pull 14–30d headlines from a second source (SEC, PR, major outlets, terminal).
+- Check upcoming: FDA/clinical readouts, contracts, secondary offering/ATM, lockup expiry, guidance updates.
+- Check technical context: multi-year resistance, gap levels, supply zones, post-earnings drift behavior.
+
+Scoring rubric (0–100):
+- Catalyst Immediacy (0–30)
+- Narrative Velocity (0–25)
+- Volatility Fit (0–20)
+- Technical Alignment (0–25)
+
+Output format (STRICT):
+- Total Score: X/100
+- Verdict: BUY / WATCH / IGNORE
+- Setup: Breakout or Reversal
+- 1-line Spark: what specifically could trigger +10%
+- 1-line Trap: what invalidates the thesis
+- Trade Plan: entry trigger, stop anchor, TP1/TP2, position size rule (risk 1–2%)</pre>
+      </details>
+    </section>
+    
+    
+    <section id="appendix" class="card">
+      <h2>Appendix</h2>
+      <h3>Timestamps</h3>
+      <p class="note">
+        UTC: <span class="mono">2026-01-13T09:03:36.015102Z</span><br/>
+        ET: <span class="mono">2026-01-13T04:03:36.015121-05:00</span>
+      </p>
+      <h3>Files in this report</h3>
+      <ul class="note">
+        <li><span class="mono">30d_breakout_candidates_2025-11-24.csv</span></li>
+<li><span class="mono">30d_momentum_candidates_2025-11-24.csv</span></li>
+<li><span class="mono">30d_reversal_candidates_2025-11-24.csv</span></li>
+<li><span class="mono">hybrid_report_2025-11-24.html</span></li>
+<li><span class="mono">llm_packets_2025-11-24.txt</span></li>
+<li><span class="mono">news_dump_2025-11-24.csv</span></li>
+<li><span class="mono">report_2025-11-24.html</span></li>
+<li><span class="mono">run_card_2025-11-24.json</span></li>
+<li><span class="mono">run_metadata.json</span></li>
+<li><span class="mono">summary_2025-11-24.md</span></li>
+<li><span class="mono">top5_2025-11-24.csv</span></li>
+<li><span class="mono">weekly_scanner_candidates_2025-11-24.csv</span></li>
+<li><span class="mono">weekly_scanner_packets_2025-11-24.json</span></li>
+<li><span class="mono">weekly_scanner_top5_2025-11-24.json</span></li>
+      </ul>
+      <h3>What to do next (practical checklist)</h3>
+      <ol class="note">
+        <li><b>Validate catalysts:</b> confirm earnings date and scan 14–30d headlines from a second source for your final decision.</li>
+        <li><b>Entry discipline:</b> only trade when your setup trigger actually happens (e.g., reclaim MA20/MA50 + volume/RSI confirmation).</li>
+        <li><b>Risk control:</b> size positions off ATR and risk 1–2% per trade (your packets already include a template).</li>
+      </ol>
+    </section>
+    
+    <footer>
+      <div class="note">
+        Disclaimer: This report is a screening + organization artifact. Not financial advice. Always validate with real-time data, earnings calendar, SEC filings, and liquidity/borrow constraints.
+      </div>
+    </footer>
+  </div>
+</div>
+
+<script>
+
+/* Table filtering and export */
+function getTable(id) {
+  return document.getElementById(id);
+}
+
+function filterTable(tableId, query) {
+  const table = getTable(tableId);
+  if (!table) return;
+  const q = query.trim().toLowerCase();
+  const rows = Array.from(table.tBodies[0].rows);
+  rows.forEach(r => {
+    const txt = r.innerText.toLowerCase();
+    r.style.display = (q === "" || txt.includes(q)) ? "" : "none";
+  });
+}
+
+function resetTable(tableId) {
+  const table = getTable(tableId);
+  if (!table) return;
+  Array.from(table.tBodies[0].rows).forEach(r => r.style.display = "");
+  document.querySelectorAll('input[data-table="'+tableId+'"]').forEach(inp => inp.value = "");
+}
+
+function exportVisibleRowsToCSV(tableId) {
+  const table = getTable(tableId);
+  if (!table) return;
+  const rows = Array.from(table.querySelectorAll("tr"))
+    .filter(r => r.style.display !== "none");
+  const csv = rows.map(r => Array.from(r.children).map(c => {
+      const t = (c.innerText ?? "").replaceAll('"','""');
+      return '"' + t + '"';
+    }).join(",")).join("\n");
+  const blob = new Blob([csv], {type: "text/csv;charset=utf-8;"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = tableId + "_visible.csv";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+/* TOC active link highlighting */
+function updateActiveTOCLink() {
+  const sections = document.querySelectorAll('section[id], div[id^="ticker-"]');
+  const tocLinks = document.querySelectorAll('.toc-list a');
+  
+  let current = '';
+  let minDistance = Infinity;
+  
+  sections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    const distance = Math.abs(rect.top - 100);
+    if (rect.top <= 200 && distance < minDistance) {
+      minDistance = distance;
+      current = section.id;
+    }
+  });
+  
+  tocLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+}
+
+/* Initialize */
+document.addEventListener('DOMContentLoaded', function() {
+  // Table search and export
+  document.querySelectorAll('input[type="search"][data-table]').forEach(inp => {
+    inp.addEventListener("input", () => {
+      filterTable(inp.getAttribute("data-table"), inp.value);
+    });
+  });
+
+  document.querySelectorAll('button[data-export]').forEach(btn => {
+    btn.addEventListener("click", () => exportVisibleRowsToCSV(btn.getAttribute("data-export")));
+  });
+
+  document.querySelectorAll('button[data-reset]').forEach(btn => {
+    btn.addEventListener("click", () => resetTable(btn.getAttribute("data-reset")));
+  });
+
+  // TOC active link tracking
+  window.addEventListener('scroll', updateActiveTOCLink);
+  updateActiveTOCLink();
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,1258 @@
+{
+  "run_timestamp_utc": "2026-01-24T06:54:23.249905Z",
+  "method_version": "v3.2",
+  "regime": "chop",
+  "universe_note": "Universe: 2478 tickers",
+  "packets": [
+    {
+      "ticker": "JBL",
+      "name": "Jabil Inc.",
+      "exchange": "NYSE",
+      "sector": "Technology",
+      "current_price": 231.57,
+      "market_cap_usd": 25972934656,
+      "avg_dollar_volume_20d": 310293107.667,
+      "asof_price_utc": "2025-12-30T00:00:00Z",
+      "technical_score": 8.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 2.35,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.45,
+        "rsi14": 53.05,
+        "ma10": 227.45,
+        "ma20": 225.03,
+        "ma50": 215.12,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 22.49,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 237.0,
+          "donchian55_prev": 237.0,
+          "atr14": 9.2432,
+          "vol_ratio_3_20": 0.4529,
+          "breakout_strength_atr": -0.5875,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 3.99,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 0.2,
+          "extension_adj": 0.0
+        },
+        "data_gaps": [],
+        "ma200": 194.84
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": false,
+      "options_score": null,
+      "options_evidence": {},
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": null,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [],
+      "sentiment_cap_applied": null,
+      "source_tags": [
+        "SWING",
+        "SWING_PULLBACK"
+      ]
+    },
+    {
+      "ticker": "BIIB",
+      "name": "Biogen Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Healthcare",
+      "current_price": 176.4,
+      "market_cap_usd": 25172641792,
+      "avg_dollar_volume_20d": 411041420.907,
+      "asof_price_utc": "2025-12-30T00:00:00Z",
+      "technical_score": 6.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 4.74,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.32,
+        "rsi14": 51.12,
+        "ma10": 174.45,
+        "ma20": 176.24,
+        "ma50": 166.76,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 7.19,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 183.1452,
+          "donchian55_prev": 185.17,
+          "atr14": 4.5235,
+          "vol_ratio_3_20": 0.3164,
+          "breakout_strength_atr": -1.4911,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 2.56,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 0.38,
+          "extension_adj": 0.0
+        },
+        "data_gaps": [],
+        "ma200": 141.03
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [
+        {
+          "title": "Postpartum Depression Drugs Market Size to Surpass USD 1.97 Billion by 2033, Due to Increasing Awareness & Fast Development of Pharmaceuticals – SNS Insider",
+          "publisher": "GlobeNewswire Inc.",
+          "url": "https://www.globenewswire.com/news-release/2026/01/22/3224037/0/en/Postpartum-Depression-Drugs-Market-Size-to-Surpass-USD-1-97-Billion-by-2033-Due-to-Increasing-Awareness-Fast-Development-of-Pharmaceuticals-SNS-Insider.html",
+          "published_at": "2026-01-22",
+          "description": "The global postpartum depression drugs market is projected to grow from USD 959.62 million in 2025 to USD 1.97 billion by 2033, with a CAGR of 9.45%. Growth is driven by increased awareness of materna",
+          "sentiment": "positive"
+        },
+        {
+          "title": "3 Biotech Stocks to Keep an Eye on in 2026",
+          "publisher": "Investing.com",
+          "url": "https://www.investing.com/analysis/3-biotech-stocks-to-keep-an-eye-on-in-2026-200673531",
+          "published_at": "2026-01-20",
+          "description": "The article highlights three biotech stocks with significant growth potential in 2026: Eli Lilly (LLY), a leader in the GLP-1 market for obesity and diabetes treatments; Viking Therapeutics (VKTX), de",
+          "sentiment": "positive"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [
+        "polygon_news"
+      ],
+      "options_data_available": false,
+      "options_score": null,
+      "options_evidence": {},
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": null,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [],
+      "sentiment_cap_applied": null,
+      "source_tags": [
+        "SWING",
+        "SWING_PULLBACK"
+      ]
+    },
+    {
+      "ticker": "BK",
+      "name": "The Bank of New York Mellon Corporation",
+      "exchange": "NYSE",
+      "sector": "Financial Services",
+      "current_price": 116.87,
+      "market_cap_usd": 82015232000,
+      "avg_dollar_volume_20d": 401612480.44500005,
+      "asof_price_utc": "2025-12-30T00:00:00Z",
+      "technical_score": 6.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 2.12,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.62,
+        "rsi14": 53.37,
+        "ma10": 116.27,
+        "ma20": 115.86,
+        "ma50": 111.59,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 9.29,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 119.4,
+          "donchian55_prev": 119.4,
+          "atr14": 1.8421,
+          "vol_ratio_3_20": 0.619,
+          "breakout_strength_atr": -1.3734,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 1.58,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": -0.21,
+          "extension_adj": 0.0
+        },
+        "data_gaps": [],
+        "ma200": 98.4
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": false,
+      "options_score": null,
+      "options_evidence": {},
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": null,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [],
+      "sentiment_cap_applied": null,
+      "source_tags": [
+        "SWING",
+        "SWING_PULLBACK"
+      ]
+    },
+    {
+      "ticker": "CBOE",
+      "name": "Cboe Global Markets, Inc.",
+      "exchange": "BTS",
+      "sector": "Financial Services",
+      "current_price": 254.54,
+      "market_cap_usd": 28922697728,
+      "avg_dollar_volume_20d": 161777627.9555,
+      "asof_price_utc": "2025-12-30T00:00:00Z",
+      "technical_score": 6.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 3.21,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.49,
+        "rsi14": 52.16,
+        "ma10": 252.65,
+        "ma20": 252.43,
+        "ma50": 250.85,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 10.42,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 259.56,
+          "donchian55_prev": 262.9799,
+          "atr14": 4.4725,
+          "vol_ratio_3_20": 0.4904,
+          "breakout_strength_atr": -1.1224,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 1.76,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 0.61,
+          "extension_adj": 0.0
+        },
+        "data_gaps": [],
+        "ma200": 236.25
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": false,
+      "options_score": null,
+      "options_evidence": {},
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": null,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [],
+      "sentiment_cap_applied": null,
+      "source_tags": [
+        "SWING",
+        "SWING_PULLBACK"
+      ]
+    },
+    {
+      "ticker": "CMI",
+      "name": "Cummins Inc.",
+      "exchange": "NYSE",
+      "sector": "Industrials",
+      "current_price": 513.61,
+      "market_cap_usd": 78926372864,
+      "avg_dollar_volume_20d": 429786645.56700003,
+      "asof_price_utc": "2025-12-30T00:00:00Z",
+      "technical_score": 6.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 2.45,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.45,
+        "rsi14": 56.9,
+        "ma10": 512.06,
+        "ma20": 511.72,
+        "ma50": 477.63,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 7.19,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 526.5,
+          "donchian55_prev": 526.5,
+          "atr14": 11.7439,
+          "vol_ratio_3_20": 0.4493,
+          "breakout_strength_atr": -1.0976,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 2.29,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": -0.48,
+          "extension_adj": 0.0
+        },
+        "data_gaps": [],
+        "ma200": 383.49
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": false,
+      "options_score": null,
+      "options_evidence": {},
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": null,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [],
+      "sentiment_cap_applied": null,
+      "source_tags": [
+        "SWING",
+        "SWING_PULLBACK"
+      ]
+    },
+    {
+      "ticker": "EA",
+      "name": "Electronic Arts Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Communication Services",
+      "current_price": 204.35,
+      "market_cap_usd": 51021651968,
+      "avg_dollar_volume_20d": 379074320.136,
+      "asof_price_utc": "2025-12-30T00:00:00Z",
+      "technical_score": 6.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 0.24,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.47,
+        "rsi14": 57.38,
+        "ma10": 204.19,
+        "ma20": 203.91,
+        "ma50": 202.16,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 3.26,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 204.84,
+          "donchian55_prev": 204.84,
+          "atr14": 0.5964,
+          "vol_ratio_3_20": 0.4672,
+          "breakout_strength_atr": -0.8216,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 0.29,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 0.94,
+          "extension_adj": 0.0
+        },
+        "data_gaps": [],
+        "ma200": 170.29
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": false,
+      "options_score": null,
+      "options_evidence": {},
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": null,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [],
+      "sentiment_cap_applied": null,
+      "source_tags": [
+        "SWING",
+        "SWING_PULLBACK"
+      ]
+    },
+    {
+      "ticker": "MS",
+      "name": "Morgan Stanley",
+      "exchange": "NYSE",
+      "sector": "Financial Services",
+      "current_price": 179.08,
+      "market_cap_usd": 284486369280,
+      "avg_dollar_volume_20d": 931644594.2505,
+      "asof_price_utc": "2025-12-30T00:00:00Z",
+      "technical_score": 6.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 1.79,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.47,
+        "rsi14": 50.59,
+        "ma10": 178.31,
+        "ma20": 177.46,
+        "ma50": 169.17,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 13.28,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 182.34,
+          "donchian55_prev": 182.34,
+          "atr14": 3.0365,
+          "vol_ratio_3_20": 0.4684,
+          "breakout_strength_atr": -1.0736,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 1.7,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": -0.22,
+          "extension_adj": 0.0
+        },
+        "data_gaps": [],
+        "ma200": 144.41
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [
+        {
+          "title": "$50 Million Still at Stake as Manager Cuts Exposure to Volatile Food Stock Down 28% This Past Year",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/coverage/filings/2026/01/23/usd50-million-still-at-stake-as-manager-cuts-exposure-to-volatile-food-stock-down-28-this-past-year/?source=iedfolrf0000001",
+          "published_at": "2026-01-23",
+          "description": "Douglas Lane & Associates sold 65,461 shares of Lamb Weston Holdings in Q4, reducing its position to 1.2 million shares valued at $50.85 million. The stock has declined 28% over the past year, underpe",
+          "sentiment": "neutral"
+        },
+        {
+          "title": "Elon Musk's SpaceX Gears Up For Hottest IPO",
+          "publisher": "Benzinga",
+          "url": "https://www.benzinga.com/markets/ipos/26/01/50076300/elon-musks-spacex-gears-up-for-hottest-ipo?utm_source=benzinga_taxonomy&utm_medium=rss_feed_free&utm_content=taxonomy_rss&utm_campaign=channel",
+          "published_at": "2026-01-22",
+          "description": "SpaceX has selected Bank of America, Goldman Sachs, JPMorgan Chase, and Morgan Stanley to lead its potential IPO, which could become the largest in history. The company is currently valued at around $",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Rocket Lab Gets a Big Upgrade: Will Upside Follow?",
+          "publisher": "Investing.com",
+          "url": "https://www.investing.com/analysis/rocket-lab-gets-a-big-upgrade-will-upside-follow-200673608",
+          "published_at": "2026-01-21",
+          "description": "Morgan Stanley upgraded Rocket Lab (RKLB) from Equal Weight to Overweight with a Street-high $105 price target on Jan. 16, 2026, citing optimistic space tech outlook and catalysts including the Neutro",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Clear Street Files Registration Statement for Proposed Initial Public Offering",
+          "publisher": "Benzinga",
+          "url": "https://www.benzinga.com/pressreleases/26/01/g50021864/clear-street-files-registration-statement-for-proposed-initial-public-offering?utm_source=benzinga_taxonomy&utm_medium=rss_feed_free&utm_content=taxonomy_rss&utm_campaign=channel",
+          "published_at": "2026-01-20",
+          "description": "Clear Street Group Inc., a cloud-native financial infrastructure technology company, has filed a registration statement on Form S-1 with the SEC for a proposed initial public offering. The company int",
+          "sentiment": "neutral"
+        },
+        {
+          "title": "Morgan Stanley Snaps Up $110 Million Bay Area Factory",
+          "publisher": "Benzinga",
+          "url": "https://www.benzinga.com/markets/large-cap/26/01/50017854/morgan-stanley-snaps-up-110-million-bay-area-factory?utm_source=benzinga_taxonomy&utm_medium=rss_feed_free&utm_content=taxonomy_rss&utm_campaign=channel",
+          "published_at": "2026-01-20",
+          "description": "Morgan Stanley Investment Management acquired a 290,000 square-foot advanced manufacturing facility in Fremont, California for $110 million through its Real Estate Investing arm. The property is lease",
+          "sentiment": "positive"
+        },
+        {
+          "title": "S&P 500: Did Banks Set the Stage for Another Quarter of Double-Digit EPS Growth?",
+          "publisher": "Investing.com",
+          "url": "https://www.investing.com/analysis/sp-500-did-bank-earnings-point-to-continued-doubledigit-eps-growth-200673535",
+          "published_at": "2026-01-20",
+          "description": "The Big Six US banks delivered strong Q4 2025 EPS results with half missing on revenue due to one-time charges. While most beat EPS estimates, market reactions were muted amid cautious 2026 guidance, ",
+          "sentiment": "neutral"
+        },
+        {
+          "title": "Did TradFi Just Steal Your Coins?",
+          "publisher": "Benzinga",
+          "url": "https://www.benzinga.com/Opinion/26/01/50005456/did-tradfi-just-steal-your-coins?utm_source=benzinga_taxonomy&utm_medium=rss_feed_free&utm_content=taxonomy_rss&utm_campaign=channel",
+          "published_at": "2026-01-20",
+          "description": "The article examines conspiracy theories that Morgan Stanley and MSCI orchestrated Bitcoin's Q4 2025 crash to accumulate coins cheaply before launching ETFs. It debunks four main myths by analyzing ma",
+          "sentiment": "neutral"
+        }
+      ],
+      "dilution_flag": 1,
+      "catalyst_tags": "earnings,upgrade",
+      "catalyst_sources": [
+        "polygon_news"
+      ],
+      "options_data_available": false,
+      "options_score": null,
+      "options_evidence": {},
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": null,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [],
+      "sentiment_cap_applied": null,
+      "source_tags": [
+        "SWING",
+        "SWING_PULLBACK"
+      ]
+    },
+    {
+      "ticker": "NVDA",
+      "name": "NVIDIA Corporation",
+      "exchange": "NASDAQ",
+      "sector": "Technology",
+      "current_price": 187.54,
+      "market_cap_usd": 4569201377280,
+      "avg_dollar_volume_20d": 30080046097.193504,
+      "asof_price_utc": "2025-12-30T00:00:00Z",
+      "technical_score": 6.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 11.62,
+        "within_5pct_52w_high": false,
+        "volume_ratio_3d_to_20d": 0.72,
+        "rsi14": 52.97,
+        "ma10": 183.16,
+        "ma20": 182.25,
+        "ma50": 186.28,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 26.15,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 192.69,
+          "donchian55_prev": 212.1899,
+          "atr14": 4.9507,
+          "vol_ratio_3_20": 0.7176,
+          "breakout_strength_atr": -1.0403,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 2.64,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 0.79,
+          "extension_adj": 0.0
+        },
+        "data_gaps": [],
+        "ma200": 159.79
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [
+        {
+          "title": "1 Reason Why Now Is a Great Time to Buy Micron Technology",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/01/23/1-reason-why-now-is-a-great-time-to-buy-micron/?source=iedfolrf0000001",
+          "published_at": "2026-01-24",
+          "description": "Micron Technology is positioned as an attractive investment opportunity due to its dominance in high-bandwidth memory (HBM) for AI applications. With record Q1 FY2026 revenue of $13.6 billion (up 57% ",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Up 1,000% in Less Than a Year, Is This AI Stock a Buy to Start 2026?",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/01/23/up-1000-in-less-than-a-year-is-this-ai-stock-a-buy/?source=iedfolrf0000001",
+          "published_at": "2026-01-24",
+          "description": "Sandisk has surged nearly 1,030% since its February 2025 spinoff from Western Digital, becoming the S&P 500's best performer in 2025. The company benefits from strong AI infrastructure demand for high",
+          "sentiment": "neutral"
+        },
+        {
+          "title": "This Overlooked Artificial Intelligence (AI) Stock Could Be a Long-Term Compounder",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/01/23/overlooked-artificial-intelligence-ai-stock-asml/?source=iedfolrf0000001",
+          "published_at": "2026-01-24",
+          "description": "ASML, a Dutch semiconductor equipment manufacturer specializing in lithography machines, is highlighted as a critical but overlooked player in the AI boom. The company boasts strong financial metrics ",
+          "sentiment": "neutral"
+        },
+        {
+          "title": "AMD’s Resurgence: Outpacing Nvidia in 2026",
+          "publisher": "Investing.com",
+          "url": "https://www.investing.com/analysis/amds-resurgence-outpacing-nvidia-in-2026-200673798",
+          "published_at": "2026-01-23",
+          "description": "AMD significantly outperformed Nvidia in 2025, with shares rising 77% compared to Nvidia's 39% gain. AMD's strong data center segment, record revenue, and major partnerships including a multi-year dea",
+          "sentiment": "neutral"
+        },
+        {
+          "title": "Micron and Nvidia: The Kings of AI Stocks",
+          "publisher": "Investing.com",
+          "url": "https://www.investing.com/analysis/micron-and-nvidia-the-kings-of-ai-stocks-200673797",
+          "published_at": "2026-01-23",
+          "description": "Micron and Nvidia are positioned as top AI infrastructure plays, both holding Zacks Rank #1 (Strong Buy) ratings. Micron reported stellar results with 55% YoY sales growth and 185% EPS growth, driven ",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Intel Is Still Making Too Many Unforced Errors. Can the Chip Giant Get Out of Its Own Way?",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/01/23/intel-is-still-making-too-many-unforced-errors-can/?source=iedfolrf0000001",
+          "published_at": "2026-01-23",
+          "description": "Intel stock plunged after providing weaker-than-expected Q1 guidance, revealing ongoing execution challenges despite a 150% rally over five months. The company faces persistent issues including disapp",
+          "sentiment": "neutral"
+        },
+        {
+          "title": "Stock Market Today, Jan. 23: Intel's Weak Outlook Weighs on Dow While Nasdaq Edges Higher",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/coverage/stock-market-today/2026/01/23/stock-market-today-jan-23-intel-s-weak-outlook-weighs-on-dow-while-nasdaq-edges-higher/?source=iedfolrf0000001",
+          "published_at": "2026-01-23",
+          "description": "Intel's disappointing earnings outlook and supply chain concerns dragged down the Dow Jones, while the Nasdaq gained ground from strength in mega-cap tech and AI stocks. The S&P 500 remained essential",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Stock Market Today, Jan. 23: Intel Plunges After Weak Outlook Highlights Supply Constraints and Foundry Losses",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/coverage/stock-market-today/2026/01/23/stock-market-today-jan-23-intel-plunges-after-weak-outlook-highlights-supply-constraints-and-foundry-losses/?source=iedfolrf0000001",
+          "published_at": "2026-01-23",
+          "description": "Intel stock plunged 17.15% on January 23, 2026, after reporting Q4 earnings that beat expectations but providing weak Q1 2026 guidance of $12.2 billion versus expected $12.6 billion. The company cited",
+          "sentiment": "positive"
+        },
+        {
+          "title": "3 AI Infrastructure Stocks to Buy as the Market Heads Toward $1.4 Trillion by 2030",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/01/23/3-ai-infrastructure-stocks-to-buy-as-the-market-he/?source=iedfolrf0000001",
+          "published_at": "2026-01-23",
+          "description": "As the global AI infrastructure market is expected to grow at a 29.1% CAGR through 2032, requiring $1.4 trillion in investments, three stocks are positioned to benefit: Nvidia dominates the discrete G",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Cathie Wood Thinks AMD Will Challenge Nvidia This Year",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/01/23/why-cathie-wood-thinks-amd-will-challenge-nvidia/?source=iedfolrf0000001",
+          "published_at": "2026-01-23",
+          "description": "Cathie Wood predicts AMD will face tougher competition from Nvidia in the AI market this year. However, the article argues that Nvidia's first-mover advantage, dominant 92% market share, proprietary C",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Top Stocks to Double Up on Right Now",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/01/23/top-stocks-to-double-up-on-right-now/?source=iedfolrf0000001",
+          "published_at": "2026-01-23",
+          "description": "The article recommends three stocks as strong investment opportunities for 2026: Nvidia, The Trade Desk, and MercadoLibre. Nvidia is highlighted for its dominant GPU market position in AI infrastructu",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Intel Stock Plunges: Time To Buy the Dip?",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/01/23/intel-stock-plunges-time-to-buy-the-dip/?source=iedfolrf0000001",
+          "published_at": "2026-01-23",
+          "description": "Intel's stock plummeted 17% after reporting Q4 earnings that beat expectations but issued weak Q1 guidance citing supply constraints. While the company exceeded revenue estimates at $13.7B and earning",
+          "sentiment": "positive"
+        },
+        {
+          "title": "6 of My Top 10 Stocks for 2025 Increased by More Than 25%. Are They Still Buys Now?",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/01/23/6-of-my-top-10-stocks-for-2025-increased-by-more-t/?source=iedfolrf0000001",
+          "published_at": "2026-01-23",
+          "description": "Six of the author's top 10 stock picks for 2025 gained more than 25%, significantly outperforming the S&P 500. The author believes Nvidia, TSMC, and dLocal can repeat this performance in 2026 due to c",
+          "sentiment": "positive"
+        },
+        {
+          "title": "2 AI Stocks Make Excellent Long-Term Plays to Buy in January",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/01/23/2-ai-stocks-make-excellent-long-term-plays-to-buy/?source=iedfolrf0000001",
+          "published_at": "2026-01-23",
+          "description": "The article recommends Nvidia and Alphabet as two excellent long-term AI stock investments for January 2026. Nvidia benefits from surging demand for its AI chips with 62% revenue growth and 55% net pr",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Nvidia Gets a Lift as China Signals a Path Back for High-End AI Chips",
+          "publisher": "Investing.com",
+          "url": "https://www.investing.com/analysis/nvidia-gets-a-lift-as-china-signals-a-path-back-for-highend-ai-chips-200673792",
+          "published_at": "2026-01-23",
+          "description": "China has granted in-principle approval for major tech companies including Alibaba, Tencent, and ByteDance to prepare orders for Nvidia's H200 AI chips. The approval signals Beijing's move toward form",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Intel Drops After Earnings: Opportunity for AMD to Shine?",
+          "publisher": "Investing.com",
+          "url": "https://www.investing.com/analysis/intel-drops-after-earnings-opportunity-for-amd-to-shine-200673782",
+          "published_at": "2026-01-23",
+          "description": "Intel's stock plummeted over 12% following disappointing Q4 2025 earnings and weak forward guidance, with the company posting a net loss and forecasting continued supply constraints throughout 2026. M",
+          "sentiment": "neutral"
+        },
+        {
+          "title": "$50 Million Still at Stake as Manager Cuts Exposure to Volatile Food Stock Down 28% This Past Year",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/coverage/filings/2026/01/23/usd50-million-still-at-stake-as-manager-cuts-exposure-to-volatile-food-stock-down-28-this-past-year/?source=iedfolrf0000001",
+          "published_at": "2026-01-23",
+          "description": "Douglas Lane & Associates sold 65,461 shares of Lamb Weston Holdings in Q4, reducing its position to 1.2 million shares valued at $50.85 million. The stock has declined 28% over the past year, underpe",
+          "sentiment": "neutral"
+        },
+        {
+          "title": "Should Investors Buy Nvidia Stock Before Feb. 25?",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/01/23/should-investors-buy-nvidia-stock-before-feb-25/?source=iedfolrf0000001",
+          "published_at": "2026-01-23",
+          "description": "Nvidia stock surged 38% in 2025, outperforming the S&P 500. Ahead of the company's Feb. 25 earnings report, investors will focus on AI demand indicators, gross margins, and China sales updates rather ",
+          "sentiment": "neutral"
+        },
+        {
+          "title": "Tesla Delivers Disappointing News That Could Impact Investor Returns",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/01/23/tesla-delivers-disappointing-news-that-could-impac/?source=iedfolrf0000001",
+          "published_at": "2026-01-23",
+          "description": "Tesla delivered disappointing 2025 results with EV deliveries declining 8.5% year-over-year to 1.63 million vehicles, marking its worst performance in history. Chinese automaker BYD has overtaken Tesl",
+          "sentiment": "neutral"
+        },
+        {
+          "title": "Jensen Huang To Head To China In A Bid To Reopen Market For Nvidia Chips: Report",
+          "publisher": "Benzinga",
+          "url": "https://www.benzinga.com/markets/tech/26/01/50093586/jensen-huang-to-head-to-china-in-a-bid-to-reopen-market-for-nvidia-chips-report?utm_source=benzinga_taxonomy&utm_medium=rss_feed_free&utm_content=taxonomy_rss&utm_campaign=channel",
+          "published_at": "2026-01-23",
+          "description": "Nvidia CEO Jensen Huang is planning a trip to China at the end of January to work on reopening the market for the company's AI chips. The visit comes as Nvidia implements stricter terms for H200 chip ",
+          "sentiment": "neutral"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "earnings",
+      "catalyst_sources": [
+        "polygon_news"
+      ],
+      "options_data_available": false,
+      "options_score": null,
+      "options_evidence": {},
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": null,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [],
+      "sentiment_cap_applied": null,
+      "source_tags": [
+        "SWING",
+        "SWING_PULLBACK"
+      ]
+    },
+    {
+      "ticker": "PLD",
+      "name": "Prologis, Inc.",
+      "exchange": "NYSE",
+      "sector": "Real Estate",
+      "current_price": 129.01,
+      "market_cap_usd": 118105440256,
+      "avg_dollar_volume_20d": 421592470.75,
+      "asof_price_utc": "2025-12-30T00:00:00Z",
+      "technical_score": 6.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 2.04,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.56,
+        "rsi14": 56.82,
+        "ma10": 128.13,
+        "ma20": 128.54,
+        "ma50": 126.59,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 8.9,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 131.7,
+          "donchian55_prev": 131.7,
+          "atr14": 1.8121,
+          "vol_ratio_3_20": 0.5568,
+          "breakout_strength_atr": -1.4845,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 1.4,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 0.79,
+          "extension_adj": 0.0
+        },
+        "data_gaps": [],
+        "ma200": 113.06
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [
+        {
+          "title": "2 of My Favorite Dividend Stocks for the Next 10 Years",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/01/23/x-of-my-favorite-dividend-stocks-for-the-next-x-ye/?source=iedfolrf0000001",
+          "published_at": "2026-01-23",
+          "description": "The article recommends two REITs as attractive long-term dividend investments for the next decade. EPR Properties, which invests in experiential properties like theaters and waterparks, offers a 6.4% ",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Prologis Signs Record Leases In 2025, Expands Power For Data Centers",
+          "publisher": "Benzinga",
+          "url": "https://www.benzinga.com/markets/earnings/26/01/50037538/prologis-signs-record-leases-in-2025-expands-power-for-data-centers?utm_source=benzinga_taxonomy&utm_medium=rss_feed_free&utm_content=taxonomy_rss&utm_campaign=channel",
+          "published_at": "2026-01-21",
+          "description": "Prologis (PLD) stock rose Wednesday following strong Q4 2025 earnings results. The company reported record lease signings of 228 million square feet in 2025 and expanded power capacity for data center",
+          "sentiment": "positive"
+        },
+        {
+          "title": "3 Bold Predictions to Start 2026",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/01/20/3-bold-predictions-to-start-2026/?source=iedfolrf0000001",
+          "published_at": "2026-01-20",
+          "description": "Three Motley Fool contributors share bold 2026 predictions: Alphabet's Gemini will reach market share parity with ChatGPT, the solar industry will double market performance, and homebuilder stocks wil",
+          "sentiment": "positive"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [
+        "polygon_news"
+      ],
+      "options_data_available": false,
+      "options_score": null,
+      "options_evidence": {},
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": null,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [],
+      "sentiment_cap_applied": null,
+      "source_tags": [
+        "SWING",
+        "SWING_PULLBACK"
+      ]
+    },
+    {
+      "ticker": "RUN",
+      "name": "Sunrun Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Technology",
+      "current_price": 19.09,
+      "market_cap_usd": 4524815360,
+      "avg_dollar_volume_20d": 102554228.08800001,
+      "asof_price_utc": "2025-12-30T00:00:00Z",
+      "technical_score": 6.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 14.93,
+        "within_5pct_52w_high": false,
+        "volume_ratio_3d_to_20d": 0.77,
+        "rsi14": 56.59,
+        "ma10": 19.01,
+        "ma20": 18.52,
+        "ma50": 19.04,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 56.52,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 20.71,
+          "donchian55_prev": 22.44,
+          "atr14": 1.0755,
+          "vol_ratio_3_20": 0.7686,
+          "breakout_strength_atr": -1.5063,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 5.63,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": -1.01,
+          "extension_adj": 0.0
+        },
+        "data_gaps": [],
+        "ma200": 13.12
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [
+        {
+          "title": "Elon Musk Boosts Solar Stocks—Here's What He Said",
+          "publisher": "Benzinga",
+          "url": "https://www.benzinga.com/trading-ideas/movers/26/01/50108980/elon-musk-boosts-solar-stocks-heres-what-he-said?utm_source=benzinga_taxonomy&utm_medium=rss_feed_free&utm_content=taxonomy_rss&utm_campaign=channel",
+          "published_at": "2026-01-23",
+          "description": "Elon Musk's endorsement of solar energy as the 'linchpin' of the global power transition at the 2026 World Economic Forum in Davos sparked a rally in solar stocks. Musk highlighted solar as the soluti",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Energy Storage Market Projected to Reach US$ 486.18 Billion by 2035, Supported by Large-Scale Deployment in China Says Astute Analytica",
+          "publisher": "GlobeNewswire Inc.",
+          "url": "https://www.globenewswire.com/news-release/2026/01/20/3222153/0/en/Energy-Storage-Market-Projected-to-Reach-US-486-18-Billion-by-2035-Supported-by-Large-Scale-Deployment-in-China-Says-Astute-Analytica.html",
+          "published_at": "2026-01-20",
+          "description": "The global energy storage market is projected to grow from US$ 50.16 billion in 2025 to US$ 486.18 billion by 2035 at a CAGR of 25.50%, driven by plummeting hardware costs and renewable integration ne",
+          "sentiment": "positive"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [
+        "polygon_news"
+      ],
+      "options_data_available": false,
+      "options_score": null,
+      "options_evidence": {},
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": null,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [],
+      "sentiment_cap_applied": null,
+      "source_tags": [
+        "SWING",
+        "SWING_PULLBACK"
+      ]
+    },
+    {
+      "ticker": "ULTA",
+      "name": "Ulta Beauty, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Consumer Cyclical",
+      "current_price": 606.89,
+      "market_cap_usd": 30764498944,
+      "avg_dollar_volume_20d": 535296398.6109999,
+      "asof_price_utc": "2025-12-30T00:00:00Z",
+      "technical_score": 6.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 1.53,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.43,
+        "rsi14": 52.46,
+        "ma10": 601.17,
+        "ma20": 590.94,
+        "ma50": 548.25,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 13.34,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 616.34,
+          "donchian55_prev": 616.34,
+          "atr14": 12.2304,
+          "vol_ratio_3_20": 0.4328,
+          "breakout_strength_atr": -0.7727,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 2.02,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": -0.49,
+          "extension_adj": 0.0
+        },
+        "data_gaps": [],
+        "ma200": 484.74
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [
+        {
+          "title": "Ulta Beauty Boosts Middle East Expansion, Now Lands In Dubai",
+          "publisher": "Benzinga",
+          "url": "https://www.benzinga.com/markets/equities/26/01/50102398/ulta-beauty-boosts-middle-east-expansion-now-lands-in-dubai?utm_source=benzinga_taxonomy&utm_medium=rss_feed_free&utm_content=taxonomy_rss&utm_campaign=channel",
+          "published_at": "2026-01-23",
+          "description": "Ulta Beauty announced its first store opening in the United Arab Emirates at Mall of the Emirates on January 29, 2026, in partnership with Alshaya Group. This expansion follows the company's first Mid",
+          "sentiment": "positive"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [
+        "polygon_news"
+      ],
+      "options_data_available": false,
+      "options_score": null,
+      "options_evidence": {},
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": null,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [],
+      "sentiment_cap_applied": null,
+      "source_tags": [
+        "SWING",
+        "SWING_PULLBACK"
+      ]
+    },
+    {
+      "ticker": "WBD",
+      "name": "Warner Bros. Discovery, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Communication Services",
+      "current_price": 28.94,
+      "market_cap_usd": 70863732736,
+      "avg_dollar_volume_20d": 1900178477.9315002,
+      "asof_price_utc": "2025-12-30T00:00:00Z",
+      "technical_score": 6.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 3.53,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.32,
+        "rsi14": 55.33,
+        "ma10": 28.61,
+        "ma20": 28.0,
+        "ma50": 24.57,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 16.56,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 30.0,
+          "donchian55_prev": 30.0,
+          "atr14": 0.7084,
+          "vol_ratio_3_20": 0.3223,
+          "breakout_strength_atr": -1.4963,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 2.45,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 0.27,
+          "extension_adj": 0.0
+        },
+        "data_gaps": [],
+        "ma200": 15.18
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [
+        {
+          "title": "Deal Dispatch: Billionaire Circles Cricket's RCB, Nestlé Water Sale Heats Up",
+          "publisher": "Benzinga",
+          "url": "https://www.benzinga.com/m-a/26/01/50112450/deal-dispatch-cricket-rcb-auction-nestle-water-sale-heats-up?utm_source=benzinga_taxonomy&utm_medium=rss_feed_free&utm_content=taxonomy_rss&utm_campaign=channel",
+          "published_at": "2026-01-23",
+          "description": "Major M&A activity dominates markets: Diageo explores selling Indian Premier League cricket franchise RCB at up to $2B valuation with multiple bidders including Adar Poonawalla, Blackstone, and Temase",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Netflix Stock Drops 35%+ After Q4 as WBD Deal Risk Rises",
+          "publisher": "Investing.com",
+          "url": "https://www.investing.com/analysis/netflix-stock-drops-35-after-q4-as-wbd-deal-risk-rises-200673780",
+          "published_at": "2026-01-23",
+          "description": "Netflix stock has declined approximately 37% from its mid-2025 peak of $134, closing down 3% after Q4 earnings. While the company posted solid results with 18% sales growth and beat earnings estimates",
+          "sentiment": "neutral"
+        },
+        {
+          "title": "1 Reason I'm Never Selling Netflix Stock",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/01/23/1-reason-im-never-selling-netflix-stock/?source=iedfolrf0000001",
+          "published_at": "2026-01-23",
+          "description": "Netflix's massive content library built over more than a decade represents a strong competitive moat that rivals cannot easily overcome. With over 33,000 titles and 300+ million subscribers, the compa",
+          "sentiment": "neutral"
+        },
+        {
+          "title": "Netflix Just Topped 325 Million Subscribers. Its Stock Price Sank Anyway.",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/01/23/netflix-just-topped-325-million-subscribers-its-st/?source=iedfolrf0000001",
+          "published_at": "2026-01-23",
+          "description": "Netflix exceeded Q4 2025 expectations with 325 million subscribers and strong financial metrics (18% revenue growth, 25% operating margin), but its stock dropped 5% after-hours. Investor concerns cent",
+          "sentiment": "neutral"
+        },
+        {
+          "title": "Stock Market Today, Jan. 22: Netflix Drops as Guidance Tempers Strong Q4 Results",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/coverage/stock-market-today/2026/01/22/stock-market-today-jan-22-netflix-drops-as-guidance-tempers-strong-q4-results/?source=iedfolrf0000001",
+          "published_at": "2026-01-22",
+          "description": "Netflix stock fell 2.15% to $83.53 on January 22, 2026, despite strong Q4 earnings with 18% revenue growth and 325+ million subscribers. The decline was driven by cautious 2026 guidance and uncertaint",
+          "sentiment": "neutral"
+        },
+        {
+          "title": "FOOD NETWORK JOINS SIXTHMAN’S CHEFS MAKING WAVES PRESENTS: BOBBY FLAY & FRIENDS AS TITLE SPONSOR OF 2026 CRUISE",
+          "publisher": "GlobeNewswire Inc.",
+          "url": "https://www.globenewswire.com/news-release/2026/01/22/3224036/0/en/FOOD-NETWORK-JOINS-SIXTHMAN-S-CHEFS-MAKING-WAVES-PRESENTS-BOBBY-FLAY-FRIENDS-AS-TITLE-SPONSOR-OF-2026-CRUISE.html",
+          "published_at": "2026-01-22",
+          "description": "Food Network has become the title sponsor for Sixthman's Chefs Making Waves cruise featuring Bobby Flay and other Food Network stars. The five-day cruise will sail November 6-11, 2026 on Norwegian Joy",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Why Netflix Stock Is Down 38% From Its All-Time High",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/01/22/why-netflix-stock-is-down-38-from-its-all-time-hig/?source=iedfolrf0000001",
+          "published_at": "2026-01-22",
+          "description": "Netflix stock has fallen 38% from its June 2025 all-time high of $133.91 to $85.36, primarily due to uncertainty surrounding its $82.7 billion acquisition of Warner Bros. While Netflix reported strong",
+          "sentiment": "neutral"
+        },
+        {
+          "title": "Stock Market Today, Jan. 21: Netflix Falls After Fourth-Quarter Earnings and New All-Cash WBD Deal",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/coverage/stock-market-today/2026/01/21/stock-market-today-jan-21-netflix-falls-after-fourth-quarter-earnings-and-new-all-cash-wbd-deal/?source=iedfolrf0000001",
+          "published_at": "2026-01-21",
+          "description": "Netflix stock fell 2.18% to $85.36 despite beating Q4 earnings expectations, as investors were disappointed by conservative 2026 guidance projecting 14% revenue growth and $6 billion in free cash flow",
+          "sentiment": "positive"
+        },
+        {
+          "title": "The Netflix Sell-Off Just Accelerated. Here's Why I Think It's Overdone.",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/01/21/the-netflix-sell-off-just-accelerated-heres-why-i/?source=iedfolrf0000001",
+          "published_at": "2026-01-21",
+          "description": "Netflix reported strong Q4 results with 17.6% revenue growth to $12.05 billion and 325 million paid subscribers, beating analyst expectations. Ad revenue surged 250% year-over-year. However, the stock",
+          "sentiment": "neutral"
+        },
+        {
+          "title": "Why Netflix Stock Dipped Lower Today",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/01/21/why-netflix-stock-dipped-lower-today/?source=iedfolrf0000001",
+          "published_at": "2026-01-21",
+          "description": "Netflix stock fell 4% following Q4 earnings that beat estimates with 18% revenue growth and 30% EPS growth, but conservative 2026 guidance of 14% revenue growth disappointed the market. Despite the di",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Is Netflix's Warner Bros. Acquisition a Mistake?",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/01/21/is-netflixs-wbd-acquisition-a-mistake/?source=iedfolrf0000001",
+          "published_at": "2026-01-21",
+          "description": "Netflix's $72 billion acquisition of Warner Bros. Discovery has failed to convince investors, with the stock falling 20% since the announcement and 5% after the earnings call. While WBD has attractive",
+          "sentiment": "neutral"
+        },
+        {
+          "title": "Why Netflix Stock Is Plunging in After-Hours Trading",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/01/20/why-netflix-stock-is-plunging-in-after-hours-tradi/?source=iedfolrf0000001",
+          "published_at": "2026-01-20",
+          "description": "Netflix stock fell 4.9% in after-hours trading despite beating Q4 2025 earnings expectations (revenue of $12.05B vs. $11.97B expected, EPS of $0.56 vs. $0.55 expected). The decline was triggered by Ne",
+          "sentiment": "neutral"
+        },
+        {
+          "title": "Netflix Earnings Open the Door to a Rebound With the Warner Deal in Sharp Focus",
+          "publisher": "Investing.com",
+          "url": "https://www.investing.com/analysis/netflix-earnings-open-the-door-to-a-rebound-with-the-warner-deal-in-sharp-focus-200673538",
+          "published_at": "2026-01-20",
+          "description": "Netflix is set to report Q4 earnings after Tuesday's close amid scrutiny over its planned $83 billion all-cash acquisition of Warner Bros. Discovery. The streaming giant hit revenue targets last quart",
+          "sentiment": "neutral"
+        },
+        {
+          "title": "3 Stocks That Could Create Lasting Generational Wealth",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/01/20/stocks-that-create-lasting-generational-wealth/?source=iedfolrf0000001",
+          "published_at": "2026-01-20",
+          "description": "The article identifies Amazon, Walmart, and Netflix as three stocks suitable for long-term, multigenerational wealth creation. Amazon dominates e-commerce with 40% U.S. market share and generates sign",
+          "sentiment": "neutral"
+        },
+        {
+          "title": "From NFL Games to Stranger Things, Netflix Just Had Its Biggest Holiday Season Ever — And It's About To Show Up In Earnings",
+          "publisher": "Benzinga",
+          "url": "https://www.benzinga.com/markets/earnings/26/01/49989285/from-nfl-games-to-stranger-things-netflix-just-had-its-biggest-holiday-season-ever-and-its-about?utm_source=benzinga_taxonomy&utm_medium=rss_feed_free&utm_content=taxonomy_rss&utm_campaign=channel",
+          "published_at": "2026-01-19",
+          "description": "Netflix experienced a record-breaking holiday season, with Christmas Day 2025 capturing 54% of U.S. TV viewing and 55.1 billion minutes streamed. The platform's success was driven by its first-ever Ch",
+          "sentiment": "neutral"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "earnings,merger,product",
+      "catalyst_sources": [
+        "polygon_news"
+      ],
+      "options_data_available": false,
+      "options_score": null,
+      "options_evidence": {},
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": null,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [],
+      "sentiment_cap_applied": null,
+      "source_tags": [
+        "SWING",
+        "SWING_PULLBACK"
+      ]
+    },
+    {
+      "ticker": "XOM",
+      "name": "Exxon Mobil Corporation",
+      "exchange": "NYSE",
+      "sector": "Energy",
+      "current_price": 120.99,
+      "market_cap_usd": 575410470912,
+      "avg_dollar_volume_20d": 1892313768.2489998,
+      "asof_price_utc": "2025-12-30T00:00:00Z",
+      "technical_score": 6.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 0.66,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.7,
+        "rsi14": 59.24,
+        "ma10": 118.27,
+        "ma20": 117.97,
+        "ma50": 116.82,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 10.09,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 121.2998,
+          "donchian55_prev": 121.2998,
+          "atr14": 1.8031,
+          "vol_ratio_3_20": 0.7049,
+          "breakout_strength_atr": -0.1718,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 1.49,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 1.61,
+          "extension_adj": 0.0
+        },
+        "data_gaps": [],
+        "ma200": 111.62
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "2026-01-30",
+      "earnings_info": {
+        "ticker": "XOM",
+        "earnings_date": "2026-01-30",
+        "eps_estimate": 1.67,
+        "revenue_estimate": 78211989900,
+        "time": "unknown",
+        "fiscal_quarter": null,
+        "source": "fmp"
+      },
+      "headlines": [
+        {
+          "title": "Aviation Lubricants Market Size to Exceed US$ 2,302.15 Million by 2035 | Astute Analytica",
+          "publisher": "GlobeNewswire Inc.",
+          "url": "https://www.globenewswire.com/news-release/2026/01/23/3224534/0/en/Aviation-Lubricants-Market-Size-to-Exceed-US-2-302-15-Million-by-2035-Astute-Analytica.html",
+          "published_at": "2026-01-23",
+          "description": "The global aviation lubricants market, valued at $1.28 billion in 2025, is projected to grow to $2.30 billion by 2035 at a CAGR of 6.05%. Growth is driven by record passenger activity (9.8 billion pas",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Pentair Just Hit a Milestone Barely 1 in 1,000 Stocks Achieve: Is It a Buy?",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/01/20/pentair-just-hit-a-milestone-barely-1-in-1000-stoc/?source=iedfolrf0000001",
+          "published_at": "2026-01-20",
+          "description": "Pentair has achieved Dividend King status with its 50th consecutive annual dividend increase, joining an exclusive club of just 56 companies out of 54,000 publicly traded firms. The water solutions co",
+          "sentiment": "neutral"
+        },
+        {
+          "title": "Best Dividend Stock to Buy Right Now: Realty Income vs. BP",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/01/20/best-dividend-stock-to-buy-right-now-realty-income/?source=iedfolrf0000001",
+          "published_at": "2026-01-20",
+          "description": "While BP offers a slightly higher dividend yield of 5.6% compared to Realty Income's 5.3%, Realty Income is the superior dividend stock due to its 30-year track record of consecutive annual dividend i",
+          "sentiment": "positive"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [
+        "fmp_earnings",
+        "polygon_news"
+      ],
+      "options_data_available": false,
+      "options_score": null,
+      "options_evidence": {},
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": null,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [],
+      "sentiment_cap_applied": null,
+      "source_tags": [
+        "SWING",
+        "SWING_PULLBACK"
+      ]
+    }
+  ]
+}

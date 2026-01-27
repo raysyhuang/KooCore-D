@@ -1,0 +1,23 @@
+{
+  "date": "2026-01-05",
+  "run_timestamp_utc": "2026-01-06T12:09:57.803697Z",
+  "method_version": "v3.0",
+  "summary": {
+    "tickers_screened": 2009,
+    "pro30_candidates": 0,
+    "weekly_top5": 5,
+    "movers": 0
+  },
+  "top5_tickers": [
+    "HAL",
+    "AXSM",
+    "DBRG",
+    "DOCN",
+    "EL"
+  ],
+  "overlap_all_three": [],
+  "regime": {
+    "ok": true,
+    "message": "SPY=687.72 vs MA20=683.00 (OK); VIX=15.13 (<= 25.00 is OK)."
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "date": "2026-01-06",
+  "primary_label": "Swing",
+  "method_version": "swing_diag_relaxed_v1",
+  "top5": [
+    {
+      "rank": 1,
+      "ticker": "SNA",
+      "swing_score": 8.87,
+      "current_price": 357.73
+    },
+    {
+      "rank": 2,
+      "ticker": "DAL",
+      "swing_score": 8.55,
+      "current_price": 72.22
+    },
+    {
+      "rank": 3,
+      "ticker": "MLM",
+      "swing_score": 8.55,
+      "current_price": 646.24
+    },
+    {
+      "rank": 4,
+      "ticker": "XOM",
+      "swing_score": 8.55,
+      "current_price": 121.05
+    },
+    {
+      "rank": 5,
+      "ticker": "HLT",
+      "swing_score": 8.55,
+      "current_price": 293.28
+    }
+  ]
+}

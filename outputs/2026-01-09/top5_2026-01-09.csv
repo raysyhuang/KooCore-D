@@ -1,0 +1,6 @@
+rank,ticker,name,sector,current_price,composite_score,verdict,confidence,technical_score,catalyst_score,options_score,sentiment_score,primary_catalyst,target_price,upside_pct_min,upside_pct_max
+1,BK,The Bank of New York Mellon Corporation,Financial Services,119.04000091552734,5.375,SPECULATIVE,SPECULATIVE,8.0,6.5,3.0,4.0,BNY tokenized deposits / on-chain settlement pilot newsflow,130.9440010070801,10,14
+2,DAL,"Delta Air Lines, Inc.",Industrials,72.30999755859375,5.0,SPECULATIVE,SPECULATIVE,8.0,5.0,3.0,4.0,Delta earnings on deck + analyst double-upgrade newsflow,79.54099731445314,10,16
+3,BBIO,"BridgeBio Pharma, Inc.",Healthcare,77.25,4.75,SPECULATIVE,SPECULATIVE,8.0,4.0,3.0,4.0,PROPEL 3 'Last Visit' set; Phase 3 readout approaching,84.975,10,20
+4,DG,Dollar General Corporation,Consumer Defensive,142.74000549316406,4.75,SPECULATIVE,SPECULATIVE,8.0,4.0,3.0,4.0,Post-guidance hike analyst upgrades / top-ideas inclusion newsflow,157.01400604248047,10,13
+5,CBOE,"Cboe Global Markets, Inc.",Financial Services,260.95001220703125,5.0,SPECULATIVE,SPECULATIVE,10.0,3.0,3.0,4.0,Earnings beat narrative / guidance & fees data discussion (timing unclear),287.0450134277344,10,12

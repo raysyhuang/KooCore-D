@@ -1,0 +1,475 @@
+{
+  "date": "2026-01-12",
+  "summary": {
+    "weekly_top5_count": 5,
+    "pro30_candidates_count": 2,
+    "movers_count": 0
+  },
+  "overlaps": {
+    "all_three": [],
+    "weekly_pro30": [],
+    "weekly_movers": [],
+    "pro30_movers": []
+  },
+  "weekly_top5": [
+    {
+      "rank": 1,
+      "ticker": "GD",
+      "name": "General Dynamics Corporation",
+      "exchange": "NYSE",
+      "sector": "Industrials",
+      "current_price": 360.94000244140625,
+      "market_cap_usd": 97497276416,
+      "avg_dollar_volume_20d": 449240811.1645508,
+      "asof_price_utc": "2026-01-12T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 397.03,
+        "base_case_upside_pct_range": [
+          10,
+          16
+        ],
+        "bear_case_note": "Breaks back below short-term trend (fails to hold above MA20/MA50) and contract/newsflow fails to translate into backlog/margin narrative; defense-sector risk-off reverses recent momentum."
+      },
+      "primary_catalyst": {
+        "title": "US Navy contract award + earnings preview-driven positioning",
+        "key_date_local": null,
+        "timing": "N/A",
+        "why_it_matters": "A large, specific contract award can drive near-term estimate/backlog revisions and incremental institutional buying; earnings-preview coverage can amplify positioning into the next report even if the exact date is not confirmed in the packet.",
+        "sources": [
+          {
+            "title": "General Dynamics' unit wins $988 million US Navy contract",
+            "publisher": null,
+            "url": "",
+            "published_at": "2026-01-12"
+          },
+          {
+            "title": "General Dynamics Earnings Preview: What to Expect",
+            "publisher": null,
+            "url": "",
+            "published_at": "2026-01-12"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 10,
+        "catalyst": 5.5,
+        "options": 3,
+        "sentiment": 4
+      },
+      "composite_score": 5.63,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 1.59,
+          "rsi14": 65.01,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 40.69
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "positive"
+        }
+      },
+      "risk_factors": [
+        "Catalyst timing is not a clearly scheduled, dated event within 7 trading days (contract is known, but follow-through is uncertain).",
+        "Defense-sector moves can be highly correlated to macro/policy headlines; reversal risk if broader defense bid fades."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Options activity data unavailable in packets; options score capped at 3.0.",
+        "Social sentiment data unavailable in packets; sentiment score capped at 4.0.",
+        "Earnings date/time not provided (earnings_date=Unknown); catalyst timing uncertainty penalty applied.",
+        "Cannot verify 5-day price change >15% exclusion from packets; not applied."
+      ]
+    },
+    {
+      "rank": 2,
+      "ticker": "AKAM",
+      "name": "Akamai Technologies, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Technology",
+      "current_price": 91.2699966430664,
+      "market_cap_usd": 13130578944,
+      "avg_dollar_volume_20d": 209831494.94033813,
+      "asof_price_utc": "2026-01-12T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 100.4,
+        "base_case_upside_pct_range": [
+          10,
+          18
+        ],
+        "bear_case_note": "If the post-news gap/impulse move mean-reverts and price loses the rising MA20/MA50 area, the momentum setup is invalidated."
+      },
+      "primary_catalyst": {
+        "title": "Analyst-driven re-rating / notable event flagged by major outlets",
+        "key_date_local": null,
+        "timing": "N/A",
+        "why_it_matters": "Multiple same-day headlines indicate a discrete information shock and/or analyst action that can sustain a 1–2 week momentum window as models and discretionary funds re-rate the name.",
+        "sources": [
+          {
+            "title": "Akamai Technologies Positioned for Broad-Based Growth, Morgan Stanley Says",
+            "publisher": null,
+            "url": "",
+            "published_at": "2026-01-12"
+          },
+          {
+            "title": "Akamai Stock Is Rising. Something Rare Just Happened.",
+            "publisher": null,
+            "url": "",
+            "published_at": "2026-01-12"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 10,
+        "catalyst": 5,
+        "options": 3,
+        "sentiment": 4
+      },
+      "composite_score": 5.5,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 1.8,
+          "rsi14": 55.65,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 44.88
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "positive"
+        }
+      },
+      "risk_factors": [
+        "Catalyst is not a scheduled dated event; follow-through depends on continued upgrades/estimate revisions.",
+        "Tech beta risk: a market pullback can compress multiples and fade momentum quickly."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Options activity data unavailable in packets; options score capped at 3.0.",
+        "Social sentiment data unavailable in packets; sentiment score capped at 4.0.",
+        "Cannot verify 5-day price change >15% exclusion from packets; not applied."
+      ]
+    },
+    {
+      "rank": 3,
+      "ticker": "EXPE",
+      "name": "Expedia Group, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Consumer Cyclical",
+      "current_price": 291.5299987792969,
+      "market_cap_usd": 36066803712,
+      "avg_dollar_volume_20d": 419264645.16677856,
+      "asof_price_utc": "2026-01-12T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 320.68,
+        "base_case_upside_pct_range": [
+          10,
+          15
+        ],
+        "bear_case_note": "If the upgrade-driven bid fades and price loses the MA20/MA50 trend support, upside momentum likely stalls."
+      },
+      "primary_catalyst": {
+        "title": "Rating upgrade + earnings-preview newsflow",
+        "key_date_local": null,
+        "timing": "N/A",
+        "why_it_matters": "A fresh upgrade can trigger near-term re-positioning and systematic inflows; concurrent earnings-preview coverage can extend attention into the next 1–2 weeks even without a confirmed report date in the packet.",
+        "sources": [
+          {
+            "title": "Expedia (EXPE) Upgraded to Strong Buy: Here's Why",
+            "publisher": null,
+            "url": "",
+            "published_at": "2026-01-12"
+          },
+          {
+            "title": "Here's What to Expect From Expedia Group's Next Earnings Report",
+            "publisher": null,
+            "url": "",
+            "published_at": "2026-01-12"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 8,
+        "catalyst": 5,
+        "options": 3,
+        "sentiment": 4
+      },
+      "composite_score": 5.0,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 0.92,
+          "rsi14": 52.81,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 38.85
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "positive"
+        }
+      },
+      "risk_factors": [
+        "Travel stocks can be sensitive to macro data and consumer-spend narrative shifts.",
+        "Catalyst lacks a confirmed dated event within 7 trading days; upgrade impact may be short-lived."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Options activity data unavailable in packets; options score capped at 3.0.",
+        "Social sentiment data unavailable in packets; sentiment score capped at 4.0.",
+        "Earnings date/time not provided (earnings_date=Unknown); catalyst timing uncertainty penalty applied.",
+        "Cannot verify 5-day price change >15% exclusion from packets; not applied."
+      ]
+    },
+    {
+      "rank": 4,
+      "ticker": "CADE",
+      "name": "Cadence Bank",
+      "exchange": "NYSE",
+      "sector": "Financial Services",
+      "current_price": 44.209999084472656,
+      "market_cap_usd": 8236632576,
+      "avg_dollar_volume_20d": 91609285.17177582,
+      "asof_price_utc": "2026-01-12T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 48.63,
+        "base_case_upside_pct_range": [
+          10,
+          12
+        ],
+        "bear_case_note": "If merger-arb spread widens on regulatory/timing uncertainty or broader bank risk-off hits, the setup can stall; a break below MA20/MA50 would weaken momentum."
+      },
+      "primary_catalyst": {
+        "title": "Huntington–Cadence merger progress (shareholder approval + regulatory approval headlines)",
+        "key_date_local": null,
+        "timing": "N/A",
+        "why_it_matters": "Deal progression reduces uncertainty and can tighten the spread, creating a near-term repricing window; additional procedural milestones can hit within days even if the next exact date is not specified in the packet.",
+        "sources": [
+          {
+            "title": "Shareholders approve $7.4bn Huntington-Cadence merger",
+            "publisher": null,
+            "url": "",
+            "published_at": "2026-01-07"
+          },
+          {
+            "title": "Cadence Bank, Huntington Bancshares get regulatory approval for merger",
+            "publisher": null,
+            "url": "",
+            "published_at": "2025-12-23"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 10,
+        "catalyst": 4.5,
+        "options": 3,
+        "sentiment": 4
+      },
+      "composite_score": 5.38,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 1.69,
+          "rsi14": 53.53,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 30.92
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "mixed"
+        }
+      },
+      "risk_factors": [
+        "M&A outcomes are binary and can gap on unexpected regulatory/process updates.",
+        "Regional bank sector sensitivity to rates/credit headlines can dominate idiosyncratic deal dynamics."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Options activity data unavailable in packets; options score capped at 3.0.",
+        "Social sentiment data unavailable in packets; sentiment score capped at 4.0.",
+        "No confirmed next milestone date/time within 7 trading days provided; catalyst timing uncertainty penalty applied.",
+        "Cannot verify 5-day price change >15% exclusion from packets; not applied."
+      ]
+    },
+    {
+      "rank": 5,
+      "ticker": "NOC",
+      "name": "Northrop Grumman Corporation",
+      "exchange": "NYSE",
+      "sector": "Industrials",
+      "current_price": 629.3200073242188,
+      "market_cap_usd": 90107912192,
+      "avg_dollar_volume_20d": 526433098.31207275,
+      "asof_price_utc": "2026-01-12T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 692.25,
+        "base_case_upside_pct_range": [
+          10,
+          14
+        ],
+        "bear_case_note": "If defense budget narrative cools and the stock loses momentum support (MA20/MA50), upside follow-through becomes less likely."
+      },
+      "primary_catalyst": {
+        "title": "Defense spending/budget narrative tailwind (policy-driven newsflow)",
+        "key_date_local": null,
+        "timing": "N/A",
+        "why_it_matters": "Sustained policy/budget headlines can drive sector-wide multiple expansion and momentum continuation for prime contractors; NOC shows strong volume confirmation in the packet.",
+        "sources": [
+          {
+            "title": "Trump's 'Carrot And Stick' Defense Push: Which Stock Is Best Priced For $1.5 Trillion Budget?",
+            "publisher": null,
+            "url": "",
+            "published_at": "2026-01-10"
+          },
+          {
+            "title": "Defense Stock Winners and Losers From Trump’s ‘Carrot and Stick’ Approach",
+            "publisher": null,
+            "url": "",
+            "published_at": "2026-01-09"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 10,
+        "catalyst": 4,
+        "options": 3,
+        "sentiment": 4
+      },
+      "composite_score": 5.25,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 2.35,
+          "rsi14": 68.58,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 61.13
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "positive"
+        }
+      },
+      "risk_factors": [
+        "Catalyst is thematic (policy narrative) rather than a company-specific dated event; can reverse quickly.",
+        "High realized volatility and elevated RSI increase pullback risk even in an uptrend."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Options activity data unavailable in packets; options score capped at 3.0.",
+        "Social sentiment data unavailable in packets; sentiment score capped at 4.0.",
+        "No confirmed scheduled catalyst date/time within 7 trading days provided; catalyst timing uncertainty penalty applied.",
+        "Cannot verify 5-day price change >15% exclusion from packets; not applied."
+      ]
+    }
+  ],
+  "pro30_tickers": [
+    "LQDA",
+    "SLNO"
+  ],
+  "movers_tickers": []
+}

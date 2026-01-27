@@ -1,0 +1,6 @@
+rank,ticker,name,sector,current_price,composite_score,verdict,confidence,technical_score,catalyst_score,options_score,sentiment_score,primary_catalyst,target_price,upside_pct_min,upside_pct_max
+1,AVGO,Broadcom Inc.,Technology,397.57000732421875,5.5,SPECULATIVE,SPECULATIVE,10,5,3,4,Product / CES newsflow: new Wi‑Fi products launch,437.3270080566406,10,18
+2,UPWK,Upwork Inc.,Communication Services,19.579999923706055,5.25,SPECULATIVE,SPECULATIVE,10,4,3,4,Newsflow/analyst attention driving momentum (no confirmed scheduled event date),21.53799991607666,10,20
+3,RIG,Transocean Ltd.,Energy,4.300000190734863,5.25,SPECULATIVE,SPECULATIVE,8,6,3,4,Contract awards / backlog additions (Brazil & Norway) reported,4.73000020980835,10,22
+4,AXSM,"Axsome Therapeutics, Inc.",Healthcare,150.97999572753906,5.25,SPECULATIVE,SPECULATIVE,8,6,3,4,FDA-related milestones (priority review / 'dual FDA boosts' newsflow),166.07799530029297,10,25
+5,LITE,Lumentum Holdings Inc.,Technology,308.2799987792969,5.0,SPECULATIVE,SPECULATIVE,8,5,3,4,Pre-earnings / analyst optimism newsflow (earnings date not confirmed in packet),339.1079986572266,10,19

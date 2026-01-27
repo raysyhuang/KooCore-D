@@ -1,0 +1,6 @@
+rank,ticker,name,sector,current_price,composite_score,verdict,confidence,technical_score,catalyst_score,options_score,sentiment_score,primary_catalyst,target_price,upside_pct_min,upside_pct_max
+1,ARWR,"Arrowhead Pharmaceuticals, Inc.",Healthcare,44.2599983215332,5.63,SPECULATIVE,SPECULATIVE,10,5.5,3,4,JPM Healthcare Conference newsflow + recent regulatory/product updates,48.69,10,18
+2,AVGO,Broadcom Inc.,Technology,377.9599914550781,5.38,SPECULATIVE,SPECULATIVE,10,4.5,3,4,CES 2026 product launch newsflow (Wi‑Fi products),415.76,10,16
+3,SRE,Sempra,Utilities,93.91000366210938,5.25,SPECULATIVE,SPECULATIVE,10,4.0,3,4,Regulatory decision/charge impact update (Track 2 proposed decision),103.3,10,14
+4,EXPD,"Expeditors International of Washington, Inc.",Industrials,144.25999450683594,4.75,SPECULATIVE,SPECULATIVE,8,4.0,3,4,Analyst upgrade / sector recovery call (BofA transportation),158.69,10,15
+5,ROST,"Ross Stores, Inc.",Consumer Cyclical,174.1300048828125,4.75,SPECULATIVE,SPECULATIVE,8,4.0,3,4,Analyst focus list / price target raise (JPMorgan),191.54,10,14

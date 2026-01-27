@@ -1,0 +1,37 @@
+{
+  "date": "2026-01-08",
+  "primary_label": "Swing",
+  "method_version": "swing_diag_relaxed_v1",
+  "top5": [
+    {
+      "rank": 1,
+      "ticker": "AVY",
+      "swing_score": 8.87,
+      "current_price": 186.02
+    },
+    {
+      "rank": 2,
+      "ticker": "ACGL",
+      "swing_score": 8.55,
+      "current_price": 96.38
+    },
+    {
+      "rank": 3,
+      "ticker": "AEO",
+      "swing_score": 8.55,
+      "current_price": 27.75
+    },
+    {
+      "rank": 4,
+      "ticker": "MLM",
+      "swing_score": 8.55,
+      "current_price": 638.11
+    },
+    {
+      "rank": 5,
+      "ticker": "ALL",
+      "swing_score": 8.55,
+      "current_price": 211.1
+    }
+  ]
+}

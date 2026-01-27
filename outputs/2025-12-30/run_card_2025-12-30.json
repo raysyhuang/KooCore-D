@@ -1,0 +1,23 @@
+{
+  "date": "2025-12-30",
+  "run_timestamp_utc": "2026-01-11T04:11:43.245317Z",
+  "method_version": "v3.0",
+  "summary": {
+    "tickers_screened": 2009,
+    "pro30_candidates": 1,
+    "weekly_top5": 5,
+    "movers": 0
+  },
+  "top5_tickers": [
+    "ULTA",
+    "CMI",
+    "HWM",
+    "KRYS",
+    "LHX"
+  ],
+  "overlap_all_three": [],
+  "regime": {
+    "ok": true,
+    "message": "SPY=687.01 vs MA20=682.55 (OK); VIX=14.33 (<= 25.00 is OK)."
+  }
+}

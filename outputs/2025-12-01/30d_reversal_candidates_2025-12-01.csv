@@ -1,0 +1,2 @@
+Ticker,Last,RVOL,ATR%,RSI14,Dist_to_52W_High%,$ADV20,MA20,MA50,Above_MA20,Above_MA50,Ret20d%,Ret5d%,Setup,Score,Is_Leveraged_ETF
+MSTR,171.42,2.24,9.29,21.2,62.51,3805550360.0,208.04,268.24,0,0,-36.4,0.54,Reversal,28.47,False

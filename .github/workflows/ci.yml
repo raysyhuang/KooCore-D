@@ -1,0 +1,173 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master, develop]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+env:
+  PYTHON_VERSION: "3.11"
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8 black isort
+      
+      - name: Check formatting with Black
+        run: |
+          black --check --diff src/ tests/ || echo "Formatting issues found (non-blocking)"
+        continue-on-error: true
+      
+      - name: Check import sorting with isort
+        run: |
+          isort --check-only --diff src/ tests/ || echo "Import sorting issues found (non-blocking)"
+        continue-on-error: true
+      
+      - name: Lint with flake8
+        run: |
+          # Stop the build if there are Python syntax errors or undefined names
+          flake8 src/ --count --select=E9,F63,F7,F82 --show-source --statistics
+          # Exit-zero treats all errors as warnings (non-blocking for now)
+          flake8 src/ --count --exit-zero --max-complexity=15 --max-line-length=120 --statistics
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      
+      - name: Cache pip packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest pytest-cov
+      
+      - name: Run tests with coverage
+        run: |
+          pytest tests/ -v --cov=src --cov-report=xml --cov-report=term-missing
+        env:
+          # Don't fail on missing API keys during tests
+          POLYGON_API_KEY: ""
+          OPENAI_API_KEY: ""
+          ANTHROPIC_API_KEY: ""
+      
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: ./coverage.xml
+          fail_ci_if_error: false
+        continue-on-error: true
+
+  type-check:
+    name: Type Check
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install mypy types-requests types-PyYAML
+      
+      - name: Run mypy
+        run: |
+          mypy src/ --ignore-missing-imports --no-error-summary || echo "Type check issues found (non-blocking)"
+        continue-on-error: true
+
+  security:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install safety bandit
+      
+      - name: Check for known vulnerabilities
+        run: |
+          pip install -r requirements.txt
+          safety check --json || echo "Vulnerability check completed"
+        continue-on-error: true
+      
+      - name: Run bandit security linter
+        run: |
+          bandit -r src/ -ll --skip B101,B311 || echo "Security issues found (non-blocking)"
+        continue-on-error: true
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    needs: [test, type-check]
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install build
+      
+      - name: Verify imports work
+        run: |
+          python -c "from src.core import config, filters, scoring, technicals"
+          python -c "from src.pipelines import weekly, pro30"
+          python -c "from src.commands import all, weekly, pro30, movers"
+          echo "All imports successful!"
+      
+      - name: Test CLI help
+        run: |
+          python main.py --help
+          python main.py all --help
+          python main.py weekly --help
+          python main.py pro30 --help
+      
+      - name: Build check
+        run: |
+          echo "Build verification complete!"

@@ -1,0 +1,23 @@
+{
+  "date": "2025-11-19",
+  "run_timestamp_utc": "2026-01-13T04:50:38.536681Z",
+  "method_version": "v3.0",
+  "summary": {
+    "tickers_screened": 2010,
+    "pro30_candidates": 2,
+    "weekly_top5": 5,
+    "movers": 0
+  },
+  "top5_tickers": [
+    "WBD",
+    "GOOGL",
+    "KRYS",
+    "MUR",
+    "EW"
+  ],
+  "overlap_all_three": [],
+  "regime": {
+    "ok": false,
+    "message": "SPY=660.68 vs MA20=674.42 (RISK-OFF); VIX=23.66 (<= 25.00 is OK)."
+  }
+}

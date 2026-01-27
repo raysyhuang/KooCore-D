@@ -1,0 +1,6 @@
+rank,ticker,name,sector,current_price,composite_score,verdict,confidence,technical_score,catalyst_score,options_score,sentiment_score,primary_catalyst,target_price,upside_pct_min,upside_pct_max
+1,GD,General Dynamics Corporation,Industrials,360.94000244140625,5.63,SPECULATIVE,SPECULATIVE,10,5.5,3,4,US Navy contract award + earnings preview-driven positioning,397.03,10,16
+2,AKAM,"Akamai Technologies, Inc.",Technology,91.2699966430664,5.5,SPECULATIVE,SPECULATIVE,10,5.0,3,4,Analyst-driven re-rating / notable event flagged by major outlets,100.4,10,18
+3,EXPE,"Expedia Group, Inc.",Consumer Cyclical,291.5299987792969,5.0,SPECULATIVE,SPECULATIVE,8,5.0,3,4,Rating upgrade + earnings-preview newsflow,320.68,10,15
+4,CADE,Cadence Bank,Financial Services,44.209999084472656,5.38,SPECULATIVE,SPECULATIVE,10,4.5,3,4,Huntington–Cadence merger progress (shareholder approval + regulatory approval headlines),48.63,10,12
+5,NOC,Northrop Grumman Corporation,Industrials,629.3200073242188,5.25,SPECULATIVE,SPECULATIVE,10,4.0,3,4,Defense spending/budget narrative tailwind (policy-driven newsflow),692.25,10,14

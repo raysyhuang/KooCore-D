@@ -1,0 +1,3 @@
+# Suggested YAML snippet (copy into config/default.yaml)
+quality_filters_weekly.min_technical_score: 6.0
+quality_filters_30d.min_score: 27.41

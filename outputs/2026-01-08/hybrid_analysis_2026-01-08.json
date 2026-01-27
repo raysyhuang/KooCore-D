@@ -1,0 +1,480 @@
+{
+  "date": "2026-01-08",
+  "summary": {
+    "weekly_top5_count": 5,
+    "pro30_candidates_count": 1,
+    "movers_count": 0
+  },
+  "overlaps": {
+    "all_three": [],
+    "weekly_pro30": [],
+    "weekly_movers": [],
+    "pro30_movers": []
+  },
+  "weekly_top5": [
+    {
+      "rank": 1,
+      "ticker": "NOC",
+      "name": "Northrop Grumman Corporation",
+      "exchange": "NYSE",
+      "sector": "Industrials",
+      "current_price": 611.9000244140625,
+      "market_cap_usd": 88462737408,
+      "avg_dollar_volume_20d": 465944192.3937378,
+      "asof_price_utc": "2026-01-09T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 673.0900268554688,
+        "base_case_upside_pct_range": [
+          10,
+          16
+        ],
+        "bear_case_note": "Defense-budget/newsflow fades or reverses; breakout fails and price loses short-term moving averages (MA10/MA20) on expanding volume."
+      },
+      "primary_catalyst": {
+        "title": "Defense spending / policy-driven sector catalyst (newsflow)",
+        "key_date_local": "2026-01-09",
+        "timing": "Intraday/ongoing",
+        "why_it_matters": "Multiple same-week headlines point to a defense-spending/policy narrative driving renewed attention and flows into prime contractors; continued policy headlines can extend momentum over the next week.",
+        "sources": [
+          {
+            "title": "Trump's defense spending plans send 'strong' demand signal",
+            "publisher": null,
+            "url": null,
+            "published_at": "2026-01-08"
+          },
+          {
+            "title": "Defense Stock Winners and Losers From Trump’s ‘Carrot and Stick’ Approach",
+            "publisher": null,
+            "url": null,
+            "published_at": "2026-01-09"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 10,
+        "catalyst": 5,
+        "options": 3,
+        "sentiment": 4
+      },
+      "composite_score": 5.5,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 2.29,
+          "rsi14": 66.86,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 63.25
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "positive"
+        }
+      },
+      "risk_factors": [
+        "Policy headline risk: defense-budget narrative can reverse quickly on political developments.",
+        "Gap/whipsaw risk after sharp sector rotation into defense; realized vol is elevated."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Options data unavailable in packet; options score capped at 3.0.",
+        "Social sentiment data unavailable in packet; sentiment score capped at 4.0.",
+        "No verified dated earnings/corporate event within next 7 trading days; catalyst is newsflow-based.",
+        "Cannot validate 5-trading-day price change exclusion (>15%) from packet data.",
+        "Headlines missing publisher and URL fields in packet; sources cited as provided."
+      ]
+    },
+    {
+      "rank": 2,
+      "ticker": "F",
+      "name": "Ford Motor Company",
+      "exchange": "NYSE",
+      "sector": "Consumer Cyclical",
+      "current_price": 14.269700050354004,
+      "market_cap_usd": 56759181312,
+      "avg_dollar_volume_20d": 666667961.3812547,
+      "asof_price_utc": "2026-01-09T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 15.696670055389406,
+        "base_case_upside_pct_range": [
+          10,
+          18
+        ],
+        "bear_case_note": "Auto/EV newsflow turns negative or upgrade momentum fades; price fails to hold above short-term moving averages after a high-RSI push."
+      },
+      "primary_catalyst": {
+        "title": "Product/strategy newsflow + analyst upgrade momentum",
+        "key_date_local": "2026-01-09",
+        "timing": "Intraday/ongoing",
+        "why_it_matters": "Fresh product/strategy headlines (autonomy/UEV platform) plus recent analyst-upgrade coverage can drive incremental buyers and short-term repricing, especially given high liquidity and elevated near-term momentum.",
+        "sources": [
+          {
+            "title": "Ford Bets Big on Level 3 Autonomy With $30,000 UEV Platform Push",
+            "publisher": null,
+            "url": null,
+            "published_at": "2026-01-09"
+          },
+          {
+            "title": "Stock Market Today, Jan. 8: Ford Rises After Analyst Upgrade Boosts Confidence in Turnaround",
+            "publisher": null,
+            "url": null,
+            "published_at": "2026-01-08"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 8,
+        "catalyst": 5,
+        "options": 3,
+        "sentiment": 4
+      },
+      "composite_score": 5,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 1.53,
+          "rsi14": 71.88,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 36.84
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "positive"
+        }
+      },
+      "risk_factors": [
+        "High RSI increases pullback risk; a 10% move in 7 days is less common for mega-liquid autos without a discrete event.",
+        "Sector headline risk from peers’ EV write-downs/charges impacting sentiment across legacy autos."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Options data unavailable in packet; options score capped at 3.0.",
+        "Social sentiment data unavailable in packet; sentiment score capped at 4.0.",
+        "No confirmed dated earnings within next 7 trading days in packet (earnings_date is Unknown).",
+        "Cannot validate 5-trading-day price change exclusion (>15%) from packet data.",
+        "Headlines missing publisher and URL fields in packet; sources cited as provided."
+      ]
+    },
+    {
+      "rank": 3,
+      "ticker": "BBIO",
+      "name": "BridgeBio Pharma, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Healthcare",
+      "current_price": 76.62999725341797,
+      "market_cap_usd": 14852068352,
+      "avg_dollar_volume_20d": 143411477.81963044,
+      "asof_price_utc": "2026-01-09T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 84.29299797875977,
+        "base_case_upside_pct_range": [
+          10,
+          20
+        ],
+        "bear_case_note": "Clinical/readout timing slips or expectations are already priced; biotech risk-off tape causes breakdown below MA20/MA50."
+      },
+      "primary_catalyst": {
+        "title": "Clinical trial milestone / readout proximity (Phase 3 update)",
+        "key_date_local": "2026-01-09",
+        "timing": "Ongoing / timing not precisely dated in packet",
+        "why_it_matters": "Headline indicates a defined trial milestone (“last visit”) and a Phase 3 readout nearing; biotech names can re-rate quickly into readout windows, supporting ≥10% upside probability.",
+        "sources": [
+          {
+            "title": "BridgeBio Pharma Investor Update: PROPEL 3 “Last Visit” Set as Infigratinib Phase 3 Readout Nears",
+            "publisher": null,
+            "url": null,
+            "published_at": "2026-01-09"
+          },
+          {
+            "title": "BridgeBio Pharma Has 20% Upside Growth Potential, Morgan Stanley Says",
+            "publisher": null,
+            "url": null,
+            "published_at": "2026-01-06"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 8,
+        "catalyst": 4,
+        "options": 3,
+        "sentiment": 4
+      },
+      "composite_score": 4.75,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 0.85,
+          "rsi14": 57.55,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 57.69
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "positive"
+        }
+      },
+      "risk_factors": [
+        "Binary biotech risk: any adverse clinical update can cause sharp downside.",
+        "Catalyst timing is not explicitly dated within the next 7 trading days in the packet; could reduce near-term move probability."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Options data unavailable in packet; options score capped at 3.0.",
+        "Social sentiment data unavailable in packet; sentiment score capped at 4.0.",
+        "Catalyst date/time not explicitly provided (readout 'nears' but not scheduled); catalyst score penalized and treated as timing-unclear.",
+        "Cannot validate 5-trading-day price change exclusion (>15%) from packet data.",
+        "Headlines missing publisher and URL fields in packet; sources cited as provided."
+      ]
+    },
+    {
+      "rank": 4,
+      "ticker": "COF",
+      "name": "Capital One Financial Corporation",
+      "exchange": "NYSE",
+      "sector": "Financial Services",
+      "current_price": 252.7969970703125,
+      "market_cap_usd": 162015313920,
+      "avg_dollar_volume_20d": 741997012.523523,
+      "asof_price_utc": "2026-01-09T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 278.0766967773438,
+        "base_case_upside_pct_range": [
+          10,
+          15
+        ],
+        "bear_case_note": "Broader financials pullback or negative legal/regulatory developments; failure to hold recent breakout area near short-term moving averages."
+      },
+      "primary_catalyst": {
+        "title": "Analyst upgrade cluster + litigation/settlement clarity (newsflow)",
+        "key_date_local": "2026-01-07",
+        "timing": "Intraday/ongoing",
+        "why_it_matters": "Multiple headlines cite analyst upgrades and improved litigation clarity; that combination can compress risk premium and drive a short-term repricing, especially if follow-on notes/news hit within the next week.",
+        "sources": [
+          {
+            "title": "Capital One (COF) Enjoys Multiple Analyst Upgrades Amid Litigation Clarity",
+            "publisher": null,
+            "url": null,
+            "published_at": "2026-01-07"
+          },
+          {
+            "title": "A Look At Capital One (COF) Valuation After Analyst Upgrades And Class Action Settlement Proposal",
+            "publisher": null,
+            "url": null,
+            "published_at": "2026-01-08"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 8,
+        "catalyst": 4,
+        "options": 3,
+        "sentiment": 4
+      },
+      "composite_score": 4.75,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 0.95,
+          "rsi14": 62.8,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 30.29
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "positive"
+        }
+      },
+      "risk_factors": [
+        "Financials are rate-sensitive; macro data surprises can dominate stock-specific catalysts.",
+        "Legal/settlement headlines can be double-edged if terms change or new claims emerge."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Options data unavailable in packet; options score capped at 3.0.",
+        "Social sentiment data unavailable in packet; sentiment score capped at 4.0.",
+        "No confirmed dated earnings within next 7 trading days in packet (earnings_date is Unknown).",
+        "Cannot validate 5-trading-day price change exclusion (>15%) from packet data.",
+        "Headlines missing publisher and URL fields in packet; sources cited as provided."
+      ]
+    },
+    {
+      "rank": 5,
+      "ticker": "BFH",
+      "name": "Bread Financial Holdings, Inc.",
+      "exchange": "NYSE",
+      "sector": "Financial Services",
+      "current_price": 80.25,
+      "market_cap_usd": 3684480256,
+      "avg_dollar_volume_20d": 52450130.01717987,
+      "asof_price_utc": "2026-01-09T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 88.275,
+        "base_case_upside_pct_range": [
+          10,
+          22
+        ],
+        "bear_case_note": "Credit-quality narrative deteriorates or upgrade momentum reverses; small/mid-cap financials sell off and BFH loses MA20/MA50 support."
+      },
+      "primary_catalyst": {
+        "title": "Analyst upgrade / credit-story inflection (newsflow)",
+        "key_date_local": "2026-01-07",
+        "timing": "Intraday/ongoing",
+        "why_it_matters": "Headline explicitly frames a Goldman upgrade as a potential turning point in BFH’s credit story; follow-through analyst commentary can drive a fast re-rating in a smaller market-cap name.",
+        "sources": [
+          {
+            "title": "Does Goldman’s Upgrade Signal a Turning Point in Bread Financial’s (BFH) Credit Story and Risk Profile?",
+            "publisher": null,
+            "url": null,
+            "published_at": "2026-01-07"
+          },
+          {
+            "title": "Here Are Thursday’s Top Wall Street Analyst Research Calls: Alphabet, Coinbase Global, Digital Realty Trust, Intuit, Reddit, Roku, Tyler Technologies, and More",
+            "publisher": null,
+            "url": null,
+            "published_at": "2026-01-08"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 8,
+        "catalyst": 4,
+        "options": 3,
+        "sentiment": 4
+      },
+      "composite_score": 4.75,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 0.69,
+          "rsi14": 59.85,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 39.16
+        },
+        "options": {
+          "call_put_ratio": null,
+          "unusual_volume_multiple": null,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": "positive"
+        }
+      },
+      "risk_factors": [
+        "Consumer credit cycle risk: any negative delinquency/charge-off datapoints can overwhelm upgrades.",
+        "Lower liquidity vs mega-caps can increase gap risk around headlines."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Options data unavailable in packet; options score capped at 3.0.",
+        "Social sentiment data unavailable in packet; sentiment score capped at 4.0.",
+        "No confirmed dated earnings within next 7 trading days in packet (earnings_date is Unknown).",
+        "Cannot validate 5-trading-day price change exclusion (>15%) from packet data.",
+        "Headlines missing publisher and URL fields in packet; sources cited as provided."
+      ]
+    }
+  ],
+  "pro30_tickers": [
+    "HOUS"
+  ],
+  "movers_tickers": []
+}

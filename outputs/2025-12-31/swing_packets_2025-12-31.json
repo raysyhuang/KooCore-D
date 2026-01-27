@@ -1,0 +1,822 @@
+{
+  "run_timestamp_utc": "2026-01-24T06:55:26.452847Z",
+  "method_version": "v3.2",
+  "regime": "chop",
+  "universe_note": "Universe: 2478 tickers",
+  "packets": [
+    {
+      "ticker": "CYTK",
+      "name": "Cytokinetics, Incorporated",
+      "exchange": "NASDAQ",
+      "sector": "Healthcare",
+      "current_price": 63.54,
+      "market_cap_usd": 7752819200,
+      "avg_dollar_volume_20d": 132879433.29474998,
+      "asof_price_utc": "2025-12-31T00:00:00Z",
+      "technical_score": 6.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 10.48,
+        "within_5pct_52w_high": false,
+        "volume_ratio_3d_to_20d": 0.85,
+        "rsi14": 57.86,
+        "ma10": 62.76,
+        "ma20": 62.94,
+        "ma50": 63.0,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 37.42,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 70.98,
+          "donchian55_prev": 70.98,
+          "atr14": 2.8364,
+          "vol_ratio_3_20": 0.8478,
+          "breakout_strength_atr": -2.6231,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 4.46,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 0.09,
+          "extension_adj": 0.0
+        },
+        "data_gaps": [],
+        "ma200": 46.05
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [
+        {
+          "title": "Cytokinetics Announces Inducement Grants Under Nasdaq Listing Rule 5635(c)(4)",
+          "publisher": "GlobeNewswire Inc.",
+          "url": "https://www.globenewswire.com/news-release/2026/01/20/3222232/35409/en/Cytokinetics-Announces-Inducement-Grants-Under-Nasdaq-Listing-Rule-5635-c-4.html",
+          "published_at": "2026-01-20",
+          "description": "Cytokinetics granted stock options to purchase 29,416 shares and 19,825 restricted stock units to 8 employees hired in December 2025 and January 2026 as material inducements to employment. The stock o",
+          "sentiment": "neutral"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [
+        "polygon_news"
+      ],
+      "options_data_available": false,
+      "options_score": null,
+      "options_evidence": {},
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": null,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [],
+      "sentiment_cap_applied": null,
+      "source_tags": [
+        "SWING",
+        "SWING_PULLBACK"
+      ]
+    },
+    {
+      "ticker": "FOXA",
+      "name": "Fox Corporation",
+      "exchange": "NASDAQ",
+      "sector": "Communication Services",
+      "current_price": 73.07,
+      "market_cap_usd": 32354543616,
+      "avg_dollar_volume_20d": 242432104.28149995,
+      "asof_price_utc": "2025-12-31T00:00:00Z",
+      "technical_score": 6.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 2.15,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.54,
+        "rsi14": 59.54,
+        "ma10": 73.03,
+        "ma20": 71.44,
+        "ma50": 66.99,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 9.31,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 74.6746,
+          "donchian55_prev": 74.6746,
+          "atr14": 1.2802,
+          "vol_ratio_3_20": 0.5392,
+          "breakout_strength_atr": -1.2534,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 1.75,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": -0.5,
+          "extension_adj": 0.0
+        },
+        "data_gaps": [],
+        "ma200": 58.48
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [
+        {
+          "title": "2 Cheap Tech Stocks to Buy Right Now",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/01/22/2-cheap-tech-stocks-to-buy-right-now/?source=iedfolrf0000001",
+          "published_at": "2026-01-22",
+          "description": "The article highlights two undervalued tech stocks: Duolingo, which has 128 million monthly active users and strong profitability despite being ad-supported, and Kyndryl, an IBM spinoff helping enterp",
+          "sentiment": "neutral"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [
+        "polygon_news"
+      ],
+      "options_data_available": false,
+      "options_score": null,
+      "options_evidence": {},
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": null,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [],
+      "sentiment_cap_applied": null,
+      "source_tags": [
+        "SWING",
+        "SWING_PULLBACK"
+      ]
+    },
+    {
+      "ticker": "IQV",
+      "name": "IQVIA Holdings Inc.",
+      "exchange": "NYSE",
+      "sector": "Healthcare",
+      "current_price": 225.41,
+      "market_cap_usd": 40073293824,
+      "avg_dollar_volume_20d": 294120190.38949996,
+      "asof_price_utc": "2025-12-31T00:00:00Z",
+      "technical_score": 6.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 3.79,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.38,
+        "rsi14": 55.52,
+        "ma10": 224.73,
+        "ma20": 224.17,
+        "ma50": 221.37,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 9.32,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 230.8,
+          "donchian55_prev": 234.295,
+          "atr14": 3.5146,
+          "vol_ratio_3_20": 0.3809,
+          "breakout_strength_atr": -1.5336,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 1.56,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 0.07,
+          "extension_adj": 0.0
+        },
+        "data_gaps": [],
+        "ma200": 183.61
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [
+        {
+          "title": "Why Clinical Data Analytics Is Becoming One of Healthcare’s Fastest-Growing Markets?",
+          "publisher": "GlobeNewswire Inc.",
+          "url": "https://www.globenewswire.com/news-release/2026/01/19/3221080/0/en/Why-Clinical-Data-Analytics-Is-Becoming-One-of-Healthcare-s-Fastest-Growing-Markets.html",
+          "published_at": "2026-01-19",
+          "description": "The global clinical data analytics market is valued at $132.89 billion in 2026 and is expected to reach $930.01 billion by 2034, growing at a 27.57% CAGR. North America leads the market, while Asia-Pa",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Neurogenic Orthostatic Hypotension (nOH) Global Clinical Trials Market Review 2025: Region, Country (G7 & E7), Trial Status, Trial Phase, Sponsor Type and End Point Status",
+          "publisher": "GlobeNewswire Inc.",
+          "url": "https://www.globenewswire.com/news-release/2026/01/19/3220970/28124/en/Neurogenic-Orthostatic-Hypotension-nOH-Global-Clinical-Trials-Market-Review-2025-Region-Country-G7-E7-Trial-Status-Trial-Phase-Sponsor-Type-and-End-Point-Status.html",
+          "published_at": "2026-01-19",
+          "description": "ResearchAndMarkets.com released a comprehensive clinical trials review for Neurogenic Orthostatic Hypotension (nOH), analyzing global trial landscapes across regions, countries, phases, and sponsor ty",
+          "sentiment": "neutral"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "fda",
+      "catalyst_sources": [
+        "polygon_news"
+      ],
+      "options_data_available": false,
+      "options_score": null,
+      "options_evidence": {},
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": null,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [],
+      "sentiment_cap_applied": null,
+      "source_tags": [
+        "SWING",
+        "SWING_PULLBACK"
+      ]
+    },
+    {
+      "ticker": "LHX",
+      "name": "L3Harris Technologies, Inc.",
+      "exchange": "NYSE",
+      "sector": "Industrials",
+      "current_price": 293.57,
+      "market_cap_usd": 66368139264,
+      "avg_dollar_volume_20d": 270863692.95699996,
+      "asof_price_utc": "2025-12-31T00:00:00Z",
+      "technical_score": 6.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 4.72,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.48,
+        "rsi14": 59.04,
+        "ma10": 292.17,
+        "ma20": 287.58,
+        "ma50": 287.24,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 4.54,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 299.83,
+          "donchian55_prev": 305.1575,
+          "atr14": 4.8046,
+          "vol_ratio_3_20": 0.4777,
+          "breakout_strength_atr": -1.3029,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 1.64,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": -0.87,
+          "extension_adj": 0.0
+        },
+        "data_gaps": [],
+        "ma200": 261.74
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [
+        {
+          "title": "$3+ Bn Maritime Simulators Global Market Opportunities And Strategies To 2034: Wartsila Leads With a 5.82% Share, Followed by Kongsberg Maritime, CAE, L3Harris, Thales, General Dynamics, Rheinmetall",
+          "publisher": "GlobeNewswire Inc.",
+          "url": "https://www.globenewswire.com/news-release/2026/01/21/3223158/28124/en/3-Bn-Maritime-Simulators-Global-Market-Opportunities-And-Strategies-To-2034-Wartsila-Leads-With-a-5-82-Share-Followed-by-Kongsberg-Maritime-CAE-L3Harris-Thales-General-Dynamics-Rhe.html",
+          "published_at": "2026-01-21",
+          "description": "The global maritime simulators market is projected to grow from $1.67 billion in 2024 to $3.03 billion by 2034, with a CAGR of 6.1%. Ship bridge simulators lead by type (39.28% share), while engine ro",
+          "sentiment": "positive"
+        },
+        {
+          "title": "$2.97 Aerospace Radome Markets, 2020-2025, 2025-2030F, 2035F",
+          "publisher": "GlobeNewswire Inc.",
+          "url": "https://www.globenewswire.com/news-release/2026/01/19/3221118/28124/en/2-97-Aerospace-Radome-Markets-2020-2025-2025-2030F-2035F.html",
+          "published_at": "2026-01-19",
+          "description": "The aerospace radome market is projected to grow from $2.08 billion in 2025 to $2.97 billion by 2030, with a CAGR of 7.3%. Growth is driven by increased air travel, demand for advanced multi-functiona",
+          "sentiment": "neutral"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [
+        "polygon_news"
+      ],
+      "options_data_available": false,
+      "options_score": null,
+      "options_evidence": {},
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": null,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [],
+      "sentiment_cap_applied": null,
+      "source_tags": [
+        "SWING",
+        "SWING_PULLBACK"
+      ]
+    },
+    {
+      "ticker": "TMO",
+      "name": "Thermo Fisher Scientific Inc.",
+      "exchange": "NYSE",
+      "sector": "Healthcare",
+      "current_price": 579.45,
+      "market_cap_usd": 235185733632,
+      "avg_dollar_volume_20d": 836520043.135,
+      "asof_price_utc": "2025-12-31T00:00:00Z",
+      "technical_score": 6.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 3.8,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.56,
+        "rsi14": 54.8,
+        "ma10": 575.62,
+        "ma20": 574.35,
+        "ma50": 574.33,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 8.69,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 588.11,
+          "donchian55_prev": 602.32,
+          "atr14": 8.7297,
+          "vol_ratio_3_20": 0.5577,
+          "breakout_strength_atr": -0.992,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 1.51,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": -0.06,
+          "extension_adj": 0.0
+        },
+        "data_gaps": [],
+        "ma200": 485.19
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [
+        {
+          "title": "Comparator Drug Sourcing Market to Reach USD 2.72 Billion by 2033, Driven by Rising Global Clinical Trials and Outsourcing Trends – SNS Insider",
+          "publisher": "GlobeNewswire Inc.",
+          "url": "https://www.globenewswire.com/news-release/2026/01/23/3224952/0/en/Comparator-Drug-Sourcing-Market-to-Reach-USD-2-72-Billion-by-2033-Driven-by-Rising-Global-Clinical-Trials-and-Outsourcing-Trends-SNS-Insider.html",
+          "published_at": "2026-01-23",
+          "description": "The global comparator drug sourcing market is projected to grow from USD 1.42 billion in 2025 to USD 2.72 billion by 2033, at a CAGR of 8.47%. Growth is driven by increasing global clinical trials, ri",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Next Generation Sequencing Market Size to Worth USD 103.24 Bn by 2035",
+          "publisher": "GlobeNewswire Inc.",
+          "url": "https://www.globenewswire.com/news-release/2026/01/22/3223362/0/en/Next-Generation-Sequencing-Market-Size-to-Worth-USD-103-24-Bn-by-2035.html",
+          "published_at": "2026-01-22",
+          "description": "The global next-generation sequencing (NGS) market is expected to grow from USD 14.25 billion in 2025 to USD 103.24 billion by 2035, at a CAGR of 21.9%. North America currently dominates with 50% mark",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Qiagen Explores Possible Sale After New Buyer Talks: Report",
+          "publisher": "Benzinga",
+          "url": "https://www.benzinga.com/m-a/26/01/50032758/qiagen-explores-possible-sale-after-new-buyer-talks-report?utm_source=benzinga_taxonomy&utm_medium=rss_feed_free&utm_content=taxonomy_rss&utm_campaign=channel",
+          "published_at": "2026-01-21",
+          "description": "German life sciences company Qiagen is exploring strategic options including a potential sale, with renewed takeover interest from multiple U.S.-based strategic buyers. The company has engaged adviser",
+          "sentiment": "neutral"
+        },
+        {
+          "title": "Middle East Exosomes Market Research Report 2025-2033: Diagnostic and Therapeutic Adoption, R&D Investment, and Liquid Biopsy Demand Drive Growth",
+          "publisher": "GlobeNewswire Inc.",
+          "url": "https://www.globenewswire.com/news-release/2026/01/21/3222477/28124/en/Middle-East-Exosomes-Market-Research-Report-2025-2033-Diagnostic-and-Therapeutic-Adoption-R-D-Investment-and-Liquid-Biopsy-Demand-Drive-Growth.html",
+          "published_at": "2026-01-21",
+          "description": "The Middle East exosomes market is projected to grow from USD 3.07 million in 2024 to USD 20.03 million by 2033, at a CAGR of 23.38%. Growth is driven by increasing adoption of exosome-based diagnosti",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Antibody Optimization Service (Affinity Maturation, Humanization, Phage Display, AI-based Computational Optimization) Market Trends Analysis and Growth Forecast Report 2025-2033",
+          "publisher": "GlobeNewswire Inc.",
+          "url": "https://www.globenewswire.com/news-release/2026/01/21/3222476/28124/en/Antibody-Optimization-Service-Affinity-Maturation-Humanization-Phage-Display-AI-based-Computational-Optimization-Market-Trends-Analysis-and-Growth-Forecast-Report-2025-2033.html",
+          "published_at": "2026-01-21",
+          "description": "The global antibody optimization service market is projected to grow from USD 1.36 billion in 2024 to USD 2.87 billion by 2033, with a CAGR of 8.81%. Growth is driven by rising prevalence of complex d",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Single-Use Bioprocessing Market Projected to Reach US$ 122.92 Billion by 2035, Supported by Expansion of Biomanufacturing Capacity Says Astute Analytica",
+          "publisher": "GlobeNewswire Inc.",
+          "url": "https://www.globenewswire.com/news-release/2026/01/20/3222151/0/en/Single-Use-Bioprocessing-Market-Projected-to-Reach-US-122-92-Billion-by-2035-Supported-by-Expansion-of-Biomanufacturing-Capacity-Says-Astute-Analytica.html",
+          "published_at": "2026-01-20",
+          "description": "The global single-use bioprocessing market is expected to grow from USD 30.12 billion in 2025 to USD 122.92 billion by 2035 at a CAGR of 15.1%. Driven by technological breakthroughs in bioreactor scal",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Custom Antibody Market to Reach USD 1,297.65 Million by 2033, Growing Demand for Precision Medicine and Targeted Therapies to Drive the Market – SNS Insider",
+          "publisher": "GlobeNewswire Inc.",
+          "url": "https://www.globenewswire.com/news-release/2026/01/20/3222033/0/en/Custom-Antibody-Market-to-Reach-USD-1-297-65-Million-by-2033-Growing-Demand-for-Precision-Medicine-and-Targeted-Therapies-to-Drive-the-Market-SNS-Insider.html",
+          "published_at": "2026-01-20",
+          "description": "The global custom antibody market is projected to grow from USD 608.75 million in 2025 to USD 1,297.65 million by 2033, at a CAGR of 9.98%. Growth is driven by increasing demand for precision medicine",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Bioconjugation Market Size to Hit USD 14.51 Billion by 2033, Driven by the Increasing Demand for Targeted Therapeutics – SNS Insider",
+          "publisher": "GlobeNewswire Inc.",
+          "url": "https://www.globenewswire.com/news-release/2026/01/19/3221126/0/en/Bioconjugation-Market-Size-to-Hit-USD-14-51-Billion-by-2033-Driven-by-the-Increasing-Demand-for-Targeted-Therapeutics-SNS-Insider.html",
+          "published_at": "2026-01-19",
+          "description": "The global bioconjugation market is projected to grow from USD 5.46 billion in 2025 to USD 14.51 billion by 2033, at a CAGR of 13.05%. Growth is driven by increasing demand for targeted therapeutics, ",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Small Molecule Healthcare Contract Manufacturing Market Trends Analysis Report 2025-2033: Growing Demand for Advanced CMOs Specializing in HPAPIs and Complex Formulations",
+          "publisher": "GlobeNewswire Inc.",
+          "url": "https://www.globenewswire.com/news-release/2026/01/19/3221121/28124/en/Small-Molecule-Healthcare-Contract-Manufacturing-Market-Trends-Analysis-Report-2025-2033-Growing-Demand-for-Advanced-CMOs-Specializing-in-HPAPIs-and-Complex-Formulations.html",
+          "published_at": "2026-01-19",
+          "description": "The global small molecule healthcare contract manufacturing market is projected to grow from USD 109.04 billion in 2024 to USD 310.6 billion by 2033, with a CAGR of 12.56%. Growth is driven by increas",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Hexanoyl Chloride Market Report 2026-2032: New Revenue Opportunities, $200+ Million Global Industry Roadmap, Competitive Benchmarking Analysis",
+          "publisher": "GlobeNewswire Inc.",
+          "url": "https://www.globenewswire.com/news-release/2026/01/19/3220969/28124/en/Hexanoyl-Chloride-Market-Report-2026-2032-New-Revenue-Opportunities-200-Million-Global-Industry-Roadmap-Competitive-Benchmarking-Analysis.html",
+          "published_at": "2026-01-19",
+          "description": "The global hexanoyl chloride market is projected to grow from USD 108.20 million in 2025 to USD 203.30 million by 2032, with a CAGR of 9.42%. Growth is driven by regulatory scrutiny, process moderniza",
+          "sentiment": "positive"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "earnings,fda,product",
+      "catalyst_sources": [
+        "polygon_news"
+      ],
+      "options_data_available": false,
+      "options_score": null,
+      "options_evidence": {},
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": null,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [],
+      "sentiment_cap_applied": null,
+      "source_tags": [
+        "SWING",
+        "SWING_PULLBACK"
+      ]
+    },
+    {
+      "ticker": "UAL",
+      "name": "United Airlines Holdings, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Industrials",
+      "current_price": 111.82,
+      "market_cap_usd": 34879528960,
+      "avg_dollar_volume_20d": 515642626.3535,
+      "asof_price_utc": "2025-12-31T00:00:00Z",
+      "technical_score": 6.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 3.87,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.59,
+        "rsi14": 58.76,
+        "ma10": 113.03,
+        "ma20": 110.09,
+        "ma50": 101.78,
+        "above_ma10_ma20_ma50": false,
+        "realized_vol_5d_ann_pct": 20.26,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 116.32,
+          "donchian55_prev": 116.32,
+          "atr14": 2.8433,
+          "vol_ratio_3_20": 0.5899,
+          "breakout_strength_atr": -1.5827,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 2.54,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": -0.59,
+          "extension_adj": 0.0
+        },
+        "data_gaps": [],
+        "ma200": 89.67
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [
+        {
+          "title": "United Airlines Stock Taking Flight After Earnings Confirm Strong Demand",
+          "publisher": "Investing.com",
+          "url": "https://www.investing.com/analysis/united-airlines-stock-taking-flight-after-earnings-confirm-strong-demand-200673773",
+          "published_at": "2026-01-23",
+          "description": "United Airlines stock surged over 2% after reporting record Q4 2025 revenue of $15.4 billion and EPS of $3.10, beating estimates. Strong demand from high-income and corporate travelers drove results, ",
+          "sentiment": "positive"
+        },
+        {
+          "title": "UAL Stock Taking Flight After Earnings Confirm Strong Demand",
+          "publisher": "Investing.com",
+          "url": "https://www.investing.com/analysis/ual-stock-taking-flight-after-earnings-confirm-strong-demand-200673749",
+          "published_at": "2026-01-23",
+          "description": "United Airlines stock surged over 2% after reporting record Q4 2025 revenue of $15.4 billion and beating earnings estimates with $3.10 EPS. Strong demand from premium and corporate travelers drove res",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Denmark Residents Are Boycotting American Products: Netflix, Coca-Cola Could Lose Revenue From Trump's Battle Over Greenland",
+          "publisher": "Benzinga",
+          "url": "https://www.benzinga.com/news/politics/26/01/50079256/denmark-residents-are-boycotting-american-products-netflix-coca-cola-could-lose-revenue-from-trumps?utm_source=benzinga_taxonomy&utm_medium=rss_feed_free&utm_content=taxonomy_rss&utm_campaign=channel",
+          "published_at": "2026-01-22",
+          "description": "Danish residents are boycotting American products in response to Trump's push to acquire Greenland and threatened tariffs. Popular boycott apps like NonUSA and Made O'Meter have surged to the top of D",
+          "sentiment": "negative"
+        },
+        {
+          "title": "Stocks Rebound On Trump's Remarks, Natural Gas Rockets: What's Moving Markets Wednesday?",
+          "publisher": "Benzinga",
+          "url": "https://www.benzinga.com/markets/equities/26/01/50049022/stock-market-news-wednesday-trump-davos-speech-greenland-security-natural-gas-weather-cold?utm_source=benzinga_taxonomy&utm_medium=rss_feed_free&utm_content=taxonomy_rss&utm_campaign=channel",
+          "published_at": "2026-01-21",
+          "description": "U.S. stocks rebounded cautiously on Wednesday following Trump's remarks at Davos regarding Greenland as a national security priority. The market showed restraint with the Dow up 0.6%, while the oil an",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Stock Market Today: Dow Jones, S&P 500 Futures Pull Back As Street Eyes Trump's Davos Address— Johnson & Johnson, Intel, GameStop In Focus (UPDATED)",
+          "publisher": "Benzinga",
+          "url": "https://www.benzinga.com/markets/equities/26/01/50028611/stock-market-today-dow-jones-sp-500-futures-recover-as-focus-turns-to-trumps-davos-address-johns?utm_source=benzinga_taxonomy&utm_medium=rss_feed_free&utm_content=taxonomy_rss&utm_campaign=channel",
+          "published_at": "2026-01-21",
+          "description": "U.S. stock futures recovered on Wednesday following Tuesday's sharp 2% sell-off triggered by Trump's aggressive trade stance toward Europe and tariff threats. Markets are now focused on Trump's keynot",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Stock Market Today: Dow Jones, S&P 500, Nasdaq Futures Plunge As Trump Escalates Tariff Threats— Alibaba, United Airlines, Netflix In Focus (UPDATED)",
+          "publisher": "Benzinga",
+          "url": "https://www.benzinga.com/markets/equities/26/01/49996228/stock-market-today-sp-500-nasdaq-futures-plunge-as-trump-escalates-tariff-threats-alibaba-united?utm_source=benzinga_taxonomy&utm_medium=rss_feed_free&utm_content=taxonomy_rss&utm_campaign=channel",
+          "published_at": "2026-01-20",
+          "description": "U.S. stock futures fell sharply on Tuesday as President Trump's escalating tariff threats over the Greenland dispute roiled global markets. Major indices declined with the S&P 500 down 1.79% and Nasda",
+          "sentiment": "negative"
+        },
+        {
+          "title": "Week Ahead: Trade War Risks Are Back—and Markets Are Pricing Them In",
+          "publisher": "Investing.com",
+          "url": "https://www.investing.com/analysis/week-ahead-scotus-davos-venezuelan-oil-fuel-policy-worries-as-us-earnings-hold-200673502",
+          "published_at": "2026-01-20",
+          "description": "Trade war fears resurged as Trump threatened tariffs on NATO countries over Greenland, causing Asian stocks to fall and US futures to drop 1%. Markets shifted to safe havens like gold (hitting record ",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Questex’s Vibe Conference Announces 2026 Vibe Vista Award Finalists, Honoring Excellence in the Beverage Industry",
+          "publisher": "GlobeNewswire Inc.",
+          "url": "https://www.globenewswire.com/news-release/2026/01/19/3221079/0/en/Questex-s-Vibe-Conference-Announces-2026-Vibe-Vista-Award-Finalists-Honoring-Excellence-in-the-Beverage-Industry.html",
+          "published_at": "2026-01-19",
+          "description": "Questex's Vibe Conference has announced finalists for the 2026 Vibe Vista Awards, recognizing excellence in on-premise beverage programs across leading hospitality chains, cruise lines, airlines, and ",
+          "sentiment": "positive"
+        },
+        {
+          "title": "1 Stock to Buy, 1 Stock to Sell This Week: GE Aerospace, United Airlines",
+          "publisher": "Investing.com",
+          "url": "https://www.investing.com/analysis/1-stock-to-buy-1-stock-to-sell-this-week-ge-aerospace-united-airlines-200673414",
+          "published_at": "2026-01-18",
+          "description": "As markets await PCE inflation data, Q4 earnings season, and a Supreme Court tariff ruling, analyst Jesse Cohen recommends buying GE Aerospace ahead of its Thursday earnings report, citing strong aero",
+          "sentiment": "negative"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "earnings,product",
+      "catalyst_sources": [
+        "polygon_news"
+      ],
+      "options_data_available": false,
+      "options_score": null,
+      "options_evidence": {},
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": null,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [],
+      "sentiment_cap_applied": null,
+      "source_tags": [
+        "SWING",
+        "SWING_PULLBACK"
+      ]
+    },
+    {
+      "ticker": "ULTA",
+      "name": "Ulta Beauty, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Consumer Cyclical",
+      "current_price": 605.01,
+      "market_cap_usd": 30764498944,
+      "avg_dollar_volume_20d": 528349393.2905,
+      "asof_price_utc": "2025-12-31T00:00:00Z",
+      "technical_score": 6.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 1.84,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.41,
+        "rsi14": 52.75,
+        "ma10": 602.75,
+        "ma20": 593.79,
+        "ma50": 549.87,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 8.01,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 616.34,
+          "donchian55_prev": 616.34,
+          "atr14": 11.9846,
+          "vol_ratio_3_20": 0.4116,
+          "breakout_strength_atr": -0.9454,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 1.98,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 0.08,
+          "extension_adj": 0.0
+        },
+        "data_gaps": [],
+        "ma200": 485.98
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [
+        {
+          "title": "Ulta Beauty Boosts Middle East Expansion, Now Lands In Dubai",
+          "publisher": "Benzinga",
+          "url": "https://www.benzinga.com/markets/equities/26/01/50102398/ulta-beauty-boosts-middle-east-expansion-now-lands-in-dubai?utm_source=benzinga_taxonomy&utm_medium=rss_feed_free&utm_content=taxonomy_rss&utm_campaign=channel",
+          "published_at": "2026-01-23",
+          "description": "Ulta Beauty announced its first store opening in the United Arab Emirates at Mall of the Emirates on January 29, 2026, in partnership with Alshaya Group. This expansion follows the company's first Mid",
+          "sentiment": "positive"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [
+        "polygon_news"
+      ],
+      "options_data_available": false,
+      "options_score": null,
+      "options_evidence": {},
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": null,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [],
+      "sentiment_cap_applied": null,
+      "source_tags": [
+        "SWING",
+        "SWING_PULLBACK"
+      ]
+    },
+    {
+      "ticker": "VSCO",
+      "name": "Victoria's Secret & Co.",
+      "exchange": "NYSE",
+      "sector": "Consumer Cyclical",
+      "current_price": 54.17,
+      "market_cap_usd": 4796068352,
+      "avg_dollar_volume_20d": 158724652.1915,
+      "asof_price_utc": "2025-12-31T00:00:00Z",
+      "technical_score": 6.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 4.88,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.5,
+        "rsi14": 57.18,
+        "ma10": 54.73,
+        "ma20": 52.55,
+        "ma50": 42.56,
+        "above_ma10_ma20_ma50": false,
+        "realized_vol_5d_ann_pct": 39.52,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 56.95,
+          "donchian55_prev": 56.95,
+          "atr14": 2.1713,
+          "vol_ratio_3_20": 0.4976,
+          "breakout_strength_atr": -1.2803,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 4.01,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": -0.21,
+          "extension_adj": 0.0
+        },
+        "data_gaps": [],
+        "ma200": 26.97
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": false,
+      "options_score": null,
+      "options_evidence": {},
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": null,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [],
+      "sentiment_cap_applied": null,
+      "source_tags": [
+        "SWING",
+        "SWING_PULLBACK"
+      ]
+    },
+    {
+      "ticker": "XOM",
+      "name": "Exxon Mobil Corporation",
+      "exchange": "NYSE",
+      "sector": "Energy",
+      "current_price": 120.34,
+      "market_cap_usd": 575410470912,
+      "avg_dollar_volume_20d": 1871579716.9940002,
+      "asof_price_utc": "2025-12-31T00:00:00Z",
+      "technical_score": 6.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 1.2,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.77,
+        "rsi14": 52.82,
+        "ma10": 118.84,
+        "ma20": 118.22,
+        "ma50": 116.97,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 10.56,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 121.796,
+          "donchian55_prev": 121.796,
+          "atr14": 1.7874,
+          "vol_ratio_3_20": 0.7663,
+          "breakout_strength_atr": -0.8146,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 1.49,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 0.52,
+          "extension_adj": 0.0
+        },
+        "data_gaps": [],
+        "ma200": 111.65
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "2026-01-30",
+      "earnings_info": {
+        "ticker": "XOM",
+        "earnings_date": "2026-01-30",
+        "eps_estimate": 1.67,
+        "revenue_estimate": 78211989900,
+        "time": "unknown",
+        "fiscal_quarter": null,
+        "source": "fmp"
+      },
+      "headlines": [
+        {
+          "title": "Aviation Lubricants Market Size to Exceed US$ 2,302.15 Million by 2035 | Astute Analytica",
+          "publisher": "GlobeNewswire Inc.",
+          "url": "https://www.globenewswire.com/news-release/2026/01/23/3224534/0/en/Aviation-Lubricants-Market-Size-to-Exceed-US-2-302-15-Million-by-2035-Astute-Analytica.html",
+          "published_at": "2026-01-23",
+          "description": "The global aviation lubricants market, valued at $1.28 billion in 2025, is projected to grow to $2.30 billion by 2035 at a CAGR of 6.05%. Growth is driven by record passenger activity (9.8 billion pas",
+          "sentiment": "positive"
+        },
+        {
+          "title": "Pentair Just Hit a Milestone Barely 1 in 1,000 Stocks Achieve: Is It a Buy?",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/01/20/pentair-just-hit-a-milestone-barely-1-in-1000-stoc/?source=iedfolrf0000001",
+          "published_at": "2026-01-20",
+          "description": "Pentair has achieved Dividend King status with its 50th consecutive annual dividend increase, joining an exclusive club of just 56 companies out of 54,000 publicly traded firms. The water solutions co",
+          "sentiment": "neutral"
+        },
+        {
+          "title": "Best Dividend Stock to Buy Right Now: Realty Income vs. BP",
+          "publisher": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/01/20/best-dividend-stock-to-buy-right-now-realty-income/?source=iedfolrf0000001",
+          "published_at": "2026-01-20",
+          "description": "While BP offers a slightly higher dividend yield of 5.6% compared to Realty Income's 5.3%, Realty Income is the superior dividend stock due to its 30-year track record of consecutive annual dividend i",
+          "sentiment": "positive"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [
+        "fmp_earnings",
+        "polygon_news"
+      ],
+      "options_data_available": false,
+      "options_score": null,
+      "options_evidence": {},
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": null,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [],
+      "sentiment_cap_applied": null,
+      "source_tags": [
+        "SWING",
+        "SWING_PULLBACK"
+      ]
+    }
+  ]
+}

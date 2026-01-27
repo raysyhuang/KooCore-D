@@ -1,0 +1,19 @@
+{
+  "method_version": "v3.0",
+  "run_timestamp_utc": "2026-01-13T04:50:38.536681Z",
+  "run_timestamp_et": "2026-01-12T23:50:38.536690-05:00",
+  "config_hash": "24ff3484df7c",
+  "regime_info": {
+    "ok": false,
+    "spy_last": 660.6777954101562,
+    "spy_ma": 674.4171691894531,
+    "vix_last": 23.65999984741211,
+    "spy_above_ma": false,
+    "vix_ok": true,
+    "message": "SPY=660.68 vs MA20=674.42 (RISK-OFF); VIX=23.66 (<= 25.00 is OK)."
+  },
+  "tickers_screened": 2010,
+  "candidates_count": 2,
+  "breakout_count": 1,
+  "reversal_count": 1
+}

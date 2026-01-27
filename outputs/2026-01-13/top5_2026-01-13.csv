@@ -1,0 +1,6 @@
+rank,ticker,name,sector,current_price,composite_score,verdict,confidence,technical_score,catalyst_score,options_score,sentiment_score,primary_catalyst,target_price,upside_pct_min,upside_pct_max
+1,SATS,EchoStar Corporation,Communication Services,123.73999786376953,5.25,SPECULATIVE,SPECULATIVE,10,4,3,4,,136.114,10,18
+2,OPCH,"Option Care Health, Inc.",Healthcare,34.75,5.25,SPECULATIVE,SPECULATIVE,10,4,3,4,,38.225,10,16
+3,BBIO,"BridgeBio Pharma, Inc.",Healthcare,79.11000061035156,5.25,SPECULATIVE,SPECULATIVE,10,4,3,4,,87.021,10,18
+4,FORM,"FormFactor, Inc.",Technology,72.55000305175781,4.75,SPECULATIVE,SPECULATIVE,8,4,3,4,,79.805,10,17
+5,RKLB,Rocket Lab Corporation,Industrials,86.58000183105469,4.75,SPECULATIVE,SPECULATIVE,8,4,3,4,,95.238,10,20

@@ -1,0 +1,23 @@
+{
+  "date": "2025-11-28",
+  "run_timestamp_utc": "2026-01-13T18:03:44.073813Z",
+  "method_version": "v3.0",
+  "summary": {
+    "tickers_screened": 2009,
+    "pro30_candidates": 0,
+    "weekly_top5": 5,
+    "movers": 0
+  },
+  "top5_tickers": [
+    "WBD",
+    "CADE",
+    "WAB",
+    "APH",
+    "VIAV"
+  ],
+  "overlap_all_three": [],
+  "regime": {
+    "ok": true,
+    "message": "SPY=681.38 vs MA20=670.92 (OK); VIX=16.35 (<= 25.00 is OK)."
+  }
+}

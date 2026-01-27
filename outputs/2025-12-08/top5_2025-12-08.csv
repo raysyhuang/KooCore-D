@@ -1,0 +1,6 @@
+rank,ticker,name,sector,current_price,composite_score,verdict,confidence,technical_score,catalyst_score,options_score,sentiment_score,primary_catalyst,target_price,upside_pct_min,upside_pct_max
+1,WBD,"Warner Bros. Discovery, Inc.",Communication Services,27.229999542236328,5.5,SPECULATIVE,SPECULATIVE,8.0,7.0,3.0,4.0,Netflix bid / M&A headline cycle for Warner Bros. Discovery,29.95299949645996,10,18
+2,KRYS,"Krystal Biotech, Inc.",Healthcare,234.0500030517578,5.25,SPECULATIVE,SPECULATIVE,8.0,6.0,3.0,4.0,Preliminary 2025 results / 2026 objectives update and ongoing FDA-related filing momentum for KB407,257.4550033569336,10,20
+3,LUV,Southwest Airlines Co.,Industrials,37.95000076293945,5.0,SPECULATIVE,SPECULATIVE,8.0,5.0,3.0,4.0,JPMorgan double-upgrade with new street-high price target; ongoing airline earnings read-through,41.7450008392334,10,16
+4,RIG,Transocean Ltd.,Energy,4.440000057220459,5.0,SPECULATIVE,SPECULATIVE,8.0,5.0,3.0,4.0,Contract awards / backlog additions (Brazil & Norway deals reported),4.884000062942505,10,22
+5,TTMI,"TTM Technologies, Inc.",Technology,75.43000030517578,4.75,SPECULATIVE,SPECULATIVE,8.0,4.0,3.0,4.0,Needham Growth Conference focus / investor attention catalyst,82.97300033569336,10,17

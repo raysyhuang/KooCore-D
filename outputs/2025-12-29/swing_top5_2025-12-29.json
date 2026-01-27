@@ -1,0 +1,37 @@
+{
+  "date": "2025-12-29",
+  "primary_label": "Swing",
+  "method_version": "swing_diag_relaxed_v1",
+  "top5": [
+    {
+      "rank": 1,
+      "ticker": "WDC",
+      "swing_score": 8.55,
+      "current_price": 179.68
+    },
+    {
+      "rank": 2,
+      "ticker": "CMI",
+      "swing_score": 8.55,
+      "current_price": 514.64
+    },
+    {
+      "rank": 3,
+      "ticker": "ULTA",
+      "swing_score": 8.55,
+      "current_price": 604.64
+    },
+    {
+      "rank": 4,
+      "ticker": "SITM",
+      "swing_score": 8.55,
+      "current_price": 369.21
+    },
+    {
+      "rank": 5,
+      "ticker": "MDGL",
+      "swing_score": 8.55,
+      "current_price": 589.47
+    }
+  ]
+}

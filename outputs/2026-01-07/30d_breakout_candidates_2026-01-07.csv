@@ -1,0 +1,2 @@
+Ticker,Last,RVOL,ATR%,RSI14,Dist_to_52W_High%,$ADV20,MA20,MA50,Above_MA20,Above_MA50,Ret20d%,Setup,Score,Is_Leveraged_ETF
+INTC,42.63,2.34,4.08,76.7,4.35,2720033620.0,38.0,38.18,1,1,5.78,Breakout,21.56,False

@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Hybrid Momentum & Reversal Scanner Report — 2026-01-03</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: rgba(255,255,255,0.06);
+      --card2: rgba(255,255,255,0.08);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.65);
+      --muted2: rgba(255,255,255,0.5);
+      --accent: #7dd3fc;
+      --accent2: #a78bfa;
+      --good: #86efac;
+      --warn: #fde047;
+      --bad: #fb7185;
+      --border: rgba(255,255,255,0.12);
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    html, body { background: radial-gradient(1200px 800px at 20% 0%, rgba(167,139,250,0.18), transparent 60%),
+                          radial-gradient(1000px 700px at 80% 20%, rgba(125,211,252,0.18), transparent 55%),
+                          var(--bg);
+                 color: var(--text); font-family: var(--sans); margin: 0; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 28px 18px 70px; }
+    header { display:flex; gap:16px; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; }
+    .h-title { font-size: 26px; letter-spacing: 0.2px; margin: 0; }
+    .h-sub { margin: 6px 0 0; color: var(--muted); font-size: 14px; }
+    .pillrow { display:flex; flex-wrap:wrap; gap:10px; }
+    .pill { padding: 8px 10px; border: 1px solid var(--border); background: rgba(0,0,0,0.12);
+            border-radius: 999px; font-size: 12px; color: var(--muted); }
+    .pill b { color: var(--text); font-weight: 600; }
+    .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap: 14px; margin-top: 18px; }
+    .card { grid-column: span 12; background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px 16px 14px; box-shadow: 0 12px 30px rgba(0,0,0,0.25); }
+    .card h2 { margin: 0 0 10px; font-size: 16px; }
+    .card h3 { margin: 14px 0 8px; font-size: 14px; color: var(--text);}
+    .kpis { display:grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+    .kpi { background: var(--card2); border: 1px solid var(--border); border-radius: 14px; padding: 12px; }
+    .kpi .label { color: var(--muted); font-size: 12px; }
+    .kpi .value { font-size: 20px; margin-top: 4px; }
+    .kpi .hint { margin-top: 6px; color: var(--muted2); font-size: 12px; }
+    .split { display:grid; grid-template-columns: 1.2fr 0.8fr; gap: 14px; }
+    @media (max-width: 980px) { .split { grid-template-columns: 1fr; } .kpis { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+    .toolbar { display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between; margin: 10px 0 10px; }
+    .search { display:flex; gap:8px; align-items:center; }
+    input[type="search"] { width: min(520px, 72vw); padding: 10px 12px; border-radius: 12px; border: 1px solid var(--border); background: rgba(0,0,0,0.2); color: var(--text); outline: none; }
+    .btns { display:flex; gap:8px; flex-wrap:wrap; }
+    button { cursor:pointer; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--border); background: rgba(0,0,0,0.15); color: var(--text); }
+    button:hover { background: rgba(255,255,255,0.08); }
+    .note { color: var(--muted); font-size: 13px; line-height: 1.45; }
+    .mono { font-family: var(--mono); }
+    .badge { font-size: 12px; padding: 3px 8px; border-radius: 999px; border: 1px solid var(--border); background: rgba(0,0,0,0.2); color: var(--muted); }
+    .ok { color: var(--good); }
+    .warn { color: var(--warn); }
+    .bad { color: var(--bad); }
+    .tablewrap { overflow:auto; border-radius: 14px; border: 1px solid var(--border); }
+    table.table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    table.table thead th { position: sticky; top: 0; background: rgba(10,16,32,0.92); border-bottom: 1px solid var(--border); padding: 10px 10px; text-align:left; white-space: nowrap; }
+    table.table td { border-bottom: 1px solid rgba(255,255,255,0.08); padding: 8px 10px; white-space: nowrap; }
+    table.table tr:hover td { background: rgba(255,255,255,0.04); }
+    .empty { padding: 12px; border: 1px dashed rgba(255,255,255,0.22); border-radius: 14px; color: var(--muted); }
+    details { border: 1px solid var(--border); border-radius: 14px; padding: 12px; background: rgba(0,0,0,0.14); }
+    details > summary { cursor: pointer; color: var(--text); font-weight: 600; }
+    pre { margin: 10px 0 0; white-space: pre-wrap; word-break: break-word; font-family: var(--mono); font-size: 12px; color: rgba(255,255,255,0.86); }
+    footer { margin-top: 22px; color: var(--muted2); font-size: 12px; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1 class="h-title">Hybrid Momentum & Reversal Scanner Report — 2026-01-03</h1>
+      <p class="h-sub">Generated locally at <span class="mono">2026-01-03 18:16:56</span>. Data as-of prices: 2026-01-02 (UTC in packets).</p>
+    </div>
+    <div class="pillrow">
+      <div class="pill"><b>Method</b>: v3.0</div>
+      <div class="pill"><b>Regime Gate</b>: <span class="ok">OK</span></div>
+      <div class="pill"><b>SPY</b>: 683.17 vs MA20 682.73</div>
+      <div class="pill"><b>VIX</b>: 14.51</div>
+    </div>
+  </header>
+
+  <div class="grid">
+    <section class="card">
+      <div class="split">
+        <div>
+          <h2>Run Overview</h2>
+          <p class="note">SPY=683.17 vs MA20=682.73 (OK); VIX=14.51 (<= 25.00 is OK).</p>
+          <div class="kpis">
+            <div class="kpi">
+              <div class="label">Tickers screened</div>
+              <div class="value">2009</div>
+              <div class="hint">Universe size for PRO30 run</div>
+            </div>
+            <div class="kpi">
+              <div class="label">PRO30 candidates</div>
+              <div class="value">0</div>
+              <div class="hint">Momentum + reversal screen output</div>
+            </div>
+            <div class="kpi">
+              <div class="label">Weekly Top 5</div>
+              <div class="value">5</div>
+              <div class="hint">Weekly scanner Top 5 JSON</div>
+            </div>
+            <div class="kpi">
+              <div class="label">Movers</div>
+              <div class="value">0</div>
+              <div class="hint">Daily gainers/losers/reversals (if enabled)</div>
+            </div>
+          </div>
+
+          <h3>Overlaps</h3>
+          <p class="note">
+            All three: <span class="mono">—</span><br/>
+            Weekly ∩ PRO30: <span class="mono">—</span><br/>
+            Weekly ∩ Movers: <span class="mono">—</span><br/>
+            PRO30 ∩ Movers: <span class="mono">—</span>
+          </p>
+        </div>
+
+        <div>
+          <h2>Timestamps</h2>
+          <p class="note">
+            UTC: <span class="mono">2026-01-03T10:16:06.673545Z</span><br/>
+            ET: <span class="mono">2026-01-03T18:16:06.673555</span><br/>
+            Local note: these timestamps come from the run metadata JSON.
+          </p>
+
+          <h3>Files in this report</h3>
+          <ul class="note">
+            <li><span class="mono">hybrid_report_2026-01-03.html</span></li>
+            <li><span class="mono">report_2026-01-03.html</span></li>
+            <li><span class="mono">run_metadata.json</span></li>
+            <li><span class="mono">weekly_scanner_candidates_2026-01-03.csv</span></li>
+            <li><span class="mono">weekly_scanner_packets_2026-01-03.json</span></li>
+            <li><span class="mono">weekly_scanner_top5_2026-01-03.json</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Weekly Scanner — Top 5 (7 trading days, ≥10% target)</h2>
+      <p class="note">
+        Note: this table is generated from <span class="mono">weekly_scanner_top5_2026-01-03.json</span> (not from <span class="mono">hybrid_analysis</span>).
+      </p>
+      <div class="tablewrap"><table class="dataframe dataframe table" id="weeklyTop5">
+  <thead>
+    <tr style="text-align: right;">
+      <th>rank</th>
+      <th>ticker</th>
+      <th>name</th>
+      <th>exchange</th>
+      <th>sector</th>
+      <th>current_price</th>
+      <th>market_cap_usd</th>
+      <th>avg_dollar_volume_20d</th>
+      <th>asof_price_utc</th>
+      <th>target</th>
+      <th>primary_catalyst</th>
+      <th>scores</th>
+      <th>composite_score</th>
+      <th>evidence</th>
+      <th>risk_factors</th>
+      <th>confidence</th>
+      <th>data_gaps</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>DBRG</td>
+      <td>DigitalBridge Group, Inc.</td>
+      <td>NYSE</td>
+      <td>Financial Services</td>
+      <td>15.380000</td>
+      <td>2998565376</td>
+      <td>1.868299e+08</td>
+      <td>2026-01-02T00:00:00Z</td>
+      <td>{'horizon_trading_days': 7, 'upside_threshold_pct': 10, 'target_price_for_10pct': 16.91800012588501, 'base_case_upside_pct_range': [10, 18], 'bear_case_note': 'Takeout narrative fades (no definitive agreement/terms), or deal-arb spread widens on regulatory/financing uncertainty; breakdown back below rising short-term MAs would weaken momentum.'}</td>
+      <td>{'title': 'SoftBank acquisition / takeover newsflow', 'key_date_local': '2025-12-31', 'timing': 'Anytime (news-driven)', 'why_it_matters': 'M&amp;A headlines can reprice the stock quickly via deal-premium expectations and follow-on coverage (terms, regulatory path, competing bids).', 'sources': [{'title': 'SoftBank to acquire DigitalBridge for $4bn in AI infrastructure push', 'publisher': '', 'url': '', 'published_at': '2025-12-31'}, {'title': 'DigitalBridge (DBRG) Soars 9.7% on $4-Billion SoftBank Merger', 'publisher': '', 'url': '', 'published_at': '2025-12-30'}, {'title': 'DigitalBridge lowered to Hold at Truist as SoftBank deal caps upside', 'publisher': '', 'url': '', 'published_at': '2025-12-31'}]}</td>
+      <td>{'technical': 8.0, 'catalyst': 4.0, 'options': 3.0, 'sentiment': 4.0}</td>
+      <td>4.75</td>
+      <td>{'technical': {'within_5pct_52w_high': True, 'resistance_level': None, 'volume_ratio_3d_to_20d': 1.12, 'rsi14': 51.5, 'above_ma10_ma20_ma50': True, 'realized_vol_5d_ann_pct': 64.45}, 'options': {'call_put_ratio': None, 'unusual_volume_multiple': None, 'largest_bullish_premium_usd': None, 'iv_rank': None, 'notable_contracts': []}, 'sentiment': {'twitter': {'mention_velocity_vs_7d': None, 'quality_accounts_est': None, 'bullish_pct_est': None}, 'reddit': {'mention_velocity': None, 'upvote_ratio_est': None}, 'stocktwits': {'bull_bear_ratio_est': None}, 'news_tone': 'mixed'}}</td>
+      <td>[Deal risk: terms/financing/regulatory timeline uncertainty can cause sharp reversals., If a definitive agreement is already largely priced, upside may be capped and volatility can compress into deal-arb behavior.]</td>
+      <td>SPECULATIVE</td>
+      <td>[Cannot verify exclusion rule: 5-day price change (&gt;15%) not provided in packets., Options data unavailable in packets; options score capped at 3.0., Social sentiment data unavailable in packets; sentiment score capped at 4.0., No confirmed forward event date within next 7 trading days; catalyst is news-driven rather than scheduled.]</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>RKLB</td>
+      <td>Rocket Lab Corporation</td>
+      <td>NASDAQ</td>
+      <td>Industrials</td>
+      <td>75.989998</td>
+      <td>40590536704</td>
+      <td>1.832849e+09</td>
+      <td>2026-01-02T00:00:00Z</td>
+      <td>{'horizon_trading_days': 7, 'upside_threshold_pct': 10, 'target_price_for_10pct': 83.5889976501465, 'base_case_upside_pct_range': [10, 20], 'bear_case_note': 'Post-contract/analyst-upgrade momentum fades; failure to hold short-term moving averages with high realized vol could trigger a fast pullback.'}</td>
+      <td>{'title': 'Contract win + analyst price target raise (follow-through newsflow)', 'key_date_local': '2025-12-24', 'timing': 'Anytime (news-driven)', 'why_it_matters': 'Recent contract award and subsequent analyst re-rating can extend momentum via incremental buyers, model updates, and additional defense/space program headlines.', 'sources': [{'title': 'Rocket Lab Takes Off On Contract Win, Triggers This Rare Bullish Signal', 'publisher': '', 'url': '', 'published_at': '2025-12-26'}, {'title': 'Needham Highlights Rocket Lab’s (RKLB) Shift to Major Defense Prime After Record $805M Satellite Award', 'publisher': '', 'url': '', 'published_at': '2025-12-28'}, {'title': 'Rocket Lab price target raised to $90 from $63 at Needham', 'publisher': '', 'url': '', 'published_at': '2025-12-24'}]}</td>
+      <td>{'technical': 8.0, 'catalyst': 4.0, 'options': 3.0, 'sentiment': 4.0}</td>
+      <td>4.75</td>
+      <td>{'technical': {'within_5pct_52w_high': True, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.93, 'rsi14': 62.98, 'above_ma10_ma20_ma50': True, 'realized_vol_5d_ann_pct': 98.17}, 'options': {'call_put_ratio': None, 'unusual_volume_multiple': None, 'largest_bullish_premium_usd': None, 'iv_rank': None, 'notable_contracts': []}, 'sentiment': {'twitter': {'mention_velocity_vs_7d': None, 'quality_accounts_est': None, 'bullish_pct_est': None}, 'reddit': {'mention_velocity': None, 'upvote_ratio_est': None}, 'stocktwits': {'bull_bear_ratio_est': None}, 'news_tone': 'positive'}}</td>
+      <td>[Very high realized volatility (5d annualized ~98%) increases whipsaw risk around headlines., Defense/space names can gap on contract timing/size details; catalyst may be partially priced after prior run.]</td>
+      <td>SPECULATIVE</td>
+      <td>[Cannot verify exclusion rule: 5-day price change (&gt;15%) not provided in packets., Options data unavailable in packets; options score capped at 3.0., Social sentiment data unavailable in packets; sentiment score capped at 4.0., No confirmed scheduled event within next 7 trading days; catalyst is follow-through newsflow.]</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>SATS</td>
+      <td>EchoStar Corporation</td>
+      <td>NASDAQ</td>
+      <td>Communication Services</td>
+      <td>112.180000</td>
+      <td>32293965824</td>
+      <td>6.220623e+08</td>
+      <td>2026-01-02T00:00:00Z</td>
+      <td>{'horizon_trading_days': 7, 'upside_threshold_pct': 10, 'target_price_for_10pct': 123.39800033569337, 'base_case_upside_pct_range': [10, 18], 'bear_case_note': 'If the spectrum/SpaceX-related narrative cools or analyst enthusiasm reverses, the stock can mean-revert quickly given prior extreme moves.'}</td>
+      <td>{'title': 'Analyst price target raise tied to spectrum deal / SpaceX valuation narrative', 'key_date_local': '2025-12-31', 'timing': 'Anytime (news-driven)', 'why_it_matters': 'Incremental analyst updates and ongoing deal-related headlines can drive another leg higher in a high-beta satellite/spectrum story.', 'sources': [{'title': 'Citi Raises PT on EchoStar (SATS) stock', 'publisher': '', 'url': '', 'published_at': '2025-12-31'}, {'title': 'Citi: SpaceX’s $800B Valuation Doubles EchoStar’s (SATS) Expected Equity Value Following Spectrum Deal', 'publisher': '', 'url': '', 'published_at': '2025-12-31'}, {'title': 'EchoStar price target raised to $111 from $87 at Citi', 'publisher': '', 'url': '', 'published_at': '2025-12-24'}]}</td>
+      <td>{'technical': 8.0, 'catalyst': 4.0, 'options': 3.0, 'sentiment': 4.0}</td>
+      <td>4.75</td>
+      <td>{'technical': {'within_5pct_52w_high': True, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.45, 'rsi14': 63.58, 'above_ma10_ma20_ma50': True, 'realized_vol_5d_ann_pct': 31.21}, 'options': {'call_put_ratio': None, 'unusual_volume_multiple': None, 'largest_bullish_premium_usd': None, 'iv_rank': None, 'notable_contracts': []}, 'sentiment': {'twitter': {'mention_velocity_vs_7d': None, 'quality_accounts_est': None, 'bullish_pct_est': None}, 'reddit': {'mention_velocity': None, 'upvote_ratio_est': None}, 'stocktwits': {'bull_bear_ratio_est': None}, 'news_tone': 'mixed'}}</td>
+      <td>[Narrative-driven moves (SpaceX IPO talk/spectrum value) can reverse abruptly on lack of new information., Potential 'already priced' risk given headlines citing very large prior-year surge.]</td>
+      <td>SPECULATIVE</td>
+      <td>[Cannot verify exclusion rule: 5-day price change (&gt;15%) not provided in packets., Options data unavailable in packets; options score capped at 3.0., Social sentiment data unavailable in packets; sentiment score capped at 4.0., No confirmed scheduled event within next 7 trading days; catalyst is analyst/newsflow.]</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>HII</td>
+      <td>Huntington Ingalls Industries, Inc.</td>
+      <td>NYSE</td>
+      <td>Industrials</td>
+      <td>349.750000</td>
+      <td>13724690432</td>
+      <td>1.607478e+08</td>
+      <td>2026-01-02T00:00:00Z</td>
+      <td>{'horizon_trading_days': 7, 'upside_threshold_pct': 10, 'target_price_for_10pct': 384.725, 'base_case_upside_pct_range': [10, 15], 'bear_case_note': 'If contract headlines fail to translate into material financial impact or broader defense tape weakens, the stock may consolidate rather than break out.'}</td>
+      <td>{'title': 'U.S. Navy-related contract / delivery newsflow', 'key_date_local': '2025-12-31', 'timing': 'Anytime (news-driven)', 'why_it_matters': 'Defense contract awards and program milestones can trigger rapid repricing, especially when the stock is already technically strong near highs.', 'sources': [{'title': 'HII Secures Contract to Support USS Harry S. Truman Aircraft Carrier', 'publisher': '', 'url': '', 'published_at': '2025-12-31'}, {'title': 'Huntington Ingalls Ships Arleigh Burke-Class Destroyer to US Navy', 'publisher': '', 'url': '', 'published_at': '2025-12-30'}]}</td>
+      <td>{'technical': 8.0, 'catalyst': 3.0, 'options': 3.0, 'sentiment': 4.0}</td>
+      <td>4.50</td>
+      <td>{'technical': {'within_5pct_52w_high': True, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.73, 'rsi14': 66.56, 'above_ma10_ma20_ma50': True, 'realized_vol_5d_ann_pct': 28.57}, 'options': {'call_put_ratio': None, 'unusual_volume_multiple': None, 'largest_bullish_premium_usd': None, 'iv_rank': None, 'notable_contracts': []}, 'sentiment': {'twitter': {'mention_velocity_vs_7d': None, 'quality_accounts_est': None, 'bullish_pct_est': None}, 'reddit': {'mention_velocity': None, 'upvote_ratio_est': None}, 'stocktwits': {'bull_bear_ratio_est': None}, 'news_tone': 'positive'}}</td>
+      <td>[Contract headlines may be incremental/expected; upside could be more muted versus higher-beta names., Defense sector correlation: broad risk-off or budget headline risk can impact the group.]</td>
+      <td>SPECULATIVE</td>
+      <td>[Cannot verify exclusion rule: 5-day price change (&gt;15%) not provided in packets., Options data unavailable in packets; options score capped at 3.0., Social sentiment data unavailable in packets; sentiment score capped at 4.0., No confirmed scheduled event within next 7 trading days; catalyst is newsflow.]</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>HWM</td>
+      <td>Howmet Aerospace Inc.</td>
+      <td>NYSE</td>
+      <td>Industrials</td>
+      <td>211.710007</td>
+      <td>85213274112</td>
+      <td>4.132043e+08</td>
+      <td>2026-01-02T00:00:00Z</td>
+      <td>{'horizon_trading_days': 7, 'upside_threshold_pct': 10, 'target_price_for_10pct': 232.88100738525392, 'base_case_upside_pct_range': [10, 14], 'bear_case_note': 'If acquisition-related optimism fades or integration/valuation concerns dominate, the stock may stall near highs; loss of trend support would invalidate momentum.'}</td>
+      <td>{'title': 'Acquisition-related re-rating / analyst commentary', 'key_date_local': '2026-01-03', 'timing': 'Anytime (news-driven)', 'why_it_matters': 'M&amp;A integration/strategic rationale and analyst revisions can drive near-term multiple expansion, especially with defense/aerospace demand tailwinds.', 'sources': [{'title': 'Jefferies Backs Howmet (HWM) Acquisition, Sees EPS Lift into 2026', 'publisher': '', 'url': '', 'published_at': '2026-01-03'}, {'title': 'Here's Why Howmet's CAM Acquisition is Strategically Important', 'publisher': '', 'url': '', 'published_at': '2025-12-26'}]}</td>
+      <td>{'technical': 8.0, 'catalyst': 3.0, 'options': 3.0, 'sentiment': 4.0}</td>
+      <td>4.50</td>
+      <td>{'technical': {'within_5pct_52w_high': True, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.63, 'rsi14': 67.83, 'above_ma10_ma20_ma50': True, 'realized_vol_5d_ann_pct': 29.66}, 'options': {'call_put_ratio': None, 'unusual_volume_multiple': None, 'largest_bullish_premium_usd': None, 'iv_rank': None, 'notable_contracts': []}, 'sentiment': {'twitter': {'mention_velocity_vs_7d': None, 'quality_accounts_est': None, 'bullish_pct_est': None}, 'reddit': {'mention_velocity': None, 'upvote_ratio_est': None}, 'stocktwits': {'bull_bear_ratio_est': None}, 'news_tone': 'positive'}}</td>
+      <td>[M&amp;A/integration risk and potential 'priced-in' EPS lift after multiple articles., Aerospace/defense cycle sensitivity; any macro risk-off could compress multiples.]</td>
+      <td>SPECULATIVE</td>
+      <td>[Cannot verify exclusion rule: 5-day price change (&gt;15%) not provided in packets., Options data unavailable in packets; options score capped at 3.0., Social sentiment data unavailable in packets; sentiment score capped at 4.0., No confirmed scheduled event within next 7 trading days; catalyst is analyst/newsflow.]</td>
+    </tr>
+  </tbody>
+</table></div>
+    </section>
+
+    <section class="card">
+      <h2>PRO30 Candidates (30-day screen output)</h2>
+      <div class="toolbar">
+        <div class="search">
+          <span class="badge">Search</span>
+          <input type="search" placeholder="Filter rows by any text… (e.g., AAP, Reversal, RSI)" data-table="pro30Candidates"/>
+        </div>
+        <div class="btns">
+          <button data-export="pro30Candidates">Export CSV (visible rows)</button>
+          <button data-reset="pro30Candidates">Reset</button>
+        </div>
+      </div>
+      <div class="tablewrap"><div class="empty">No rows.</div></div>
+      <p class="note">If this table shows only a few tickers, your filters were strict (or market regime + liquidity gates removed most names).</p>
+    </section>
+
+    <section class="card">
+      <h2>Reversal Candidates (30-day reversal subset)</h2>
+      <div class="toolbar">
+        <div class="search">
+          <span class="badge">Search</span>
+          <input type="search" placeholder="Filter rows by any text…" data-table="reversalCandidates"/>
+        </div>
+        <div class="btns">
+          <button data-export="reversalCandidates">Export CSV (visible rows)</button>
+          <button data-reset="reversalCandidates">Reset</button>
+        </div>
+      </div>
+      <div class="tablewrap"><div class="empty">No rows.</div></div>
+    </section>
+
+    <section class="card">
+      <h2>Weekly Scanner — Candidate Pool</h2>
+      <div class="toolbar">
+        <div class="search">
+          <span class="badge">Search</span>
+          <input type="search" placeholder="Filter weekly candidates…" data-table="weeklyCandidates"/>
+        </div>
+        <div class="btns">
+          <button data-export="weeklyCandidates">Export CSV (visible rows)</button>
+          <button data-reset="weeklyCandidates">Reset</button>
+        </div>
+      </div>
+      <div class="tablewrap"><table class="dataframe dataframe table" id="weeklyCandidates">
+  <thead>
+    <tr style="text-align: right;">
+      <th>ticker</th>
+      <th>name</th>
+      <th>exchange</th>
+      <th>sector</th>
+      <th>technical_score</th>
+      <th>technical_evidence</th>
+      <th>current_price</th>
+      <th>market_cap_usd</th>
+      <th>avg_dollar_volume_20d</th>
+      <th>asof_price_utc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CMC</td>
+      <td>Commercial Metals Company</td>
+      <td>NYSE</td>
+      <td>Basic Materials</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 0.37, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.85, 'rsi14': 52.21, 'above_ma10_ma20_ma50': True, 'ma10': 70.35, 'ma20': 69.61, 'ma50': 63.95, 'realized_vol_5d_ann_pct': 32.27}</td>
+      <td>71.790001</td>
+      <td>7972131840</td>
+      <td>7.339817e+07</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>HII</td>
+      <td>Huntington Ingalls Industries, Inc.</td>
+      <td>NYSE</td>
+      <td>Industrials</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 2.9, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.73, 'rsi14': 66.56, 'above_ma10_ma20_ma50': True, 'ma10': 345.14, 'ma20': 332.84, 'ma50': 318.5, 'realized_vol_5d_ann_pct': 28.57}</td>
+      <td>349.750000</td>
+      <td>13724690432</td>
+      <td>1.607478e+08</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>BTSG</td>
+      <td>BrightSpring Health Services, Inc.</td>
+      <td>NASDAQ</td>
+      <td>Healthcare</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 0.54, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.81, 'rsi14': 68.66, 'above_ma10_ma20_ma50': True, 'ma10': 37.67, 'ma20': 36.66, 'ma50': 34.85, 'realized_vol_5d_ann_pct': 20.06}</td>
+      <td>38.400002</td>
+      <td>6925528576</td>
+      <td>6.715877e+07</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>RKLB</td>
+      <td>Rocket Lab Corporation</td>
+      <td>NCM</td>
+      <td>Industrials</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 4.81, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.93, 'rsi14': 62.98, 'above_ma10_ma20_ma50': True, 'ma10': 71.93, 'ma20': 63.51, 'ma50': 56.07, 'realized_vol_5d_ann_pct': 98.17}</td>
+      <td>75.989998</td>
+      <td>40590536704</td>
+      <td>1.832849e+09</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>JBL</td>
+      <td>Jabil Inc.</td>
+      <td>NYSE</td>
+      <td>Technology</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 0.11, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.55, 'rsi14': 54.59, 'above_ma10_ma20_ma50': True, 'ma10': 231.41, 'ma20': 227.15, 'ma50': 216.39, 'realized_vol_5d_ann_pct': 45.72}</td>
+      <td>240.389999</td>
+      <td>25682626560</td>
+      <td>3.041399e+08</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>FSLR</td>
+      <td>First Solar, Inc.</td>
+      <td>NASDAQ</td>
+      <td>Technology</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 4.07, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.61, 'rsi14': 50.76, 'above_ma10_ma20_ma50': True, 'ma10': 269.28, 'ma20': 263.76, 'ma50': 259.18, 'realized_vol_5d_ann_pct': 43.24}</td>
+      <td>274.339996</td>
+      <td>29438916608</td>
+      <td>4.897990e+08</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>PL</td>
+      <td>Planet Labs PBC</td>
+      <td>NYSE</td>
+      <td>Industrials</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 2.76, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.59, 'rsi14': 65.44, 'above_ma10_ma20_ma50': True, 'ma10': 19.74, 'ma20': 17.5, 'ma50': 14.38, 'realized_vol_5d_ann_pct': 51.35}</td>
+      <td>20.410000</td>
+      <td>6401896960</td>
+      <td>2.594367e+08</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>APH</td>
+      <td>Amphenol Corporation</td>
+      <td>NYSE</td>
+      <td>Technology</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 3.23, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.67, 'rsi14': 50.94, 'above_ma10_ma20_ma50': True, 'ma10': 136.05, 'ma20': 135.52, 'ma50': 136.61, 'realized_vol_5d_ann_pct': 27.76}</td>
+      <td>139.710007</td>
+      <td>171012816896</td>
+      <td>9.368489e+08</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>GS</td>
+      <td>The Goldman Sachs Group, Inc.</td>
+      <td>NYSE</td>
+      <td>Financial Services</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 0.52, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.95, 'rsi14': 51.12, 'above_ma10_ma20_ma50': True, 'ma10': 895.83, 'ma20': 886.16, 'ma50': 830.33, 'realized_vol_5d_ann_pct': 35.59}</td>
+      <td>914.340027</td>
+      <td>276790018048</td>
+      <td>1.831604e+09</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>GVA</td>
+      <td>Granite Construction Incorporated</td>
+      <td>NYSE</td>
+      <td>Industrials</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 1.1, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.75, 'rsi14': 59.86, 'above_ma10_ma20_ma50': True, 'ma10': 117.19, 'ma20': 114.64, 'ma50': 107.9, 'realized_vol_5d_ann_pct': 28.35}</td>
+      <td>118.669998</td>
+      <td>5196103168</td>
+      <td>7.842416e+07</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>HAL</td>
+      <td>Halliburton Company</td>
+      <td>NYSE</td>
+      <td>Energy</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 2.63, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.63, 'rsi14': 54.12, 'above_ma10_ma20_ma50': True, 'ma10': 28.2, 'ma20': 28.25, 'ma50': 27.37, 'realized_vol_5d_ann_pct': 34.51}</td>
+      <td>29.600000</td>
+      <td>25237022720</td>
+      <td>2.693499e+08</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>NUE</td>
+      <td>Nucor Corporation</td>
+      <td>NYSE</td>
+      <td>Basic Materials</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 0.15, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.88, 'rsi14': 54.98, 'above_ma10_ma20_ma50': True, 'ma10': 163.96, 'ma20': 163.0, 'ma50': 154.8, 'realized_vol_5d_ann_pct': 31.22}</td>
+      <td>169.399994</td>
+      <td>38768656384</td>
+      <td>2.493557e+08</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>HUBB</td>
+      <td>Hubbell Incorporated</td>
+      <td>NYSE</td>
+      <td>Industrials</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 4.38, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.73, 'rsi14': 50.12, 'above_ma10_ma20_ma50': True, 'ma10': 450.07, 'ma20': 446.55, 'ma50': 443.25, 'realized_vol_5d_ann_pct': 35.31}</td>
+      <td>463.029999</td>
+      <td>24607614976</td>
+      <td>2.045216e+08</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>ALHC</td>
+      <td>Alignment Healthcare, Inc.</td>
+      <td>NASDAQ</td>
+      <td>Healthcare</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 3.99, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.9, 'rsi14': 58.75, 'above_ma10_ma20_ma50': True, 'ma10': 19.66, 'ma20': 19.63, 'ma50': 18.26, 'realized_vol_5d_ann_pct': 29.2}</td>
+      <td>20.219999</td>
+      <td>4045854976</td>
+      <td>5.416713e+07</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>MU</td>
+      <td>Micron Technology, Inc.</td>
+      <td>NASDAQ</td>
+      <td>Technology</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 0.06, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.98, 'rsi14': 69.62, 'above_ma10_ma20_ma50': True, 'ma10': 282.66, 'ma20': 262.43, 'ma50': 242.27, 'realized_vol_5d_ann_pct': 82.52}</td>
+      <td>315.420013</td>
+      <td>355008151552</td>
+      <td>7.413506e+09</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>MS</td>
+      <td>Morgan Stanley</td>
+      <td>NYSE</td>
+      <td>Financial Services</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 0.24, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.65, 'rsi14': 53.16, 'above_ma10_ma20_ma50': True, 'ma10': 179.12, 'ma20': 178.29, 'ma50': 169.93, 'realized_vol_5d_ann_pct': 22.69}</td>
+      <td>181.899994</td>
+      <td>290373468160</td>
+      <td>9.093995e+08</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>CIEN</td>
+      <td>Ciena Corporation</td>
+      <td>NYSE</td>
+      <td>Technology</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 0.98, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.51, 'rsi14': 51.92, 'above_ma10_ma20_ma50': True, 'ma10': 235.73, 'ma20': 224.73, 'ma50': 204.79, 'realized_vol_5d_ann_pct': 44.24}</td>
+      <td>246.059998</td>
+      <td>34708213760</td>
+      <td>6.360057e+08</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>MDGL</td>
+      <td>Madrigal Pharmaceuticals, Inc.</td>
+      <td>NASDAQ</td>
+      <td>Healthcare</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 3.44, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.7, 'rsi14': 59.49, 'above_ma10_ma20_ma50': True, 'ma10': 589.16, 'ma20': 576.71, 'ma50': 534.36, 'realized_vol_5d_ann_pct': 21.6}</td>
+      <td>593.869995</td>
+      <td>13487631360</td>
+      <td>1.594628e+08</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>HWM</td>
+      <td>Howmet Aerospace Inc.</td>
+      <td>NYSE</td>
+      <td>Industrials</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 0.38, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.63, 'rsi14': 67.83, 'above_ma10_ma20_ma50': True, 'ma10': 207.67, 'ma20': 200.96, 'ma50': 201.66, 'realized_vol_5d_ann_pct': 29.66}</td>
+      <td>211.710007</td>
+      <td>85213274112</td>
+      <td>4.132043e+08</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>LRCX</td>
+      <td>Lam Research Corporation</td>
+      <td>NASDAQ</td>
+      <td>Technology</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 0.39, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.74, 'rsi14': 62.51, 'above_ma10_ma20_ma50': True, 'ma10': 174.87, 'ma20': 168.65, 'ma50': 160.11, 'realized_vol_5d_ann_pct': 64.9}</td>
+      <td>185.059998</td>
+      <td>233366634496</td>
+      <td>1.715020e+09</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>LMT</td>
+      <td>Lockheed Martin Corporation</td>
+      <td>NYSE</td>
+      <td>Industrials</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 3.67, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.73, 'rsi14': 66.17, 'above_ma10_ma20_ma50': True, 'ma10': 483.68, 'ma20': 476.45, 'ma50': 471.56, 'realized_vol_5d_ann_pct': 24.02}</td>
+      <td>497.070007</td>
+      <td>116048478208</td>
+      <td>6.028344e+08</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>LITE</td>
+      <td>Lumentum Holdings Inc.</td>
+      <td>NASDAQ</td>
+      <td>Technology</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 3.86, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.57, 'rsi14': 53.4, 'above_ma10_ma20_ma50': True, 'ma10': 377.1, 'ma20': 358.34, 'ma50': 288.03, 'realized_vol_5d_ann_pct': 53.53}</td>
+      <td>386.109985</td>
+      <td>27380060160</td>
+      <td>1.235178e+09</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>LHX</td>
+      <td>L3Harris Technologies, Inc.</td>
+      <td>NYSE</td>
+      <td>Industrials</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 1.18, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.66, 'rsi14': 64.86, 'above_ma10_ma20_ma50': True, 'ma10': 294.75, 'ma20': 288.92, 'ma50': 287.49, 'realized_vol_5d_ann_pct': 29.26}</td>
+      <td>304.480011</td>
+      <td>56966627328</td>
+      <td>2.723434e+08</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>KLAC</td>
+      <td>KLA Corporation</td>
+      <td>NASDAQ</td>
+      <td>Technology</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 0.96, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.76, 'rsi14': 53.84, 'above_ma10_ma20_ma50': True, 'ma10': 1255.27, 'ma20': 1236.25, 'ma50': 1200.08, 'realized_vol_5d_ann_pct': 45.75}</td>
+      <td>1274.469971</td>
+      <td>167827980288</td>
+      <td>9.920437e+08</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>SATS</td>
+      <td>EchoStar Corporation</td>
+      <td>NASDAQ</td>
+      <td>Communication Services</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 0.45, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.45, 'rsi14': 63.58, 'above_ma10_ma20_ma50': True, 'ma10': 107.33, 'ma20': 101.79, 'ma50': 83.84, 'realized_vol_5d_ann_pct': 31.21}</td>
+      <td>112.180000</td>
+      <td>32293965824</td>
+      <td>6.220623e+08</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>BBIO</td>
+      <td>BridgeBio Pharma, Inc.</td>
+      <td>NASDAQ</td>
+      <td>Healthcare</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 0.39, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.95, 'rsi14': 66.99, 'above_ma10_ma20_ma50': True, 'ma10': 76.21, 'ma20': 75.13, 'ma50': 69.11, 'realized_vol_5d_ann_pct': 20.99}</td>
+      <td>78.235001</td>
+      <td>15076574208</td>
+      <td>1.320748e+08</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>FCX</td>
+      <td>Freeport-McMoRan Inc.</td>
+      <td>NYSE</td>
+      <td>Basic Materials</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 3.42, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.69, 'rsi14': 69.53, 'above_ma10_ma20_ma50': True, 'ma10': 51.02, 'ma20': 48.73, 'ma50': 44.14, 'realized_vol_5d_ann_pct': 35.33}</td>
+      <td>51.930000</td>
+      <td>74567876608</td>
+      <td>7.069618e+08</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>WDC</td>
+      <td>Western Digital Corporation</td>
+      <td>NASDAQ</td>
+      <td>Technology</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 0.57, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.74, 'rsi14': 50.33, 'above_ma10_ma20_ma50': True, 'ma10': 178.79, 'ma20': 175.77, 'ma50': 161.0, 'realized_vol_5d_ann_pct': 73.8}</td>
+      <td>187.699997</td>
+      <td>64342716416</td>
+      <td>1.310462e+09</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>DG</td>
+      <td>Dollar General Corporation</td>
+      <td>NYSE</td>
+      <td>Consumer Defensive</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 2.15, 'resistance_level': None, 'volume_ratio_3d_to_20d': 0.53, 'rsi14': 59.43, 'above_ma10_ma20_ma50': True, 'ma10': 136.2, 'ma20': 133.28, 'ma50': 115.01, 'realized_vol_5d_ann_pct': 34.42}</td>
+      <td>136.820007</td>
+      <td>30116665344</td>
+      <td>6.090961e+08</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>DBRG</td>
+      <td>DigitalBridge Group, Inc.</td>
+      <td>NYSE</td>
+      <td>Financial Services</td>
+      <td>8.0</td>
+      <td>{'within_5pct_52w_high': True, 'dist_to_52w_high_pct': 1.09, 'resistance_level': None, 'volume_ratio_3d_to_20d': 1.12, 'rsi14': 51.5, 'above_ma10_ma20_ma50': True, 'ma10': 14.15, 'ma20': 14.02, 'ma50': 12.03, 'realized_vol_5d_ann_pct': 64.45}</td>
+      <td>15.380000</td>
+      <td>2998565376</td>
+      <td>1.868299e+08</td>
+      <td>2026-01-02T00:00:00Z</td>
+    </tr>
+  </tbody>
+</table></div>
+    </section>
+
+    <section class="card">
+      <h2>Deep Dive — LLM Packets (verbatim)</h2>
+      <p class="note">
+        Below is the full packet text so you can review penalties, gaps, and the trade-plan template.
+      </p>
+      <details open>
+        <summary>Show/Hide packets</summary>
+        <pre>(No llm_packets text file found for this run.)</pre>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>What to do next (practical checklist)</h2>
+      <ol class="note">
+        <li><b>Validate catalysts:</b> confirm earnings date and scan 14–30d headlines from a second source for your final decision.</li>
+        <li><b>Entry discipline:</b> only trade when your setup trigger actually happens (e.g., reclaim MA20/MA50 + volume/RSI confirmation).</li>
+        <li><b>Risk control:</b> size positions off ATR and risk 1–2% per trade (your packets already include a template).</li>
+      </ol>
+    </section>
+
+    <footer>
+      <div class="note">
+        Disclaimer: This report is a screening + organization artifact. Not financial advice. Always validate with real-time data, earnings calendar, SEC filings, and liquidity/borrow constraints.
+      </div>
+    </footer>
+  </div>
+</div>
+
+<script>
+/* Tiny table filter + export (no external dependencies) */
+function getTable(id) { return document.getElementById(id); }
+
+function filterTable(tableId, query) {
+  const table = getTable(tableId);
+  if (!table) return;
+  const q = query.trim().toLowerCase();
+  const rows = Array.from(table.tBodies[0].rows);
+  rows.forEach(r => {
+    const txt = r.innerText.toLowerCase();
+    r.style.display = (q === "" || txt.includes(q)) ? "" : "none";
+  });
+}
+
+function resetTable(tableId) {
+  const table = getTable(tableId);
+  if (!table) return;
+  Array.from(table.tBodies[0].rows).forEach(r => r.style.display = "");
+  document.querySelectorAll('input[data-table="'+tableId+'"]').forEach(inp => inp.value = "");
+}
+
+function exportVisibleRowsToCSV(tableId) {
+  const table = getTable(tableId);
+  if (!table) return;
+  const rows = Array.from(table.querySelectorAll("tr"))
+    .filter(r => r.style.display !== "none");
+  const csv = rows.map(r => Array.from(r.children).map(c => {
+      const t = (c.innerText ?? "").replaceAll('"','""');
+      return '"' + t + '"';
+    }).join(",")).join("\n");
+  const blob = new Blob([csv], {type: "text/csv;charset=utf-8;"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = tableId + "_visible.csv";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+document.querySelectorAll('input[type="search"][data-table]').forEach(inp => {
+  inp.addEventListener("input", () => {
+    filterTable(inp.getAttribute("data-table"), inp.value);
+  });
+});
+
+document.querySelectorAll('button[data-export]').forEach(btn => {
+  btn.addEventListener("click", () => exportVisibleRowsToCSV(btn.getAttribute("data-export")));
+});
+
+document.querySelectorAll('button[data-reset]').forEach(btn => {
+  btn.addEventListener("click", () => resetTable(btn.getAttribute("data-reset")));
+});
+</script>
+</body>
+</html>
