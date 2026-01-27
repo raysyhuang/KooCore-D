@@ -316,11 +316,22 @@ class AlertManager:
         priority: str
     ) -> bool:
         """Send alert to Telegram."""
-        token = self.config.telegram_bot_token
-        chat_id = self.config.telegram_chat_id
-        
-        if not token or not chat_id:
-            logger.warning("Telegram not configured (missing TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID)")
+        token = self.config.telegram_bot_token or os.environ.get("TELEGRAM_BOT_TOKEN")
+        chat_id = self.config.telegram_chat_id or os.environ.get("TELEGRAM_CHAT_ID")
+
+        logger.debug(
+            "Telegram config: token_present=%s chat_id=%s",
+            bool(token),
+            chat_id if chat_id else None,
+        )
+
+        missing = []
+        if not token:
+            missing.append("TELEGRAM_BOT_TOKEN")
+        if not chat_id:
+            missing.append("TELEGRAM_CHAT_ID")
+        if missing:
+            logger.warning(f"Telegram not configured (missing {', '.join(missing)})")
             return False
         
         emoji = {"low": "📊", "normal": "📈", "high": "🚨"}.get(priority, "📈")
