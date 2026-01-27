@@ -319,12 +319,6 @@ class AlertManager:
         token = self.config.telegram_bot_token or os.environ.get("TELEGRAM_BOT_TOKEN")
         chat_id = self.config.telegram_chat_id or os.environ.get("TELEGRAM_CHAT_ID")
 
-        logger.debug(
-            "Telegram config: token_present=%s chat_id=%s",
-            bool(token),
-            chat_id if chat_id else None,
-        )
-
         missing = []
         if not token:
             missing.append("TELEGRAM_BOT_TOKEN")
@@ -363,6 +357,11 @@ class AlertManager:
         }
         
         try:
+            logger.info(
+                "Telegram config: token_present=%s chat_id=%s",
+                bool(token),
+                chat_id if chat_id else None,
+            )
             response = requests.post(url, json=payload, timeout=10)
             
             if response.status_code == 200:
