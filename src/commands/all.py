@@ -1,4 +1,8 @@
-"""Complete scan command handler (all systems + hybrid analysis)."""
+"""
+Complete scan command handler (all systems + hybrid analysis).
+
+Invariant R1: Retries re-run computation but MUST NOT emit side effects.
+"""
 
 from __future__ import annotations
 import json

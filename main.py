@@ -5,6 +5,8 @@ Momentum Trading System - Unified Entry Point
 Simple, consolidated system with progress indicators.
 All functionality in one place for easy copying to AI chatbots.
 
+Invariant R1: Retries re-run computation but MUST NOT emit side effects.
+
 Usage:
     python main.py weekly      # Weekly scanner
     python main.py pro30       # 30-day screener
