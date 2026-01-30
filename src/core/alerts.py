@@ -317,7 +317,14 @@ class AlertManager:
         data: Optional[dict],
         priority: str
     ) -> bool:
-        """Send alert to Telegram."""
+        """
+        Send alert to Telegram.
+        
+        Note: Retries are compute-only - no side effects emitted on retry attempts.
+        """
+        from pathlib import Path
+        from src.core.retry_guard import is_retry_attempt, log_retry_suppression
+        
         token = self.config.telegram_bot_token or os.environ.get("TELEGRAM_BOT_TOKEN")
         chat_id = self.config.telegram_chat_id or os.environ.get("TELEGRAM_CHAT_ID")
 
@@ -330,25 +337,66 @@ class AlertManager:
             logger.warning(f"Telegram not configured (missing {', '.join(missing)})")
             return False
         
+        # Get GitHub workflow metadata (will be empty locally, populated in CI)
+        workflow = os.environ.get("GITHUB_WORKFLOW", "local")
+        run_id = os.environ.get("GITHUB_RUN_ID", "N/A")
+        run_attempt = os.environ.get("GITHUB_RUN_ATTEMPT", "1")
+        sha = os.environ.get("GITHUB_SHA", "N/A")
+        if sha != "N/A" and len(sha) > 7:
+            sha = sha[:7]
+        
+        # Retries re-run computation but MUST NOT emit side effects
+        if is_retry_attempt():
+            log_retry_suppression("Telegram alert", run_id=run_id, title=title)
+            return True  # Silent success - don't break workflow
+        
+        # Extract asof date from data or title if available
+        asof_date = data.get("asof") if data and "asof" in data else None
+        if not asof_date and data and "Date" in data:
+            asof_date = data["Date"]
+        
+        # Check for duplicate send marker file
+        if asof_date and run_id != "N/A":
+            outputs_dir = Path("outputs") / asof_date
+            marker_file = outputs_dir / f".telegram_sent_{run_id}_{run_attempt}.txt"
+            
+            if marker_file.exists():
+                logger.info(f"Telegram alert already sent for run_id={run_id}, attempt={run_attempt}. Skipping.")
+                return True  # Return True since it was already sent successfully
+        
         emoji = {"low": "📊", "normal": "📈", "high": "🚨"}.get(priority, "📈")
         
-        # Escape Markdown special characters to prevent parse errors
-        def escape_md(s: str) -> str:
-            """Escape Markdown special characters for Telegram."""
-            if not s:
-                return ""
-            # Characters that need escaping in Telegram Markdown
-            for char in ['_', '*', '[', ']', '(', ')', '~', '`', '>', '#', '+', '-', '=', '|', '{', '}', '.', '!']:
-                s = str(s).replace(char, f'\\{char}')
-            return s
+        # Build message header with GitHub metadata
+        run_started_utc = datetime.utcnow().isoformat()
         
-        # Build message - use plain text to avoid Markdown issues
-        text = f"{emoji} {title}\n\n{message}"
+        header_parts = [
+            f"{emoji} {title}",
+            "",
+            "━━━━━━━━━━━━━━━━━━━━━━━",
+            f"🔍 Run Metadata:",
+            f"  workflow: {workflow}",
+            f"  run_id: {run_id}",
+            f"  attempt: {run_attempt}",
+            f"  sha: {sha}",
+            f"  run_started_utc: {run_started_utc}",
+        ]
+        
+        if asof_date:
+            header_parts.append(f"  asof: {asof_date}")
+            report_path = f"outputs/{asof_date}/report_{asof_date}.html"
+            header_parts.append(f"  report_path: {report_path}")
+        
+        header_parts.append("━━━━━━━━━━━━━━━━━━━━━━━")
+        header_parts.append("")
+        
+        # Build full message
+        text = "\n".join(header_parts) + message
         
         if data:
             text += "\n\nDetails:"
             for k, v in data.items():
-                text += f"\n• {k}: {v}"
+                if k not in ["asof", "Date"]:  # Skip these as they're in header
+                    text += f"\n• {k}: {v}"
         
         url = f"https://api.telegram.org/bot{token}/sendMessage"
         
@@ -360,14 +408,35 @@ class AlertManager:
         
         try:
             logger.info(
-                "Telegram config: token_present=%s chat_id=%s",
+                "Telegram config: token_present=%s chat_id=%s run_id=%s attempt=%s",
                 bool(token),
                 chat_id if chat_id else None,
+                run_id,
+                run_attempt,
             )
             response = requests.post(url, json=payload, timeout=10)
             
             if response.status_code == 200:
-                logger.info(f"Telegram alert sent successfully: {title}")
+                logger.info(f"Telegram alert sent successfully: {title} (run_id={run_id}, attempt={run_attempt})")
+                
+                # Write marker file to prevent duplicate sends
+                if asof_date and run_id != "N/A":
+                    outputs_dir = Path("outputs") / asof_date
+                    outputs_dir.mkdir(parents=True, exist_ok=True)
+                    marker_file = outputs_dir / f".telegram_sent_{run_id}_{run_attempt}.txt"
+                    
+                    try:
+                        with open(marker_file, "w") as f:
+                            f.write(f"Sent at: {run_started_utc}\n")
+                            f.write(f"Workflow: {workflow}\n")
+                            f.write(f"Run ID: {run_id}\n")
+                            f.write(f"Attempt: {run_attempt}\n")
+                            f.write(f"SHA: {sha}\n")
+                            f.write(f"Title: {title}\n")
+                        logger.info(f"Created marker file: {marker_file}")
+                    except Exception as e:
+                        logger.warning(f"Failed to create marker file: {e}")
+                
                 return True
             else:
                 # Log the actual error from Telegram
@@ -526,6 +595,7 @@ def send_overlap_alert(
         title=title,
         message=message,
         data={
+            "asof": date_str,
             "Date": date_str,
             "Overlap Type": overlap_type,
             "Ticker Count": len(tickers),
@@ -552,6 +622,7 @@ def send_high_score_alert(
         title=f"High Score Alert: {ticker}",
         message=f"🏆 {ticker} ranked #{rank} with composite score {score:.2f}",
         data={
+            "asof": date_str,
             "Date": date_str,
             "Ticker": ticker,
             "Rank": rank,
@@ -708,9 +779,14 @@ def send_run_summary_alert(
     
     message = "\n".join(lines)
     
+    # Pass asof date for marker file creation
+    metadata = {
+        "asof": date_str,
+    }
+    
     return manager.send_alert(
         title=f"Scan Complete: {date_str} ({primary_label})",
         message=message,
-        data=None,  # All info is in the message
+        data=metadata,  # Include asof for marker file tracking
         priority=priority
     )

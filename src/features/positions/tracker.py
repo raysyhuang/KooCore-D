@@ -531,9 +531,20 @@ class PositionTracker:
         return False
     
     def _record_outcome(self, pos: Position):
-        """Record outcome for a closed position to the outcome database."""
+        """
+        Record outcome for a closed position to the outcome database.
+        
+        Note: Retries are compute-only - outcomes are never recorded twice.
+        """
         try:
             from src.core.outcome_db import get_outcome_db, OutcomeRecord
+            from src.core.retry_guard import is_retry_attempt, log_retry_suppression
+            
+            # Retries re-run computation but MUST NOT emit side effects
+            # Guard against double-counting outcomes on retry attempts
+            if is_retry_attempt():
+                log_retry_suppression("outcome persistence", ticker=pos.ticker)
+                return
             
             # Validate entry_price before recording
             if pos.entry_price is None or pos.entry_price <= 0:

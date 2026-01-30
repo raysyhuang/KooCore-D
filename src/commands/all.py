@@ -796,6 +796,14 @@ def cmd_all(args) -> int:
         phase5_cfg = cfg.phase5
         phase5_enabled = phase5_cfg.get("enabled", False) if isinstance(phase5_cfg, dict) else bool(getattr(phase5_cfg, "enabled", False))
         if phase5_enabled:
+            # Retries re-run computation but MUST NOT emit side effects
+            # Guard against double-counting outcomes on retry attempts
+            from src.core.retry_guard import is_retry_attempt, log_retry_suppression
+            if is_retry_attempt():
+                log_retry_suppression("Phase 5 outcome persistence")
+                phase5_enabled = False  # Skip persistence, continue with rest of flow
+        
+        if phase5_enabled:
             try:
                 from src.core.outcome_db import get_outcome_db
                 db = get_outcome_db()
