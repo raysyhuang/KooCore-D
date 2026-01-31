@@ -12,7 +12,10 @@ from .all import cmd_all
 from .performance import cmd_performance
 from .replay import cmd_replay
 from .validate import run_validation
-from .learn import cmd_learn, cmd_learn_status, cmd_learn_export
+from .learn import (
+    cmd_learn, cmd_learn_status, cmd_learn_export,
+    cmd_learn_resolve, cmd_learn_merge, cmd_learn_analyze, cmd_learn_stats,
+)
 
 __all__ = [
     "cmd_weekly", 
@@ -26,5 +29,9 @@ __all__ = [
     "cmd_learn",
     "cmd_learn_status",
     "cmd_learn_export",
+    "cmd_learn_resolve",
+    "cmd_learn_merge",
+    "cmd_learn_analyze",
+    "cmd_learn_stats",
 ]
 

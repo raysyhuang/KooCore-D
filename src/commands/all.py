@@ -338,13 +338,67 @@ def cmd_all(args) -> int:
     logger.info("HYBRID ANALYSIS - Cross-Referenced Results")
     logger.info("=" * 60)
     
-    # Load 30-day candidates
+    # ═══════════════════════════════════════════════════════════════════════════════
+    # LOAD PRO30 WITH DETERMINISTIC RANKING
+    # Previously: converted to set(), losing all ranking info → caused tie-break collapse
+    # Now: preserve full DataFrame with deterministic multi-key sort
+    # ═══════════════════════════════════════════════════════════════════════════════
     pro30_tickers = set()
+    pro30_lookup = {}  # ticker -> {pro30_rank, Score, RSI14, ...}
+    
     if results.get("pro30") and results["pro30"].get("candidates_csv"):
         try:
             pro30_df = pd.read_csv(results["pro30"]["candidates_csv"])
             if not pro30_df.empty and "Ticker" in pro30_df.columns:
-                pro30_tickers = set(pro30_df["Ticker"].tolist())
+                # Validate required columns for deterministic ranking
+                REQUIRED_PRO30_COLS = {"Ticker", "Score", "$ADV20", "RSI14"}
+                missing = REQUIRED_PRO30_COLS - set(pro30_df.columns)
+                if missing:
+                    logger.warning(f"Pro30 CSV missing columns for ranking: {missing}")
+                    # Fall back to simple set if columns missing
+                    pro30_tickers = set(pro30_df["Ticker"].tolist())
+                else:
+                    # Derive TrendScore from MA alignment (Above_MA20 + Above_MA50)
+                    # Higher = better trend confirmation
+                    if "Above_MA20" in pro30_df.columns and "Above_MA50" in pro30_df.columns:
+                        pro30_df["_TrendScore"] = (
+                            pro30_df["Above_MA20"].astype(int) + 
+                            pro30_df["Above_MA50"].astype(int)
+                        )
+                    else:
+                        pro30_df["_TrendScore"] = 0
+                    
+                    # DETERMINISTIC MULTI-KEY SORT (eliminates alphabetical bias)
+                    # Priority: Score > RSI14 > TrendScore > $ADV20 > Ticker
+                    pro30_ranked = (
+                        pro30_df
+                        .sort_values(
+                            by=["Score", "RSI14", "_TrendScore", "$ADV20", "Ticker"],
+                            ascending=[False, False, False, False, True],
+                        )
+                        .reset_index(drop=True)
+                    )
+                    pro30_ranked["pro30_rank"] = pro30_ranked.index + 1
+                    
+                    # Sanity check: Score must be monotonically decreasing after sort
+                    # If this fails, upstream Pro30 generation is broken
+                    if not pro30_ranked["Score"].is_monotonic_decreasing:
+                        logger.warning("Pro30 Score not monotonic after sort - possible tie or data issue")
+                    
+                    # Build lookup dictionary for O(1) access
+                    pro30_lookup = (
+                        pro30_ranked
+                        .set_index("Ticker")
+                        .to_dict(orient="index")
+                    )
+                    pro30_tickers = set(pro30_lookup.keys())
+                    
+                    logger.info(f"  Pro30 loaded with deterministic ranking: {len(pro30_tickers)} candidates")
+                    # Log top 5 ranked for transparency
+                    top5_ranked = pro30_ranked.head(5)
+                    for _, row in top5_ranked.iterrows():
+                        logger.debug(f"    r{int(row['pro30_rank'])}: {row['Ticker']} "
+                                   f"(Score={row['Score']:.1f}, RSI={row['RSI14']:.1f})")
         except (FileNotFoundError, pd.errors.EmptyDataError, KeyError) as e:
             logger.debug(f"Pro30 CSV read skipped: {e}")
     
@@ -429,10 +483,21 @@ def cmd_all(args) -> int:
             hybrid_score += primary_score
             sources.append(f"{primary_label}({rank if primary_item else '?'})")
         
-        # Pro30 contribution (weight: 2.0 based on higher hit rate)
-        if ticker in pro30_tickers:
+        # Pro30 contribution (weight: 2.0 base + rank bonus for deterministic ordering)
+        # Rank bonus: top-ranked Pro30 picks get up to +1.0 extra (decays by 0.05 per rank)
+        # This eliminates alphabetical bias from tie-breaking
+        if ticker in pro30_lookup:
+            pro30_info = pro30_lookup[ticker]
+            rank = pro30_info["pro30_rank"]
+            base_weight = 2.0
+            # Rank bonus: r1 gets +1.0, r2 gets +0.95, ... r21+ gets +0.0
+            rank_bonus = max(0.0, 1.0 - 0.05 * (rank - 1))
+            hybrid_score += base_weight + rank_bonus
+            sources.append(f"Pro30(r{rank})")
+        elif ticker in pro30_tickers:
+            # Fallback if lookup failed but ticker is in set (shouldn't happen)
             hybrid_score += 2.0
-            sources.append("Pro30")
+            sources.append("Pro30(?)")
         
         # Movers contribution (weight: 0.5 - currently 0% hit rate in backtest)
         if ticker in movers_tickers:
@@ -454,8 +519,9 @@ def cmd_all(args) -> int:
             "in_primary_pro30": ticker in overlap_primary_pro30,
         })
     
-    # Sort by hybrid score
-    weighted_picks.sort(key=lambda x: x["hybrid_score"], reverse=True)
+    # Sort by hybrid score with deterministic tie-break (ticker alphabetical)
+    # This ensures reproducible ordering even when scores are exactly equal
+    weighted_picks.sort(key=lambda x: (-x["hybrid_score"], x["ticker"]))
     
     # Log top weighted picks
     if weighted_picks:
@@ -509,6 +575,22 @@ def cmd_all(args) -> int:
     
     # Store hybrid top 3 in results for downstream use
     results["hybrid_top3"] = hybrid_top3
+    
+    # ═══════════════════════════════════════════════════════════════════════════════
+    # SANITY CHECKS: Ensure deterministic, non-duplicate results
+    # ═══════════════════════════════════════════════════════════════════════════════
+    if hybrid_top3:
+        top3_tickers = [p["ticker"] for p in hybrid_top3]
+        if len(set(top3_tickers)) != len(top3_tickers):
+            logger.error(f"CRITICAL: Duplicate tickers in hybrid_top3: {top3_tickers}")
+            raise RuntimeError(f"Duplicate tickers in hybrid_top3: {top3_tickers}")
+        
+        # Log provenance for debugging/reproducibility
+        provenance = ", ".join(
+            f"{p['ticker']}[{','.join(p.get('sources', ['?']))}]" 
+            for p in hybrid_top3
+        )
+        logger.info(f"\n📋 Hybrid Top3 provenance: {provenance}")
     
     logger.info("\n🎯 HYBRID TOP 3 (Best Across All Models):")
     for item in hybrid_top3:
@@ -604,6 +686,115 @@ def cmd_all(args) -> int:
         logger.debug(f"Conviction ranker not available: {e}")
     except Exception as e:
         logger.warning(f"  ⚠ Conviction ranking failed: {e}")
+    
+    # ═══════════════════════════════════════════════════════════════════════════════
+    # PHASE-5 LEARNING: Write scan-time features (append-only, idempotent)
+    # R1-safe: only writes if not a retry attempt
+    # ═══════════════════════════════════════════════════════════════════════════════
+    try:
+        from src.learning import build_phase5_row, get_phase5_store
+        from src.core.retry_guard import is_retry_attempt
+        
+        # Only write on first attempt (R1 invariant)
+        if not is_retry_attempt():
+            store = get_phase5_store()
+            phase5_rows = []
+            
+            # Get current weights snapshot for frozen context
+            hw = config.get("hybrid_weighting", {})
+            weights_snapshot = {
+                "swing_weight": float(hw.get("swing_weight", 1.2)),
+                "weekly_weight": float(hw.get("weekly_weight", 1.0)),
+                "pro30_weight": 2.0,  # Base Pro30 weight
+                "movers_weight": 0.5,
+                "all_three_overlap_bonus": float(hw.get("all_three_overlap_bonus", 3.0)),
+                "primary_pro30_overlap_bonus": float(hw.get("weekly_pro30_overlap_bonus", 1.5)),
+            }
+            
+            # Build set of conviction pick tickers
+            conviction_tickers = set(p.get("ticker") for p in conviction_picks if p.get("ticker"))
+            hybrid_top3_tickers = set(p.get("ticker") for p in hybrid_top3 if p.get("ticker"))
+            
+            # Determine which candidates to track (Top 20 weighted picks for learning)
+            candidates_to_track = weighted_picks[:20]
+            
+            for idx, candidate in enumerate(candidates_to_track):
+                ticker = candidate.get("ticker")
+                if not ticker:
+                    continue
+                
+                # Get Pro30 info if available
+                pro30_info = pro30_lookup.get(ticker, {})
+                
+                # Get primary (Swing/Weekly) rank
+                primary_rank = None
+                for item in results.get("llm_primary_top5", []):
+                    if item.get("ticker") == ticker:
+                        primary_rank = item.get("rank")
+                        break
+                
+                # Get technical data from Pro30 if available
+                rsi = pro30_info.get("RSI14")
+                atr_pct = pro30_info.get("ATR%")
+                adv20 = pro30_info.get("$ADV20")
+                dist_52w = pro30_info.get("Dist_to_52W_High%")
+                above_ma20 = pro30_info.get("Above_MA20", False)
+                above_ma50 = pro30_info.get("Above_MA50", False)
+                ret_20d = pro30_info.get("Ret20d%")
+                
+                # Build Phase5Row
+                row = build_phase5_row(
+                    scan_date=output_date_str,
+                    ticker=ticker,
+                    primary_strategy=primary_label,
+                    regime=primary_regime or "bull",  # Default to bull if unknown
+                    # Signal flags
+                    in_swing_top5=(primary_label == "Swing" and ticker in primary_top5_tickers),
+                    swing_rank=primary_rank if primary_label == "Swing" else None,
+                    in_weekly_top5=(primary_label == "Weekly" and ticker in primary_top5_tickers),
+                    weekly_rank=primary_rank if primary_label == "Weekly" else None,
+                    in_pro30=(ticker in pro30_lookup),
+                    pro30_rank=pro30_info.get("pro30_rank"),
+                    pro30_score=pro30_info.get("Score"),
+                    in_movers=(ticker in movers_tickers),
+                    in_confluence=(ticker in overlap_all_three or ticker in overlap_primary_pro30),
+                    confluence_score=len([s for s in candidate.get("sources", []) if s]),
+                    overlap_primary_pro30=(ticker in overlap_primary_pro30),
+                    overlap_all_three=(ticker in overlap_all_three),
+                    # Hybrid context
+                    hybrid_score=candidate.get("hybrid_score", 0.0),
+                    hybrid_rank=idx + 1,
+                    hybrid_sources=candidate.get("sources", []),
+                    weights_snapshot=weights_snapshot,
+                    in_hybrid_top3=(ticker in hybrid_top3_tickers),
+                    in_conviction_picks=(ticker in conviction_tickers),
+                    # Technical buckets
+                    rsi=rsi,
+                    atr_pct=atr_pct,
+                    adv20=adv20,
+                    distance_52w_pct=dist_52w,
+                    above_ma20=bool(above_ma20),
+                    above_ma50=bool(above_ma50),
+                    ret_20d=ret_20d,
+                    # Metadata
+                    run_id=f"{output_date_str}_{primary_label}",
+                )
+                phase5_rows.append(row)
+            
+            # Write rows (idempotent - skips existing keys)
+            if phase5_rows:
+                result = store.write_rows(phase5_rows, output_date_str)
+                if result["written"] > 0:
+                    logger.info(f"  ✓ Phase-5 learning: {result['written']} rows written")
+                if result["skipped"] > 0:
+                    logger.debug(f"  ℹ Phase-5: {result['skipped']} rows skipped (already exist)")
+        else:
+            logger.debug("  ℹ Phase-5 write skipped (retry attempt)")
+    
+    except ImportError as e:
+        logger.debug(f"Phase-5 learning not available: {e}")
+    except Exception as e:
+        logger.warning(f"  ⚠ Phase-5 learning write failed: {e}")
     
     # Open browser if requested
     if hasattr(args, 'open') and args.open and html_path:

@@ -336,3 +336,198 @@ def cmd_learn_memory(args) -> int:
     logger.info("\n✓ Memory system ready for debate analysis")
     
     return 0
+
+
+# =============================================================================
+# PHASE-5 LEARNING COMMANDS
+# =============================================================================
+
+def cmd_learn_resolve(args) -> int:
+    """
+    Resolve outcomes for Phase-5 learning rows.
+    
+    Usage:
+        python main.py learn resolve [--start YYYY-MM-DD] [--end YYYY-MM-DD] [--dry-run]
+    """
+    logger.info("=" * 60)
+    logger.info("PHASE-5 OUTCOME RESOLUTION")
+    logger.info("=" * 60)
+    
+    try:
+        from src.learning.phase5_resolver import get_phase5_resolver
+        from src.learning.phase5_store import get_phase5_store
+    except ImportError as e:
+        logger.error(f"Could not import Phase-5 modules: {e}")
+        return 1
+    
+    # Get parameters
+    start_date = getattr(args, "start", None)
+    end_date = getattr(args, "end", None)
+    dry_run = getattr(args, "dry_run", False)
+    
+    # Show current stats
+    store = get_phase5_store()
+    stats = store.get_stats()
+    
+    logger.info(f"\nCurrent Phase-5 Storage:")
+    logger.info(f"  Total rows: {stats.get('total_rows', 0)}")
+    logger.info(f"  Total outcomes: {stats.get('total_outcomes', 0)}")
+    logger.info(f"  Resolution rate: {stats.get('resolution_rate', 0):.1%}")
+    
+    # Show resolvable dates
+    resolver = get_phase5_resolver()
+    resolvable_dates = resolver.get_resolvable_dates()
+    
+    if not resolvable_dates:
+        logger.info("\n⚠ No rows ready for resolution (need 7+ trading days)")
+        return 0
+    
+    logger.info(f"\nResolvable dates: {', '.join(resolvable_dates[:10])}")
+    if len(resolvable_dates) > 10:
+        logger.info(f"  ... and {len(resolvable_dates) - 10} more")
+    
+    # Resolve
+    logger.info(f"\nResolving outcomes...")
+    if dry_run:
+        logger.info("  [DRY RUN - no writes]")
+    
+    result = resolver.resolve_outcomes(
+        start_date=start_date,
+        end_date=end_date,
+        dry_run=dry_run,
+    )
+    
+    logger.info("\n" + "=" * 60)
+    logger.info("RESOLUTION COMPLETE")
+    logger.info("=" * 60)
+    logger.info(f"  Resolved: {result['resolved']}")
+    logger.info(f"  Skipped (already resolved): {result['skipped']}")
+    logger.info(f"  Not ready: {result['not_ready']}")
+    logger.info(f"  Errors: {result['errors']}")
+    
+    return 0
+
+
+def cmd_learn_merge(args) -> int:
+    """
+    Merge Phase-5 rows and outcomes into training dataset.
+    
+    Usage:
+        python main.py learn merge
+    """
+    logger.info("=" * 60)
+    logger.info("PHASE-5 DATA MERGE")
+    logger.info("=" * 60)
+    
+    try:
+        from src.learning.phase5_store import get_phase5_store
+    except ImportError as e:
+        logger.error(f"Could not import Phase-5 modules: {e}")
+        return 1
+    
+    store = get_phase5_store()
+    
+    # Show pre-merge stats
+    stats = store.get_stats()
+    logger.info(f"\nPre-merge stats:")
+    logger.info(f"  Row files: {stats.get('rows_files', 0)}")
+    logger.info(f"  Total rows: {stats.get('total_rows', 0)}")
+    logger.info(f"  Outcome files: {stats.get('outcome_files', 0)}")
+    logger.info(f"  Total outcomes: {stats.get('total_outcomes', 0)}")
+    
+    # Merge
+    logger.info(f"\nMerging to parquet...")
+    merged_count = store.merge_rows_and_outcomes()
+    
+    logger.info("\n" + "=" * 60)
+    logger.info("MERGE COMPLETE")
+    logger.info("=" * 60)
+    logger.info(f"  Merged rows: {merged_count}")
+    logger.info(f"  Output: {store.get_merged_path()}")
+    
+    return 0
+
+
+def cmd_learn_analyze(args) -> int:
+    """
+    Analyze Phase-5 learning data and generate scorecard.
+    
+    Usage:
+        python main.py learn analyze [--save]
+    """
+    logger.info("=" * 60)
+    logger.info("PHASE-5 LEARNING ANALYSIS")
+    logger.info("=" * 60)
+    
+    try:
+        from src.learning.phase5_analyzer import get_phase5_analyzer
+    except ImportError as e:
+        logger.error(f"Could not import Phase-5 modules: {e}")
+        return 1
+    
+    analyzer = get_phase5_analyzer()
+    
+    # Check data availability
+    df = analyzer.df
+    if df.empty:
+        logger.warning("\n⚠ No Phase-5 data available")
+        logger.info("Run 'python main.py learn merge' first to create merged dataset")
+        return 0
+    
+    # Print report
+    analyzer.print_report()
+    
+    # Optionally save scorecard
+    if getattr(args, "save", True):
+        path = analyzer.save_scorecard()
+        logger.info(f"\n✓ Scorecard saved: {path}")
+    
+    # Show recommendations (Phase-6 preview)
+    recommendations = analyzer.get_weight_recommendations()
+    
+    if recommendations.get("source_weights"):
+        logger.info("\n📋 WEIGHT RECOMMENDATIONS (Phase-6 Preview):")
+        for source, rec in recommendations["source_weights"].items():
+            current = "?"
+            suggested = rec.get("suggested_weight", 1.0)
+            logger.info(f"  {source}: current={current} → suggested={suggested:.2f} "
+                       f"(hit_rate={rec.get('observed_hit_rate', 0):.1%}, n={rec.get('sample_size', 0)})")
+    
+    if recommendations.get("suppression_rules"):
+        logger.info("\n⚠ SUPPRESSION RULES SUGGESTED:")
+        for rule in recommendations["suppression_rules"]:
+            logger.info(f"  • {rule['condition']}: {rule['reason']}")
+    
+    return 0
+
+
+def cmd_learn_stats(args) -> int:
+    """
+    Display Phase-5 storage statistics.
+    
+    Usage:
+        python main.py learn stats
+    """
+    logger.info("=" * 60)
+    logger.info("PHASE-5 STORAGE STATISTICS")
+    logger.info("=" * 60)
+    
+    try:
+        from src.learning.phase5_store import get_phase5_store
+    except ImportError as e:
+        logger.error(f"Could not import Phase-5 modules: {e}")
+        return 1
+    
+    store = get_phase5_store()
+    stats = store.get_stats()
+    
+    print(f"\n📊 Phase-5 Storage")
+    print(f"   Row files: {stats.get('rows_files', 0)}")
+    print(f"   Total rows: {stats.get('total_rows', 0)}")
+    print(f"   Outcome files: {stats.get('outcome_files', 0)}")
+    print(f"   Total outcomes: {stats.get('total_outcomes', 0)}")
+    print(f"   Resolution rate: {stats.get('resolution_rate', 0):.1%}")
+    print(f"   Merged rows: {stats.get('merged_rows', 0)}")
+    print(f"\n   Base path: {store.base_path}")
+    
+    return 0

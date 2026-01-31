@@ -142,6 +142,19 @@ def main():
     
     learn_memory = learn_sub.add_parser("memory", help="Sync outcomes to ChromaDB memory for similarity learning")
     
+    # Phase-5 Learning Commands
+    learn_resolve = learn_sub.add_parser("resolve", help="Resolve outcomes for Phase-5 learning rows")
+    learn_resolve.add_argument("--start", help="Start date (YYYY-MM-DD)")
+    learn_resolve.add_argument("--end", help="End date (YYYY-MM-DD)")
+    learn_resolve.add_argument("--dry-run", action="store_true", help="Show what would be resolved without writing")
+    
+    learn_merge = learn_sub.add_parser("merge", help="Merge Phase-5 rows and outcomes into training dataset")
+    
+    learn_analyze = learn_sub.add_parser("analyze", help="Analyze Phase-5 data and generate scorecard")
+    learn_analyze.add_argument("--no-save", action="store_true", help="Don't save scorecard to file")
+    
+    learn_stats = learn_sub.add_parser("stats", help="Display Phase-5 storage statistics")
+    
     # Calibration Training (PR5 + PR7)
     p_calibrate = subparsers.add_parser("train-calibration", help="Train probability calibration model from historical data")
     p_calibrate.add_argument("--snapshots", nargs="+", required=True, help="Glob patterns for snapshot parquet files")
@@ -729,6 +742,10 @@ def main():
     
     # Learn command handler (Self-Improving System)
     def cmd_learn_handler(args):
+        from src.commands.learn import (
+            cmd_learn_resolve, cmd_learn_merge, cmd_learn_analyze, cmd_learn_stats
+        )
+        
         if args.learn_command == "train" or args.learn_command is None:
             # Set report flag
             args.report = not getattr(args, "no_report", False)
@@ -739,8 +756,18 @@ def main():
             return cmd_learn_export(args)
         elif args.learn_command == "memory":
             return cmd_learn_memory(args)
+        # Phase-5 Learning Commands
+        elif args.learn_command == "resolve":
+            return cmd_learn_resolve(args)
+        elif args.learn_command == "merge":
+            return cmd_learn_merge(args)
+        elif args.learn_command == "analyze":
+            args.save = not getattr(args, "no_save", False)
+            return cmd_learn_analyze(args)
+        elif args.learn_command == "stats":
+            return cmd_learn_stats(args)
         else:
-            print("Use: learn train|status|export|memory")
+            print("Use: learn train|status|export|memory|resolve|merge|analyze|stats")
             return 1
     
     # Train calibration command handler (PR5)
