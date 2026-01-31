@@ -1,116 +1,107 @@
-# KooCore-D Performance Dashboard
+# KooCore-D Dashboard
 
 Read-only observability dashboard for KooCore-D stock picking system.
 
-## Design Principles
-
-- **Read-only**: Never writes to `outputs/`
-- **No model logic**: Pure visualization, no learning side-effects
-- **Derived from outputs/**: All data comes from frozen pipeline outputs
-- **Independently deployable**: Can run on Heroku without affecting the main system
-
-## Architecture
+## Architecture (Option A: GitHub Artifact Pull)
 
 ```
-KooCore-D (cron / GH Actions)
-        ↓
-   outputs/
-        ↓
-Dashboard app (Streamlit)
-        ↓
-   Heroku (read-only)
+KooCore-D (private, engine)
+  └─ GitHub Actions (daily scan)
+        └─ uploads outputs as artifact
+             ↓
+KooCore-D-Dashboard (public)
+  └─ pulls artifact via GitHub API
+        └─ Heroku auto-deploy
+             └─ Streamlit + Plotly dashboard
 ```
 
-## Pages
+**Key principle**: Dashboard never runs scans. It only reads versioned artifacts.
 
-### 1. Overview
-Portfolio-level view answering "Is the system working?"
-- Cumulative returns vs benchmarks (S&P 500, Nasdaq 100)
-- Average return by source (Weekly, Pro30, Movers)
-- Win rate and summary metrics
+## Features
 
-### 2. Daily Picks Explorer
-Individual pick tracking answering "What did we pick and how is it doing?"
-- Date-based pick browsing
-- Per-ticker performance charts
-- Pick details (scores, catalyst, risk factors)
-
-### 3. Phase-5 Learning Monitor
-Learning diagnostics answering "Is learning converging?"
-- Hit rate by source, rank, and regime
-- Rank decay curves
-- Overlap effectiveness analysis
-- Temporal trends
+- **Overview**: Pick counts, hit rates, summary metrics
+- **Phase-5 Learning**: Hit rate by regime, source, rank decay analysis
+- **Picks Explorer**: Browse daily picks by date
+- **Scorecards**: View Phase-5 analysis results
+- **Raw Files**: Browse all files in the artifact
 
 ## Local Development
 
 ```bash
-cd dashboard
+# Set environment variables
+export GITHUB_REPO="raysyhuang/KooCore-D"
+export GITHUB_TOKEN="your_github_token"
+export ARTIFACT_NAME="koocore-outputs"
+
+# Install and run
 pip install -r requirements.txt
 streamlit run app.py
 ```
 
-The dashboard expects `outputs/` to be in the parent directory.
-
 ## Heroku Deployment
 
-1. Create Heroku app:
+### 1. Create Heroku App
+
 ```bash
 heroku create koocore-dashboard
 ```
 
-2. Set config vars (optional):
+### 2. Set Config Vars
+
 ```bash
-heroku config:set POLYGON_API_KEY=your_key_here
+heroku config:set GITHUB_REPO=raysyhuang/KooCore-D
+heroku config:set ARTIFACT_NAME=koocore-outputs
+heroku config:set GITHUB_TOKEN=your_token_here
 ```
 
-3. Deploy:
-```bash
-git subtree push --prefix dashboard heroku main
-```
+### 3. Deploy
 
-Or deploy from the dashboard folder:
 ```bash
-cd dashboard
-git init
-git add .
-git commit -m "Initial dashboard"
-heroku git:remote -a koocore-dashboard
 git push heroku main
 ```
+
+Or connect to GitHub for auto-deploy.
+
+## GitHub Token Setup
+
+Create a fine-grained token at https://github.com/settings/tokens?type=beta
+
+**Required permissions:**
+- Repository access: Only `KooCore-D`
+- Permissions:
+  - Actions: Read
+  - Contents: Read (optional but recommended)
 
 ## Environment Variables
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `POLYGON_API_KEY` | No | For faster price data (falls back to Yahoo Finance) |
-| `KOOCORE_OUTPUTS_PATH` | No | Custom path to outputs directory |
+| `GITHUB_REPO` | Yes | Source repo, e.g. `raysyhuang/KooCore-D` |
+| `GITHUB_TOKEN` | Yes | GitHub token with Actions read |
+| `ARTIFACT_NAME` | No | Artifact name (default: `koocore-outputs`) |
+| `GITHUB_BRANCH` | No | Filter by branch (optional) |
 
 ## Safety Rules
 
-These rules ensure the dashboard never interferes with the learning system:
+- ❌ No writes to source repo
+- ❌ No model logic
+- ❌ No scan execution
+- ✅ Read-only artifact consumption
+- ✅ Pure visualization
 
-- ❌ No writes to `outputs/`
-- ❌ No learning logic imported
-- ❌ No retry logic
-- ✅ Pure visualization only
+## Data Flow
 
-## Project Structure
+1. KooCore-D runs daily scans via GitHub Actions
+2. Workflow uploads `outputs/` as artifact named `koocore-outputs`
+3. Dashboard fetches latest artifact via GitHub API
+4. Streamlit renders charts from artifact data
+
+## File Structure
 
 ```
-dashboard/
-├── app.py                  # Streamlit entry point
-├── views/
-│   ├── overview.py         # Portfolio overview page
-│   ├── picks.py            # Daily picks explorer
-│   └── phase5.py           # Phase-5 learning monitor
-├── data/
-│   ├── loader.py           # Read from outputs/
-│   └── prices.py           # StockTracker wrapper
-├── charts/
-│   ├── performance.py      # Performance charts
-│   └── learning.py         # Learning diagnostics charts
-├── requirements.txt
-├── Procfile
-└── README.md
+KooCore-D-Dashboard/
+├── app.py              # Main Streamlit app
+├── requirements.txt    # Python dependencies
+├── Procfile           # Heroku process file
+└── README.md          # This file
 ```
