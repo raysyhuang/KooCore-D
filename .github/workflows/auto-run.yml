@@ -19,6 +19,8 @@ jobs:
     name: Run main.py all
     runs-on: ubuntu-latest
     timeout-minutes: 180
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -65,6 +67,20 @@ jobs:
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
         run: |
           python main.py all --config config/default.yaml
+
+      - name: Commit outputs to repo
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add outputs/
+          if git diff --cached --quiet; then
+            echo "No new outputs to commit"
+          else
+            DATE=$(date -u +%Y-%m-%d)
+            git commit -m "auto: outputs for ${DATE}"
+            git push
+          fi
 
       - name: Upload outputs artifact
         if: always()
