@@ -1,0 +1,145 @@
+# Snapshot KooCore Outputs
+# Downloads latest artifact from KooCore-D and commits as dated snapshot
+# This enables historical trend analysis in the dashboard
+
+name: Snapshot from Core
+
+on:
+  schedule:
+    - cron: "45 23 * * 1-5"  # 11:45 PM UTC weekdays (after core job)
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Force snapshot even if no new data'
+        required: false
+        default: 'false'
+        type: boolean
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout dashboard repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install pandas pyarrow requests
+
+      - name: Download artifact from KooCore-D
+        env:
+          GITHUB_TOKEN: ${{ secrets.CORE_REPO_TOKEN }}
+        run: |
+          python << 'EOF'
+          import os
+          import requests
+          import json
+
+          token = os.environ["GITHUB_TOKEN"]
+          owner = "raysyhuang"
+          repo = "KooCore-D"
+          artifact_name = "koocore-outputs"
+
+          headers = {
+              "Authorization": f"Bearer {token}",
+              "Accept": "application/vnd.github+json",
+              "X-GitHub-Api-Version": "2022-11-28",
+          }
+
+          # List artifacts
+          url = f"https://api.github.com/repos/{owner}/{repo}/actions/artifacts?per_page=100"
+          r = requests.get(url, headers=headers, timeout=30)
+          r.raise_for_status()
+
+          artifacts = r.json().get("artifacts", [])
+          candidates = [a for a in artifacts if a.get("name") == artifact_name and not a.get("expired", False)]
+
+          if not candidates:
+              print("No artifact found")
+              exit(1)
+
+          # Get latest
+          candidates.sort(key=lambda a: a.get("created_at", ""), reverse=True)
+          art = candidates[0]
+          print(f"Found artifact: {art['name']} created at {art['created_at']}")
+
+          # Download
+          dl_url = art["archive_download_url"]
+          r2 = requests.get(dl_url, headers=headers, timeout=120)
+          r2.raise_for_status()
+
+          with open("artifact.zip", "wb") as f:
+              f.write(r2.content)
+
+          print(f"Downloaded {len(r2.content)} bytes")
+
+          # Save metadata
+          with open("artifact_meta.json", "w") as f:
+              json.dump({
+                  "id": art["id"],
+                  "created_at": art["created_at"],
+                  "name": art["name"],
+              }, f)
+          EOF
+
+      - name: Extract and snapshot Phase-5 data
+        run: |
+          mkdir -p artifact data/phase5 data/scorecards
+          unzip -o artifact.zip -d artifact || true
+          
+          DATE=$(date +%F)
+          echo "DATE=$DATE" >> $GITHUB_ENV
+          
+          # Find and copy phase5_merged.parquet
+          PARQUET=$(find artifact -name "phase5_merged.parquet" -type f | head -1)
+          if [ -n "$PARQUET" ]; then
+            cp "$PARQUET" "data/phase5/phase5_merged_$DATE.parquet"
+            echo "Copied phase5_merged.parquet as phase5_merged_$DATE.parquet"
+          else
+            echo "No phase5_merged.parquet found"
+          fi
+          
+          # Find and copy scorecards
+          for f in $(find artifact -name "phase5_scorecard*.json" -type f); do
+            BASENAME=$(basename "$f")
+            cp "$f" "data/scorecards/$BASENAME"
+            echo "Copied scorecard: $BASENAME"
+          done
+          
+          # List what we have
+          echo "=== data/phase5/ ==="
+          ls -la data/phase5/ || true
+          echo "=== data/scorecards/ ==="
+          ls -la data/scorecards/ || true
+
+      - name: Commit snapshot
+        run: |
+          git config user.name "koocore-bot"
+          git config user.email "bot@koocore.local"
+          
+          git add data/
+          
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "snapshot: phase5 ${{ env.DATE }}"
+            git push
+            echo "Committed and pushed snapshot for ${{ env.DATE }}"
+          fi
+
+      - name: Summary
+        run: |
+          echo "### Snapshot Complete" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- Date: ${{ env.DATE }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Phase5 files: $(ls data/phase5/*.parquet 2>/dev/null | wc -l)" >> $GITHUB_STEP_SUMMARY
+          echo "- Scorecard files: $(ls data/scorecards/*.json 2>/dev/null | wc -l)" >> $GITHUB_STEP_SUMMARY
