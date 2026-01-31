@@ -32,7 +32,7 @@ import plotly.graph_objects as go
 # =============================================================================
 CORE_OWNER = os.getenv("CORE_OWNER", "raysyhuang")
 CORE_REPO = os.getenv("CORE_REPO", "KooCore-D")
-CORE_ARTIFACT_NAME = os.getenv("CORE_ARTIFACT_NAME", "koocore-outputs")
+CORE_ARTIFACT_NAME = os.getenv("CORE_ARTIFACT_NAME", "outputs")
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "").strip()
 
 DATA_DIR = os.getenv("DATA_DIR", "data")
