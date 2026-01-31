@@ -67,7 +67,7 @@ def github_latest_artifact_zip(owner: str, repo: str, artifact_name: str) -> Tup
     art = candidates[0]
     
     dl_url = art["archive_download_url"]
-    r2 = requests.get(dl_url, headers=_gh_headers(), timeout=60)
+    r2 = requests.get(dl_url, headers=_gh_headers(), timeout=120)
     r2.raise_for_status()
     
     meta = {
@@ -122,6 +122,88 @@ def load_hybrid_analyses_from_artifact(files: Dict[str, bytes]) -> List[Dict]:
     return sorted(analyses, key=lambda x: x.get("date", ""), reverse=True)
 
 
+def load_picks_from_artifact(files: Dict[str, bytes]) -> pd.DataFrame:
+    """Load all picks from hybrid analyses into a DataFrame."""
+    analyses = load_hybrid_analyses_from_artifact(files)
+    
+    rows = []
+    for h in analyses:
+        date = h.get("date") or h.get("asof_trading_date")
+        if not date:
+            continue
+        
+        # Hybrid Top 3
+        for pick in h.get("hybrid_top3", []):
+            rows.append({
+                "date": date,
+                "ticker": pick.get("ticker", ""),
+                "source": "hybrid_top3",
+                "rank": pick.get("rank"),
+                "score": pick.get("hybrid_score"),
+                "confidence": pick.get("confidence"),
+                "sources": ",".join(pick.get("sources", [])),
+            })
+        
+        # Weekly/Primary Top 5
+        for pick in h.get("primary_top5", []):
+            rows.append({
+                "date": date,
+                "ticker": pick.get("ticker", ""),
+                "source": "weekly",
+                "rank": pick.get("rank"),
+                "score": pick.get("composite_score"),
+                "confidence": pick.get("confidence"),
+                "sources": "Weekly",
+            })
+        
+        # Pro30
+        for ticker in h.get("pro30_tickers", []):
+            rows.append({
+                "date": date,
+                "ticker": ticker,
+                "source": "pro30",
+                "rank": None,
+                "score": None,
+                "confidence": None,
+                "sources": "Pro30",
+            })
+        
+        # Movers
+        for ticker in h.get("movers_tickers", []):
+            rows.append({
+                "date": date,
+                "ticker": ticker,
+                "source": "movers",
+                "rank": None,
+                "score": None,
+                "confidence": None,
+                "sources": "Movers",
+            })
+    
+    if not rows:
+        return pd.DataFrame()
+    
+    df = pd.DataFrame(rows)
+    df["ticker"] = df["ticker"].astype(str).str.upper().str.strip()
+    df["date"] = pd.to_datetime(df["date"], errors="coerce")
+    return df
+
+
+def get_available_dates(files: Dict[str, bytes]) -> List[str]:
+    """Extract available scan dates from artifact."""
+    dates = set()
+    for path in files.keys():
+        parts = path.split("/")
+        for part in parts:
+            if len(part) == 10 and part[4] == "-" and part[7] == "-":
+                try:
+                    datetime.strptime(part, "%Y-%m-%d")
+                    dates.add(part)
+                except ValueError:
+                    continue
+    return sorted(dates, reverse=True)
+
+
 def list_snapshot_files() -> List[str]:
     """List available historical snapshot files."""
     if not os.path.exists(PHASE5_DIR):
@@ -142,262 +224,9 @@ def parse_date_from_filename(path: str) -> Optional[str]:
         return None
 
 
-@st.cache_data(ttl=60)
-def load_snapshot(path: str) -> pd.DataFrame:
-    """Load a historical snapshot parquet."""
-    return pd.read_parquet(path)
-
-
-def load_all_snapshots() -> pd.DataFrame:
-    """Load and concatenate all historical snapshots."""
-    files = list_snapshot_files()
-    if not files:
-        return pd.DataFrame()
-    
-    dfs = []
-    for f in files:
-        try:
-            df = pd.read_parquet(f)
-            date = parse_date_from_filename(f)
-            if date and "snapshot_date" not in df.columns:
-                df["snapshot_date"] = date
-            dfs.append(df)
-        except Exception:
-            continue
-    
-    if not dfs:
-        return pd.DataFrame()
-    
-    return pd.concat(dfs, ignore_index=True)
-
-
-# =============================================================================
-# Data Preparation
-# =============================================================================
-def prepare_phase5(df: pd.DataFrame) -> pd.DataFrame:
-    """Normalize Phase-5 DataFrame columns."""
-    out = df.copy()
-    
-    # Date normalization
-    for col in ["scan_date", "asof", "pick_date", "date"]:
-        if col in out.columns:
-            out["scan_date"] = pd.to_datetime(out[col], errors="coerce")
-            break
-    else:
-        out["scan_date"] = pd.NaT
-    
-    # Ticker
-    for col in ["ticker", "Ticker", "symbol"]:
-        if col in out.columns:
-            out["ticker"] = out[col].astype(str).str.upper().str.strip()
-            break
-    else:
-        out["ticker"] = ""
-    
-    # Outcome normalization
-    if "outcome_7d" in out.columns:
-        out["outcome_7d"] = out["outcome_7d"].astype(str).str.lower()
-    elif "hit_7d" in out.columns:
-        out["outcome_7d"] = np.where(out["hit_7d"].astype(bool), "hit", "miss")
-    elif "hit_7pct" in out.columns:
-        out["outcome_7d"] = np.where(out["hit_7pct"].astype(bool), "hit", "miss")
-    
-    # Return
-    if "return_7d" in out.columns:
-        out["return_7d"] = pd.to_numeric(out["return_7d"], errors="coerce")
-    
-    # Regime
-    if "regime" not in out.columns:
-        out["regime"] = "unknown"
-    out["regime"] = out["regime"].astype(str).fillna("unknown")
-    
-    # Ranks
-    for col in ["hybrid_rank", "pro30_rank", "swing_rank", "rank"]:
-        if col in out.columns:
-            out[col] = pd.to_numeric(out[col], errors="coerce")
-    
-    # Sources
-    if "hybrid_sources" in out.columns:
-        out["sources_str"] = out["hybrid_sources"].apply(
-            lambda x: ",".join(x) if isinstance(x, list) else str(x) if x else ""
-        )
-    elif "source" in out.columns:
-        out["sources_str"] = out["source"].astype(str)
-    else:
-        out["sources_str"] = ""
-    
-    return out
-
-
 # =============================================================================
 # Charts
 # =============================================================================
-def chart_hit_rate_over_time(df: pd.DataFrame):
-    """Hit rate trend over scan dates."""
-    d = df.dropna(subset=["scan_date"]).copy()
-    if "outcome_7d" not in d.columns:
-        st.info("No outcome data yet.")
-        return
-    
-    d["is_hit"] = d["outcome_7d"].isin(["hit", "1", "true", "yes"])
-    g = d.groupby(pd.Grouper(key="scan_date", freq="D"))["is_hit"].agg(["mean", "count"]).reset_index()
-    g.columns = ["scan_date", "hit_rate", "count"]
-    g = g.dropna()
-    
-    if g.empty:
-        st.info("No resolved outcomes to display.")
-        return
-    
-    fig = px.line(g, x="scan_date", y="hit_rate", markers=True,
-                  title="Hit Rate Over Time (7D)", hover_data=["count"])
-    fig.update_yaxes(tickformat=".0%", range=[0, 1])
-    fig.add_hline(y=0.5, line_dash="dash", line_color="gray", opacity=0.5)
-    st.plotly_chart(fig, use_container_width=True)
-
-
-def chart_avg_return_over_time(df: pd.DataFrame):
-    """Average return trend over scan dates."""
-    d = df.dropna(subset=["scan_date", "return_7d"]).copy()
-    if d.empty:
-        st.info("No return data yet.")
-        return
-    
-    g = d.groupby(pd.Grouper(key="scan_date", freq="D"))["return_7d"].agg(["mean", "count"]).reset_index()
-    g.columns = ["scan_date", "avg_return", "count"]
-    g = g.dropna()
-    
-    fig = px.line(g, x="scan_date", y="avg_return", markers=True,
-                  title="Avg 7D Return Over Time", hover_data=["count"])
-    fig.add_hline(y=0, line_dash="dash", line_color="black", opacity=0.5)
-    st.plotly_chart(fig, use_container_width=True)
-
-
-def chart_hit_rate_by_regime(df: pd.DataFrame):
-    """Hit rate breakdown by market regime."""
-    d = df.copy()
-    if "outcome_7d" not in d.columns:
-        st.info("No outcome data yet.")
-        return
-    
-    d["is_hit"] = d["outcome_7d"].isin(["hit", "1", "true", "yes"])
-    g = d.groupby("regime")["is_hit"].agg(["mean", "count"]).reset_index()
-    g.columns = ["regime", "hit_rate", "count"]
-    g = g.sort_values("hit_rate", ascending=False)
-    
-    colors = {"bull": "#00CC44", "bear": "#FF4444", "chop": "#FF8800", "neutral": "#888888"}
-    
-    fig = px.bar(g, x="regime", y="hit_rate", title="Hit Rate by Regime",
-                 hover_data=["count"], color="regime",
-                 color_discrete_map={r: colors.get(r.lower(), "#888") for r in g["regime"]})
-    fig.update_yaxes(tickformat=".0%", range=[0, 1])
-    fig.add_hline(y=0.5, line_dash="dash", line_color="gray", opacity=0.5)
-    st.plotly_chart(fig, use_container_width=True)
-
-
-def chart_signal_attribution(df: pd.DataFrame):
-    """Hit rate by signal bucket (Weekly, Pro30, Overlap, etc.)."""
-    d = df.copy()
-    if "outcome_7d" not in d.columns:
-        st.info("No outcome data yet.")
-        return
-    
-    d["is_hit"] = d["outcome_7d"].isin(["hit", "1", "true", "yes"])
-    
-    buckets = []
-    
-    # Check various signal flags
-    flag_cols = [
-        ("Hybrid Top3", "in_hybrid_top3"),
-        ("Conviction", "in_conviction_picks"),
-        ("Pro30", "in_pro30"),
-        ("Swing Top5", "in_swing_top5"),
-        ("Weekly", "in_weekly"),
-    ]
-    
-    for label, col in flag_cols:
-        if col in d.columns:
-            subset = d[d[col] == True]
-            if len(subset) > 0:
-                buckets.append({
-                    "bucket": label,
-                    "hit_rate": subset["is_hit"].mean(),
-                    "avg_return": subset["return_7d"].mean() if "return_7d" in subset.columns else None,
-                    "n": len(subset),
-                })
-    
-    # Source-based attribution
-    if "sources_str" in d.columns and not buckets:
-        for src in ["Weekly", "Pro30", "Movers", "Swing"]:
-            subset = d[d["sources_str"].str.contains(src, case=False, na=False)]
-            if len(subset) > 0:
-                buckets.append({
-                    "bucket": src,
-                    "hit_rate": subset["is_hit"].mean(),
-                    "avg_return": subset["return_7d"].mean() if "return_7d" in subset.columns else None,
-                    "n": len(subset),
-                })
-    
-    if not buckets:
-        st.info("No signal attribution data available.")
-        return
-    
-    bdf = pd.DataFrame(buckets).sort_values("hit_rate", ascending=False)
-    
-    fig = px.bar(bdf, x="bucket", y="hit_rate", title="Hit Rate by Signal Source",
-                 hover_data=["n", "avg_return"], text_auto=".0%")
-    fig.update_yaxes(tickformat=".0%", range=[0, 1])
-    fig.add_hline(y=0.5, line_dash="dash", line_color="gray", opacity=0.5)
-    st.plotly_chart(fig, use_container_width=True)
-    
-    st.dataframe(bdf, use_container_width=True, hide_index=True)
-
-
-def chart_rank_decay(df: pd.DataFrame, rank_col: str, title: str):
-    """Rank decay curve - hit rate by rank bucket."""
-    d = df.copy()
-    if "outcome_7d" not in d.columns or rank_col not in d.columns:
-        st.info(f"Missing {rank_col} or outcome_7d.")
-        return
-    
-    d["is_hit"] = d["outcome_7d"].isin(["hit", "1", "true", "yes"])
-    d[rank_col] = pd.to_numeric(d[rank_col], errors="coerce")
-    d = d.dropna(subset=[rank_col])
-    
-    if d.empty:
-        st.info(f"No {rank_col} data to display.")
-        return
-    
-    # Create rank buckets
-    bins = [0, 1, 3, 5, 10, 20, 50, 200]
-    labels = ["1", "2-3", "4-5", "6-10", "11-20", "21-50", "51+"]
-    d["rank_bin"] = pd.cut(d[rank_col], bins=bins, labels=labels, right=True)
-    
-    g = d.groupby("rank_bin", observed=True)["is_hit"].agg(["mean", "count"]).reset_index()
-    g.columns = ["rank_bin", "hit_rate", "count"]
-    
-    fig = px.bar(g, x="rank_bin", y="hit_rate", title=title,
-                 hover_data=["count"], text_auto=".0%")
-    fig.update_yaxes(tickformat=".0%", range=[0, 1])
-    fig.add_hline(y=0.5, line_dash="dash", line_color="gray", opacity=0.5)
-    st.plotly_chart(fig, use_container_width=True)
-
-
-def chart_return_distribution(df: pd.DataFrame):
-    """Histogram of 7D returns."""
-    d = df.dropna(subset=["return_7d"]).copy()
-    if d.empty:
-        st.info("No return data yet.")
-        return
-    
-    fig = px.histogram(d, x="return_7d", nbins=40, title="Distribution of 7D Returns")
-    fig.add_vline(x=0, line_dash="dash", line_color="black", opacity=0.5)
-    
-    mean_ret = d["return_7d"].mean()
-    fig.add_vline(x=mean_ret, line_dash="dash", line_color="blue",
-                  annotation_text=f"Mean: {mean_ret:.1f}%")
-    st.plotly_chart(fig, use_container_width=True)
-
-
 def chart_picks_over_time(analyses: List[Dict]):
     """Daily pick counts from hybrid analyses."""
     if not analyses:
@@ -413,9 +242,10 @@ def chart_picks_over_time(analyses: List[Dict]):
         summary = h.get("summary", {})
         rows.append({
             "date": date,
-            "weekly": summary.get("weekly_top5_count") or summary.get("primary_top5_count") or 0,
-            "pro30": summary.get("pro30_candidates_count", 0),
-            "movers": summary.get("movers_count", 0),
+            "Weekly": summary.get("weekly_top5_count") or summary.get("primary_top5_count") or len(h.get("primary_top5", [])),
+            "Pro30": summary.get("pro30_candidates_count") or len(h.get("pro30_tickers", [])),
+            "Movers": summary.get("movers_count") or len(h.get("movers_tickers", [])),
+            "Hybrid Top3": summary.get("hybrid_top3_count") or len(h.get("hybrid_top3", [])),
         })
     
     if not rows:
@@ -425,10 +255,75 @@ def chart_picks_over_time(analyses: List[Dict]):
     df = pd.DataFrame(rows).sort_values("date")
     
     fig = go.Figure()
-    fig.add_trace(go.Bar(x=df["date"], y=df["weekly"], name="Weekly", marker_color="#4A90D9"))
-    fig.add_trace(go.Bar(x=df["date"], y=df["pro30"], name="Pro30", marker_color="#7CB342"))
-    fig.add_trace(go.Bar(x=df["date"], y=df["movers"], name="Movers", marker_color="#FF7043"))
-    fig.update_layout(title="Daily Pick Counts", barmode="group")
+    fig.add_trace(go.Bar(x=df["date"], y=df["Weekly"], name="Weekly", marker_color="#4A90D9"))
+    fig.add_trace(go.Bar(x=df["date"], y=df["Pro30"], name="Pro30", marker_color="#7CB342"))
+    fig.add_trace(go.Bar(x=df["date"], y=df["Movers"], name="Movers", marker_color="#FF7043"))
+    fig.add_trace(go.Scatter(x=df["date"], y=df["Hybrid Top3"], name="Hybrid Top3", 
+                             mode="lines+markers", line=dict(color="#9C27B0", width=3)))
+    fig.update_layout(title="Daily Pick Counts by Source", barmode="group",
+                      xaxis_title="Date", yaxis_title="Count")
+    st.plotly_chart(fig, use_container_width=True)
+
+
+def chart_picks_by_source(df: pd.DataFrame):
+    """Pie chart of picks by source."""
+    if df.empty:
+        st.info("No picks data.")
+        return
+    
+    counts = df["source"].value_counts().reset_index()
+    counts.columns = ["source", "count"]
+    
+    fig = px.pie(counts, values="count", names="source", title="Picks by Source",
+                 color_discrete_sequence=px.colors.qualitative.Set2)
+    st.plotly_chart(fig, use_container_width=True)
+
+
+def chart_unique_tickers_over_time(df: pd.DataFrame):
+    """Unique tickers per day."""
+    if df.empty or "date" not in df.columns:
+        st.info("No data.")
+        return
+    
+    daily = df.groupby("date")["ticker"].nunique().reset_index()
+    daily.columns = ["date", "unique_tickers"]
+    
+    fig = px.line(daily, x="date", y="unique_tickers", markers=True,
+                  title="Unique Tickers per Day")
+    st.plotly_chart(fig, use_container_width=True)
+
+
+def chart_top_tickers(df: pd.DataFrame, top_n: int = 15):
+    """Most frequently picked tickers."""
+    if df.empty:
+        st.info("No data.")
+        return
+    
+    counts = df["ticker"].value_counts().head(top_n).reset_index()
+    counts.columns = ["ticker", "count"]
+    
+    fig = px.bar(counts, x="ticker", y="count", title=f"Top {top_n} Most Picked Tickers",
+                 color="count", color_continuous_scale="Blues")
+    st.plotly_chart(fig, use_container_width=True)
+
+
+def chart_confidence_distribution(df: pd.DataFrame):
+    """Distribution of confidence levels."""
+    if df.empty or "confidence" not in df.columns:
+        st.info("No confidence data.")
+        return
+    
+    conf_df = df[df["confidence"].notna()].copy()
+    if conf_df.empty:
+        st.info("No confidence data.")
+        return
+    
+    counts = conf_df["confidence"].value_counts().reset_index()
+    counts.columns = ["confidence", "count"]
+    
+    color_map = {"HIGH": "#00CC44", "MEDIUM": "#FFB300", "LOW": "#FF4444"}
+    fig = px.bar(counts, x="confidence", y="count", title="Confidence Distribution",
+                 color="confidence", color_discrete_map=color_map)
     st.plotly_chart(fig, use_container_width=True)
 
 
@@ -465,23 +360,20 @@ with st.sidebar:
             snap_dates = [(parse_date_from_filename(p) or os.path.basename(p), p) for p in snapshots]
             snap_dates = [(d, p) for d, p in snap_dates if d]
             
-            selected_date = st.selectbox(
-                "Snapshot Date",
-                [d for d, _ in snap_dates],
-                help="Select a historical snapshot"
-            )
-            selected_path = dict(snap_dates).get(selected_date)
-            
-            load_all = st.checkbox("Load all snapshots", value=False,
-                                   help="Combine all snapshots for trend analysis")
+            if snap_dates:
+                selected_date = st.selectbox("Snapshot Date", [d for d, _ in snap_dates])
+                selected_path = dict(snap_dates).get(selected_date)
+            else:
+                selected_path = None
         else:
             st.warning("No snapshots in data/phase5/")
             selected_path = None
-            load_all = False
 
 # Load data
-df = pd.DataFrame()
+files = {}
 analyses = []
+picks_df = pd.DataFrame()
+phase5_df = None
 meta = {}
 
 try:
@@ -490,8 +382,9 @@ try:
             zip_bytes, meta = github_latest_artifact_zip(CORE_OWNER, CORE_REPO, CORE_ARTIFACT_NAME)
             files = unzip_to_memory(zip_bytes)
         
-        df = load_phase5_from_artifact(files)
+        phase5_df = load_phase5_from_artifact(files)
         analyses = load_hybrid_analyses_from_artifact(files)
+        picks_df = load_picks_from_artifact(files)
         
         # Info bar
         col1, col2, col3 = st.columns(3)
@@ -500,120 +393,162 @@ try:
         col3.metric("Files", len(files))
     
     else:
-        if load_all:
-            df = load_all_snapshots()
-            st.caption(f"Loaded {len(list_snapshot_files())} snapshots")
-        elif selected_path:
-            df = load_snapshot(selected_path)
+        if selected_path:
+            phase5_df = pd.read_parquet(selected_path)
             st.caption(f"Loaded snapshot: {selected_date}")
         else:
-            st.warning("No snapshot selected.")
+            st.warning("No snapshot selected or available.")
+            st.info("Run the snapshot workflow to populate data/phase5/")
             st.stop()
 
 except Exception as e:
     st.error(f"Error loading data: {e}")
-    st.info("""
-    **Troubleshooting:**
-    - For Live mode: Ensure GITHUB_TOKEN is set and artifact exists
-    - For Historical mode: Run the snapshot workflow to populate data/phase5/
-    """)
     st.stop()
 
-# Prepare data
-if df is not None and not df.empty:
-    df = prepare_phase5(df)
+# Get available dates
+available_dates = get_available_dates(files) if files else []
+
+st.divider()
 
 # Summary metrics
-if df is not None and not df.empty:
-    st.divider()
-    
-    total_rows = len(df)
-    unique_tickers = df["ticker"].nunique() if "ticker" in df.columns else 0
-    unique_dates = df["scan_date"].nunique() if "scan_date" in df.columns else 0
-    
-    if "outcome_7d" in df.columns:
-        resolved = df["outcome_7d"].isin(["hit", "miss", "1", "0", "true", "false"])
-        resolved_count = resolved.sum()
-        hits = df["outcome_7d"].isin(["hit", "1", "true"]).sum()
-        hit_rate = hits / resolved_count if resolved_count > 0 else 0
-    else:
-        resolved_count = 0
-        hit_rate = 0
-    
-    c1, c2, c3, c4, c5 = st.columns(5)
-    c1.metric("Total Rows", f"{total_rows:,}")
-    c2.metric("Tickers", f"{unique_tickers:,}")
-    c3.metric("Scan Dates", f"{unique_dates:,}")
-    c4.metric("Resolved", f"{resolved_count:,}")
-    c5.metric("Hit Rate", f"{hit_rate:.1%}" if resolved_count > 0 else "N/A")
+col1, col2, col3, col4 = st.columns(4)
+col1.metric("Scan Dates", len(available_dates))
+col2.metric("Hybrid Analyses", len(analyses))
+col3.metric("Total Picks", len(picks_df) if not picks_df.empty else 0)
+col4.metric("Unique Tickers", picks_df["ticker"].nunique() if not picks_df.empty else 0)
+
+# Check if we have Phase-5 data
+has_phase5 = phase5_df is not None and not phase5_df.empty
 
 # Tabs
-tabs = st.tabs(["📈 Performance", "🎯 Attribution", "📉 Rank Decay", "🗂️ Raw Data"])
+if has_phase5:
+    tabs = st.tabs(["📈 Overview", "🧠 Phase-5 Learning", "🎯 Picks Explorer", "📁 Raw Files"])
+else:
+    tabs = st.tabs(["📈 Overview", "🎯 Picks Explorer", "📁 Raw Files"])
 
+# Overview tab
 with tabs[0]:
-    st.subheader("Performance Over Time")
+    st.subheader("System Overview")
     
-    if df is None or df.empty:
-        st.warning("No data loaded.")
-    else:
+    if analyses:
+        chart_picks_over_time(analyses)
+        
+        st.divider()
+        
         col1, col2 = st.columns(2)
         with col1:
-            chart_hit_rate_over_time(df)
+            chart_picks_by_source(picks_df)
         with col2:
-            chart_avg_return_over_time(df)
+            chart_unique_tickers_over_time(picks_df)
         
         st.divider()
         
         col3, col4 = st.columns(2)
         with col3:
-            chart_hit_rate_by_regime(df)
+            chart_top_tickers(picks_df)
         with col4:
-            chart_return_distribution(df)
+            chart_confidence_distribution(picks_df)
+    else:
+        st.warning("No hybrid analyses found in artifact.")
+
+# Phase-5 Learning tab (only if data exists)
+if has_phase5:
+    with tabs[1]:
+        st.subheader("Phase-5 Learning")
+        st.info("Phase-5 data loaded. Learning charts will appear here.")
+        st.dataframe(phase5_df.head(50), use_container_width=True)
+
+# Picks Explorer tab
+picks_tab_idx = 2 if has_phase5 else 1
+with tabs[picks_tab_idx]:
+    st.subheader("Picks Explorer")
+    
+    if available_dates:
+        selected_explore_date = st.selectbox("Select Date", available_dates)
         
-        if analyses:
+        # Find analysis for this date
+        analysis = None
+        for h in analyses:
+            if h.get("date") == selected_explore_date or h.get("asof_trading_date") == selected_explore_date:
+                analysis = h
+                break
+        
+        if analysis:
+            st.markdown(f"### {selected_explore_date}")
+            
+            # Hybrid Top 3
+            hybrid_top3 = analysis.get("hybrid_top3", [])
+            if hybrid_top3:
+                st.markdown("#### Hybrid Top 3")
+                for pick in hybrid_top3:
+                    ticker = pick.get("ticker", "?")
+                    score = pick.get("hybrid_score", 0)
+                    sources = pick.get("sources", [])
+                    confidence = pick.get("confidence", "")
+                    
+                    col1, col2, col3, col4 = st.columns([2, 2, 3, 2])
+                    col1.markdown(f"**{ticker}**")
+                    col2.markdown(f"Score: {score:.2f}" if score else "")
+                    col3.markdown(f"Sources: {', '.join(sources)}")
+                    col4.markdown(f"{confidence}")
+            
             st.divider()
-            chart_picks_over_time(analyses)
-
-with tabs[1]:
-    st.subheader("Signal Attribution")
-    
-    if df is None or df.empty:
-        st.warning("No data loaded.")
+            
+            # All picks
+            col1, col2, col3 = st.columns(3)
+            
+            with col1:
+                st.markdown("**Weekly Top 5**")
+                for p in analysis.get("primary_top5", [])[:5]:
+                    if isinstance(p, dict):
+                        st.write(f"#{p.get('rank', '?')} {p.get('ticker', '?')}")
+            
+            with col2:
+                st.markdown("**Pro30**")
+                for t in analysis.get("pro30_tickers", [])[:10]:
+                    st.write(f"- {t}")
+            
+            with col3:
+                st.markdown("**Movers**")
+                for t in analysis.get("movers_tickers", [])[:10]:
+                    st.write(f"- {t}")
+        else:
+            st.info(f"No analysis found for {selected_explore_date}")
     else:
-        chart_signal_attribution(df)
+        st.warning("No dates available.")
 
-with tabs[2]:
-    st.subheader("Rank Decay Analysis")
-    st.caption("Higher ranks should have higher hit rates. Flat = weak signal.")
+# Raw Files tab
+raw_tab_idx = 3 if has_phase5 else 2
+with tabs[raw_tab_idx]:
+    st.subheader("Raw Files in Artifact")
     
-    if df is None or df.empty:
-        st.warning("No data loaded.")
-    else:
-        col1, col2 = st.columns(2)
-        with col1:
-            chart_rank_decay(df, "pro30_rank", "Pro30 Rank → Hit Rate")
-        with col2:
-            chart_rank_decay(df, "hybrid_rank", "Hybrid Rank → Hit Rate")
-
-with tabs[3]:
-    st.subheader("Raw Data")
-    
-    if df is None or df.empty:
-        st.warning("No data loaded.")
-    else:
-        # Column filter
-        all_cols = df.columns.tolist()
-        selected_cols = st.multiselect("Columns", all_cols, default=all_cols[:15])
+    if files:
+        paths = sorted(files.keys())
         
-        if selected_cols:
-            display_df = df[selected_cols].copy()
-            
-            # Sort
-            if "scan_date" in display_df.columns:
-                display_df = display_df.sort_values("scan_date", ascending=False)
-            
-            st.dataframe(display_df, use_container_width=True, height=500)
-            
-            # Download
-            csv = display_df.to_csv(index=False)
-            st.download_button("Download CSV", csv, "phase5_data.csv", "text/csv")
+        # Filter
+        filter_text = st.text_input("Filter paths", "")
+        if filter_text:
+            paths = [p for p in paths if filter_text.lower() in p.lower()]
+        
+        st.write(f"Showing {len(paths)} files")
+        st.dataframe(pd.DataFrame({"path": paths}), use_container_width=True, height=400)
+    else:
+        st.warning("No files loaded.")
+
+# Footer
+st.divider()
+st.caption("Read-only dashboard | No writes, no model logic | Data from GitHub artifact")
+
+# Phase-5 status message
+if not has_phase5:
+    st.info("""
+    **Phase-5 Learning data not available yet.**
+    
+    Phase-5 data appears after:
+    1. Picks are made (scans run daily)
+    2. 7+ trading days pass (outcomes resolve)
+    3. Run `python main.py learn resolve` to resolve outcomes
+    4. Run `python main.py learn merge` to create phase5_merged.parquet
+    
+    Once Phase-5 data exists, you'll see hit rate trends, rank decay curves, and regime analysis.
+    """)
