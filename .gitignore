@@ -37,3 +37,6 @@ credentials.json
 
 # Archive
 project.zip
+
+# Dashboard (separate repo: KooCore-D-Dashboard)
+dashboard/
