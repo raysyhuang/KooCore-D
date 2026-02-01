@@ -979,14 +979,16 @@ def render_notebook_tracker_tab():
             selected_date = st.selectbox(
                 "Select Tracking Date (Baseline)",
                 available_dates,
-                help="Pick date from the notebook tracker"
+                help="Pick date from the notebook tracker",
+                key="notebook_baseline_date"
             )
         
         with col2:
             end_date = st.date_input(
                 "End Date",
                 value=datetime.now(),
-                help="Track performance until this date"
+                help="Track performance until this date",
+                key="notebook_end_date_single"
             ).strftime("%Y-%m-%d")
         
         # Get tickers for selected date
@@ -999,21 +1001,24 @@ def render_notebook_tracker_tab():
             use_weekly = st.checkbox(
                 "Weekly Top5", 
                 value=bool(date_data.get("weekly")), 
-                disabled=not date_data.get("weekly")
+                disabled=not date_data.get("weekly"),
+                key="nb_weekly_single"
             )
             st.caption(f"{len(date_data.get('weekly', []))} tickers")
         with src_cols[1]:
             use_pro30 = st.checkbox(
                 "Pro30", 
                 value=bool(date_data.get("pro30")), 
-                disabled=not date_data.get("pro30")
+                disabled=not date_data.get("pro30"),
+                key="nb_pro30_single"
             )
             st.caption(f"{len(date_data.get('pro30', []))} tickers")
         with src_cols[2]:
             use_movers = st.checkbox(
                 "Movers", 
                 value=bool(date_data.get("movers")), 
-                disabled=not date_data.get("movers")
+                disabled=not date_data.get("movers"),
+                key="nb_movers_single"
             )
             st.caption(f"{len(date_data.get('movers', []))} tickers")
         
@@ -1102,7 +1107,8 @@ def render_notebook_tracker_tab():
         end_date = st.date_input(
             "End Date (Performance measured to this date)",
             value=datetime.now(),
-            help="Track performance until this date"
+            help="Track performance until this date",
+            key="notebook_end_date_all"
         ).strftime("%Y-%m-%d")
         
         # Source selection for all dates
