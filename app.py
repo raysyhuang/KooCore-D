@@ -26,6 +26,11 @@ from plotly.subplots import make_subplots
 import yfinance as yf
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
+# Local modules
+from loaders.prices import load_prices
+from charts.performance_core import compute_cumulative_returns, compute_final_performance
+from charts.performance_plot import plot_cumulative_returns, plot_performance_bar, plot_combined_performance
+
 
 # =============================================================================
 # Config
@@ -1051,11 +1056,18 @@ def render_notebook_tracker_tab():
             with ticker_info_cols[2]:
                 st.markdown(f"**Movers:** {', '.join(date_data['movers'][:10])}{'...' if len(date_data['movers']) > 10 else ''}")
         
+        # Chart options
+        show_portfolio_avg = st.checkbox("Show Portfolio Average", value=True, key="nb_show_avg")
+        
         # Track performance
         if st.button("Track Performance", type="primary", key="notebook_track_single"):
             with st.spinner(f"Fetching prices for {len(tickers)} tickers..."):
-                close = fetch_stock_prices(tickers, selected_date, end_date)
-                df_perf = compute_performance(close, selected_date, end_date)
+                # Use modular loader
+                close = load_prices(tickers, selected_date, end_date)
+                
+                # Compute final performance and cumulative returns
+                df_perf = compute_final_performance(close, selected_date, end_date)
+                df_cum, td_counter, meta = compute_cumulative_returns(close, selected_date, end_date)
             
             if df_perf.empty:
                 st.warning("No price data available for the selected tickers and date range.")
@@ -1077,8 +1089,13 @@ def render_notebook_tracker_tab():
             
             st.divider()
             
-            # Charts
-            chart_stock_performance(df_perf, close, selected_date, end_date)
+            # Combined chart using modular plotting
+            fig = plot_combined_performance(
+                df_perf, df_cum, td_counter, 
+                selected_date, end_date,
+                show_portfolio_avg=show_portfolio_avg
+            )
+            st.plotly_chart(fig, use_container_width=True)
             
             # Performance table
             st.subheader("Performance Details")
@@ -1167,8 +1184,9 @@ def render_notebook_tracker_tab():
                 progress_bar.progress((i + 1) / len(available_dates))
                 
                 try:
-                    close = fetch_stock_prices(tickers, date, end_date)
-                    df_perf = compute_performance(close, date, end_date)
+                    # Use modular loader and compute functions
+                    close = load_prices(tickers, date, end_date)
+                    df_perf = compute_final_performance(close, date, end_date)
                     
                     if not df_perf.empty:
                         avg_return = df_perf["Percent_Change"].mean()
