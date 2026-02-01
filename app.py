@@ -436,6 +436,101 @@ def chart_picks_over_time(analyses: List[Dict]):
 
 
 # =============================================================================
+# Notebook Tracker Data (from Notebook_tracker_2026-01.ipynb)
+# =============================================================================
+NOTEBOOK_TRACKER_DATA = {
+    "2026-01-01": {
+        "weekly": [],
+        "pro30": ["PATH"],
+        "movers": ["CVX"],
+    },
+    "2026-01-02": {
+        "weekly": ["DBRG", "RKLB", "SATS", "HII", "HWM"],
+        "pro30": [],
+        "movers": ["CVX"],
+    },
+    "2026-01-03": {
+        "weekly": ["HAL", "AXSM", "DBRG", "DOCN", "EL"],
+        "pro30": [],
+        "movers": [],
+    },
+    "2026-01-05": {
+        "weekly": ["LITE", "BK", "DAL", "INCY", "PNC"],
+        "pro30": ["SNDK", "WDC", "CENX"],
+        "movers": [],
+    },
+    "2026-01-06": {
+        "weekly": ["PSX", "ABBV", "AEIS", "GH", "VSEC"],
+        "pro30": ["MOD", "INTC"],
+        "movers": [],
+    },
+    "2026-01-07": {
+        "weekly": ["NOC", "F", "BBIO", "COF", "BFH"],
+        "pro30": ["HOUS"],
+        "movers": [],
+    },
+    "2026-01-08": {
+        "weekly": ["BK", "DAL", "BBIO", "DG", "CBOE"],
+        "pro30": ["LQDA", "CGON", "GLUE", "APLD", "HOUS", "KTOS", "COMP", "INTC"],
+        "movers": [],
+    },
+    "2026-01-09": {
+        "weekly": ["GD", "AKAM", "EXPE", "CADE", "NOC"],
+        "pro30": ["LQDA", "SLNO"],
+        "movers": [],
+    },
+    "2026-01-12": {
+        "weekly": ["SATS", "OPCH", "BBIO", "FORM", "RKLB"],
+        "pro30": ["TVTX", "TTMI", "ATEC", "HOUS", "FIG", "FORM", "STNG", "TGTX"],
+        "movers": [],
+    },
+    "2026-01-13": {
+        "weekly": ["AKAM", "MRNA", "INTC", "RVTY", "ON"],
+        "pro30": ["APP"],
+        "movers": [],
+    },
+    "2026-01-14": {
+        "weekly": ["MS", "CADE", "DAL"],
+        "pro30": ["OCUL", "COHR", "HOUS", "SEI", "ATEC", "BRZE", "DVN"],
+        "movers": ["CRM", "FIG", "IRTC", "PATH", "STNG", "TVTX", "WGS"],
+    },
+    "2026-01-15": {
+        "weekly": ["CLSK", "NUE", "MS"],
+        "pro30": ["OCUL", "COHR", "HOUS", "SEI", "ATEC", "BRZE"],
+        "movers": ["AEIS", "AFCG", "APP", "ATEC", "CRCL", "CRM", "DAVE", "FIG", "GKOS", "IRON", "IRTC", "LZ", "PATH", "PI", "PXED", "STNG", "TVTX", "UEC", "VIA", "WGS"],
+    },
+    "2026-01-16": {
+        "weekly": [],
+        "pro30": [],
+        "movers": [],
+    },
+}
+
+
+def get_notebook_tracker_dates() -> List[str]:
+    """Get list of dates from notebook tracker data."""
+    return sorted([d for d in NOTEBOOK_TRACKER_DATA.keys() if any(NOTEBOOK_TRACKER_DATA[d].values())], reverse=True)
+
+
+def get_notebook_tracker_tickers(date: str, sources: List[str]) -> List[str]:
+    """Get deduplicated tickers for a date and selected sources."""
+    if date not in NOTEBOOK_TRACKER_DATA:
+        return []
+    data = NOTEBOOK_TRACKER_DATA[date]
+    tickers = []
+    for src in sources:
+        tickers.extend(data.get(src, []))
+    # Deduplicate while preserving order
+    seen = set()
+    result = []
+    for t in tickers:
+        if t not in seen:
+            result.append(t)
+            seen.add(t)
+    return result
+
+
+# =============================================================================
 # Stock Tracker Functions
 # =============================================================================
 POLYGON_API_KEY = os.getenv("POLYGON_API_KEY", "")
@@ -859,6 +954,298 @@ def render_stock_tracker_tab(analyses: List[Dict]):
         st.download_button("Download CSV", csv, f"stock_tracker_{baseline_date}_{end_date}.csv", "text/csv")
 
 
+def render_notebook_tracker_tab():
+    """Render the Notebook Tracker tab - data from Notebook_tracker_2026-01.ipynb."""
+    st.subheader("Notebook Tracker (January 2026)")
+    st.caption("Track daily stock picks from the January 2026 notebook tracker.")
+    
+    available_dates = get_notebook_tracker_dates()
+    
+    if not available_dates:
+        st.warning("No tracker data available.")
+        return
+    
+    # View mode selection
+    view_mode = st.radio(
+        "View Mode",
+        ["Single Date", "All Dates Summary"],
+        horizontal=True,
+    )
+    
+    if view_mode == "Single Date":
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            selected_date = st.selectbox(
+                "Select Tracking Date (Baseline)",
+                available_dates,
+                help="Pick date from the notebook tracker",
+                key="nb_select_date"
+            )
+        
+        with col2:
+            end_date = st.date_input(
+                "End Date",
+                value=datetime.now(),
+                help="Track performance until this date",
+                key="nb_end_date_single"
+            ).strftime("%Y-%m-%d")
+        
+        # Get tickers for selected date
+        date_data = NOTEBOOK_TRACKER_DATA.get(selected_date, {})
+        
+        # Source selection
+        st.markdown("**Select Sources:**")
+        src_cols = st.columns(3)
+        with src_cols[0]:
+            use_weekly = st.checkbox(
+                "Weekly Top5", 
+                value=bool(date_data.get("weekly")), 
+                disabled=not date_data.get("weekly"),
+                key="nb_weekly_single"
+            )
+            st.caption(f"{len(date_data.get('weekly', []))} tickers")
+        with src_cols[1]:
+            use_pro30 = st.checkbox(
+                "Pro30", 
+                value=bool(date_data.get("pro30")), 
+                disabled=not date_data.get("pro30"),
+                key="nb_pro30_single"
+            )
+            st.caption(f"{len(date_data.get('pro30', []))} tickers")
+        with src_cols[2]:
+            use_movers = st.checkbox(
+                "Movers", 
+                value=bool(date_data.get("movers")), 
+                disabled=not date_data.get("movers"),
+                key="nb_movers_single"
+            )
+            st.caption(f"{len(date_data.get('movers', []))} tickers")
+        
+        # Build source list
+        sources = []
+        if use_weekly:
+            sources.append("weekly")
+        if use_pro30:
+            sources.append("pro30")
+        if use_movers:
+            sources.append("movers")
+        
+        tickers = get_notebook_tracker_tickers(selected_date, sources)
+        
+        if not tickers:
+            st.info("No tickers selected. Enable at least one source.")
+            return
+        
+        # Display ticker info
+        st.markdown(f"**Tracking {len(tickers)} tickers from {selected_date}:**")
+        
+        ticker_info_cols = st.columns(3)
+        if use_weekly and date_data.get("weekly"):
+            with ticker_info_cols[0]:
+                st.markdown(f"**Weekly:** {', '.join(date_data['weekly'])}")
+        if use_pro30 and date_data.get("pro30"):
+            with ticker_info_cols[1]:
+                st.markdown(f"**Pro30:** {', '.join(date_data['pro30'])}")
+        if use_movers and date_data.get("movers"):
+            with ticker_info_cols[2]:
+                st.markdown(f"**Movers:** {', '.join(date_data['movers'][:10])}{'...' if len(date_data['movers']) > 10 else ''}")
+        
+        # Track performance
+        if st.button("Track Performance", type="primary", key="notebook_track_single"):
+            with st.spinner(f"Fetching prices for {len(tickers)} tickers..."):
+                close = fetch_stock_prices(tickers, selected_date, end_date)
+                df_perf = compute_performance(close, selected_date, end_date)
+            
+            if df_perf.empty:
+                st.warning("No price data available for the selected tickers and date range.")
+                return
+            
+            # Summary metrics
+            st.divider()
+            winners = (df_perf["Percent_Change"] > 0).sum()
+            losers = len(df_perf) - winners
+            avg_return = df_perf["Percent_Change"].mean()
+            
+            m_cols = st.columns(5)
+            m_cols[0].metric("Tickers", len(df_perf))
+            m_cols[1].metric("Winners", winners, delta=f"{winners/len(df_perf):.0%}")
+            m_cols[2].metric("Losers", losers)
+            m_cols[3].metric("Avg Return", f"{avg_return:+.2f}%")
+            if len(df_perf) > 0:
+                m_cols[4].metric("Best", f"{df_perf.iloc[0]['Symbol']} ({df_perf.iloc[0]['Percent_Change']:+.1f}%)")
+            
+            st.divider()
+            
+            # Charts
+            chart_stock_performance(df_perf, close, selected_date, end_date)
+            
+            # Performance table
+            st.subheader("Performance Details")
+            
+            df_display = df_perf.copy()
+            df_display["Return"] = df_display["Percent_Change"].apply(lambda x: f"{x:+.2f}%")
+            df_display["Status"] = df_display["Percent_Change"].apply(lambda x: "Winner" if x > 0 else "Loser")
+            
+            st.dataframe(
+                df_display[["Symbol", "Status", "Baseline", "Current", "Change", "Return", "Baseline_Date", "End_Date"]],
+                use_container_width=True,
+                hide_index=True,
+            )
+            
+            # Download
+            csv = df_perf.to_csv(index=False)
+            st.download_button(
+                "Download CSV", 
+                csv, 
+                f"notebook_tracker_{selected_date}_{end_date}.csv", 
+                "text/csv",
+                key="notebook_download_single"
+            )
+    
+    else:  # All Dates Summary
+        end_date = st.date_input(
+            "End Date (Performance measured to this date)",
+            value=datetime.now(),
+            help="Track performance until this date",
+            key="nb_end_date_all"
+        ).strftime("%Y-%m-%d")
+        
+        # Source selection for all dates
+        st.markdown("**Include Sources:**")
+        src_cols = st.columns(3)
+        with src_cols[0]:
+            use_weekly = st.checkbox("Weekly Top5", value=True, key="nb_weekly_all")
+        with src_cols[1]:
+            use_pro30 = st.checkbox("Pro30", value=True, key="nb_pro30_all")
+        with src_cols[2]:
+            use_movers = st.checkbox("Movers", value=False, key="nb_movers_all")
+        
+        sources = []
+        if use_weekly:
+            sources.append("weekly")
+        if use_pro30:
+            sources.append("pro30")
+        if use_movers:
+            sources.append("movers")
+        
+        if not sources:
+            st.info("Select at least one source.")
+            return
+        
+        # Show summary of all dates
+        st.markdown("### Available Dates")
+        
+        summary_rows = []
+        for date in available_dates:
+            tickers = get_notebook_tracker_tickers(date, sources)
+            if tickers:
+                data = NOTEBOOK_TRACKER_DATA[date]
+                summary_rows.append({
+                    "Date": date,
+                    "Weekly": len(data.get("weekly", [])),
+                    "Pro30": len(data.get("pro30", [])),
+                    "Movers": len(data.get("movers", [])),
+                    "Total": len(tickers),
+                    "Tickers": ", ".join(tickers[:8]) + ("..." if len(tickers) > 8 else ""),
+                })
+        
+        if summary_rows:
+            st.dataframe(pd.DataFrame(summary_rows), use_container_width=True, hide_index=True)
+        
+        if st.button("Calculate All Performance", type="primary", key="notebook_track_all"):
+            all_perf = []
+            progress_bar = st.progress(0)
+            status_text = st.empty()
+            
+            for i, date in enumerate(available_dates):
+                tickers = get_notebook_tracker_tickers(date, sources)
+                if not tickers:
+                    continue
+                
+                status_text.text(f"Processing {date}...")
+                progress_bar.progress((i + 1) / len(available_dates))
+                
+                try:
+                    close = fetch_stock_prices(tickers, date, end_date)
+                    df_perf = compute_performance(close, date, end_date)
+                    
+                    if not df_perf.empty:
+                        avg_return = df_perf["Percent_Change"].mean()
+                        winners = (df_perf["Percent_Change"] > 0).sum()
+                        best = df_perf.iloc[0]
+                        worst = df_perf.iloc[-1]
+                        
+                        all_perf.append({
+                            "Baseline Date": date,
+                            "Tickers": len(df_perf),
+                            "Winners": winners,
+                            "Win Rate": f"{winners/len(df_perf):.0%}" if len(df_perf) > 0 else "N/A",
+                            "Avg Return": avg_return,
+                            "Best": f"{best['Symbol']} ({best['Percent_Change']:+.1f}%)",
+                            "Worst": f"{worst['Symbol']} ({worst['Percent_Change']:+.1f}%)",
+                        })
+                except Exception as e:
+                    st.warning(f"Error processing {date}: {e}")
+                    continue
+            
+            progress_bar.empty()
+            status_text.empty()
+            
+            if all_perf:
+                st.divider()
+                st.subheader("Performance Summary by Date")
+                
+                perf_df = pd.DataFrame(all_perf)
+                
+                # Overall metrics
+                total_dates = len(perf_df)
+                overall_avg = perf_df["Avg Return"].mean()
+                best_date = perf_df.loc[perf_df["Avg Return"].idxmax()]
+                worst_date = perf_df.loc[perf_df["Avg Return"].idxmin()]
+                
+                m_cols = st.columns(4)
+                m_cols[0].metric("Dates Tracked", total_dates)
+                m_cols[1].metric("Overall Avg Return", f"{overall_avg:+.2f}%")
+                m_cols[2].metric("Best Date", f"{best_date['Baseline Date']} ({best_date['Avg Return']:+.1f}%)")
+                m_cols[3].metric("Worst Date", f"{worst_date['Baseline Date']} ({worst_date['Avg Return']:+.1f}%)")
+                
+                st.divider()
+                
+                # Performance by date chart
+                fig = px.bar(
+                    perf_df, 
+                    x="Baseline Date", 
+                    y="Avg Return",
+                    title="Average Return by Baseline Date",
+                    color="Avg Return",
+                    color_continuous_scale=["#FF4444", "#FFFF00", "#00CC44"],
+                    color_continuous_midpoint=0,
+                )
+                fig.add_hline(y=0, line_dash="dash", line_color="black", opacity=0.5)
+                fig.add_hline(y=overall_avg, line_dash="dash", line_color="blue", 
+                             annotation_text=f"Avg: {overall_avg:.1f}%")
+                st.plotly_chart(fig, use_container_width=True)
+                
+                # Detailed table
+                st.subheader("Detailed Performance Table")
+                display_df = perf_df.copy()
+                display_df["Avg Return"] = display_df["Avg Return"].apply(lambda x: f"{x:+.2f}%")
+                st.dataframe(display_df, use_container_width=True, hide_index=True)
+                
+                # Download
+                csv = perf_df.to_csv(index=False)
+                st.download_button(
+                    "Download Summary CSV", 
+                    csv, 
+                    f"notebook_tracker_summary_{end_date}.csv", 
+                    "text/csv",
+                    key="notebook_download_all"
+                )
+            else:
+                st.warning("No performance data could be calculated.")
+
+
 # =============================================================================
 # Main App
 # =============================================================================
@@ -975,7 +1362,7 @@ if df is not None and not df.empty:
     c5.metric("Hit Rate", f"{hit_rate:.1%}" if resolved_count > 0 else "N/A")
 
 # Tabs
-tabs = st.tabs(["📈 Performance", "🎯 Attribution", "📉 Rank Decay", "📊 Stock Tracker", "🗂️ Raw Data"])
+tabs = st.tabs(["📈 Performance", "🎯 Attribution", "📉 Rank Decay", "📊 Stock Tracker", "📓 Notebook Tracker", "🗂️ Raw Data"])
 
 with tabs[0]:
     st.subheader("Performance Over Time")
@@ -1026,6 +1413,9 @@ with tabs[3]:
     render_stock_tracker_tab(analyses)
 
 with tabs[4]:
+    render_notebook_tracker_tab()
+
+with tabs[5]:
     st.subheader("Raw Data")
     
     if df is None or df.empty:
