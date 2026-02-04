@@ -150,6 +150,54 @@ def load_hybrid_analyses_from_artifact(files: Dict[str, bytes]) -> List[Dict]:
     return sorted(analyses, key=lambda x: x.get("date", ""), reverse=True)
 
 
+def load_observability_from_artifact(files: Dict[str, bytes]) -> List[Dict]:
+    """Load observability JSONs from artifact."""
+    results = []
+    for path, content in files.items():
+        if "observability_" in path and path.endswith(".json"):
+            try:
+                data = json.loads(content.decode("utf-8"))
+                data["_path"] = path
+                results.append(data)
+            except Exception:
+                continue
+    return sorted(results, key=lambda x: x.get("date", ""), reverse=True)
+
+
+def load_observability_from_local() -> List[Dict]:
+    """Load observability JSONs from local KooCore-D outputs directory."""
+    results = []
+    # Check both potential locations
+    outputs_dirs = [
+        os.path.expanduser("~/Documents/Python Project/KooCore-D/outputs"),
+        "../KooCore-D/outputs",
+    ]
+    
+    for outputs_dir in outputs_dirs:
+        if not os.path.exists(outputs_dir):
+            continue
+        
+        # Scan date subdirectories
+        for date_dir in os.listdir(outputs_dir):
+            date_path = os.path.join(outputs_dir, date_dir)
+            if not os.path.isdir(date_path):
+                continue
+            
+            # Look for observability files
+            for filename in os.listdir(date_path):
+                if filename.startswith("observability_") and filename.endswith(".json"):
+                    filepath = os.path.join(date_path, filename)
+                    try:
+                        with open(filepath, "r") as f:
+                            data = json.load(f)
+                            data["_path"] = filepath
+                            results.append(data)
+                    except Exception:
+                        continue
+    
+    return sorted(results, key=lambda x: x.get("date", ""), reverse=True)
+
+
 def list_snapshot_files() -> List[str]:
     """List available historical snapshot files."""
     if not os.path.exists(PHASE5_DIR):
@@ -458,6 +506,303 @@ def chart_picks_over_time(analyses: List[Dict]):
     fig.add_trace(go.Bar(x=df["date"], y=df["movers"], name="Movers", marker_color="#FF7043"))
     fig.update_layout(title="Daily Pick Counts", barmode="group")
     st.plotly_chart(fig, use_container_width=True)
+
+
+# =============================================================================
+# Observability Charts
+# =============================================================================
+def chart_score_distribution(observability_data: List[Dict]):
+    """Technical score distribution over time by source."""
+    if not observability_data:
+        st.info("No observability data available.")
+        return
+    
+    rows = []
+    for obs in observability_data:
+        date = obs.get("date")
+        if not date:
+            continue
+        
+        score_dist = obs.get("technical_score_distribution", {})
+        for source in ["pro30", "weekly"]:
+            src_data = score_dist.get(source, {})
+            if src_data.get("count", 0) > 0:
+                rows.append({
+                    "date": date,
+                    "source": source.title(),
+                    "median": src_data.get("median", 0),
+                    "min": src_data.get("min", 0),
+                    "max": src_data.get("max", 0),
+                    "count": src_data.get("count", 0),
+                    "count_gte_6": src_data.get("count_gte_6", 0),
+                })
+    
+    if not rows:
+        st.info("No score distribution data.")
+        return
+    
+    df = pd.DataFrame(rows).sort_values("date")
+    
+    # Line chart showing median scores by source
+    fig = px.line(
+        df, x="date", y="median", color="source",
+        title="Technical Score Median Over Time",
+        markers=True,
+        hover_data=["min", "max", "count", "count_gte_6"]
+    )
+    fig.add_hline(y=6, line_dash="dash", line_color="green", opacity=0.5,
+                  annotation_text="MEDIUM threshold (6)")
+    fig.add_hline(y=8, line_dash="dash", line_color="blue", opacity=0.5,
+                  annotation_text="HIGH threshold (8)")
+    fig.update_yaxes(range=[0, 10])
+    st.plotly_chart(fig, use_container_width=True)
+
+
+def chart_overlap_timeline(observability_data: List[Dict]):
+    """Overlap occurrences over time."""
+    if not observability_data:
+        st.info("No observability data available.")
+        return
+    
+    rows = []
+    for obs in observability_data:
+        date = obs.get("date")
+        if not date:
+            continue
+        
+        overlap_stats = obs.get("overlap_stats", {})
+        rows.append({
+            "date": date,
+            "Weekly+Pro30": overlap_stats.get("weekly_pro30", 0),
+            "Pro30+Movers": overlap_stats.get("pro30_movers", 0),
+            "All Three": overlap_stats.get("all_three", 0),
+            "Any Overlap": overlap_stats.get("any_overlap_count", 0),
+        })
+    
+    if not rows:
+        st.info("No overlap data.")
+        return
+    
+    df = pd.DataFrame(rows).sort_values("date")
+    
+    fig = go.Figure()
+    fig.add_trace(go.Bar(x=df["date"], y=df["Weekly+Pro30"], name="Weekly+Pro30", marker_color="#4A90D9"))
+    fig.add_trace(go.Bar(x=df["date"], y=df["Pro30+Movers"], name="Pro30+Movers", marker_color="#7CB342"))
+    fig.add_trace(go.Bar(x=df["date"], y=df["All Three"], name="All Three", marker_color="#FFD700"))
+    fig.update_layout(
+        title="Scanner Overlap Frequency",
+        barmode="stack",
+        yaxis_title="Count"
+    )
+    st.plotly_chart(fig, use_container_width=True)
+
+
+def chart_confidence_distribution(observability_data: List[Dict]):
+    """Confidence level distribution over time."""
+    if not observability_data:
+        st.info("No observability data available.")
+        return
+    
+    # Latest data - pie chart
+    latest = observability_data[0] if observability_data else {}
+    conf_dist = latest.get("confidence_distribution", {})
+    
+    if conf_dist:
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.markdown(f"**Latest ({latest.get('date', 'N/A')})**")
+            labels = list(conf_dist.keys())
+            values = list(conf_dist.values())
+            colors = {"HIGH": "#00CC44", "MEDIUM": "#FFD700", "LOW": "#888888"}
+            
+            fig = go.Figure(data=[go.Pie(
+                labels=labels,
+                values=values,
+                marker_colors=[colors.get(l, "#888") for l in labels],
+                hole=0.4
+            )])
+            fig.update_layout(
+                title="Confidence Distribution (Today)",
+                height=300,
+                margin=dict(t=50, b=20, l=20, r=20)
+            )
+            st.plotly_chart(fig, use_container_width=True)
+        
+        with col2:
+            # Historical trend
+            rows = []
+            for obs in observability_data:
+                date = obs.get("date")
+                conf = obs.get("confidence_distribution", {})
+                if date and conf:
+                    total = sum(conf.values())
+                    if total > 0:
+                        rows.append({
+                            "date": date,
+                            "HIGH": conf.get("HIGH", 0) / total * 100,
+                            "MEDIUM": conf.get("MEDIUM", 0) / total * 100,
+                            "LOW": conf.get("LOW", 0) / total * 100,
+                        })
+            
+            if rows:
+                df = pd.DataFrame(rows).sort_values("date")
+                
+                fig = go.Figure()
+                for level, color in [("HIGH", "#00CC44"), ("MEDIUM", "#FFD700"), ("LOW", "#888888")]:
+                    fig.add_trace(go.Scatter(
+                        x=df["date"], y=df[level],
+                        mode="lines+markers",
+                        name=level,
+                        stackgroup="one",
+                        line=dict(color=color),
+                        fillcolor=color,
+                    ))
+                fig.update_layout(
+                    title="Confidence Trend (%)",
+                    yaxis_title="Percentage",
+                    height=300,
+                )
+                st.plotly_chart(fig, use_container_width=True)
+    else:
+        st.info("No confidence distribution data.")
+
+
+def chart_model_maturity(observability_data: List[Dict]):
+    """Model maturity progress."""
+    if not observability_data:
+        st.info("No observability data available.")
+        return
+    
+    latest = observability_data[0] if observability_data else {}
+    maturity = latest.get("model_maturity", {})
+    
+    if maturity:
+        obs = maturity.get("observations", 0)
+        min_req = maturity.get("min_required", 50)
+        pct = maturity.get("pct_complete", 0)
+        remaining = maturity.get("observations_remaining", 50)
+        version = maturity.get("version", 1)
+        last_trained = maturity.get("last_trained", "Never")
+        
+        # Metrics row
+        col1, col2, col3, col4 = st.columns(4)
+        col1.metric("Observations", obs)
+        col2.metric("Required", min_req)
+        col3.metric("Remaining", remaining)
+        col4.metric("Model Version", f"v{version}")
+        
+        # Progress bar
+        st.progress(min(1.0, pct / 100), text=f"Model Maturity: {pct:.0f}%")
+        
+        if last_trained:
+            st.caption(f"Last trained: {last_trained}")
+        
+        # Historical observations trend
+        rows = []
+        for obs_data in observability_data:
+            date = obs_data.get("date")
+            mat = obs_data.get("model_maturity", {})
+            if date and mat:
+                rows.append({
+                    "date": date,
+                    "observations": mat.get("observations", 0),
+                })
+        
+        if len(rows) > 1:
+            df = pd.DataFrame(rows).sort_values("date")
+            
+            fig = px.line(
+                df, x="date", y="observations",
+                title="Observations Over Time",
+                markers=True
+            )
+            fig.add_hline(y=min_req, line_dash="dash", line_color="green",
+                         annotation_text=f"Min required ({min_req})")
+            st.plotly_chart(fig, use_container_width=True)
+    else:
+        st.info("No model maturity data.")
+
+
+def chart_near_misses(observability_data: List[Dict]):
+    """Show near-miss candidates that almost reached MEDIUM confidence."""
+    if not observability_data:
+        return
+    
+    latest = observability_data[0] if observability_data else {}
+    near_misses = latest.get("near_misses", [])
+    
+    if not near_misses:
+        st.caption("No near-misses today.")
+        return
+    
+    st.markdown("**Near Misses (Almost MEDIUM)**")
+    
+    rows = []
+    for nm in near_misses[:5]:
+        rows.append({
+            "Ticker": nm.get("ticker", "?"),
+            "Score": nm.get("conviction_score", 0),
+            "Sources": ", ".join(nm.get("sources", [])),
+            "Missing": nm.get("missing", ""),
+        })
+    
+    if rows:
+        st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
+
+
+def render_observability_tab(observability_data: List[Dict]):
+    """Render the Observability tab."""
+    st.subheader("🔬 System Observability")
+    st.caption("Passive metrics tracking system health and market conditions. No impact on picks or scoring.")
+    
+    if not observability_data:
+        st.warning("No observability data available. Run a scan with the latest KooCore-D to generate observability metrics.")
+        return
+    
+    # Latest date indicator
+    latest = observability_data[0]
+    latest_date = latest.get("date", "Unknown")
+    regime = latest.get("regime", "unknown")
+    
+    st.markdown(f"**Latest Data:** {latest_date} | **Regime:** {regime.upper()}")
+    st.divider()
+    
+    # Model Maturity (most important for Phase-5)
+    st.markdown("### 📈 Model Maturity")
+    chart_model_maturity(observability_data)
+    
+    st.divider()
+    
+    # Score Distribution and Confidence in 2 columns
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.markdown("### 📊 Technical Score Distribution")
+        chart_score_distribution(observability_data)
+    
+    with col2:
+        st.markdown("### 🎯 Confidence Distribution")
+        chart_confidence_distribution(observability_data)
+    
+    st.divider()
+    
+    # Overlap Timeline
+    st.markdown("### 🔗 Scanner Overlap Frequency")
+    chart_overlap_timeline(observability_data)
+    
+    st.divider()
+    
+    # Near Misses
+    st.markdown("### 🎲 Near-Miss Candidates")
+    chart_near_misses(observability_data)
+    
+    st.divider()
+    
+    # Raw Data Expander
+    with st.expander("View Raw Observability Data"):
+        if observability_data:
+            st.json(observability_data[0])
 
 
 # =============================================================================
@@ -1463,10 +1808,11 @@ st.set_page_config(page_title="KooCore Dashboard", page_icon="📊", layout="wid
 
 st.title("📊 KooCore-D Dashboard")
 
-# Mode selection
+# Mode selection (default to Historical to avoid GitHub rate limits)
 mode = st.radio(
     "Data Source",
     ["Live (GitHub Artifact)", "Historical Snapshots"],
+    index=1,  # Default to Historical
     horizontal=True,
     help="Live pulls latest from GitHub Actions. Historical uses stored snapshots."
 )
@@ -1506,6 +1852,7 @@ with st.sidebar:
 # Load data
 df = pd.DataFrame()
 analyses = []
+observability_data = []
 meta = {}
 
 try:
@@ -1516,6 +1863,7 @@ try:
         
         df = load_phase5_from_artifact(files)
         analyses = load_hybrid_analyses_from_artifact(files)
+        observability_data = load_observability_from_artifact(files)
         
         # Info bar
         col1, col2, col3 = st.columns(3)
@@ -1524,6 +1872,9 @@ try:
         col3.metric("Files", len(files))
     
     else:
+        # Load local observability data first (independent of phase5)
+        observability_data = load_observability_from_local()
+        
         if load_all:
             df = load_all_snapshots()
             st.caption(f"Loaded {len(list_snapshot_files())} snapshots")
@@ -1531,8 +1882,16 @@ try:
             df = load_snapshot(selected_path)
             st.caption(f"Loaded snapshot: {selected_date}")
         else:
-            st.warning("No snapshot selected.")
-            st.stop()
+            # No phase5 snapshot, but we may have observability data
+            if observability_data:
+                st.info(f"No Phase5 snapshots found, but loaded {len(observability_data)} observability snapshots. Check the Observability tab.")
+                df = pd.DataFrame()  # Empty dataframe
+            else:
+                st.warning("No snapshot selected and no observability data found.")
+                st.stop()
+        
+        if observability_data:
+            st.caption(f"✓ Loaded {len(observability_data)} observability snapshots from local outputs")
 
 except Exception as e:
     st.error(f"Error loading data: {e}")
@@ -1572,7 +1931,7 @@ if df is not None and not df.empty:
     c5.metric("Hit Rate", f"{hit_rate:.1%}" if resolved_count > 0 else "N/A")
 
 # Tabs
-tabs = st.tabs(["📈 Performance", "🎯 Attribution", "📉 Rank Decay", "📊 Stock Tracker", "📓 Notebook Tracker", "🗂️ Raw Data"])
+tabs = st.tabs(["📈 Performance", "🎯 Attribution", "📉 Rank Decay", "📊 Stock Tracker", "📓 Notebook Tracker", "🔬 Observability", "🗂️ Raw Data"])
 
 with tabs[0]:
     st.subheader("Performance Over Time")
@@ -1626,6 +1985,9 @@ with tabs[4]:
     render_notebook_tracker_tab()
 
 with tabs[5]:
+    render_observability_tab(observability_data)
+
+with tabs[6]:
     st.subheader("Raw Data")
     
     if df is None or df.empty:
