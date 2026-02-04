@@ -688,6 +688,149 @@ def cmd_all(args) -> int:
         logger.warning(f"  ⚠ Conviction ranking failed: {e}")
     
     # ═══════════════════════════════════════════════════════════════════════════════
+    # OBSERVABILITY METRICS: Track system health and market conditions
+    # Passive observation only - no impact on picks or scoring
+    # ═══════════════════════════════════════════════════════════════════════════════
+    try:
+        logger.info("\n[5.6/7] Generating Observability Metrics...")
+        
+        # 1. Technical Score Distribution (by source)
+        score_distribution = {
+            "pro30": {"scores": [], "count": 0, "count_gte_6": 0, "count_gte_8": 0},
+            "weekly": {"scores": [], "count": 0, "count_gte_6": 0, "count_gte_8": 0},
+        }
+        
+        # Collect Pro30 scores
+        for ticker, info in pro30_lookup.items():
+            score = info.get("Score")
+            if score is not None:
+                score_distribution["pro30"]["scores"].append(float(score))
+                score_distribution["pro30"]["count"] += 1
+                if score >= 6:
+                    score_distribution["pro30"]["count_gte_6"] += 1
+                if score >= 8:
+                    score_distribution["pro30"]["count_gte_8"] += 1
+        
+        # Collect Weekly scores from packets
+        for pick in results.get("llm_primary_top5", []):
+            tech_score = pick.get("scores", {}).get("technical") if isinstance(pick.get("scores"), dict) else None
+            if tech_score is None:
+                tech_score = pick.get("technical_score") or pick.get("composite_score")
+            if tech_score is not None:
+                score_distribution["weekly"]["scores"].append(float(tech_score))
+                score_distribution["weekly"]["count"] += 1
+                if tech_score >= 6:
+                    score_distribution["weekly"]["count_gte_6"] += 1
+                if tech_score >= 8:
+                    score_distribution["weekly"]["count_gte_8"] += 1
+        
+        # Compute percentiles for each source
+        import numpy as np
+        for src in ["pro30", "weekly"]:
+            scores = score_distribution[src]["scores"]
+            if scores:
+                score_distribution[src].update({
+                    "min": round(float(np.min(scores)), 2),
+                    "p25": round(float(np.percentile(scores, 25)), 2),
+                    "median": round(float(np.median(scores)), 2),
+                    "p75": round(float(np.percentile(scores, 75)), 2),
+                    "max": round(float(np.max(scores)), 2),
+                })
+            # Remove raw scores array to keep file small
+            del score_distribution[src]["scores"]
+        
+        # 2. Overlap Statistics
+        overlap_stats = {
+            "weekly_only": len(primary_top5_tickers - pro30_tickers - movers_tickers),
+            "pro30_only": len(pro30_tickers - primary_top5_tickers - movers_tickers),
+            "movers_only": len(movers_tickers - primary_top5_tickers - pro30_tickers),
+            "weekly_pro30": len(overlap_primary_pro30 - overlap_all_three),
+            "weekly_movers": len(overlap_primary_movers - overlap_all_three),
+            "pro30_movers": len(overlap_pro30_movers - overlap_all_three),
+            "all_three": len(overlap_all_three),
+            "any_overlap_count": len(overlap_primary_pro30 | overlap_primary_movers | overlap_pro30_movers | overlap_all_three),
+            # Overlap potential (was overlap possible?)
+            "overlap_potential": {
+                "weekly_candidates": len(primary_top5_tickers),
+                "pro30_candidates": len(pro30_tickers),
+                "movers_candidates": len(movers_tickers),
+                "intersection_possible": len(primary_top5_tickers) > 0 and len(pro30_tickers) > 0,
+            },
+        }
+        
+        # 3. Confidence Distribution
+        confidence_distribution = {"HIGH": 0, "MEDIUM": 0, "LOW": 0}
+        near_misses = []
+        
+        if conviction_result and conviction_result.get("all_candidates"):
+            for candidate in conviction_result["all_candidates"]:
+                conf = candidate.get("confidence", "LOW")
+                if conf in confidence_distribution:
+                    confidence_distribution[conf] += 1
+                
+                # Track near-misses (LOW confidence with highest scores)
+                if conf == "LOW" and len(near_misses) < 5:
+                    near_misses.append({
+                        "ticker": candidate.get("ticker"),
+                        "conviction_score": candidate.get("conviction_score"),
+                        "sources": candidate.get("sources", []),
+                        "missing": "needs overlap or tech>=6" if candidate.get("overlap_count", 1) < 2 else "needs higher tech score",
+                    })
+        
+        # Compute confidence rates
+        total_candidates = sum(confidence_distribution.values())
+        confidence_rates = {}
+        for level, count in confidence_distribution.items():
+            confidence_rates[f"{level.lower()}_pct"] = round(count / max(1, total_candidates) * 100, 1)
+        
+        # 4. Model Maturity
+        model_maturity = {
+            "observations": 0,
+            "min_required": 50,
+            "pct_complete": 0.0,
+            "observations_remaining": 50,
+        }
+        
+        if conviction_result and conviction_result.get("model_info"):
+            model_info = conviction_result["model_info"]
+            obs = model_info.get("observations", 0)
+            min_obs = model_info.get("min_observations", 50)
+            model_maturity.update({
+                "observations": obs,
+                "min_required": min_obs,
+                "pct_complete": round(min(100, obs / max(1, min_obs) * 100), 1),
+                "observations_remaining": max(0, min_obs - obs),
+                "version": model_info.get("version", 1),
+                "last_trained": model_info.get("last_trained"),
+            })
+        
+        # 5. Build and save observability file
+        observability_data = {
+            "date": output_date_str,
+            "asof_trading_date": asof_date.strftime("%Y-%m-%d") if asof_date else None,
+            "technical_score_distribution": score_distribution,
+            "overlap_stats": overlap_stats,
+            "confidence_distribution": confidence_distribution,
+            "confidence_rates": confidence_rates,
+            "near_misses": near_misses[:5],  # Cap at 5
+            "model_maturity": model_maturity,
+            "regime": primary_regime or "unknown",
+        }
+        
+        observability_file = output_dir / f"observability_{output_date_str}.json"
+        save_json(observability_data, observability_file)
+        logger.info(f"  ✓ Observability metrics saved to {observability_file.name}")
+        
+        # Log summary
+        logger.info(f"    Score dist (Pro30): median={score_distribution['pro30'].get('median', 'N/A')}, ≥6={score_distribution['pro30']['count_gte_6']}/{score_distribution['pro30']['count']}")
+        logger.info(f"    Overlap: any={overlap_stats['any_overlap_count']}, all_three={overlap_stats['all_three']}")
+        logger.info(f"    Confidence: HIGH={confidence_distribution['HIGH']}, MED={confidence_distribution['MEDIUM']}, LOW={confidence_distribution['LOW']}")
+        logger.info(f"    Model maturity: {model_maturity['pct_complete']:.0f}% ({model_maturity['observations']}/{model_maturity['min_required']})")
+        
+    except Exception as e:
+        logger.warning(f"  ⚠ Observability metrics generation failed: {e}")
+    
+    # ═══════════════════════════════════════════════════════════════════════════════
     # PHASE-5 LEARNING: Write scan-time features (append-only, idempotent)
     # R1-safe: only writes if not a retry attempt
     # ═══════════════════════════════════════════════════════════════════════════════
