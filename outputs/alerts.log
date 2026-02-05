@@ -1065,3 +1065,44 @@ Primary Candidates: 30
 Details:
   asof: 2026-02-04
 
+
+============================================================
+[2026-02-05 23:53:05 UTC] [LOW] Scan Complete: 2026-02-05 (Weekly)
+============================================================
+===================================
+SCAN COMPLETE - 2026-02-05
+===================================
+Regime: stress
+Primary Strategy: Weekly
+Primary Candidates: 30
+
+🏆 HYBRID TOP 3 (Best Picks):
+  1. VRT (Pro30(r1))
+     Score: 3.0 pts | LOW
+  2. VRTS (Pro30(r2))
+     Score: 3.0 pts | LOW
+  3. COMM (Pro30(r3))
+     Score: 2.9 pts | LOW
+
+⭐ Weekly TOP PICKS:
+  - AX: 4.35 LOW
+  - IESC: 4.11 LOW
+
+📊 SUMMARY:
+  Weekly: 2 | Pro30: 18 | Movers: 0
+
+📈 MODEL: 🔴 Poor
+  Hit: 18% | Win: 30%
+  movers:30% | weekly_top5:20% | swing_top5:10%
+
+📌 POSITION ALERTS:
+  Total: 4 | High: 2 | Warning: 0
+  - ⏰ HOLDING EXPIRED: COHR at 6.8% after 14 days
+  - 🛑 STOP LOSS: SEI down -16.8% (limit: -6.0%)
+  - 🎯 TARGET HIT: MU up 13.7% (target: 7.0%)
+
+===================================
+
+Details:
+  asof: 2026-02-05
+
