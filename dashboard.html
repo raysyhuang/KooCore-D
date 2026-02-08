@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KooCore-D — Scanner Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════
+   ROOT & RESET
+   ═══════════════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #fafaf9;
+  --bg-card: #ffffff;
+  --bg-section-alt: #f5f5f4;
+  --bg-nav: rgba(250,250,249,0.82);
+  --text: #1c1917;
+  --text-secondary: #78716c;
+  --text-muted: #a8a29e;
+  --border: #e7e5e4;
+  --border-light: #f5f5f4;
+
+  --weekly: #4f46e5;
+  --weekly-bg: #eef2ff;
+  --weekly-border: #c7d2fe;
+  --pro30: #0d9488;
+  --pro30-bg: #f0fdfa;
+  --pro30-border: #99f6e4;
+  --movers: #d97706;
+  --movers-bg: #fffbeb;
+  --movers-border: #fde68a;
+
+  --positive: #059669;
+  --positive-bg: #ecfdf5;
+  --negative: #e11d48;
+  --negative-bg: #fff1f2;
+  --accent: #4f46e5;
+  --accent-bg: #eef2ff;
+
+  --shadow-sm: 0 1px 2px rgba(28,25,23,0.04);
+  --shadow: 0 1px 3px rgba(28,25,23,0.06), 0 1px 2px rgba(28,25,23,0.04);
+  --shadow-md: 0 4px 6px -1px rgba(28,25,23,0.06), 0 2px 4px -2px rgba(28,25,23,0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(28,25,23,0.06), 0 4px 6px -4px rgba(28,25,23,0.04);
+
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-pill: 100px;
+
+  --font: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono: 'JetBrains Mono', 'SF Mono', monospace;
+
+  --nav-height: 60px;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-height) + 24px);
+}
+
+body {
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ═══════════════════════════════════════════════════════
+   DARK MODE
+   ═══════════════════════════════════════════════════════ */
+[data-theme="dark"] {
+  --bg: #0c0a09;
+  --bg-card: #1c1917;
+  --bg-section-alt: #151412;
+  --bg-nav: rgba(12,10,9,0.85);
+  --text: #fafaf9;
+  --text-secondary: #a8a29e;
+  --text-muted: #78716c;
+  --border: #292524;
+  --border-light: #1c1917;
+
+  --weekly-bg: rgba(79,70,229,0.12);
+  --weekly-border: rgba(79,70,229,0.3);
+  --pro30-bg: rgba(13,148,136,0.12);
+  --pro30-border: rgba(13,148,136,0.3);
+  --movers-bg: rgba(217,119,6,0.12);
+  --movers-border: rgba(217,119,6,0.3);
+
+  --positive-bg: rgba(5,150,105,0.12);
+  --negative-bg: rgba(225,29,72,0.12);
+  --accent-bg: rgba(79,70,229,0.12);
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow: 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -2px rgba(0,0,0,0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.3), 0 4px 6px -4px rgba(0,0,0,0.2);
+}
+
+/* ═══════════════════════════════════════════════════════
+   NAVIGATION
+   ═══════════════════════════════════════════════════════ */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  background: var(--bg-nav);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 clamp(16px, 4vw, 48px);
+}
+
+.nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.nav-logo {
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  border-radius: 7px;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: var(--mono);
+  letter-spacing: -0.05em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+}
+
+.nav-links a {
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-pill);
+  transition: all 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--text);
+  background: var(--bg-section-alt);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.theme-toggle {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--text-muted);
+  color: var(--text);
+}
+
+/* ═══════════════════════════════════════════════════════
+   LAYOUT
+   ═══════════════════════════════════════════════════════ */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 48px);
+}
+
+section {
+  padding: 64px 0;
+}
+
+section:nth-child(odd) {
+  background: var(--bg);
+}
+
+section:nth-child(even) {
+  background: var(--bg-section-alt);
+}
+
+.section-header {
+  margin-bottom: 40px;
+}
+
+.section-header h2 {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 6px;
+}
+
+.section-header p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  max-width: 520px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   OVERVIEW / HERO
+   ═══════════════════════════════════════════════════════ */
+.hero {
+  padding: 56px 0 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -80px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(79,70,229,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-title {
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.hero-subtitle {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-subtitle .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--positive);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Stat Cards */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: all 0.25s ease;
+}
+
+.stat-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.stat-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  font-family: var(--mono);
+  line-height: 1;
+}
+
+.stat-detail {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+
+/* Source bar */
+.source-bar-container {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+}
+
+.source-bar-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.source-bar-track {
+  display: flex;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--border-light);
+  margin-bottom: 12px;
+}
+
+.source-bar-segment {
+  height: 100%;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.source-bar-legend {
+  display: flex;
+  gap: 24px;
+}
+
+.source-bar-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.source-bar-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+}
+
+.source-bar-legend-count {
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--text);
+}
+
+/* ═══════════════════════════════════════════════════════
+   DAILY PICKS
+   ═══════════════════════════════════════════════════════ */
+.filter-row {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: var(--font);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--text-muted);
+  color: var(--text);
+}
+
+.filter-btn.active {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+
+.picks-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pick-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  transition: all 0.25s ease;
+  animation: fadeSlideIn 0.4s ease both;
+}
+
+.pick-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--text-muted);
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.pick-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.pick-date {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.pick-day-name {
+  color: var(--text-muted);
+  font-weight: 400;
+  margin-left: 6px;
+  font-size: 13px;
+}
+
+.pick-count-badge {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-section-alt);
+  color: var(--text-secondary);
+}
+
+.pick-sources {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.pick-source-group {
+  min-height: 36px;
+}
+
+.pick-source-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pick-source-label .source-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+}
+
+.pick-source-label.weekly { color: var(--weekly); }
+.pick-source-label.weekly .source-dot { background: var(--weekly); }
+.pick-source-label.pro30 { color: var(--pro30); }
+.pick-source-label.pro30 .source-dot { background: var(--pro30); }
+.pick-source-label.movers { color: var(--movers); }
+.pick-source-label.movers .source-dot { background: var(--movers); }
+
+.pick-tickers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.ticker-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  border: 1px solid;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.ticker-pill:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.ticker-pill.weekly {
+  background: var(--weekly-bg);
+  border-color: var(--weekly-border);
+  color: var(--weekly);
+}
+
+.ticker-pill.pro30 {
+  background: var(--pro30-bg);
+  border-color: var(--pro30-border);
+  color: var(--pro30);
+}
+
+.ticker-pill.movers {
+  background: var(--movers-bg);
+  border-color: var(--movers-border);
+  color: var(--movers);
+}
+
+.pick-empty {
+  font-size: 12px;
+  color: var(--text-muted);
+  padding: 4px 0;
+}
+
+/* ═══════════════════════════════════════════════════════
+   TICKER INSIGHTS
+   ═══════════════════════════════════════════════════════ */
+.insights-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  flex: 1;
+  min-width: 200px;
+  max-width: 320px;
+  position: relative;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 8px 14px 8px 36px;
+  font-size: 13px;
+  font-family: var(--font);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.search-box input:focus {
+  border-color: var(--accent);
+}
+
+.search-box .search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.sort-select {
+  padding: 8px 14px;
+  font-size: 13px;
+  font-family: var(--font);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  color: var(--text);
+  cursor: pointer;
+  outline: none;
+}
+
+.ticker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.ticker-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.ticker-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--text-muted);
+}
+
+.ticker-card.highlighted {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+.ticker-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.ticker-symbol {
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.ticker-pick-count {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+.ticker-sources {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.ticker-source-count {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ticker-source-count .dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 2px;
+}
+
+.ticker-sparkline {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.spark-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  background: var(--border);
+  transition: all 0.15s ease;
+}
+
+.spark-dot.active-weekly { background: var(--weekly); }
+.spark-dot.active-pro30 { background: var(--pro30); }
+.spark-dot.active-movers { background: var(--movers); }
+.spark-dot.active-multi {
+  background: linear-gradient(135deg, var(--weekly), var(--pro30));
+}
+
+.spark-label {
+  font-size: 9px;
+  color: var(--text-muted);
+  font-family: var(--mono);
+  margin-left: 4px;
+}
+
+/* Ticker Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  display: none;
+  place-items: center;
+  padding: 24px;
+  animation: fadeIn 0.2s ease;
+}
+
+.modal-overlay.open { display: grid; }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 540px;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 32px;
+  box-shadow: var(--shadow-lg);
+  animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.modal-ticker {
+  font-family: var(--mono);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.modal-close {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  transition: all 0.15s ease;
+}
+
+.modal-close:hover {
+  background: var(--bg-section-alt);
+  color: var(--text);
+}
+
+.modal-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.modal-stat {
+  text-align: center;
+  padding: 12px;
+  background: var(--bg-section-alt);
+  border-radius: var(--radius-sm);
+}
+
+.modal-stat-value {
+  font-family: var(--mono);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.modal-stat-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+.modal-section-title {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.modal-history-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 13px;
+}
+
+.modal-history-row:last-child { border-bottom: none; }
+
+.modal-history-date {
+  font-weight: 500;
+}
+
+.modal-history-source {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+}
+
+.modal-history-source.weekly { background: var(--weekly-bg); color: var(--weekly); }
+.modal-history-source.pro30 { background: var(--pro30-bg); color: var(--pro30); }
+.modal-history-source.movers { background: var(--movers-bg); color: var(--movers); }
+
+.modal-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 20px;
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: var(--font);
+  color: white;
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.modal-link:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* ═══════════════════════════════════════════════════════
+   PERFORMANCE TRACKER
+   ═══════════════════════════════════════════════════════ */
+.perf-controls {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.perf-control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.perf-control-group label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.perf-control-group select,
+.perf-control-group input[type="date"] {
+  padding: 8px 14px;
+  font-size: 13px;
+  font-family: var(--font);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  color: var(--text);
+  outline: none;
+}
+
+.perf-checkboxes {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.perf-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.perf-checkbox input {
+  accent-color: var(--accent);
+}
+
+.track-btn {
+  padding: 8px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font);
+  background: var(--text);
+  color: var(--bg);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.track-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.perf-results {
+  display: none;
+}
+
+.perf-results.visible { display: block; }
+
+.perf-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.perf-summary-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  text-align: center;
+}
+
+.perf-summary-value {
+  font-family: var(--mono);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.perf-summary-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+.perf-chart-container {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.perf-table-wrap {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.perf-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.perf-table th {
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  background: var(--bg-section-alt);
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  user-select: none;
+}
+
+.perf-table th:hover {
+  color: var(--text);
+}
+
+.perf-table td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.perf-table tr:last-child td { border-bottom: none; }
+
+.perf-table .ticker-col {
+  font-family: var(--mono);
+  font-weight: 600;
+}
+
+.perf-table .return-positive { color: var(--positive); font-weight: 600; }
+.perf-table .return-negative { color: var(--negative); font-weight: 600; }
+
+.demo-notice {
+  background: var(--accent-bg);
+  border: 1px solid var(--weekly-border);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--accent);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════ */
+.footer {
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.footer p {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .pick-sources { grid-template-columns: 1fr; gap: 8px; }
+  .ticker-grid { grid-template-columns: 1fr 1fr; }
+  .perf-summary-grid { grid-template-columns: repeat(2, 1fr); }
+  .modal-stats { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .stats-grid { grid-template-columns: 1fr; }
+  .ticker-grid { grid-template-columns: 1fr; }
+  .perf-summary-grid { grid-template-columns: 1fr 1fr; }
+  .perf-controls { flex-direction: column; align-items: stretch; }
+  .nav-links { display: none; }
+  .source-bar-legend { flex-wrap: wrap; gap: 12px; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   SCROLLBAR
+   ═══════════════════════════════════════════════════════ */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* Utility */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     NAVIGATION
+     ═══════════════════════════════════════════════════════ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#overview" class="nav-brand">
+      <div class="nav-logo">K</div>
+      KooCore-D
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#overview" class="active">Overview</a></li>
+      <li><a href="#picks">Daily Picks</a></li>
+      <li><a href="#insights">Ticker Insights</a></li>
+      <li><a href="#performance">Performance</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <span id="themeIcon">&#9789;</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 1: OVERVIEW
+     ═══════════════════════════════════════════════════════ -->
+<section class="hero" id="overview">
+  <div class="container">
+    <h1 class="hero-title">Scanner Dashboard</h1>
+    <p class="hero-subtitle">
+      <span class="dot"></span>
+      January 2026 Stock Picks
+    </p>
+
+    <div class="stats-grid" id="statsGrid">
+      <!-- Filled by JS -->
+    </div>
+
+    <div class="source-bar-container">
+      <div class="source-bar-label">Pick volume by source</div>
+      <div class="source-bar-track" id="sourceBar"></div>
+      <div class="source-bar-legend" id="sourceLegend"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 2: DAILY PICKS
+     ═══════════════════════════════════════════════════════ -->
+<section id="picks">
+  <div class="container">
+    <div class="section-header">
+      <h2>Daily Picks</h2>
+      <p>Browse what the scanner found each day. Click any ticker to see its full history.</p>
+    </div>
+
+    <div class="filter-row" id="filterRow">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="weekly">Weekly</button>
+      <button class="filter-btn" data-filter="pro30">Pro30</button>
+      <button class="filter-btn" data-filter="movers">Movers</button>
+    </div>
+
+    <div class="picks-timeline" id="picksTimeline"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 3: TICKER INSIGHTS
+     ═══════════════════════════════════════════════════════ -->
+<section id="insights">
+  <div class="container">
+    <div class="section-header">
+      <h2>Ticker Insights</h2>
+      <p>See how often each stock was picked and from which sources.</p>
+    </div>
+
+    <div class="insights-toolbar">
+      <div class="search-box">
+        <span class="search-icon">&#x1F50D;</span>
+        <input type="text" id="tickerSearch" placeholder="Search tickers..." autocomplete="off">
+      </div>
+      <select class="sort-select" id="sortSelect">
+        <option value="count-desc">Most Picked</option>
+        <option value="alpha-asc">A &rarr; Z</option>
+        <option value="alpha-desc">Z &rarr; A</option>
+        <option value="recent">Most Recent</option>
+      </select>
+    </div>
+
+    <div class="ticker-grid" id="tickerGrid"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 4: PERFORMANCE TRACKER
+     ═══════════════════════════════════════════════════════ -->
+<section id="performance">
+  <div class="container">
+    <div class="section-header">
+      <h2>Track Performance</h2>
+      <p>See how picks from a specific date would have performed.</p>
+    </div>
+
+    <div class="demo-notice">
+      <span>&#9432;</span>
+      Demo mode — shows simulated returns. Connect a price API for live data.
+    </div>
+
+    <div class="perf-controls">
+      <div class="perf-control-group">
+        <label>Pick date</label>
+        <select id="perfDate"></select>
+      </div>
+      <div class="perf-control-group">
+        <label>End date</label>
+        <input type="date" id="perfEndDate">
+      </div>
+      <div class="perf-control-group">
+        <label>Sources</label>
+        <div class="perf-checkboxes">
+          <label class="perf-checkbox"><input type="checkbox" checked value="weekly"> Weekly</label>
+          <label class="perf-checkbox"><input type="checkbox" checked value="pro30"> Pro30</label>
+          <label class="perf-checkbox"><input type="checkbox" checked value="movers"> Movers</label>
+        </div>
+      </div>
+      <button class="track-btn" id="trackBtn">Track</button>
+    </div>
+
+    <div class="perf-results" id="perfResults">
+      <div class="perf-summary-grid" id="perfSummary"></div>
+
+      <div class="perf-chart-container">
+        <canvas id="perfChart" height="260"></canvas>
+      </div>
+
+      <div class="perf-table-wrap">
+        <table class="perf-table">
+          <thead>
+            <tr>
+              <th data-sort="ticker">Ticker</th>
+              <th data-sort="entry">Entry</th>
+              <th data-sort="current">Current</th>
+              <th data-sort="change">Change</th>
+              <th data-sort="pct">Return %</th>
+            </tr>
+          </thead>
+          <tbody id="perfTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     TICKER MODAL
+     ═══════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="tickerModal">
+  <div class="modal" id="modalContent">
+    <div class="modal-header">
+      <span class="modal-ticker" id="modalTicker">—</span>
+      <button class="modal-close" id="modalClose">&times;</button>
+    </div>
+    <div class="modal-stats" id="modalStats"></div>
+    <div class="modal-section-title">Pick History</div>
+    <div id="modalHistory"></div>
+    <a class="modal-link" id="modalYahoo" href="#" target="_blank" rel="noopener noreferrer">
+      View on Yahoo Finance &#8599;
+    </a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <p><strong>KooCore-D Dashboard</strong> — Read-only analytics. No trades executed.</p>
+    <p>Data: January 2026 Notebook Tracker</p>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     JAVASCRIPT
+     ═══════════════════════════════════════════════════════ -->
+<script>
+// ───────────────────────────────────────────────────────
+// DATA
+// ───────────────────────────────────────────────────────
+const PICKS_DATA = {
+  "2026-01-01": { weekly: [], pro30: ["PATH"], movers: ["CVX"] },
+  "2026-01-02": { weekly: ["DBRG","RKLB","SATS","HII","HWM"], pro30: [], movers: ["CVX"] },
+  "2026-01-03": { weekly: ["HAL","AXSM","DBRG","DOCN","EL"], pro30: [], movers: [] },
+  "2026-01-05": { weekly: ["LITE","BK","DAL","INCY","PNC"], pro30: ["SNDK","WDC","CENX"], movers: [] },
+  "2026-01-06": { weekly: ["PSX","ABBV","AEIS","GH","VSEC"], pro30: ["MOD","INTC"], movers: [] },
+  "2026-01-07": { weekly: ["NOC","F","BBIO","COF","BFH"], pro30: ["HOUS"], movers: [] },
+  "2026-01-08": { weekly: ["BK","DAL","BBIO","DG","CBOE"], pro30: ["LQDA","CGON","GLUE","APLD","HOUS","KTOS","COMP","INTC"], movers: [] },
+  "2026-01-09": { weekly: ["GD","AKAM","EXPE","CADE","NOC"], pro30: ["LQDA","SLNO"], movers: [] },
+  "2026-01-12": { weekly: ["SATS","OPCH","BBIO","FORM","RKLB"], pro30: ["TVTX","TTMI","ATEC","HOUS","FIG","FORM","STNG","TGTX"], movers: [] },
+  "2026-01-13": { weekly: ["AKAM","MRNA","INTC","RVTY","ON"], pro30: ["APP"], movers: [] },
+  "2026-01-14": { weekly: ["MS","CADE","DAL"], pro30: ["OCUL","COHR","HOUS","SEI","ATEC","BRZE","DVN"], movers: ["CRM","FIG","IRTC","PATH","STNG","TVTX","WGS"] },
+  "2026-01-15": { weekly: ["CLSK","NUE","MS"], pro30: ["OCUL","COHR","HOUS","SEI","ATEC","BRZE"], movers: ["AEIS","AFCG","APP","ATEC","CRCL","CRM","DAVE","FIG","GKOS","IRON","IRTC","LZ","PATH","PI","PXED","STNG","TVTX","UEC","VIA","WGS"] },
+  "2026-01-16": { weekly: [], pro30: [], movers: [] },
+};
+
+// ───────────────────────────────────────────────────────
+// COMPUTED DATA
+// ───────────────────────────────────────────────────────
+const ALL_DATES = Object.keys(PICKS_DATA).sort();
+const ACTIVE_DATES = ALL_DATES.filter(d => {
+  const p = PICKS_DATA[d];
+  return p.weekly.length + p.pro30.length + p.movers.length > 0;
+});
+
+// Build ticker index: { TICKER: { count, weekly, pro30, movers, dates: [{date, source}], lastDate } }
+const TICKER_INDEX = {};
+for (const date of ALL_DATES) {
+  const picks = PICKS_DATA[date];
+  for (const source of ['weekly','pro30','movers']) {
+    for (const ticker of picks[source]) {
+      if (!TICKER_INDEX[ticker]) {
+        TICKER_INDEX[ticker] = { count: 0, weekly: 0, pro30: 0, movers: 0, dates: [], lastDate: '' };
+      }
+      TICKER_INDEX[ticker].count++;
+      TICKER_INDEX[ticker][source]++;
+      TICKER_INDEX[ticker].dates.push({ date, source });
+      if (date > TICKER_INDEX[ticker].lastDate) TICKER_INDEX[ticker].lastDate = date;
+    }
+  }
+}
+
+const ALL_TICKERS = Object.keys(TICKER_INDEX);
+const UNIQUE_COUNT = ALL_TICKERS.length;
+const SCAN_DAYS = ACTIVE_DATES.length;
+
+// Most picked ticker
+let mostPicked = { ticker: '—', count: 0 };
+for (const [t, info] of Object.entries(TICKER_INDEX)) {
+  if (info.count > mostPicked.count) mostPicked = { ticker: t, count: info.count };
+}
+
+// Source totals
+let weeklyTotal = 0, pro30Total = 0, moversTotal = 0;
+for (const picks of Object.values(PICKS_DATA)) {
+  weeklyTotal += picks.weekly.length;
+  pro30Total += picks.pro30.length;
+  moversTotal += picks.movers.length;
+}
+const grandTotal = weeklyTotal + pro30Total + moversTotal;
+
+// ───────────────────────────────────────────────────────
+// HELPERS
+// ───────────────────────────────────────────────────────
+function formatDate(dateStr) {
+  const d = new Date(dateStr + 'T12:00:00');
+  const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return `${days[d.getDay()]}, ${months[d.getMonth()]} ${d.getDate()}`;
+}
+
+function formatDateShort(dateStr) {
+  const d = new Date(dateStr + 'T12:00:00');
+  return `${d.getMonth()+1}/${d.getDate()}`;
+}
+
+// ───────────────────────────────────────────────────────
+// SECTION 1: OVERVIEW
+// ───────────────────────────────────────────────────────
+function renderOverview() {
+  const statsGrid = document.getElementById('statsGrid');
+  const stats = [
+    { label: 'Unique Tickers', value: UNIQUE_COUNT, detail: 'across all scan days' },
+    { label: 'Scan Days', value: SCAN_DAYS, detail: `Jan 1 – 15, 2026` },
+    { label: 'Most Picked', value: mostPicked.ticker, detail: `appeared ${mostPicked.count} times` },
+    { label: 'Active Sources', value: '3', detail: 'Weekly, Pro30, Movers' },
+  ];
+
+  statsGrid.innerHTML = stats.map((s, i) => `
+    <div class="stat-card" style="animation-delay: ${i * 0.08}s">
+      <div class="stat-label">${s.label}</div>
+      <div class="stat-value">${s.value}</div>
+      <div class="stat-detail">${s.detail}</div>
+    </div>
+  `).join('');
+
+  // Source bar
+  const bar = document.getElementById('sourceBar');
+  const wPct = (weeklyTotal / grandTotal * 100).toFixed(1);
+  const pPct = (pro30Total / grandTotal * 100).toFixed(1);
+  const mPct = (moversTotal / grandTotal * 100).toFixed(1);
+
+  bar.innerHTML = `
+    <div class="source-bar-segment" style="width:${wPct}%;background:var(--weekly)"></div>
+    <div class="source-bar-segment" style="width:${pPct}%;background:var(--pro30)"></div>
+    <div class="source-bar-segment" style="width:${mPct}%;background:var(--movers)"></div>
+  `;
+
+  const legend = document.getElementById('sourceLegend');
+  legend.innerHTML = `
+    <div class="source-bar-legend-item">
+      <span class="source-bar-legend-dot" style="background:var(--weekly)"></span>
+      Weekly <span class="source-bar-legend-count">${weeklyTotal}</span>
+    </div>
+    <div class="source-bar-legend-item">
+      <span class="source-bar-legend-dot" style="background:var(--pro30)"></span>
+      Pro30 <span class="source-bar-legend-count">${pro30Total}</span>
+    </div>
+    <div class="source-bar-legend-item">
+      <span class="source-bar-legend-dot" style="background:var(--movers)"></span>
+      Movers <span class="source-bar-legend-count">${moversTotal}</span>
+    </div>
+  `;
+}
+
+// ───────────────────────────────────────────────────────
+// SECTION 2: DAILY PICKS
+// ───────────────────────────────────────────────────────
+let activeFilter = 'all';
+
+function renderPicks() {
+  const timeline = document.getElementById('picksTimeline');
+  const dates = [...ACTIVE_DATES].reverse();
+
+  timeline.innerHTML = dates.map((date, i) => {
+    const picks = PICKS_DATA[date];
+    const total = picks.weekly.length + picks.pro30.length + picks.movers.length;
+
+    const renderTickers = (arr, source) => {
+      if (activeFilter !== 'all' && activeFilter !== source) return '';
+      if (arr.length === 0) return `<div class="pick-empty">—</div>`;
+      return `<div class="pick-tickers">
+        ${arr.map(t => `<a class="ticker-pill ${source}" data-ticker="${t}" href="#insights">${t}</a>`).join('')}
+      </div>`;
+    };
+
+    const showWeekly = activeFilter === 'all' || activeFilter === 'weekly';
+    const showPro30 = activeFilter === 'all' || activeFilter === 'pro30';
+    const showMovers = activeFilter === 'all' || activeFilter === 'movers';
+
+    return `
+      <div class="pick-card" style="animation-delay: ${i * 0.04}s">
+        <div class="pick-card-header">
+          <div class="pick-date">
+            ${formatDate(date)}
+            <span class="pick-day-name">${date}</span>
+          </div>
+          <span class="pick-count-badge">${total} pick${total !== 1 ? 's' : ''}</span>
+        </div>
+        <div class="pick-sources">
+          ${showWeekly ? `<div class="pick-source-group">
+            <div class="pick-source-label weekly"><span class="source-dot"></span>Weekly</div>
+            ${renderTickers(picks.weekly, 'weekly')}
+          </div>` : ''}
+          ${showPro30 ? `<div class="pick-source-group">
+            <div class="pick-source-label pro30"><span class="source-dot"></span>Pro30</div>
+            ${renderTickers(picks.pro30, 'pro30')}
+          </div>` : ''}
+          ${showMovers ? `<div class="pick-source-group">
+            <div class="pick-source-label movers"><span class="source-dot"></span>Movers</div>
+            ${renderTickers(picks.movers, 'movers')}
+          </div>` : ''}
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  // Bind ticker pill clicks
+  document.querySelectorAll('.ticker-pill').forEach(pill => {
+    pill.addEventListener('click', (e) => {
+      e.preventDefault();
+      const ticker = pill.dataset.ticker;
+      scrollToTicker(ticker);
+    });
+  });
+}
+
+function scrollToTicker(ticker) {
+  const card = document.querySelector(`.ticker-card[data-ticker="${ticker}"]`);
+  if (card) {
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    card.classList.add('highlighted');
+    setTimeout(() => card.classList.remove('highlighted'), 2000);
+  }
+}
+
+// Filter buttons
+document.getElementById('filterRow').addEventListener('click', (e) => {
+  const btn = e.target.closest('.filter-btn');
+  if (!btn) return;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeFilter = btn.dataset.filter;
+  renderPicks();
+});
+
+// ───────────────────────────────────────────────────────
+// SECTION 3: TICKER INSIGHTS
+// ───────────────────────────────────────────────────────
+let currentSort = 'count-desc';
+let searchQuery = '';
+
+function getTickerSortedList() {
+  let list = Object.entries(TICKER_INDEX).map(([ticker, info]) => ({ ticker, ...info }));
+
+  if (searchQuery) {
+    list = list.filter(t => t.ticker.toLowerCase().includes(searchQuery.toLowerCase()));
+  }
+
+  switch (currentSort) {
+    case 'count-desc': list.sort((a, b) => b.count - a.count || a.ticker.localeCompare(b.ticker)); break;
+    case 'alpha-asc': list.sort((a, b) => a.ticker.localeCompare(b.ticker)); break;
+    case 'alpha-desc': list.sort((a, b) => b.ticker.localeCompare(a.ticker)); break;
+    case 'recent': list.sort((a, b) => b.lastDate.localeCompare(a.lastDate) || b.count - a.count); break;
+  }
+  return list;
+}
+
+function renderTickerGrid() {
+  const grid = document.getElementById('tickerGrid');
+  const list = getTickerSortedList();
+
+  if (list.length === 0) {
+    grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:40px;font-size:14px">No tickers match "${searchQuery}"</div>`;
+    return;
+  }
+
+  grid.innerHTML = list.map(t => {
+    // Build sparkline
+    const sparkDots = ALL_DATES.filter(d => {
+      const p = PICKS_DATA[d];
+      return p.weekly.length + p.pro30.length + p.movers.length > 0;
+    }).map(d => {
+      const p = PICKS_DATA[d];
+      const inWeekly = p.weekly.includes(t.ticker);
+      const inPro30 = p.pro30.includes(t.ticker);
+      const inMovers = p.movers.includes(t.ticker);
+      const sources = [inWeekly, inPro30, inMovers].filter(Boolean).length;
+
+      let cls = '';
+      if (sources > 1) cls = 'active-multi';
+      else if (inWeekly) cls = 'active-weekly';
+      else if (inPro30) cls = 'active-pro30';
+      else if (inMovers) cls = 'active-movers';
+
+      return `<span class="spark-dot ${cls}" title="${d}"></span>`;
+    }).join('');
+
+    return `
+      <div class="ticker-card" data-ticker="${t.ticker}" onclick="openModal('${t.ticker}')">
+        <div class="ticker-card-top">
+          <span class="ticker-symbol">${t.ticker}</span>
+          <span class="ticker-pick-count">${t.count}x</span>
+        </div>
+        <div class="ticker-sources">
+          ${t.weekly > 0 ? `<span class="ticker-source-count"><span class="dot" style="background:var(--weekly)"></span>W: ${t.weekly}</span>` : ''}
+          ${t.pro30 > 0 ? `<span class="ticker-source-count"><span class="dot" style="background:var(--pro30)"></span>P: ${t.pro30}</span>` : ''}
+          ${t.movers > 0 ? `<span class="ticker-source-count"><span class="dot" style="background:var(--movers)"></span>M: ${t.movers}</span>` : ''}
+        </div>
+        <div class="ticker-sparkline">
+          ${sparkDots}
+          <span class="spark-label">Jan 1–15</span>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+document.getElementById('tickerSearch').addEventListener('input', (e) => {
+  searchQuery = e.target.value;
+  renderTickerGrid();
+});
+
+document.getElementById('sortSelect').addEventListener('change', (e) => {
+  currentSort = e.target.value;
+  renderTickerGrid();
+});
+
+// ───────────────────────────────────────────────────────
+// TICKER MODAL
+// ───────────────────────────────────────────────────────
+function openModal(ticker) {
+  const info = TICKER_INDEX[ticker];
+  if (!info) return;
+
+  document.getElementById('modalTicker').textContent = ticker;
+  document.getElementById('modalYahoo').href = `https://finance.yahoo.com/quote/${ticker}`;
+
+  document.getElementById('modalStats').innerHTML = `
+    <div class="modal-stat">
+      <div class="modal-stat-value">${info.count}</div>
+      <div class="modal-stat-label">Times Picked</div>
+    </div>
+    <div class="modal-stat">
+      <div class="modal-stat-value">${info.dates[0].date.slice(5)}</div>
+      <div class="modal-stat-label">First Pick</div>
+    </div>
+    <div class="modal-stat">
+      <div class="modal-stat-value">${info.lastDate.slice(5)}</div>
+      <div class="modal-stat-label">Last Pick</div>
+    </div>
+  `;
+
+  document.getElementById('modalHistory').innerHTML = info.dates.map(d => `
+    <div class="modal-history-row">
+      <span class="modal-history-date">${formatDate(d.date)}</span>
+      <span class="modal-history-source ${d.source}">${d.source}</span>
+    </div>
+  `).join('');
+
+  document.getElementById('tickerModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('tickerModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('modalClose').addEventListener('click', closeModal);
+document.getElementById('tickerModal').addEventListener('click', (e) => {
+  if (e.target === e.currentTarget) closeModal();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
+
+// ───────────────────────────────────────────────────────
+// SECTION 4: PERFORMANCE TRACKER
+// ───────────────────────────────────────────────────────
+let perfChart = null;
+
+function initPerformance() {
+  const select = document.getElementById('perfDate');
+  select.innerHTML = [...ACTIVE_DATES].reverse().map(d =>
+    `<option value="${d}">${formatDate(d)} (${d})</option>`
+  ).join('');
+
+  const today = new Date();
+  document.getElementById('perfEndDate').value = today.toISOString().split('T')[0];
+}
+
+function generateMockPerformance(tickers) {
+  // Deterministic pseudo-random based on ticker name
+  return tickers.map(t => {
+    let seed = 0;
+    for (let i = 0; i < t.length; i++) seed += t.charCodeAt(i) * (i + 1);
+    const raw = ((Math.sin(seed) * 10000) % 100);
+    const pct = parseFloat((raw * 0.15 - 3).toFixed(2));
+    const entry = parseFloat((50 + (seed % 200)).toFixed(2));
+    const current = parseFloat((entry * (1 + pct / 100)).toFixed(2));
+    const change = parseFloat((current - entry).toFixed(2));
+    return { ticker: t, entry, current, change, pct };
+  }).sort((a, b) => b.pct - a.pct);
+}
+
+document.getElementById('trackBtn').addEventListener('click', () => {
+  const date = document.getElementById('perfDate').value;
+  const picks = PICKS_DATA[date];
+  if (!picks) return;
+
+  const checks = document.querySelectorAll('.perf-checkbox input:checked');
+  const sources = [...checks].map(c => c.value);
+  if (sources.length === 0) return;
+
+  let tickers = [];
+  for (const src of sources) tickers.push(...picks[src]);
+  tickers = [...new Set(tickers)];
+  if (tickers.length === 0) return;
+
+  const data = generateMockPerformance(tickers);
+  const winners = data.filter(d => d.pct > 0).length;
+  const losers = data.length - winners;
+  const avgReturn = data.reduce((s, d) => s + d.pct, 0) / data.length;
+
+  // Summary
+  document.getElementById('perfSummary').innerHTML = [
+    { label: 'Tracked', value: data.length },
+    { label: 'Winners', value: winners, color: 'var(--positive)' },
+    { label: 'Losers', value: losers, color: 'var(--negative)' },
+    { label: 'Avg Return', value: `${avgReturn >= 0 ? '+' : ''}${avgReturn.toFixed(2)}%`, color: avgReturn >= 0 ? 'var(--positive)' : 'var(--negative)' },
+  ].map(s => `
+    <div class="perf-summary-card">
+      <div class="perf-summary-value" ${s.color ? `style="color:${s.color}"` : ''}>${s.value}</div>
+      <div class="perf-summary-label">${s.label}</div>
+    </div>
+  `).join('');
+
+  // Chart
+  if (perfChart) perfChart.destroy();
+
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const gridColor = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)';
+  const textColor = isDark ? '#a8a29e' : '#78716c';
+
+  perfChart = new Chart(document.getElementById('perfChart'), {
+    type: 'bar',
+    data: {
+      labels: data.map(d => d.ticker),
+      datasets: [{
+        data: data.map(d => d.pct),
+        backgroundColor: data.map(d => d.pct >= 0 ? 'rgba(5,150,105,0.7)' : 'rgba(225,29,72,0.7)'),
+        borderColor: data.map(d => d.pct >= 0 ? '#059669' : '#e11d48'),
+        borderWidth: 1,
+        borderRadius: 4,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => `${ctx.parsed.y >= 0 ? '+' : ''}${ctx.parsed.y.toFixed(2)}%`
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { display: false },
+          ticks: { font: { family: "'JetBrains Mono'", size: 11 }, color: textColor }
+        },
+        y: {
+          grid: { color: gridColor },
+          ticks: {
+            callback: v => `${v >= 0 ? '+' : ''}${v}%`,
+            font: { family: "'JetBrains Mono'", size: 11 },
+            color: textColor
+          }
+        }
+      }
+    }
+  });
+
+  // Table
+  document.getElementById('perfTableBody').innerHTML = data.map(d => `
+    <tr>
+      <td class="ticker-col">${d.ticker}</td>
+      <td>$${d.entry.toFixed(2)}</td>
+      <td>$${d.current.toFixed(2)}</td>
+      <td>${d.change >= 0 ? '+' : ''}${d.change.toFixed(2)}</td>
+      <td class="${d.pct >= 0 ? 'return-positive' : 'return-negative'}">${d.pct >= 0 ? '+' : ''}${d.pct.toFixed(2)}%</td>
+    </tr>
+  `).join('');
+
+  document.getElementById('perfResults').classList.add('visible');
+});
+
+// Table sort
+document.querySelectorAll('.perf-table th').forEach(th => {
+  th.addEventListener('click', () => {
+    const col = th.dataset.sort;
+    const tbody = document.getElementById('perfTableBody');
+    const rows = [...tbody.querySelectorAll('tr')];
+
+    const getVal = (row, col) => {
+      const cells = row.querySelectorAll('td');
+      switch(col) {
+        case 'ticker': return cells[0].textContent;
+        case 'entry': return parseFloat(cells[1].textContent.replace('$',''));
+        case 'current': return parseFloat(cells[2].textContent.replace('$',''));
+        case 'change': return parseFloat(cells[3].textContent);
+        case 'pct': return parseFloat(cells[4].textContent);
+        default: return 0;
+      }
+    };
+
+    const asc = th.classList.contains('sort-asc');
+    document.querySelectorAll('.perf-table th').forEach(t => t.classList.remove('sort-asc','sort-desc'));
+    th.classList.add(asc ? 'sort-desc' : 'sort-asc');
+
+    rows.sort((a, b) => {
+      const va = getVal(a, col);
+      const vb = getVal(b, col);
+      if (typeof va === 'string') return asc ? vb.localeCompare(va) : va.localeCompare(vb);
+      return asc ? va - vb : vb - va;
+    });
+
+    rows.forEach(r => tbody.appendChild(r));
+  });
+});
+
+// ───────────────────────────────────────────────────────
+// DARK MODE
+// ───────────────────────────────────────────────────────
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+
+function setTheme(dark) {
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  themeIcon.innerHTML = dark ? '&#9788;' : '&#9789;';
+  localStorage.setItem('theme', dark ? 'dark' : 'light');
+}
+
+// Check stored preference
+const storedTheme = localStorage.getItem('theme');
+if (storedTheme === 'dark') setTheme(true);
+
+themeToggle.addEventListener('click', () => {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  setTheme(!isDark);
+});
+
+// ───────────────────────────────────────────────────────
+// ACTIVE NAV LINK ON SCROLL
+// ───────────────────────────────────────────────────────
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
+      });
+    }
+  });
+}, { rootMargin: '-40% 0px -60% 0px' });
+
+sections.forEach(s => observer.observe(s));
+
+// ───────────────────────────────────────────────────────
+// INIT
+// ───────────────────────────────────────────────────────
+renderOverview();
+renderPicks();
+renderTickerGrid();
+initPerformance();
+</script>
+</body>
+</html>
