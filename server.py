@@ -6,8 +6,10 @@ import io
 import json
 import zipfile
 from datetime import datetime, timedelta
-from flask import Flask, send_from_directory, jsonify
+from flask import Flask, send_from_directory, jsonify, request
 import requests
+import yfinance as yf
+import pandas as pd
 
 app = Flask(__name__)
 
@@ -141,6 +143,64 @@ def api_status():
         "last_fetch": _cache['timestamp'].isoformat() if _cache['timestamp'] else None
     }
     return jsonify(status)
+
+@app.route('/api/prices', methods=['POST'])
+def api_prices():
+    """Fetch real stock prices for performance tracking."""
+    try:
+        data = request.get_json()
+        tickers = data.get('tickers', [])
+        start_date = data.get('start_date')
+        end_date = data.get('end_date')
+        
+        if not tickers or not start_date or not end_date:
+            return jsonify({"error": "Missing required parameters"}), 400
+        
+        # Fetch prices using yfinance
+        tickers_str = ' '.join(tickers)
+        df = yf.download(
+            tickers=tickers_str,
+            start=start_date,
+            end=end_date,
+            progress=False,
+            auto_adjust=True,
+            threads=True,
+            group_by='column'
+        )
+        
+        if df.empty:
+            return jsonify({"error": "No price data available"}), 404
+        
+        # Extract close prices
+        if len(tickers) == 1:
+            # Single ticker
+            close_data = {tickers[0]: df['Close'].to_dict()}
+        else:
+            # Multiple tickers
+            close_df = df['Close']
+            close_data = {}
+            for ticker in tickers:
+                if ticker in close_df.columns:
+                    close_data[ticker] = close_df[ticker].dropna().to_dict()
+        
+        # Convert timestamps to strings
+        result = {}
+        for ticker, prices in close_data.items():
+            result[ticker] = {
+                str(date.date() if hasattr(date, 'date') else date): float(price) 
+                for date, price in prices.items()
+                if pd.notna(price)
+            }
+        
+        return jsonify({
+            "tickers": result,
+            "start_date": start_date,
+            "end_date": end_date,
+            "count": len(result)
+        })
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 @app.route('/<path:path>')
 def serve_static(path):

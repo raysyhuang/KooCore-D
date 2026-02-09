@@ -1244,9 +1244,9 @@ section:nth-child(even) {
       <p>See how picks from a specific date would have performed.</p>
     </div>
 
-  <div class="demo-notice" id="perfNotice">
-    <span>&#9432;</span>
-    <span id="perfNoticeText">Live data from GitHub Actions. Performance uses simulated returns.</span>
+  <div class="demo-notice" id="perfNotice" style="background: var(--positive-bg); border-color: var(--positive); color: var(--positive);">
+    <span>✓</span>
+    <span id="perfNoticeText">Live data from GitHub Actions. Performance uses REAL stock prices from Yahoo Finance.</span>
   </div>
 
   <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 24px;">
@@ -1254,15 +1254,18 @@ section:nth-child(even) {
       Performance Settings
     </div>
     
-    <div class="perf-controls">
+    <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
       <div class="perf-control-group">
-        <label>Pick date (baseline)</label>
-        <select id="perfDate" style="min-width: 260px;"></select>
+        <label>Track picks for</label>
+        <select id="perfDuration" style="padding: 8px 14px; font-size: 13px; font-family: var(--font); border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-card); color: var(--text); cursor: pointer; outline: none;">
+          <option value="7">7 days</option>
+          <option value="14">14 days</option>
+          <option value="30" selected>30 days</option>
+          <option value="60">60 days</option>
+          <option value="90">90 days</option>
+        </select>
       </div>
-      <div class="perf-control-group">
-        <label>Track until</label>
-        <input type="date" id="perfEndDate">
-      </div>
+      
       <div class="perf-control-group">
         <label>Sources</label>
         <div class="perf-checkboxes">
@@ -1271,11 +1274,12 @@ section:nth-child(even) {
           <label class="perf-checkbox"><input type="checkbox" checked value="movers"> Movers</label>
         </div>
       </div>
-      <button class="track-btn" id="trackBtn">Track Performance</button>
+      
+      <button class="track-btn" id="trackBtn" style="margin-top: 18px;">Track Performance (Real Prices)</button>
     </div>
     
     <div style="margin-top: 12px; font-size: 12px; color: var(--text-secondary);">
-      Select a pick date from the dropdown above. Available dates are filtered by the global date range at the top.
+      <strong>How it works:</strong> Tracks all picks from the global date range at the top. Fetches real stock prices and calculates actual returns.
     </div>
   </div>
 
@@ -1860,79 +1864,141 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ───────────────────────────────────────────────────────
-// SECTION 4: PERFORMANCE TRACKER
+// SECTION 4: PERFORMANCE TRACKER (REAL PRICES)
 // ───────────────────────────────────────────────────────
 let perfChart = null;
 
 function initPerformance() {
-  const select = document.getElementById('perfDate');
+  // No separate date selection needed - uses global filter
+  // Just need to ensure UI is ready
+}
+
+async function fetchRealPrices(tickers, startDate, endDate) {
+  try {
+    const response = await fetch('/api/prices', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        tickers: tickers,
+        start_date: startDate,
+        end_date: endDate
+      })
+    });
+    
+    if (!response.ok) {
+      throw new Error(`API returned ${response.status}`);
+    }
+    
+    const data = await response.json();
+    return data.tickers || {};
+  } catch (error) {
+    console.error('Failed to fetch prices:', error);
+    return null;
+  }
+}
+
+function calculateRealPerformance(priceData, tickers) {
+  const results = [];
   
-  // Show all dates with picks (within global filter if active)
-  if (STATS.ACTIVE_DATES.length === 0) {
-    select.innerHTML = '<option value="">No dates available</option>';
+  for (const ticker of tickers) {
+    const prices = priceData[ticker];
+    if (!prices || Object.keys(prices).length === 0) {
+      continue;
+    }
+    
+    const dates = Object.keys(prices).sort();
+    const firstPrice = prices[dates[0]];
+    const lastPrice = prices[dates[dates.length - 1]];
+    
+    if (!firstPrice || !lastPrice || firstPrice === 0) {
+      continue;
+    }
+    
+    const change = lastPrice - firstPrice;
+    const pct = (change / firstPrice) * 100;
+    
+    results.push({
+      ticker: ticker,
+      entry: parseFloat(firstPrice.toFixed(2)),
+      current: parseFloat(lastPrice.toFixed(2)),
+      change: parseFloat(change.toFixed(2)),
+      pct: parseFloat(pct.toFixed(2))
+    });
+  }
+  
+  return results.sort((a, b) => b.pct - a.pct);
+}
+
+document.getElementById('trackBtn').addEventListener('click', async () => {
+  // Get all tickers from global filtered date range
+  const checks = document.querySelectorAll('.perf-checkbox input:checked');
+  const sources = [...checks].map(c => c.value);
+  
+  if (sources.length === 0) {
+    alert('Please select at least one source (Weekly, Pro30, or Movers)');
     return;
   }
   
-  select.innerHTML = [...STATS.ACTIVE_DATES].reverse().map(d =>
-    `<option value="${d}">${formatDate(d)} (${d})</option>`
-  ).join('');
-
-  // Default end date to global end date or today
-  const endDate = GLOBAL_END_DATE || new Date().toISOString().split('T')[0];
-  document.getElementById('perfEndDate').value = endDate;
-  
-  // Add note about global filter if active
-  const perfSection = document.getElementById('performance');
-  let filterNote = perfSection.querySelector('.perf-filter-note');
-  
-  if (GLOBAL_START_DATE || GLOBAL_END_DATE) {
-    if (!filterNote) {
-      filterNote = document.createElement('div');
-      filterNote.className = 'perf-filter-note';
-      filterNote.style.cssText = 'background: var(--accent-bg); border: 1px solid var(--weekly-border); border-radius: var(--radius-sm); padding: 10px 16px; font-size: 12px; color: var(--accent); margin-bottom: 20px;';
-      const perfContainer = perfSection.querySelector('.container');
-      const demoNotice = perfContainer.querySelector('.demo-notice');
-      demoNotice.parentNode.insertBefore(filterNote, demoNotice.nextSibling);
+  // Collect all tickers from all dates within global filter
+  let allTickers = [];
+  for (const date of STATS.ACTIVE_DATES) {
+    const picks = STATS.PICKS_DATA[date];
+    if (!picks) continue;
+    
+    for (const src of sources) {
+      if (picks[src]) {
+        allTickers.push(...picks[src]);
+      }
     }
-    filterNote.innerHTML = `
-      <span style="font-weight: 600;">ℹ️ Global Filter Active:</span> 
-      Pick dates limited to ${GLOBAL_START_DATE ? formatDateShort(GLOBAL_START_DATE) : 'start'} → ${GLOBAL_END_DATE ? formatDateShort(GLOBAL_END_DATE) : 'end'}.
-      <a href="#overview" style="color: var(--accent); text-decoration: underline; margin-left: 8px;">Change filter</a>
-    `;
-  } else if (filterNote) {
-    filterNote.remove();
   }
-}
-
-function generateMockPerformance(tickers) {
-  // Deterministic pseudo-random based on ticker name
-  return tickers.map(t => {
-    let seed = 0;
-    for (let i = 0; i < t.length; i++) seed += t.charCodeAt(i) * (i + 1);
-    const raw = ((Math.sin(seed) * 10000) % 100);
-    const pct = parseFloat((raw * 0.15 - 3).toFixed(2));
-    const entry = parseFloat((50 + (seed % 200)).toFixed(2));
-    const current = parseFloat((entry * (1 + pct / 100)).toFixed(2));
-    const change = parseFloat((current - entry).toFixed(2));
-    return { ticker: t, entry, current, change, pct };
-  }).sort((a, b) => b.pct - a.pct);
-}
-
-document.getElementById('trackBtn').addEventListener('click', () => {
-  const date = document.getElementById('perfDate').value;
-  const picks = STATS.PICKS_DATA[date];
-  if (!picks) return;
-
-  const checks = document.querySelectorAll('.perf-checkbox input:checked');
-  const sources = [...checks].map(c => c.value);
-  if (sources.length === 0) return;
-
-  let tickers = [];
-  for (const src of sources) tickers.push(...picks[src]);
-  tickers = [...new Set(tickers)];
-  if (tickers.length === 0) return;
-
-  const data = generateMockPerformance(tickers);
+  
+  // Deduplicate
+  tickers = [...new Set(allTickers)];
+  
+  if (tickers.length === 0) {
+    alert('No tickers found in the selected date range and sources.');
+    return;
+  }
+  
+  // Determine date range for price tracking
+  const trackDuration = parseInt(document.getElementById('perfDuration').value);
+  const startDate = GLOBAL_START_DATE || STATS.ACTIVE_DATES[0];
+  
+  // Calculate end date: either global end date + track duration, or today
+  let endDate;
+  if (GLOBAL_END_DATE) {
+    const endDateTime = new Date(GLOBAL_END_DATE);
+    endDateTime.setDate(endDateTime.getDate() + trackDuration);
+    endDate = endDateTime.toISOString().split('T')[0];
+  } else {
+    endDate = new Date().toISOString().split('T')[0];
+  }
+  
+  // Show loading state
+  const btn = document.getElementById('trackBtn');
+  const originalText = btn.textContent;
+  btn.textContent = `Fetching real prices for ${tickers.length} tickers...`;
+  btn.disabled = true;
+  
+  // Fetch real prices
+  const priceData = await fetchRealPrices(tickers, startDate, endDate);
+  
+  btn.textContent = originalText;
+  btn.disabled = false;
+  
+  if (!priceData) {
+    alert('Failed to fetch stock prices. Please try again.');
+    return;
+  }
+  
+  // Calculate real performance
+  const data = calculateRealPerformance(priceData, tickers);
+  
+  if (data.length === 0) {
+    alert('No price data available for the selected tickers and date range.');
+    return;
+  }
+  
   const winners = data.filter(d => d.pct > 0).length;
   const losers = data.length - winners;
   const avgReturn = data.reduce((s, d) => s + d.pct, 0) / data.length;
@@ -2009,6 +2075,10 @@ document.getElementById('trackBtn').addEventListener('click', () => {
   `).join('');
 
   document.getElementById('perfResults').classList.add('visible');
+  
+  // Update notice with actual date range used
+  const notice = document.getElementById('perfNoticeText');
+  notice.textContent = `Showing REAL returns from ${startDate} to ${endDate} (${data.length}/${tickers.length} tickers with data)`;
 });
 
 // Table sort
