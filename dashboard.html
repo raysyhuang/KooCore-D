@@ -1123,6 +1123,10 @@ section:nth-child(even) {
       <li><a href="#performance">Performance</a></li>
     </ul>
     <div class="nav-right">
+      <select class="sort-select" id="dataSourceToggle" style="margin-right: 8px; font-size: 12px; padding: 6px 12px;">
+        <option value="live">📡 Live (GitHub)</option>
+        <option value="demo" selected>🎬 Demo Data</option>
+      </select>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
         <span id="themeIcon">&#9789;</span>
       </button>
@@ -1137,8 +1141,8 @@ section:nth-child(even) {
   <div class="container">
     <h1 class="hero-title">Scanner Dashboard</h1>
     <p class="hero-subtitle">
-      <span class="dot"></span>
-      January 2026 Stock Picks
+      <span class="dot" id="statusDot"></span>
+      <span id="dataSourceLabel">Demo Data (January 2026)</span>
     </p>
 
     <div class="stats-grid" id="statsGrid">
@@ -1211,10 +1215,10 @@ section:nth-child(even) {
       <p>See how picks from a specific date would have performed.</p>
     </div>
 
-    <div class="demo-notice">
-      <span>&#9432;</span>
-      Demo mode — shows simulated returns. Connect a price API for live data.
-    </div>
+  <div class="demo-notice" id="perfNotice">
+    <span>&#9432;</span>
+    <span id="perfNoticeText">Demo mode — shows simulated returns. Connect a price API for live data.</span>
+  </div>
 
     <div class="perf-controls">
       <div class="perf-control-group">
@@ -1295,9 +1299,16 @@ section:nth-child(even) {
      ═══════════════════════════════════════════════════════ -->
 <script>
 // ───────────────────────────────────────────────────────
-// DATA
+// DATA SOURCE MANAGEMENT
 // ───────────────────────────────────────────────────────
-const PICKS_DATA = {
+let DATA_SOURCE = 'demo'; // 'demo' or 'live'
+let LIVE_DATA = null;
+let LIVE_META = null;
+
+// ───────────────────────────────────────────────────────
+// DEMO DATA
+// ───────────────────────────────────────────────────────
+const DEMO_PICKS_DATA = {
   "2026-01-01": { weekly: [], pro30: ["PATH"], movers: ["CVX"] },
   "2026-01-02": { weekly: ["DBRG","RKLB","SATS","HII","HWM"], pro30: [], movers: ["CVX"] },
   "2026-01-03": { weekly: ["HAL","AXSM","DBRG","DOCN","EL"], pro30: [], movers: [] },
@@ -1314,49 +1325,106 @@ const PICKS_DATA = {
 };
 
 // ───────────────────────────────────────────────────────
-// COMPUTED DATA
+// API FUNCTIONS
 // ───────────────────────────────────────────────────────
-const ALL_DATES = Object.keys(PICKS_DATA).sort();
-const ACTIVE_DATES = ALL_DATES.filter(d => {
-  const p = PICKS_DATA[d];
-  return p.weekly.length + p.pro30.length + p.movers.length > 0;
-});
-
-// Build ticker index: { TICKER: { count, weekly, pro30, movers, dates: [{date, source}], lastDate } }
-const TICKER_INDEX = {};
-for (const date of ALL_DATES) {
-  const picks = PICKS_DATA[date];
-  for (const source of ['weekly','pro30','movers']) {
-    for (const ticker of picks[source]) {
-      if (!TICKER_INDEX[ticker]) {
-        TICKER_INDEX[ticker] = { count: 0, weekly: 0, pro30: 0, movers: 0, dates: [], lastDate: '' };
-      }
-      TICKER_INDEX[ticker].count++;
-      TICKER_INDEX[ticker][source]++;
-      TICKER_INDEX[ticker].dates.push({ date, source });
-      if (date > TICKER_INDEX[ticker].lastDate) TICKER_INDEX[ticker].lastDate = date;
+async function fetchLiveData() {
+  try {
+    const response = await fetch('/api/picks');
+    const data = await response.json();
+    
+    if (data.error) {
+      throw new Error(data.message || data.error);
     }
+    
+    LIVE_DATA = data.picks_data || {};
+    LIVE_META = data.meta || {};
+    return true;
+  } catch (error) {
+    console.error('Failed to fetch live data:', error);
+    return false;
   }
 }
 
-const ALL_TICKERS = Object.keys(TICKER_INDEX);
-const UNIQUE_COUNT = ALL_TICKERS.length;
-const SCAN_DAYS = ACTIVE_DATES.length;
-
-// Most picked ticker
-let mostPicked = { ticker: '—', count: 0 };
-for (const [t, info] of Object.entries(TICKER_INDEX)) {
-  if (info.count > mostPicked.count) mostPicked = { ticker: t, count: info.count };
+async function checkAPIStatus() {
+  try {
+    const response = await fetch('/api/status');
+    const status = await response.json();
+    return status;
+  } catch (error) {
+    console.error('Failed to check API status:', error);
+    return { connected: false, error: error.message };
+  }
 }
 
-// Source totals
-let weeklyTotal = 0, pro30Total = 0, moversTotal = 0;
-for (const picks of Object.values(PICKS_DATA)) {
-  weeklyTotal += picks.weekly.length;
-  pro30Total += picks.pro30.length;
-  moversTotal += picks.movers.length;
+function getActivePicksData() {
+  return DATA_SOURCE === 'live' && LIVE_DATA ? LIVE_DATA : DEMO_PICKS_DATA;
 }
-const grandTotal = weeklyTotal + pro30Total + moversTotal;
+
+// ───────────────────────────────────────────────────────
+// COMPUTED DATA
+// ───────────────────────────────────────────────────────
+function computeDataStats() {
+  const PICKS_DATA = getActivePicksData();
+  const ALL_DATES = Object.keys(PICKS_DATA).sort();
+  const ACTIVE_DATES = ALL_DATES.filter(d => {
+    const p = PICKS_DATA[d];
+    return p.weekly.length + p.pro30.length + p.movers.length > 0;
+  });
+
+  // Build ticker index
+  const TICKER_INDEX = {};
+  for (const date of ALL_DATES) {
+    const picks = PICKS_DATA[date];
+    for (const source of ['weekly','pro30','movers']) {
+      for (const ticker of picks[source]) {
+        if (!TICKER_INDEX[ticker]) {
+          TICKER_INDEX[ticker] = { count: 0, weekly: 0, pro30: 0, movers: 0, dates: [], lastDate: '' };
+        }
+        TICKER_INDEX[ticker].count++;
+        TICKER_INDEX[ticker][source]++;
+        TICKER_INDEX[ticker].dates.push({ date, source });
+        if (date > TICKER_INDEX[ticker].lastDate) TICKER_INDEX[ticker].lastDate = date;
+      }
+    }
+  }
+
+  const ALL_TICKERS = Object.keys(TICKER_INDEX);
+  const UNIQUE_COUNT = ALL_TICKERS.length;
+  const SCAN_DAYS = ACTIVE_DATES.length;
+
+  // Most picked ticker
+  let mostPicked = { ticker: '—', count: 0 };
+  for (const [t, info] of Object.entries(TICKER_INDEX)) {
+    if (info.count > mostPicked.count) mostPicked = { ticker: t, count: info.count };
+  }
+
+  // Source totals
+  let weeklyTotal = 0, pro30Total = 0, moversTotal = 0;
+  for (const picks of Object.values(PICKS_DATA)) {
+    weeklyTotal += picks.weekly.length;
+    pro30Total += picks.pro30.length;
+    moversTotal += picks.movers.length;
+  }
+  const grandTotal = weeklyTotal + pro30Total + moversTotal;
+  
+  return {
+    PICKS_DATA,
+    ALL_DATES,
+    ACTIVE_DATES,
+    TICKER_INDEX,
+    ALL_TICKERS,
+    UNIQUE_COUNT,
+    SCAN_DAYS,
+    mostPicked,
+    weeklyTotal,
+    pro30Total,
+    moversTotal,
+    grandTotal
+  };
+}
+
+// Global stats object
+let STATS = computeDataStats();
 
 // ───────────────────────────────────────────────────────
 // HELPERS
@@ -1374,14 +1442,60 @@ function formatDateShort(dateStr) {
 }
 
 // ───────────────────────────────────────────────────────
+// DATA SOURCE TOGGLE
+// ───────────────────────────────────────────────────────
+async function switchDataSource(source) {
+  DATA_SOURCE = source;
+  
+  // Update UI indicators
+  const statusDot = document.getElementById('statusDot');
+  const label = document.getElementById('dataSourceLabel');
+  const perfNotice = document.getElementById('perfNoticeText');
+  
+  if (source === 'live') {
+    statusDot.style.background = 'orange';
+    label.textContent = 'Loading from GitHub...';
+    
+    const success = await fetchLiveData();
+    
+    if (success) {
+      statusDot.style.background = 'var(--positive)';
+      const lastUpdate = LIVE_META.created_at ? new Date(LIVE_META.created_at).toLocaleString() : 'Unknown';
+      label.textContent = `Live Data (Last: ${lastUpdate})`;
+      perfNotice.textContent = 'Live data from GitHub Actions. Performance uses simulated returns.';
+    } else {
+      statusDot.style.background = 'var(--negative)';
+      label.textContent = 'Failed to load from GitHub (using demo data)';
+      DATA_SOURCE = 'demo';
+      document.getElementById('dataSourceToggle').value = 'demo';
+    }
+  } else {
+    statusDot.style.background = 'var(--text-muted)';
+    label.textContent = 'Demo Data (January 2026)';
+    perfNotice.textContent = 'Demo mode — shows simulated returns. Connect a price API for live data.';
+  }
+  
+  // Recompute stats and re-render everything
+  STATS = computeDataStats();
+  renderOverview();
+  renderPicks();
+  renderTickerGrid();
+  initPerformance();
+}
+
+// ───────────────────────────────────────────────────────
 // SECTION 1: OVERVIEW
 // ───────────────────────────────────────────────────────
 function renderOverview() {
   const statsGrid = document.getElementById('statsGrid');
+  const dateRange = STATS.ACTIVE_DATES.length > 0 
+    ? `${formatDateShort(STATS.ACTIVE_DATES[0])} – ${formatDateShort(STATS.ACTIVE_DATES[STATS.ACTIVE_DATES.length - 1])}`
+    : 'No data';
+  
   const stats = [
-    { label: 'Unique Tickers', value: UNIQUE_COUNT, detail: 'across all scan days' },
-    { label: 'Scan Days', value: SCAN_DAYS, detail: `Jan 1 – 15, 2026` },
-    { label: 'Most Picked', value: mostPicked.ticker, detail: `appeared ${mostPicked.count} times` },
+    { label: 'Unique Tickers', value: STATS.UNIQUE_COUNT, detail: 'across all scan days' },
+    { label: 'Scan Days', value: STATS.SCAN_DAYS, detail: dateRange },
+    { label: 'Most Picked', value: STATS.mostPicked.ticker, detail: `appeared ${STATS.mostPicked.count} times` },
     { label: 'Active Sources', value: '3', detail: 'Weekly, Pro30, Movers' },
   ];
 
@@ -1395,9 +1509,9 @@ function renderOverview() {
 
   // Source bar
   const bar = document.getElementById('sourceBar');
-  const wPct = (weeklyTotal / grandTotal * 100).toFixed(1);
-  const pPct = (pro30Total / grandTotal * 100).toFixed(1);
-  const mPct = (moversTotal / grandTotal * 100).toFixed(1);
+  const wPct = STATS.grandTotal > 0 ? (STATS.weeklyTotal / STATS.grandTotal * 100).toFixed(1) : 0;
+  const pPct = STATS.grandTotal > 0 ? (STATS.pro30Total / STATS.grandTotal * 100).toFixed(1) : 0;
+  const mPct = STATS.grandTotal > 0 ? (STATS.moversTotal / STATS.grandTotal * 100).toFixed(1) : 0;
 
   bar.innerHTML = `
     <div class="source-bar-segment" style="width:${wPct}%;background:var(--weekly)"></div>
@@ -1409,15 +1523,15 @@ function renderOverview() {
   legend.innerHTML = `
     <div class="source-bar-legend-item">
       <span class="source-bar-legend-dot" style="background:var(--weekly)"></span>
-      Weekly <span class="source-bar-legend-count">${weeklyTotal}</span>
+      Weekly <span class="source-bar-legend-count">${STATS.weeklyTotal}</span>
     </div>
     <div class="source-bar-legend-item">
       <span class="source-bar-legend-dot" style="background:var(--pro30)"></span>
-      Pro30 <span class="source-bar-legend-count">${pro30Total}</span>
+      Pro30 <span class="source-bar-legend-count">${STATS.pro30Total}</span>
     </div>
     <div class="source-bar-legend-item">
       <span class="source-bar-legend-dot" style="background:var(--movers)"></span>
-      Movers <span class="source-bar-legend-count">${moversTotal}</span>
+      Movers <span class="source-bar-legend-count">${STATS.moversTotal}</span>
     </div>
   `;
 }
@@ -1429,10 +1543,10 @@ let activeFilter = 'all';
 
 function renderPicks() {
   const timeline = document.getElementById('picksTimeline');
-  const dates = [...ACTIVE_DATES].reverse();
+  const dates = [...STATS.ACTIVE_DATES].reverse();
 
   timeline.innerHTML = dates.map((date, i) => {
-    const picks = PICKS_DATA[date];
+    const picks = STATS.PICKS_DATA[date];
     const total = picks.weekly.length + picks.pro30.length + picks.movers.length;
 
     const renderTickers = (arr, source) => {
@@ -1510,7 +1624,7 @@ let currentSort = 'count-desc';
 let searchQuery = '';
 
 function getTickerSortedList() {
-  let list = Object.entries(TICKER_INDEX).map(([ticker, info]) => ({ ticker, ...info }));
+  let list = Object.entries(STATS.TICKER_INDEX).map(([ticker, info]) => ({ ticker, ...info }));
 
   if (searchQuery) {
     list = list.filter(t => t.ticker.toLowerCase().includes(searchQuery.toLowerCase()));
@@ -1536,11 +1650,11 @@ function renderTickerGrid() {
 
   grid.innerHTML = list.map(t => {
     // Build sparkline
-    const sparkDots = ALL_DATES.filter(d => {
-      const p = PICKS_DATA[d];
+    const sparkDots = STATS.ALL_DATES.filter(d => {
+      const p = STATS.PICKS_DATA[d];
       return p.weekly.length + p.pro30.length + p.movers.length > 0;
     }).map(d => {
-      const p = PICKS_DATA[d];
+      const p = STATS.PICKS_DATA[d];
       const inWeekly = p.weekly.includes(t.ticker);
       const inPro30 = p.pro30.includes(t.ticker);
       const inMovers = p.movers.includes(t.ticker);
@@ -1589,7 +1703,7 @@ document.getElementById('sortSelect').addEventListener('change', (e) => {
 // TICKER MODAL
 // ───────────────────────────────────────────────────────
 function openModal(ticker) {
-  const info = TICKER_INDEX[ticker];
+  const info = STATS.TICKER_INDEX[ticker];
   if (!info) return;
 
   document.getElementById('modalTicker').textContent = ticker;
@@ -1641,7 +1755,7 @@ let perfChart = null;
 
 function initPerformance() {
   const select = document.getElementById('perfDate');
-  select.innerHTML = [...ACTIVE_DATES].reverse().map(d =>
+  select.innerHTML = [...STATS.ACTIVE_DATES].reverse().map(d =>
     `<option value="${d}">${formatDate(d)} (${d})</option>`
   ).join('');
 
@@ -1665,7 +1779,7 @@ function generateMockPerformance(tickers) {
 
 document.getElementById('trackBtn').addEventListener('click', () => {
   const date = document.getElementById('perfDate').value;
-  const picks = PICKS_DATA[date];
+  const picks = STATS.PICKS_DATA[date];
   if (!picks) return;
 
   const checks = document.querySelectorAll('.perf-checkbox input:checked');
@@ -1830,12 +1944,28 @@ const observer = new IntersectionObserver((entries) => {
 sections.forEach(s => observer.observe(s));
 
 // ───────────────────────────────────────────────────────
+// DATA SOURCE TOGGLE HANDLER
+// ───────────────────────────────────────────────────────
+document.getElementById('dataSourceToggle').addEventListener('change', (e) => {
+  switchDataSource(e.target.value);
+});
+
+// ───────────────────────────────────────────────────────
 // INIT
 // ───────────────────────────────────────────────────────
-renderOverview();
-renderPicks();
-renderTickerGrid();
-initPerformance();
+async function init() {
+  // Check API status on load
+  const status = await checkAPIStatus();
+  console.log('API Status:', status);
+  
+  // Initial render with demo data
+  renderOverview();
+  renderPicks();
+  renderTickerGrid();
+  initPerformance();
+}
+
+init();
 </script>
 </body>
 </html>

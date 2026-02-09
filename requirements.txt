@@ -1,3 +1,4 @@
-# Minimal requirements for HTML dashboard
+# Requirements for HTML dashboard with GitHub API integration
 Flask>=3.0.0
 gunicorn>=21.2.0
+requests>=2.31.0
