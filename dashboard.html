@@ -1249,24 +1249,34 @@ section:nth-child(even) {
     <span id="perfNoticeText">Live data from GitHub Actions. Performance uses simulated returns.</span>
   </div>
 
-  <div class="perf-controls">
-    <div class="perf-control-group">
-      <label>Pick date</label>
-      <select id="perfDate"></select>
+  <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 24px;">
+    <div style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 16px;">
+      Performance Settings
     </div>
-    <div class="perf-control-group">
-      <label>Track until</label>
-      <input type="date" id="perfEndDate">
-    </div>
-    <div class="perf-control-group">
-      <label>Sources</label>
-      <div class="perf-checkboxes">
-        <label class="perf-checkbox"><input type="checkbox" checked value="weekly"> Weekly</label>
-        <label class="perf-checkbox"><input type="checkbox" checked value="pro30"> Pro30</label>
-        <label class="perf-checkbox"><input type="checkbox" checked value="movers"> Movers</label>
+    
+    <div class="perf-controls">
+      <div class="perf-control-group">
+        <label>Pick date (baseline)</label>
+        <select id="perfDate" style="min-width: 260px;"></select>
       </div>
+      <div class="perf-control-group">
+        <label>Track until</label>
+        <input type="date" id="perfEndDate">
+      </div>
+      <div class="perf-control-group">
+        <label>Sources</label>
+        <div class="perf-checkboxes">
+          <label class="perf-checkbox"><input type="checkbox" checked value="weekly"> Weekly</label>
+          <label class="perf-checkbox"><input type="checkbox" checked value="pro30"> Pro30</label>
+          <label class="perf-checkbox"><input type="checkbox" checked value="movers"> Movers</label>
+        </div>
+      </div>
+      <button class="track-btn" id="trackBtn">Track Performance</button>
     </div>
-    <button class="track-btn" id="trackBtn">Track Performance</button>
+    
+    <div style="margin-top: 12px; font-size: 12px; color: var(--text-secondary);">
+      Select a pick date from the dropdown above. Available dates are filtered by the global date range at the top.
+    </div>
   </div>
 
     <div class="perf-results" id="perfResults">
@@ -1856,12 +1866,42 @@ let perfChart = null;
 
 function initPerformance() {
   const select = document.getElementById('perfDate');
+  
+  // Show all dates with picks (within global filter if active)
+  if (STATS.ACTIVE_DATES.length === 0) {
+    select.innerHTML = '<option value="">No dates available</option>';
+    return;
+  }
+  
   select.innerHTML = [...STATS.ACTIVE_DATES].reverse().map(d =>
     `<option value="${d}">${formatDate(d)} (${d})</option>`
   ).join('');
 
-  const today = new Date();
-  document.getElementById('perfEndDate').value = today.toISOString().split('T')[0];
+  // Default end date to global end date or today
+  const endDate = GLOBAL_END_DATE || new Date().toISOString().split('T')[0];
+  document.getElementById('perfEndDate').value = endDate;
+  
+  // Add note about global filter if active
+  const perfSection = document.getElementById('performance');
+  let filterNote = perfSection.querySelector('.perf-filter-note');
+  
+  if (GLOBAL_START_DATE || GLOBAL_END_DATE) {
+    if (!filterNote) {
+      filterNote = document.createElement('div');
+      filterNote.className = 'perf-filter-note';
+      filterNote.style.cssText = 'background: var(--accent-bg); border: 1px solid var(--weekly-border); border-radius: var(--radius-sm); padding: 10px 16px; font-size: 12px; color: var(--accent); margin-bottom: 20px;';
+      const perfContainer = perfSection.querySelector('.container');
+      const demoNotice = perfContainer.querySelector('.demo-notice');
+      demoNotice.parentNode.insertBefore(filterNote, demoNotice.nextSibling);
+    }
+    filterNote.innerHTML = `
+      <span style="font-weight: 600;">ℹ️ Global Filter Active:</span> 
+      Pick dates limited to ${GLOBAL_START_DATE ? formatDateShort(GLOBAL_START_DATE) : 'start'} → ${GLOBAL_END_DATE ? formatDateShort(GLOBAL_END_DATE) : 'end'}.
+      <a href="#overview" style="color: var(--accent); text-decoration: underline; margin-left: 8px;">Change filter</a>
+    `;
+  } else if (filterNote) {
+    filterNote.remove();
+  }
 }
 
 function generateMockPerformance(tickers) {
