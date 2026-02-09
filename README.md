@@ -9,19 +9,21 @@ This repo is **read-only analytics**:
 
 ## Features
 
-- 📊 **Overview**: Summary stats, pick volume by source
-- 📅 **Daily Picks**: Timeline view of all scanner outputs
-- 🔍 **Ticker Insights**: Search and analyze individual stocks
-- 📈 **Performance Tracker**: Backtest pick performance (demo mode)
+- 🎯 **Global Date Filter**: Unified date range control that affects ALL dashboard sections
+- 📊 **Overview**: Summary stats, pick volume by source (filtered by global dates)
+- 📅 **Daily Picks**: Timeline view of all scanner outputs (filtered by global dates)
+- 🔍 **Ticker Insights**: Search and analyze individual stocks (filtered by global dates)
+- 📈 **Performance Tracker**: Track REAL stock returns using Yahoo Finance prices
 - 🌓 **Dark Mode**: Beautiful light/dark theme support
-- 📡 **Live Data**: Toggle between demo data and live GitHub feed
+- 📡 **Live Data**: Automatic fetching from GitHub Actions artifacts
 
 ## What It Shows
 
 - **Daily Picks**: Weekly Top5, Pro30 candidates, Movers
-- **Ticker History**: How often each stock was picked
+- **Ticker History**: How often each stock was picked (within date filter)
 - **Source Attribution**: Which signals generated which picks
-- **Performance Tracking**: Simulated returns for educational purposes
+- **Performance Tracking**: REAL returns using actual market prices from Yahoo Finance
+- **Date-Filtered Analysis**: Focus on any time period for targeted verification
 
 ## Architecture
 
@@ -34,21 +36,21 @@ KooCore-D-Dashboard (public)
   ├─ HTML Dashboard (dashboard.html)
   ├─ Flask Server (server.py)
   │   ├─ /api/picks → fetches from GitHub API
-  │   └─ /api/status → connection status
-  └─ Data Modes:
-      ├─ Demo: Hardcoded January 2026 data
-      └─ Live: Pulls latest artifact via GitHub API
+  │   ├─ /api/status → connection status
+  │   └─ /api/prices → fetches real stock prices from Yahoo Finance
+  └─ Live Mode:
+      └─ Pulls latest artifact via GitHub API
+      └─ Fetches real prices via yfinance
         ↓
    Heroku deployment
 ```
 
 ## Data Sources
 
-### Demo Mode (Default)
-Shows hardcoded historical data from January 2026. No external connections required.
-
-### Live Mode (GitHub API)
-Pulls the latest scan results directly from the core repo's GitHub Actions artifacts in real-time.
+### Live Mode (Default)
+- **Pick Data**: Pulls latest scan results from GitHub Actions artifacts in real-time
+- **Price Data**: Fetches actual historical stock prices from Yahoo Finance via yfinance
+- **No Demo**: Dashboard always uses live data (fallback to demo only if API unavailable)
 
 ## Setup
 
@@ -101,10 +103,16 @@ gunicorn server:app
 
 ### 4. Using the Dashboard
 
-1. **Demo Mode** (default): Shows historical January 2026 data
-2. **Live Mode**: Select "📡 Live (GitHub)" from the dropdown to fetch real-time data from GitHub Actions artifacts
+The dashboard automatically fetches live data from GitHub on page load. Key features:
 
-The dashboard automatically caches API responses for 5 minutes to avoid rate limits.
+1. **Global Date Filter** (top of page): Set start and end dates to filter ALL dashboard sections
+2. **Performance Tracker**: Click "Track Performance (Real Prices)" to fetch real stock prices and calculate actual returns
+3. **Caching**: API responses are cached for 5 minutes to avoid rate limits
+
+**Pro Tips**:
+- Use global filter to focus on specific weeks or months
+- Track performance with 30-day duration to see realistic returns
+- Compare different time periods to measure model evolution
 
 ## File Structure
 
@@ -127,13 +135,20 @@ The Flask server provides these endpoints:
 - `GET /` - Serves the HTML dashboard
 - `GET /api/picks` - Returns latest picks data from GitHub (cached 5min)
 - `GET /api/status` - Returns connection status and configuration
+- `POST /api/prices` - Fetches real stock prices from Yahoo Finance
+  - Body: `{"tickers": ["AAPL", "TSLA"], "start_date": "2026-01-01", "end_date": "2026-01-31"}`
+  - Returns: Historical prices for each ticker
 
 ## Technology Stack
 
 - **Frontend**: Vanilla HTML/CSS/JavaScript, Chart.js for visualizations
-- **Backend**: Flask (Python) for GitHub API proxy
+- **Backend**: Flask (Python) for GitHub API proxy and price fetching
+- **Price Data**: yfinance (Yahoo Finance) for real stock prices
+- **Data Processing**: pandas for price calculations
 - **Deployment**: Heroku with Gunicorn
-- **Data Source**: GitHub Actions Artifacts (via REST API)
+- **Data Sources**: 
+  - GitHub Actions Artifacts (via REST API)
+  - Yahoo Finance (via yfinance)
 
 ## Safety Rules
 
