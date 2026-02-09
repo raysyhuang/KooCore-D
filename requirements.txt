@@ -1,9 +1,3 @@
-# KooCore-D Dashboard (Option A: GitHub Artifact Pull)
-streamlit>=1.28.0
-pandas>=2.0.0
-numpy>=1.24.0
-plotly>=5.18.0
-pyarrow>=14.0.0
-requests>=2.31.0
-python-dateutil>=2.8.0
-yfinance>=0.2.0
+# Minimal requirements for HTML dashboard
+Flask>=3.0.0
+gunicorn>=21.2.0
