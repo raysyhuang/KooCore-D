@@ -288,6 +288,11 @@ section:nth-child(even) {
   50% { opacity: 0.4; }
 }
 
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 /* Stat Cards */
 .stats-grid {
   display: grid;
@@ -666,6 +671,32 @@ section:nth-child(even) {
   border-radius: var(--radius-pill);
   background: var(--accent-bg);
   color: var(--accent);
+}
+
+.ticker-performance {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 8px;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+.ticker-performance.positive {
+  background: var(--positive-bg);
+  color: var(--positive);
+}
+
+.ticker-performance.negative {
+  background: var(--negative-bg);
+  color: var(--negative);
+}
+
+.ticker-performance.loading {
+  background: var(--bg-section-alt);
+  color: var(--text-muted);
+  font-size: 10px;
 }
 
 .ticker-sources {
@@ -1154,7 +1185,7 @@ section:nth-child(even) {
     </p>
 
     <!-- Global Date Range Filter -->
-    <div class="global-filter" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 32px;">
+    <div class="global-filter" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 24px;">
       <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
         <div style="flex: 1; min-width: 200px;">
           <label style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); display: block; margin-bottom: 6px;">Start Date</label>
@@ -1172,6 +1203,18 @@ section:nth-child(even) {
       <div style="margin-top: 12px; font-size: 12px; color: var(--text-secondary);">
         <span id="filterStatus">Showing all data</span>
       </div>
+    </div>
+
+    <!-- Performance Tracking Control -->
+    <div style="background: var(--positive-bg); border: 1px solid var(--positive); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 32px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <div style="font-size: 13px; font-weight: 600; color: var(--positive); margin-bottom: 4px;">📈 Real-Time Performance Tracking</div>
+          <div style="font-size: 12px; color: var(--text-secondary);">Fetch actual stock prices from Yahoo Finance to see how each pick performed since selection</div>
+        </div>
+        <button id="fetchAllPricesBtn" onclick="fetchAllPerformance()" style="padding: 10px 24px; font-size: 13px; font-weight: 600; font-family: var(--font); background: var(--positive); color: white; border: none; border-radius: var(--radius-sm); cursor: pointer; transition: all 0.2s ease; white-space: nowrap;">Load Real Prices</button>
+      </div>
+      <div id="perfLoadingIndicator" style="display: none; margin-top: 12px; font-size: 12px; font-family: var(--mono); color: var(--text-secondary);"></div>
     </div>
 
     <div class="stats-grid" id="statsGrid">
@@ -1309,6 +1352,23 @@ section:nth-child(even) {
 </section>
 
 <!-- ═══════════════════════════════════════════════════════
+     SECTION 5: PORTFOLIO PERFORMANCE SUMMARY
+     ═══════════════════════════════════════════════════════ -->
+<section id="portfolio" style="background: var(--bg-section-alt);">
+  <div class="container">
+    <div class="section-header">
+      <h2>Portfolio Performance</h2>
+      <p>Comprehensive performance analysis across all picks, dates, and categories</p>
+    </div>
+
+    <div id="portfolioContent" style="text-align: center; padding: 60px 20px; color: var(--text-muted); font-size: 14px;">
+      <div style="font-size: 48px; margin-bottom: 16px; opacity: 0.3;">📊</div>
+      <div>Click "Load Real Prices" above to see comprehensive portfolio performance</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
      TICKER MODAL
      ═══════════════════════════════════════════════════════ -->
 <div class="modal-overlay" id="tickerModal">
@@ -1348,6 +1408,11 @@ let LIVE_DATA = null;
 let LIVE_META = null;
 let GLOBAL_START_DATE = null;
 let GLOBAL_END_DATE = null;
+
+// Performance tracking
+let PRICE_CACHE = {}; // { ticker: { date: price } }
+let PERFORMANCE_CACHE = {}; // { ticker: { firstDate, firstPrice, lastPrice, return% } }
+let PERFORMANCE_LOADING = false;
 
 // ───────────────────────────────────────────────────────
 // FALLBACK DEMO DATA (unused now, kept for emergency)
@@ -1754,6 +1819,23 @@ function getTickerSortedList() {
   return list;
 }
 
+function renderTickerPerformance(ticker) {
+  const perf = PERFORMANCE_CACHE[ticker];
+  
+  if (!perf || perf.status !== 'success') {
+    return '';
+  }
+  
+  const cls = perf.returnPct >= 0 ? 'positive' : 'negative';
+  const sign = perf.returnPct >= 0 ? '+' : '';
+  
+  return `
+    <div class="ticker-performance ${cls}">
+      ${sign}${perf.returnPct}% (${perf.firstDate} → ${perf.lastDate})
+    </div>
+  `;
+}
+
 function renderTickerGrid() {
   const grid = document.getElementById('tickerGrid');
   const list = getTickerSortedList();
@@ -1799,6 +1881,7 @@ function renderTickerGrid() {
           ${sparkDots}
           <span class="spark-label">Jan 1–15</span>
         </div>
+        ${renderTickerPerformance(t.ticker)}
       </div>
     `;
   }).join('');
@@ -1894,6 +1977,117 @@ async function fetchRealPrices(tickers, startDate, endDate) {
   } catch (error) {
     console.error('Failed to fetch prices:', error);
     return null;
+  }
+}
+
+// ───────────────────────────────────────────────────────
+// COMPREHENSIVE PERFORMANCE TRACKING
+// ───────────────────────────────────────────────────────
+async function fetchAllPerformance() {
+  if (PERFORMANCE_LOADING) return;
+  PERFORMANCE_LOADING = true;
+  
+  // Show loading indicator
+  showPerformanceLoading();
+  
+  // Get all unique tickers
+  const allTickers = Object.keys(STATS.TICKER_INDEX);
+  
+  if (allTickers.length === 0) {
+    hidePerformanceLoading('No tickers to track');
+    PERFORMANCE_LOADING = false;
+    return;
+  }
+  
+  // Determine date range
+  const startDate = GLOBAL_START_DATE || STATS.ACTIVE_DATES[0];
+  const endDate = GLOBAL_END_DATE || new Date().toISOString().split('T')[0];
+  
+  // Fetch prices
+  const priceData = await fetchRealPrices(allTickers, startDate, endDate);
+  
+  if (!priceData) {
+    hidePerformanceLoading('Failed to fetch prices');
+    PERFORMANCE_LOADING = false;
+    return;
+  }
+  
+  // Store in cache
+  PRICE_CACHE = priceData;
+  
+  // Calculate performance for each ticker
+  PERFORMANCE_CACHE = {};
+  
+  for (const ticker of allTickers) {
+    const tickerInfo = STATS.TICKER_INDEX[ticker];
+    const firstPickDate = tickerInfo.firstDate;
+    const prices = priceData[ticker];
+    
+    if (!prices || Object.keys(prices).length === 0) {
+      PERFORMANCE_CACHE[ticker] = { status: 'no_data' };
+      continue;
+    }
+    
+    // Get first available price on or after first pick date
+    const availableDates = Object.keys(prices).sort();
+    const firstDate = availableDates.find(d => d >= firstPickDate) || availableDates[0];
+    const lastDate = availableDates[availableDates.length - 1];
+    
+    const firstPrice = prices[firstDate];
+    const lastPrice = prices[lastDate];
+    
+    if (!firstPrice || !lastPrice || firstPrice === 0) {
+      PERFORMANCE_CACHE[ticker] = { status: 'invalid_data' };
+      continue;
+    }
+    
+    const returnPct = ((lastPrice - firstPrice) / firstPrice) * 100;
+    
+    PERFORMANCE_CACHE[ticker] = {
+      status: 'success',
+      firstDate,
+      lastDate,
+      firstPrice: parseFloat(firstPrice.toFixed(2)),
+      lastPrice: parseFloat(lastPrice.toFixed(2)),
+      returnPct: parseFloat(returnPct.toFixed(2)),
+      change: parseFloat((lastPrice - firstPrice).toFixed(2))
+    };
+  }
+  
+  hidePerformanceLoading(`Loaded ${Object.values(PERFORMANCE_CACHE).filter(p => p.status === 'success').length}/${allTickers.length} tickers`);
+  PERFORMANCE_LOADING = false;
+  
+  // Refresh all sections
+  renderTickerGrid();
+  renderPicks();
+  renderOverview();
+  renderPortfolioPerformance();
+}
+
+function showPerformanceLoading() {
+  const indicator = document.getElementById('perfLoadingIndicator');
+  if (indicator) {
+    indicator.style.display = 'block';
+    indicator.innerHTML = `
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <div style="width: 16px; height: 16px; border: 2px solid var(--accent); border-top-color: transparent; border-radius: 50%; animation: spin 0.8s linear infinite;"></div>
+        <span>Fetching real prices from Yahoo Finance...</span>
+      </div>
+    `;
+  }
+}
+
+function hidePerformanceLoading(message) {
+  const indicator = document.getElementById('perfLoadingIndicator');
+  if (indicator) {
+    if (message) {
+      indicator.innerHTML = `<span style="color: var(--positive);">✓ ${message}</span>`;
+      setTimeout(() => {
+        indicator.style.display = 'none';
+      }, 3000);
+    } else {
+      indicator.style.display = 'none';
+    }
   }
 }
 
@@ -2114,6 +2308,160 @@ document.querySelectorAll('.perf-table th').forEach(th => {
     rows.forEach(r => tbody.appendChild(r));
   });
 });
+
+// ───────────────────────────────────────────────────────
+// SECTION 5: PORTFOLIO PERFORMANCE SUMMARY
+// ───────────────────────────────────────────────────────
+function renderPortfolioPerformance() {
+  const container = document.getElementById('portfolioContent');
+  
+  // Check if performance data is loaded
+  const perfTickers = Object.entries(PERFORMANCE_CACHE).filter(([_, p]) => p.status === 'success');
+  
+  if (perfTickers.length === 0) {
+    container.innerHTML = `
+      <div style="text-align: center; padding: 60px 20px; color: var(--text-muted); font-size: 14px;">
+        <div style="font-size: 48px; margin-bottom: 16px; opacity: 0.3;">📊</div>
+        <div>Click "Load Real Prices" above to see comprehensive portfolio performance</div>
+      </div>
+    `;
+    return;
+  }
+  
+  // Calculate overall stats
+  const returns = perfTickers.map(([_, p]) => p.returnPct);
+  const avgReturn = returns.reduce((a, b) => a + b, 0) / returns.length;
+  const winners = returns.filter(r => r > 0).length;
+  const losers = returns.filter(r => r < 0).length;
+  const neutral = returns.filter(r => r === 0).length;
+  const bestReturn = Math.max(...returns);
+  const worstReturn = Math.min(...returns);
+  const winRate = (winners / perfTickers.length * 100).toFixed(1);
+  
+  // Performance by category
+  const byCategory = { weekly: [], pro30: [], movers: [] };
+  for (const [ticker, perf] of perfTickers) {
+    const info = STATS.TICKER_INDEX[ticker];
+    if (info.weekly > 0) byCategory.weekly.push(perf.returnPct);
+    if (info.pro30 > 0) byCategory.pro30.push(perf.returnPct);
+    if (info.movers > 0) byCategory.movers.push(perf.returnPct);
+  }
+  
+  const categoryStats = {};
+  for (const [cat, returns] of Object.entries(byCategory)) {
+    if (returns.length > 0) {
+      categoryStats[cat] = {
+        count: returns.length,
+        avg: (returns.reduce((a, b) => a + b, 0) / returns.length).toFixed(2),
+        winners: returns.filter(r => r > 0).length,
+        winRate: (returns.filter(r => r > 0).length / returns.length * 100).toFixed(1)
+      };
+    }
+  }
+  
+  // Performance by date
+  const byDate = {};
+  for (const date of STATS.ACTIVE_DATES) {
+    const picks = STATS.PICKS_DATA[date];
+    const allPicksForDate = [...new Set([...picks.weekly, ...picks.pro30, ...picks.movers])];
+    const perfForDate = allPicksForDate
+      .map(t => PERFORMANCE_CACHE[t])
+      .filter(p => p && p.status === 'success')
+      .map(p => p.returnPct);
+    
+    if (perfForDate.length > 0) {
+      byDate[date] = {
+        count: perfForDate.length,
+        avg: (perfForDate.reduce((a, b) => a + b, 0) / perfForDate.length).toFixed(2),
+        winners: perfForDate.filter(r => r > 0).length
+      };
+    }
+  }
+  
+  container.innerHTML = `
+    <!-- Overall Summary -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 32px;">
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; text-align: center;">
+        <div style="font-size: 28px; font-weight: 700; color: var(--accent); margin-bottom: 4px;">${perfTickers.length}</div>
+        <div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em;">Tracked Tickers</div>
+      </div>
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; text-align: center;">
+        <div style="font-size: 28px; font-weight: 700; color: ${avgReturn >= 0 ? 'var(--positive)' : 'var(--negative)'}; margin-bottom: 4px;">${avgReturn >= 0 ? '+' : ''}${avgReturn.toFixed(2)}%</div>
+        <div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em;">Average Return</div>
+      </div>
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; text-align: center;">
+        <div style="font-size: 28px; font-weight: 700; color: var(--positive); margin-bottom: 4px;">${winners}</div>
+        <div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em;">Winners (${winRate}%)</div>
+      </div>
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; text-align: center;">
+        <div style="font-size: 28px; font-weight: 700; color: var(--negative); margin-bottom: 4px;">${losers}</div>
+        <div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em;">Losers</div>
+      </div>
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; text-align: center;">
+        <div style="font-size: 28px; font-weight: 700; color: var(--positive); margin-bottom: 4px;">+${bestReturn.toFixed(2)}%</div>
+        <div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em;">Best Return</div>
+      </div>
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; text-align: center;">
+        <div style="font-size: 28px; font-weight: 700; color: var(--negative); margin-bottom: 4px;">${worstReturn.toFixed(2)}%</div>
+        <div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em;">Worst Return</div>
+      </div>
+    </div>
+    
+    <!-- Performance by Category -->
+    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 24px;">
+      <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 20px; color: var(--text);">Performance by Category</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        ${Object.entries(categoryStats).map(([cat, stats]) => {
+          const colorMap = { weekly: 'var(--weekly)', pro30: 'var(--pro30)', movers: 'var(--movers)' };
+          const nameMap = { weekly: 'Weekly Top5', pro30: 'Pro30', movers: 'Movers' };
+          return `
+            <div style="padding: 16px; border: 1px solid var(--border-light); border-radius: var(--radius-sm); background: var(--bg);">
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                <span style="width: 10px; height: 10px; border-radius: 50%; background: ${colorMap[cat]};"></span>
+                <span style="font-size: 14px; font-weight: 600;">${nameMap[cat]}</span>
+              </div>
+              <div style="font-size: 20px; font-weight: 700; color: ${parseFloat(stats.avg) >= 0 ? 'var(--positive)' : 'var(--negative)'}; margin-bottom: 4px;">
+                ${parseFloat(stats.avg) >= 0 ? '+' : ''}${stats.avg}%
+              </div>
+              <div style="font-size: 12px; color: var(--text-muted);">
+                ${stats.count} picks • ${stats.winners} winners (${stats.winRate}%)
+              </div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    </div>
+    
+    <!-- Performance by Date -->
+    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px;">
+      <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 20px; color: var(--text);">Performance by Pick Date</h3>
+      <div style="max-height: 400px; overflow-y: auto;">
+        <table style="width: 100%; border-collapse: collapse;">
+          <thead style="position: sticky; top: 0; background: var(--bg-card); z-index: 1;">
+            <tr style="border-bottom: 1px solid var(--border);">
+              <th style="text-align: left; padding: 10px 12px; font-size: 12px; font-weight: 600; color: var(--text-muted);">Date</th>
+              <th style="text-align: right; padding: 10px 12px; font-size: 12px; font-weight: 600; color: var(--text-muted);">Picks</th>
+              <th style="text-align: right; padding: 10px 12px; font-size: 12px; font-weight: 600; color: var(--text-muted);">Winners</th>
+              <th style="text-align: right; padding: 10px 12px; font-size: 12px; font-weight: 600; color: var(--text-muted);">Avg Return</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${Object.entries(byDate).reverse().map(([date, stats]) => `
+              <tr style="border-bottom: 1px solid var(--border-light);">
+                <td style="padding: 10px 12px; font-size: 13px; font-family: var(--mono);">${formatDate(date)}</td>
+                <td style="padding: 10px 12px; font-size: 13px; text-align: right;">${stats.count}</td>
+                <td style="padding: 10px 12px; font-size: 13px; text-align: right;">${stats.winners}</td>
+                <td style="padding: 10px 12px; font-size: 13px; font-weight: 600; text-align: right; color: ${parseFloat(stats.avg) >= 0 ? 'var(--positive)' : 'var(--negative)'};">
+                  ${parseFloat(stats.avg) >= 0 ? '+' : ''}${stats.avg}%
+                </td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
 
 // ───────────────────────────────────────────────────────
 // DARK MODE
