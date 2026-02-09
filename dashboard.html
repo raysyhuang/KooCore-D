@@ -949,6 +949,18 @@ section:nth-child(even) {
   transform: translateY(-1px);
 }
 
+/* Global filter buttons */
+#applyDateFilter:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+#resetDateFilter:hover {
+  background: var(--bg);
+  border-color: var(--text-muted);
+}
+
 .perf-results {
   display: none;
 }
@@ -1123,10 +1135,6 @@ section:nth-child(even) {
       <li><a href="#performance">Performance</a></li>
     </ul>
     <div class="nav-right">
-      <select class="sort-select" id="dataSourceToggle" style="margin-right: 8px; font-size: 12px; padding: 6px 12px;">
-        <option value="live">📡 Live (GitHub)</option>
-        <option value="demo" selected>🎬 Demo Data</option>
-      </select>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
         <span id="themeIcon">&#9789;</span>
       </button>
@@ -1142,8 +1150,29 @@ section:nth-child(even) {
     <h1 class="hero-title">Scanner Dashboard</h1>
     <p class="hero-subtitle">
       <span class="dot" id="statusDot"></span>
-      <span id="dataSourceLabel">Demo Data (January 2026)</span>
+      <span id="dataSourceLabel">Loading from GitHub...</span>
     </p>
+
+    <!-- Global Date Range Filter -->
+    <div class="global-filter" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 32px;">
+      <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 200px;">
+          <label style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); display: block; margin-bottom: 6px;">Start Date</label>
+          <input type="date" id="globalStartDate" style="width: 100%; padding: 8px 14px; font-size: 13px; font-family: var(--font); border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg); color: var(--text); outline: none;">
+        </div>
+        <div style="flex: 1; min-width: 200px;">
+          <label style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); display: block; margin-bottom: 6px;">End Date</label>
+          <input type="date" id="globalEndDate" style="width: 100%; padding: 8px 14px; font-size: 13px; font-family: var(--font); border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg); color: var(--text); outline: none;">
+        </div>
+        <div style="display: flex; gap: 8px; align-items: flex-end;">
+          <button id="applyDateFilter" style="padding: 8px 24px; font-size: 13px; font-weight: 600; font-family: var(--font); background: var(--text); color: var(--bg); border: none; border-radius: var(--radius-sm); cursor: pointer; transition: all 0.2s ease; height: 36px;">Apply Filter</button>
+          <button id="resetDateFilter" style="padding: 8px 16px; font-size: 13px; font-weight: 500; font-family: var(--font); background: var(--bg-section-alt); color: var(--text-secondary); border: 1px solid var(--border); border-radius: var(--radius-sm); cursor: pointer; transition: all 0.2s ease; height: 36px;">Reset</button>
+        </div>
+      </div>
+      <div style="margin-top: 12px; font-size: 12px; color: var(--text-secondary);">
+        <span id="filterStatus">Showing all data</span>
+      </div>
+    </div>
 
     <div class="stats-grid" id="statsGrid">
       <!-- Filled by JS -->
@@ -1217,28 +1246,28 @@ section:nth-child(even) {
 
   <div class="demo-notice" id="perfNotice">
     <span>&#9432;</span>
-    <span id="perfNoticeText">Demo mode — shows simulated returns. Connect a price API for live data.</span>
+    <span id="perfNoticeText">Live data from GitHub Actions. Performance uses simulated returns.</span>
   </div>
 
-    <div class="perf-controls">
-      <div class="perf-control-group">
-        <label>Pick date</label>
-        <select id="perfDate"></select>
-      </div>
-      <div class="perf-control-group">
-        <label>End date</label>
-        <input type="date" id="perfEndDate">
-      </div>
-      <div class="perf-control-group">
-        <label>Sources</label>
-        <div class="perf-checkboxes">
-          <label class="perf-checkbox"><input type="checkbox" checked value="weekly"> Weekly</label>
-          <label class="perf-checkbox"><input type="checkbox" checked value="pro30"> Pro30</label>
-          <label class="perf-checkbox"><input type="checkbox" checked value="movers"> Movers</label>
-        </div>
-      </div>
-      <button class="track-btn" id="trackBtn">Track</button>
+  <div class="perf-controls">
+    <div class="perf-control-group">
+      <label>Pick date</label>
+      <select id="perfDate"></select>
     </div>
+    <div class="perf-control-group">
+      <label>Track until</label>
+      <input type="date" id="perfEndDate">
+    </div>
+    <div class="perf-control-group">
+      <label>Sources</label>
+      <div class="perf-checkboxes">
+        <label class="perf-checkbox"><input type="checkbox" checked value="weekly"> Weekly</label>
+        <label class="perf-checkbox"><input type="checkbox" checked value="pro30"> Pro30</label>
+        <label class="perf-checkbox"><input type="checkbox" checked value="movers"> Movers</label>
+      </div>
+    </div>
+    <button class="track-btn" id="trackBtn">Track Performance</button>
+  </div>
 
     <div class="perf-results" id="perfResults">
       <div class="perf-summary-grid" id="perfSummary"></div>
@@ -1299,14 +1328,15 @@ section:nth-child(even) {
      ═══════════════════════════════════════════════════════ -->
 <script>
 // ───────────────────────────────────────────────────────
-// DATA SOURCE MANAGEMENT
+// DATA SOURCE MANAGEMENT & FILTERING
 // ───────────────────────────────────────────────────────
-let DATA_SOURCE = 'demo'; // 'demo' or 'live'
 let LIVE_DATA = null;
 let LIVE_META = null;
+let GLOBAL_START_DATE = null;
+let GLOBAL_END_DATE = null;
 
 // ───────────────────────────────────────────────────────
-// DEMO DATA
+// FALLBACK DEMO DATA (unused now, kept for emergency)
 // ───────────────────────────────────────────────────────
 const DEMO_PICKS_DATA = {
   "2026-01-01": { weekly: [], pro30: ["PATH"], movers: ["CVX"] },
@@ -1357,14 +1387,29 @@ async function checkAPIStatus() {
 }
 
 function getActivePicksData() {
-  return DATA_SOURCE === 'live' && LIVE_DATA ? LIVE_DATA : DEMO_PICKS_DATA;
+  return LIVE_DATA || DEMO_PICKS_DATA;
+}
+
+function applyDateFilter(picksData) {
+  if (!GLOBAL_START_DATE && !GLOBAL_END_DATE) {
+    return picksData;
+  }
+  
+  const filtered = {};
+  for (const [date, picks] of Object.entries(picksData)) {
+    if (GLOBAL_START_DATE && date < GLOBAL_START_DATE) continue;
+    if (GLOBAL_END_DATE && date > GLOBAL_END_DATE) continue;
+    filtered[date] = picks;
+  }
+  return filtered;
 }
 
 // ───────────────────────────────────────────────────────
 // COMPUTED DATA
 // ───────────────────────────────────────────────────────
 function computeDataStats() {
-  const PICKS_DATA = getActivePicksData();
+  const rawData = getActivePicksData();
+  const PICKS_DATA = applyDateFilter(rawData);
   const ALL_DATES = Object.keys(PICKS_DATA).sort();
   const ACTIVE_DATES = ALL_DATES.filter(d => {
     const p = PICKS_DATA[d];
@@ -1442,45 +1487,101 @@ function formatDateShort(dateStr) {
 }
 
 // ───────────────────────────────────────────────────────
-// DATA SOURCE TOGGLE
+// GLOBAL DATE FILTER
 // ───────────────────────────────────────────────────────
-async function switchDataSource(source) {
-  DATA_SOURCE = source;
+function updateDateFilterUI() {
+  const filterStatus = document.getElementById('filterStatus');
   
-  // Update UI indicators
-  const statusDot = document.getElementById('statusDot');
-  const label = document.getElementById('dataSourceLabel');
-  const perfNotice = document.getElementById('perfNoticeText');
-  
-  if (source === 'live') {
-    statusDot.style.background = 'orange';
-    label.textContent = 'Loading from GitHub...';
-    
-    const success = await fetchLiveData();
-    
-    if (success) {
-      statusDot.style.background = 'var(--positive)';
-      const lastUpdate = LIVE_META.created_at ? new Date(LIVE_META.created_at).toLocaleString() : 'Unknown';
-      label.textContent = `Live Data (Last: ${lastUpdate})`;
-      perfNotice.textContent = 'Live data from GitHub Actions. Performance uses simulated returns.';
-    } else {
-      statusDot.style.background = 'var(--negative)';
-      label.textContent = 'Failed to load from GitHub (using demo data)';
-      DATA_SOURCE = 'demo';
-      document.getElementById('dataSourceToggle').value = 'demo';
-    }
-  } else {
-    statusDot.style.background = 'var(--text-muted)';
-    label.textContent = 'Demo Data (January 2026)';
-    perfNotice.textContent = 'Demo mode — shows simulated returns. Connect a price API for live data.';
+  if (!GLOBAL_START_DATE && !GLOBAL_END_DATE) {
+    filterStatus.textContent = 'Showing all data';
+  } else if (GLOBAL_START_DATE && GLOBAL_END_DATE) {
+    filterStatus.textContent = `Filtered: ${formatDateShort(GLOBAL_START_DATE)} → ${formatDateShort(GLOBAL_END_DATE)}`;
+  } else if (GLOBAL_START_DATE) {
+    filterStatus.textContent = `Showing from ${formatDateShort(GLOBAL_START_DATE)} onwards`;
+  } else if (GLOBAL_END_DATE) {
+    filterStatus.textContent = `Showing up to ${formatDateShort(GLOBAL_END_DATE)}`;
   }
+}
+
+function applyGlobalDateFilter() {
+  const startInput = document.getElementById('globalStartDate');
+  const endInput = document.getElementById('globalEndDate');
   
-  // Recompute stats and re-render everything
+  GLOBAL_START_DATE = startInput.value || null;
+  GLOBAL_END_DATE = endInput.value || null;
+  
+  updateDateFilterUI();
+  refreshDashboard();
+}
+
+function resetGlobalDateFilter() {
+  GLOBAL_START_DATE = null;
+  GLOBAL_END_DATE = null;
+  
+  document.getElementById('globalStartDate').value = '';
+  document.getElementById('globalEndDate').value = '';
+  
+  updateDateFilterUI();
+  refreshDashboard();
+}
+
+function initializeDateInputs() {
+  const rawData = getActivePicksData();
+  const allDates = Object.keys(rawData).sort();
+  
+  if (allDates.length > 0) {
+    const startInput = document.getElementById('globalStartDate');
+    const endInput = document.getElementById('globalEndDate');
+    
+    // Set min/max bounds
+    startInput.min = allDates[0];
+    startInput.max = allDates[allDates.length - 1];
+    endInput.min = allDates[0];
+    endInput.max = allDates[allDates.length - 1];
+    
+    // Default: show last 30 days
+    const endDate = allDates[allDates.length - 1];
+    const startDate = allDates[Math.max(0, allDates.length - 30)];
+    
+    startInput.value = startDate;
+    endInput.value = endDate;
+    
+    GLOBAL_START_DATE = startDate;
+    GLOBAL_END_DATE = endDate;
+    
+    updateDateFilterUI();
+  }
+}
+
+function refreshDashboard() {
   STATS = computeDataStats();
   renderOverview();
   renderPicks();
   renderTickerGrid();
   initPerformance();
+}
+
+async function loadLiveData() {
+  const statusDot = document.getElementById('statusDot');
+  const label = document.getElementById('dataSourceLabel');
+  
+  statusDot.style.background = 'orange';
+  label.textContent = 'Loading from GitHub...';
+  
+  const success = await fetchLiveData();
+  
+  if (success) {
+    statusDot.style.background = 'var(--positive)';
+    const lastUpdate = LIVE_META.created_at ? new Date(LIVE_META.created_at).toLocaleString() : 'Unknown';
+    label.textContent = `Live Data (Last: ${lastUpdate})`;
+  } else {
+    statusDot.style.background = 'var(--negative)';
+    label.textContent = 'Failed to load from GitHub (check connection)';
+  }
+  
+  // Initialize date inputs and render
+  initializeDateInputs();
+  refreshDashboard();
 }
 
 // ───────────────────────────────────────────────────────
@@ -1944,10 +2045,17 @@ const observer = new IntersectionObserver((entries) => {
 sections.forEach(s => observer.observe(s));
 
 // ───────────────────────────────────────────────────────
-// DATA SOURCE TOGGLE HANDLER
+// EVENT LISTENERS
 // ───────────────────────────────────────────────────────
-document.getElementById('dataSourceToggle').addEventListener('change', (e) => {
-  switchDataSource(e.target.value);
+document.getElementById('applyDateFilter').addEventListener('click', applyGlobalDateFilter);
+document.getElementById('resetDateFilter').addEventListener('click', resetGlobalDateFilter);
+
+// Also apply filter on Enter key in date inputs
+document.getElementById('globalStartDate').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') applyGlobalDateFilter();
+});
+document.getElementById('globalEndDate').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') applyGlobalDateFilter();
 });
 
 // ───────────────────────────────────────────────────────
@@ -1958,11 +2066,8 @@ async function init() {
   const status = await checkAPIStatus();
   console.log('API Status:', status);
   
-  // Initial render with demo data
-  renderOverview();
-  renderPicks();
-  renderTickerGrid();
-  initPerformance();
+  // Auto-load live data
+  await loadLiveData();
 }
 
 init();
