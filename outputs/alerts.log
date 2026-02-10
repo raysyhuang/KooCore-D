@@ -1147,3 +1147,44 @@ Primary Candidates: 30
 Details:
   asof: 2026-02-06
 
+
+============================================================
+[2026-02-10 00:09:16 UTC] [LOW] Scan Complete: 2026-02-09 (Weekly)
+============================================================
+===================================
+SCAN COMPLETE - 2026-02-09
+===================================
+Regime: bull
+Primary Strategy: Weekly
+Primary Candidates: 30
+
+🏆 HYBRID TOP 3 (Best Picks):
+  1. CTEV (Pro30(r1))
+     Score: 3.0 pts | LOW
+  2. NUAI (Weekly(1))
+     Score: 1.6 pts | LOW
+  3. NTST (Weekly(2))
+     Score: 1.1 pts | LOW
+
+⭐ Weekly TOP PICKS:
+  - NUAI: 5.11 LOW
+  - NTST: 4.86 LOW
+
+📊 SUMMARY:
+  Weekly: 2 | Pro30: 1 | Movers: 0
+
+📈 MODEL: 🔴 Poor
+  Hit: 16% | Win: 57%
+  pro30:17% | weekly_top5:10%
+
+📌 POSITION ALERTS:
+  Total: 4 | High: 1 | Warning: 0
+  - 🎯 TARGET HIT: COHR up 23.7% (target: 7.0%)
+  - ⏰ HOLDING EXPIRED: SEI at -4.4% after 19 days
+  - 🎯 TARGET HIT: MU up 13.9% (target: 7.0%)
+
+===================================
+
+Details:
+  asof: 2026-02-09
+
