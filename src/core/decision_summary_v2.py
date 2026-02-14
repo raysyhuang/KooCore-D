@@ -43,23 +43,34 @@ Reason:
 
 
 def build_decision_summary_v2(ctx) -> DecisionSummary:
+    # Conviction is advisory, not a gate.
+    # Weekly/Pro30 screen different universes, so overlap (and thus conviction)
+    # is structurally rare. Gate only on regime + signal availability.
+    no_signals = not (ctx["weekly_ready"] or ctx["pro30_ready"])
+
     defensive = (
         ctx["regime"] == "chop"
-        or not ctx["conviction_ready"]
+        or no_signals
         or ctx["hybrid_fallback"]
     )
 
     allow_new_positions = not defensive
 
-    decision = "HOLD / DEFENSIVE MODE" if defensive else "ACTIVE / SELECTIVE"
-
-    reason = (
-        "Sideways regime with no conviction or multi-signal confirmation"
-        if defensive
-        else "Conviction and regime aligned"
-    )
-
-    confidence = 0.45 if defensive else 0.75
+    if defensive:
+        if ctx["regime"] == "chop":
+            reason = "Regime is 'chop' - reduced exposure"
+        elif no_signals:
+            reason = "No weekly or pro30 signals available"
+        else:
+            reason = "Hybrid analysis shows movers-only dependency"
+        decision = "HOLD / DEFENSIVE MODE"
+        confidence = 0.45
+    else:
+        decision = "ACTIVE / SELECTIVE"
+        confidence = 0.75 if ctx["conviction_ready"] else 0.60
+        reason = "Regime and signals aligned"
+        if ctx["conviction_ready"]:
+            reason += " (conviction confirmed)"
 
     return DecisionSummary(
         decision=decision,
