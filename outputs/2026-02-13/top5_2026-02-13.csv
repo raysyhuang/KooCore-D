@@ -1,0 +1,3 @@
+rank,ticker,name,sector,hybrid_score,sources,current_price,composite_score,confidence,technical_score,catalyst_score,options_score,sentiment_score,primary_catalyst,target_price
+1,GEO,"The GEO Group, Inc.",Industrials,0,,40.599998474121094,4.8125,MEDIUM,8.65,4.0,4.0,3.0,No verified catalyst in packet (headlines empty) — catalyst score capped,44.6599983215332
+2,CRL,"Charles River Laboratories International, Inc.",Healthcare,0,,125.97000122070312,4.6125,SPECULATIVE,8.25,4.0,8.0,3.0,No verified catalyst in packet (headlines empty) — catalyst score capped,138.56700134277344
