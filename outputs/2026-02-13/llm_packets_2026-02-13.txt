@@ -1,9 +1,9 @@
 ==============================
-TICKER: OTTR
+TICKER: EBC
 ==============================
 
 Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
-Objective: Decide if OTTR has >60% probability of achieving +10% within 30 calendar days.
+Objective: Decide if EBC has >60% probability of achieving +10% within 30 calendar days.
 
 Hard constraints:
 - You MUST penalize "Unknown" earnings + missing headlines (no assuming hidden catalysts).
@@ -21,19 +21,683 @@ Market regime snapshot (best-effort):
 Earnings (best-effort): Unknown
 
 Screener metrics:
-- Last: 18.26
-- RVOL: 4.4
-- ATR%: 7.5 (≈ $1.37 ATR/day)
-- RSI14: 82.3
-- Dist_to_52W_High%: 4.6
+- Last: 164.32
+- RVOL: 2.39
+- ATR%: 8.17 (≈ $13.42 ATR/day)
+- RSI14: 32.2
+- Dist_to_52W_High%: 63.05
 
-- MA20: 9.93
-- MA50: 10.12
+- MA20: 189.97
+- MA50: 226.76
+- Above_MA20: 0 (1=yes, 0=no)
+- Above_MA50: 0 (1=yes, 0=no)
+- Ret20d%: -31.33%
+- Setup: Reversal
+- Score: 27.3
+- Leveraged ETF: NO
+- Source tags: BASE_UNIVERSE
+- Dilution risk flag (headline scan): 0
+- Catalyst tags (headline scan): None
+
+
+Catalyst completeness (penalize Unknowns):
+- Completeness Score: 25/100
+- Earnings known: False (earnings=Unknown)
+- Recent headline count (14d): 0
+- Manual headlines: False
+- Penalties:
+  * Earnings date Unknown (penalize catalyst clarity).
+  * No recent headlines found (penalize narrative visibility).
+
+
+Recent headlines:
+- (No headlines returned. Treat catalysts as Unknown. Check: earnings guidance, SEC filings, major contracts, sector/BTC correlation, terminal/X headlines.)
+
+Standard trade plan template (by setup):
+- Entry: Reclaim MA20 (or prior swing level) AND RSI curl up; confirm with a green day + elevated volume.
+- Stop: Below recent swing low OR 1.0–1.3× ATR below entry (whichever is tighter and logical).
+- TPs: TP1 = MA50 / prior supply zone, TP2 = gap-fill / next resistance; reduce into strength.
+- Position sizing: risk 1–2% of account per trade. Shares = (AccountRisk$) / (StopDistance$).
+
+
+If data is missing, explicitly state Unknown and list checks:
+- Confirm next earnings date (company IR site / Nasdaq earnings calendar).
+- Pull 14–30d headlines from a second source (SEC, PR, major outlets, terminal).
+- Check upcoming: FDA/clinical readouts, contracts, secondary offering/ATM, lockup expiry, guidance updates.
+- Check technical context: multi-year resistance, gap levels, supply zones, post-earnings drift behavior.
+
+Scoring rubric (0–100):
+- Catalyst Immediacy (0–30)
+- Narrative Velocity (0–25)
+- Volatility Fit (0–20)
+- Technical Alignment (0–25)
+
+Output format (STRICT):
+- Total Score: X/100
+- Verdict: BUY / WATCH / IGNORE
+- Setup: Breakout or Reversal
+- 1-line Spark: what specifically could trigger +10%
+- 1-line Trap: what invalidates the thesis
+- Trade Plan: entry trigger, stop anchor, TP1/TP2, position size rule (risk 1–2%)
+
+
+==============================
+TICKER: EBMT
+==============================
+
+Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
+Objective: Decide if EBMT has >60% probability of achieving +10% within 30 calendar days.
+
+Hard constraints:
+- You MUST penalize "Unknown" earnings + missing headlines (no assuming hidden catalysts).
+- You MUST still score based on tape structure: RVOL, ATR%, RSI, distance to 52W high, setup type.
+- You MUST output at most 2 BUY ratings across the entire batch (if you are given multiple tickers).
+- If catalyst data is weak, default to WATCH/IGNORE even if technicals look good.
+- If Dilution risk flag = 1 (headline scan), cap Verdict at WATCH unless there is a clear positive catalyst that outweighs it.
+- For Breakouts, require structural confirmation: Above_MA20=1 and Above_MA50=1; otherwise downgrade Technical Alignment.
+
+Inputs:
+Market regime snapshot (best-effort):
+- SPY=681.75 vs MA20=689.15 (RISK-OFF); VIX=20.60 (<= 25.00 is OK).
+- Regime Gate OK: False
+
+Earnings (best-effort): Unknown
+
+Screener metrics:
+- Last: 164.32
+- RVOL: 2.39
+- ATR%: 8.17 (≈ $13.42 ATR/day)
+- RSI14: 32.2
+- Dist_to_52W_High%: 63.05
+
+- MA20: 189.97
+- MA50: 226.76
+- Above_MA20: 0 (1=yes, 0=no)
+- Above_MA50: 0 (1=yes, 0=no)
+- Ret20d%: -31.33%
+- Setup: Reversal
+- Score: 27.3
+- Leveraged ETF: NO
+- Source tags: BASE_UNIVERSE
+- Dilution risk flag (headline scan): 0
+- Catalyst tags (headline scan): None
+
+
+Catalyst completeness (penalize Unknowns):
+- Completeness Score: 25/100
+- Earnings known: False (earnings=Unknown)
+- Recent headline count (14d): 0
+- Manual headlines: False
+- Penalties:
+  * Earnings date Unknown (penalize catalyst clarity).
+  * No recent headlines found (penalize narrative visibility).
+
+
+Recent headlines:
+- (No headlines returned. Treat catalysts as Unknown. Check: earnings guidance, SEC filings, major contracts, sector/BTC correlation, terminal/X headlines.)
+
+Standard trade plan template (by setup):
+- Entry: Reclaim MA20 (or prior swing level) AND RSI curl up; confirm with a green day + elevated volume.
+- Stop: Below recent swing low OR 1.0–1.3× ATR below entry (whichever is tighter and logical).
+- TPs: TP1 = MA50 / prior supply zone, TP2 = gap-fill / next resistance; reduce into strength.
+- Position sizing: risk 1–2% of account per trade. Shares = (AccountRisk$) / (StopDistance$).
+
+
+If data is missing, explicitly state Unknown and list checks:
+- Confirm next earnings date (company IR site / Nasdaq earnings calendar).
+- Pull 14–30d headlines from a second source (SEC, PR, major outlets, terminal).
+- Check upcoming: FDA/clinical readouts, contracts, secondary offering/ATM, lockup expiry, guidance updates.
+- Check technical context: multi-year resistance, gap levels, supply zones, post-earnings drift behavior.
+
+Scoring rubric (0–100):
+- Catalyst Immediacy (0–30)
+- Narrative Velocity (0–25)
+- Volatility Fit (0–20)
+- Technical Alignment (0–25)
+
+Output format (STRICT):
+- Total Score: X/100
+- Verdict: BUY / WATCH / IGNORE
+- Setup: Breakout or Reversal
+- 1-line Spark: what specifically could trigger +10%
+- 1-line Trap: what invalidates the thesis
+- Trade Plan: entry trigger, stop anchor, TP1/TP2, position size rule (risk 1–2%)
+
+
+==============================
+TICKER: EBS
+==============================
+
+Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
+Objective: Decide if EBS has >60% probability of achieving +10% within 30 calendar days.
+
+Hard constraints:
+- You MUST penalize "Unknown" earnings + missing headlines (no assuming hidden catalysts).
+- You MUST still score based on tape structure: RVOL, ATR%, RSI, distance to 52W high, setup type.
+- You MUST output at most 2 BUY ratings across the entire batch (if you are given multiple tickers).
+- If catalyst data is weak, default to WATCH/IGNORE even if technicals look good.
+- If Dilution risk flag = 1 (headline scan), cap Verdict at WATCH unless there is a clear positive catalyst that outweighs it.
+- For Breakouts, require structural confirmation: Above_MA20=1 and Above_MA50=1; otherwise downgrade Technical Alignment.
+
+Inputs:
+Market regime snapshot (best-effort):
+- SPY=681.75 vs MA20=689.15 (RISK-OFF); VIX=20.60 (<= 25.00 is OK).
+- Regime Gate OK: False
+
+Earnings (best-effort): Unknown
+
+Screener metrics:
+- Last: 164.32
+- RVOL: 2.39
+- ATR%: 8.17 (≈ $13.42 ATR/day)
+- RSI14: 32.2
+- Dist_to_52W_High%: 63.05
+
+- MA20: 189.97
+- MA50: 226.76
+- Above_MA20: 0 (1=yes, 0=no)
+- Above_MA50: 0 (1=yes, 0=no)
+- Ret20d%: -31.33%
+- Setup: Reversal
+- Score: 27.3
+- Leveraged ETF: NO
+- Source tags: BASE_UNIVERSE
+- Dilution risk flag (headline scan): 0
+- Catalyst tags (headline scan): None
+
+
+Catalyst completeness (penalize Unknowns):
+- Completeness Score: 25/100
+- Earnings known: False (earnings=Unknown)
+- Recent headline count (14d): 0
+- Manual headlines: False
+- Penalties:
+  * Earnings date Unknown (penalize catalyst clarity).
+  * No recent headlines found (penalize narrative visibility).
+
+
+Recent headlines:
+- (No headlines returned. Treat catalysts as Unknown. Check: earnings guidance, SEC filings, major contracts, sector/BTC correlation, terminal/X headlines.)
+
+Standard trade plan template (by setup):
+- Entry: Reclaim MA20 (or prior swing level) AND RSI curl up; confirm with a green day + elevated volume.
+- Stop: Below recent swing low OR 1.0–1.3× ATR below entry (whichever is tighter and logical).
+- TPs: TP1 = MA50 / prior supply zone, TP2 = gap-fill / next resistance; reduce into strength.
+- Position sizing: risk 1–2% of account per trade. Shares = (AccountRisk$) / (StopDistance$).
+
+
+If data is missing, explicitly state Unknown and list checks:
+- Confirm next earnings date (company IR site / Nasdaq earnings calendar).
+- Pull 14–30d headlines from a second source (SEC, PR, major outlets, terminal).
+- Check upcoming: FDA/clinical readouts, contracts, secondary offering/ATM, lockup expiry, guidance updates.
+- Check technical context: multi-year resistance, gap levels, supply zones, post-earnings drift behavior.
+
+Scoring rubric (0–100):
+- Catalyst Immediacy (0–30)
+- Narrative Velocity (0–25)
+- Volatility Fit (0–20)
+- Technical Alignment (0–25)
+
+Output format (STRICT):
+- Total Score: X/100
+- Verdict: BUY / WATCH / IGNORE
+- Setup: Breakout or Reversal
+- 1-line Spark: what specifically could trigger +10%
+- 1-line Trap: what invalidates the thesis
+- Trade Plan: entry trigger, stop anchor, TP1/TP2, position size rule (risk 1–2%)
+
+
+==============================
+TICKER: EBF
+==============================
+
+Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
+Objective: Decide if EBF has >60% probability of achieving +10% within 30 calendar days.
+
+Hard constraints:
+- You MUST penalize "Unknown" earnings + missing headlines (no assuming hidden catalysts).
+- You MUST still score based on tape structure: RVOL, ATR%, RSI, distance to 52W high, setup type.
+- You MUST output at most 2 BUY ratings across the entire batch (if you are given multiple tickers).
+- If catalyst data is weak, default to WATCH/IGNORE even if technicals look good.
+- If Dilution risk flag = 1 (headline scan), cap Verdict at WATCH unless there is a clear positive catalyst that outweighs it.
+- For Breakouts, require structural confirmation: Above_MA20=1 and Above_MA50=1; otherwise downgrade Technical Alignment.
+
+Inputs:
+Market regime snapshot (best-effort):
+- SPY=681.75 vs MA20=689.15 (RISK-OFF); VIX=20.60 (<= 25.00 is OK).
+- Regime Gate OK: False
+
+Earnings (best-effort): Unknown
+
+Screener metrics:
+- Last: 164.32
+- RVOL: 2.39
+- ATR%: 8.17 (≈ $13.42 ATR/day)
+- RSI14: 32.2
+- Dist_to_52W_High%: 63.05
+
+- MA20: 189.97
+- MA50: 226.76
+- Above_MA20: 0 (1=yes, 0=no)
+- Above_MA50: 0 (1=yes, 0=no)
+- Ret20d%: -31.33%
+- Setup: Reversal
+- Score: 27.3
+- Leveraged ETF: NO
+- Source tags: BASE_UNIVERSE
+- Dilution risk flag (headline scan): 0
+- Catalyst tags (headline scan): None
+
+
+Catalyst completeness (penalize Unknowns):
+- Completeness Score: 25/100
+- Earnings known: False (earnings=Unknown)
+- Recent headline count (14d): 0
+- Manual headlines: False
+- Penalties:
+  * Earnings date Unknown (penalize catalyst clarity).
+  * No recent headlines found (penalize narrative visibility).
+
+
+Recent headlines:
+- (No headlines returned. Treat catalysts as Unknown. Check: earnings guidance, SEC filings, major contracts, sector/BTC correlation, terminal/X headlines.)
+
+Standard trade plan template (by setup):
+- Entry: Reclaim MA20 (or prior swing level) AND RSI curl up; confirm with a green day + elevated volume.
+- Stop: Below recent swing low OR 1.0–1.3× ATR below entry (whichever is tighter and logical).
+- TPs: TP1 = MA50 / prior supply zone, TP2 = gap-fill / next resistance; reduce into strength.
+- Position sizing: risk 1–2% of account per trade. Shares = (AccountRisk$) / (StopDistance$).
+
+
+If data is missing, explicitly state Unknown and list checks:
+- Confirm next earnings date (company IR site / Nasdaq earnings calendar).
+- Pull 14–30d headlines from a second source (SEC, PR, major outlets, terminal).
+- Check upcoming: FDA/clinical readouts, contracts, secondary offering/ATM, lockup expiry, guidance updates.
+- Check technical context: multi-year resistance, gap levels, supply zones, post-earnings drift behavior.
+
+Scoring rubric (0–100):
+- Catalyst Immediacy (0–30)
+- Narrative Velocity (0–25)
+- Volatility Fit (0–20)
+- Technical Alignment (0–25)
+
+Output format (STRICT):
+- Total Score: X/100
+- Verdict: BUY / WATCH / IGNORE
+- Setup: Breakout or Reversal
+- 1-line Spark: what specifically could trigger +10%
+- 1-line Trap: what invalidates the thesis
+- Trade Plan: entry trigger, stop anchor, TP1/TP2, position size rule (risk 1–2%)
+
+
+==============================
+TICKER: ECBK
+==============================
+
+Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
+Objective: Decide if ECBK has >60% probability of achieving +10% within 30 calendar days.
+
+Hard constraints:
+- You MUST penalize "Unknown" earnings + missing headlines (no assuming hidden catalysts).
+- You MUST still score based on tape structure: RVOL, ATR%, RSI, distance to 52W high, setup type.
+- You MUST output at most 2 BUY ratings across the entire batch (if you are given multiple tickers).
+- If catalyst data is weak, default to WATCH/IGNORE even if technicals look good.
+- If Dilution risk flag = 1 (headline scan), cap Verdict at WATCH unless there is a clear positive catalyst that outweighs it.
+- For Breakouts, require structural confirmation: Above_MA20=1 and Above_MA50=1; otherwise downgrade Technical Alignment.
+
+Inputs:
+Market regime snapshot (best-effort):
+- SPY=681.75 vs MA20=689.15 (RISK-OFF); VIX=20.60 (<= 25.00 is OK).
+- Regime Gate OK: False
+
+Earnings (best-effort): Unknown
+
+Screener metrics:
+- Last: 164.32
+- RVOL: 2.39
+- ATR%: 8.17 (≈ $13.42 ATR/day)
+- RSI14: 32.2
+- Dist_to_52W_High%: 63.05
+
+- MA20: 189.97
+- MA50: 226.76
+- Above_MA20: 0 (1=yes, 0=no)
+- Above_MA50: 0 (1=yes, 0=no)
+- Ret20d%: -31.33%
+- Setup: Reversal
+- Score: 27.3
+- Leveraged ETF: NO
+- Source tags: BASE_UNIVERSE
+- Dilution risk flag (headline scan): 0
+- Catalyst tags (headline scan): None
+
+
+Catalyst completeness (penalize Unknowns):
+- Completeness Score: 25/100
+- Earnings known: False (earnings=Unknown)
+- Recent headline count (14d): 0
+- Manual headlines: False
+- Penalties:
+  * Earnings date Unknown (penalize catalyst clarity).
+  * No recent headlines found (penalize narrative visibility).
+
+
+Recent headlines:
+- (No headlines returned. Treat catalysts as Unknown. Check: earnings guidance, SEC filings, major contracts, sector/BTC correlation, terminal/X headlines.)
+
+Standard trade plan template (by setup):
+- Entry: Reclaim MA20 (or prior swing level) AND RSI curl up; confirm with a green day + elevated volume.
+- Stop: Below recent swing low OR 1.0–1.3× ATR below entry (whichever is tighter and logical).
+- TPs: TP1 = MA50 / prior supply zone, TP2 = gap-fill / next resistance; reduce into strength.
+- Position sizing: risk 1–2% of account per trade. Shares = (AccountRisk$) / (StopDistance$).
+
+
+If data is missing, explicitly state Unknown and list checks:
+- Confirm next earnings date (company IR site / Nasdaq earnings calendar).
+- Pull 14–30d headlines from a second source (SEC, PR, major outlets, terminal).
+- Check upcoming: FDA/clinical readouts, contracts, secondary offering/ATM, lockup expiry, guidance updates.
+- Check technical context: multi-year resistance, gap levels, supply zones, post-earnings drift behavior.
+
+Scoring rubric (0–100):
+- Catalyst Immediacy (0–30)
+- Narrative Velocity (0–25)
+- Volatility Fit (0–20)
+- Technical Alignment (0–25)
+
+Output format (STRICT):
+- Total Score: X/100
+- Verdict: BUY / WATCH / IGNORE
+- Setup: Breakout or Reversal
+- 1-line Spark: what specifically could trigger +10%
+- 1-line Trap: what invalidates the thesis
+- Trade Plan: entry trigger, stop anchor, TP1/TP2, position size rule (risk 1–2%)
+
+
+==============================
+TICKER: ECVT
+==============================
+
+Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
+Objective: Decide if ECVT has >60% probability of achieving +10% within 30 calendar days.
+
+Hard constraints:
+- You MUST penalize "Unknown" earnings + missing headlines (no assuming hidden catalysts).
+- You MUST still score based on tape structure: RVOL, ATR%, RSI, distance to 52W high, setup type.
+- You MUST output at most 2 BUY ratings across the entire batch (if you are given multiple tickers).
+- If catalyst data is weak, default to WATCH/IGNORE even if technicals look good.
+- If Dilution risk flag = 1 (headline scan), cap Verdict at WATCH unless there is a clear positive catalyst that outweighs it.
+- For Breakouts, require structural confirmation: Above_MA20=1 and Above_MA50=1; otherwise downgrade Technical Alignment.
+
+Inputs:
+Market regime snapshot (best-effort):
+- SPY=681.75 vs MA20=689.15 (RISK-OFF); VIX=20.60 (<= 25.00 is OK).
+- Regime Gate OK: False
+
+Earnings (best-effort): Unknown
+
+Screener metrics:
+- Last: 164.32
+- RVOL: 2.39
+- ATR%: 8.17 (≈ $13.42 ATR/day)
+- RSI14: 32.2
+- Dist_to_52W_High%: 63.05
+
+- MA20: 189.97
+- MA50: 226.76
+- Above_MA20: 0 (1=yes, 0=no)
+- Above_MA50: 0 (1=yes, 0=no)
+- Ret20d%: -31.33%
+- Setup: Reversal
+- Score: 27.3
+- Leveraged ETF: NO
+- Source tags: BASE_UNIVERSE
+- Dilution risk flag (headline scan): 0
+- Catalyst tags (headline scan): None
+
+
+Catalyst completeness (penalize Unknowns):
+- Completeness Score: 25/100
+- Earnings known: False (earnings=Unknown)
+- Recent headline count (14d): 0
+- Manual headlines: False
+- Penalties:
+  * Earnings date Unknown (penalize catalyst clarity).
+  * No recent headlines found (penalize narrative visibility).
+
+
+Recent headlines:
+- (No headlines returned. Treat catalysts as Unknown. Check: earnings guidance, SEC filings, major contracts, sector/BTC correlation, terminal/X headlines.)
+
+Standard trade plan template (by setup):
+- Entry: Reclaim MA20 (or prior swing level) AND RSI curl up; confirm with a green day + elevated volume.
+- Stop: Below recent swing low OR 1.0–1.3× ATR below entry (whichever is tighter and logical).
+- TPs: TP1 = MA50 / prior supply zone, TP2 = gap-fill / next resistance; reduce into strength.
+- Position sizing: risk 1–2% of account per trade. Shares = (AccountRisk$) / (StopDistance$).
+
+
+If data is missing, explicitly state Unknown and list checks:
+- Confirm next earnings date (company IR site / Nasdaq earnings calendar).
+- Pull 14–30d headlines from a second source (SEC, PR, major outlets, terminal).
+- Check upcoming: FDA/clinical readouts, contracts, secondary offering/ATM, lockup expiry, guidance updates.
+- Check technical context: multi-year resistance, gap levels, supply zones, post-earnings drift behavior.
+
+Scoring rubric (0–100):
+- Catalyst Immediacy (0–30)
+- Narrative Velocity (0–25)
+- Volatility Fit (0–20)
+- Technical Alignment (0–25)
+
+Output format (STRICT):
+- Total Score: X/100
+- Verdict: BUY / WATCH / IGNORE
+- Setup: Breakout or Reversal
+- 1-line Spark: what specifically could trigger +10%
+- 1-line Trap: what invalidates the thesis
+- Trade Plan: entry trigger, stop anchor, TP1/TP2, position size rule (risk 1–2%)
+
+
+==============================
+TICKER: ECPG
+==============================
+
+Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
+Objective: Decide if ECPG has >60% probability of achieving +10% within 30 calendar days.
+
+Hard constraints:
+- You MUST penalize "Unknown" earnings + missing headlines (no assuming hidden catalysts).
+- You MUST still score based on tape structure: RVOL, ATR%, RSI, distance to 52W high, setup type.
+- You MUST output at most 2 BUY ratings across the entire batch (if you are given multiple tickers).
+- If catalyst data is weak, default to WATCH/IGNORE even if technicals look good.
+- If Dilution risk flag = 1 (headline scan), cap Verdict at WATCH unless there is a clear positive catalyst that outweighs it.
+- For Breakouts, require structural confirmation: Above_MA20=1 and Above_MA50=1; otherwise downgrade Technical Alignment.
+
+Inputs:
+Market regime snapshot (best-effort):
+- SPY=681.75 vs MA20=689.15 (RISK-OFF); VIX=20.60 (<= 25.00 is OK).
+- Regime Gate OK: False
+
+Earnings (best-effort): Unknown
+
+Screener metrics:
+- Last: 164.32
+- RVOL: 2.39
+- ATR%: 8.17 (≈ $13.42 ATR/day)
+- RSI14: 32.2
+- Dist_to_52W_High%: 63.05
+
+- MA20: 189.97
+- MA50: 226.76
+- Above_MA20: 0 (1=yes, 0=no)
+- Above_MA50: 0 (1=yes, 0=no)
+- Ret20d%: -31.33%
+- Setup: Reversal
+- Score: 27.3
+- Leveraged ETF: NO
+- Source tags: BASE_UNIVERSE
+- Dilution risk flag (headline scan): 0
+- Catalyst tags (headline scan): None
+
+
+Catalyst completeness (penalize Unknowns):
+- Completeness Score: 25/100
+- Earnings known: False (earnings=Unknown)
+- Recent headline count (14d): 0
+- Manual headlines: False
+- Penalties:
+  * Earnings date Unknown (penalize catalyst clarity).
+  * No recent headlines found (penalize narrative visibility).
+
+
+Recent headlines:
+- (No headlines returned. Treat catalysts as Unknown. Check: earnings guidance, SEC filings, major contracts, sector/BTC correlation, terminal/X headlines.)
+
+Standard trade plan template (by setup):
+- Entry: Reclaim MA20 (or prior swing level) AND RSI curl up; confirm with a green day + elevated volume.
+- Stop: Below recent swing low OR 1.0–1.3× ATR below entry (whichever is tighter and logical).
+- TPs: TP1 = MA50 / prior supply zone, TP2 = gap-fill / next resistance; reduce into strength.
+- Position sizing: risk 1–2% of account per trade. Shares = (AccountRisk$) / (StopDistance$).
+
+
+If data is missing, explicitly state Unknown and list checks:
+- Confirm next earnings date (company IR site / Nasdaq earnings calendar).
+- Pull 14–30d headlines from a second source (SEC, PR, major outlets, terminal).
+- Check upcoming: FDA/clinical readouts, contracts, secondary offering/ATM, lockup expiry, guidance updates.
+- Check technical context: multi-year resistance, gap levels, supply zones, post-earnings drift behavior.
+
+Scoring rubric (0–100):
+- Catalyst Immediacy (0–30)
+- Narrative Velocity (0–25)
+- Volatility Fit (0–20)
+- Technical Alignment (0–25)
+
+Output format (STRICT):
+- Total Score: X/100
+- Verdict: BUY / WATCH / IGNORE
+- Setup: Breakout or Reversal
+- 1-line Spark: what specifically could trigger +10%
+- 1-line Trap: what invalidates the thesis
+- Trade Plan: entry trigger, stop anchor, TP1/TP2, position size rule (risk 1–2%)
+
+
+==============================
+TICKER: INR
+==============================
+
+Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
+Objective: Decide if INR has >60% probability of achieving +10% within 30 calendar days.
+
+Hard constraints:
+- You MUST penalize "Unknown" earnings + missing headlines (no assuming hidden catalysts).
+- You MUST still score based on tape structure: RVOL, ATR%, RSI, distance to 52W high, setup type.
+- You MUST output at most 2 BUY ratings across the entire batch (if you are given multiple tickers).
+- If catalyst data is weak, default to WATCH/IGNORE even if technicals look good.
+- If Dilution risk flag = 1 (headline scan), cap Verdict at WATCH unless there is a clear positive catalyst that outweighs it.
+- For Breakouts, require structural confirmation: Above_MA20=1 and Above_MA50=1; otherwise downgrade Technical Alignment.
+
+Inputs:
+Market regime snapshot (best-effort):
+- SPY=681.75 vs MA20=689.15 (RISK-OFF); VIX=20.60 (<= 25.00 is OK).
+- Regime Gate OK: False
+
+Earnings (best-effort): Unknown
+
+Screener metrics:
+- Last: 212.67
+- RVOL: 2.03
+- ATR%: 7.34 (≈ $15.61 ATR/day)
+- RSI14: 26.3
+- Dist_to_52W_High%: 30.0
+
+- MA20: 254.32
+- MA50: 271.99
+- Above_MA20: 0 (1=yes, 0=no)
+- Above_MA50: 0 (1=yes, 0=no)
+- Ret20d%: -27.73%
+- Setup: Reversal
+- Score: 23.83
+- Leveraged ETF: NO
+- Source tags: BASE_UNIVERSE
+- Dilution risk flag (headline scan): 0
+- Catalyst tags (headline scan): None
+
+
+Catalyst completeness (penalize Unknowns):
+- Completeness Score: 25/100
+- Earnings known: False (earnings=Unknown)
+- Recent headline count (14d): 0
+- Manual headlines: False
+- Penalties:
+  * Earnings date Unknown (penalize catalyst clarity).
+  * No recent headlines found (penalize narrative visibility).
+
+
+Recent headlines:
+- (No headlines returned. Treat catalysts as Unknown. Check: earnings guidance, SEC filings, major contracts, sector/BTC correlation, terminal/X headlines.)
+
+Standard trade plan template (by setup):
+- Entry: Reclaim MA20 (or prior swing level) AND RSI curl up; confirm with a green day + elevated volume.
+- Stop: Below recent swing low OR 1.0–1.3× ATR below entry (whichever is tighter and logical).
+- TPs: TP1 = MA50 / prior supply zone, TP2 = gap-fill / next resistance; reduce into strength.
+- Position sizing: risk 1–2% of account per trade. Shares = (AccountRisk$) / (StopDistance$).
+
+
+If data is missing, explicitly state Unknown and list checks:
+- Confirm next earnings date (company IR site / Nasdaq earnings calendar).
+- Pull 14–30d headlines from a second source (SEC, PR, major outlets, terminal).
+- Check upcoming: FDA/clinical readouts, contracts, secondary offering/ATM, lockup expiry, guidance updates.
+- Check technical context: multi-year resistance, gap levels, supply zones, post-earnings drift behavior.
+
+Scoring rubric (0–100):
+- Catalyst Immediacy (0–30)
+- Narrative Velocity (0–25)
+- Volatility Fit (0–20)
+- Technical Alignment (0–25)
+
+Output format (STRICT):
+- Total Score: X/100
+- Verdict: BUY / WATCH / IGNORE
+- Setup: Breakout or Reversal
+- 1-line Spark: what specifically could trigger +10%
+- 1-line Trap: what invalidates the thesis
+- Trade Plan: entry trigger, stop anchor, TP1/TP2, position size rule (risk 1–2%)
+
+
+==============================
+TICKER: MED
+==============================
+
+Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
+Objective: Decide if MED has >60% probability of achieving +10% within 30 calendar days.
+
+Hard constraints:
+- You MUST penalize "Unknown" earnings + missing headlines (no assuming hidden catalysts).
+- You MUST still score based on tape structure: RVOL, ATR%, RSI, distance to 52W high, setup type.
+- You MUST output at most 2 BUY ratings across the entire batch (if you are given multiple tickers).
+- If catalyst data is weak, default to WATCH/IGNORE even if technicals look good.
+- If Dilution risk flag = 1 (headline scan), cap Verdict at WATCH unless there is a clear positive catalyst that outweighs it.
+- For Breakouts, require structural confirmation: Above_MA20=1 and Above_MA50=1; otherwise downgrade Technical Alignment.
+
+Inputs:
+Market regime snapshot (best-effort):
+- SPY=681.75 vs MA20=689.15 (RISK-OFF); VIX=20.60 (<= 25.00 is OK).
+- Regime Gate OK: False
+
+Earnings (best-effort): Unknown
+
+Screener metrics:
+- Last: 224.45
+- RVOL: 1.99
+- ATR%: 4.71 (≈ $10.57 ATR/day)
+- RSI14: 83.2
+- Dist_to_52W_High%: 2.06
+
+- MA20: 179.69
+- MA50: 162.41
 - Above_MA20: 1 (1=yes, 0=no)
 - Above_MA50: 1 (1=yes, 0=no)
-- Ret20d%: 99.13%
+- Ret20d%: 39.04%
 - Setup: Breakout
-- Score: 30.17
+- Score: 21.45
 - Leveraged ETF: NO
 - Source tags: BASE_UNIVERSE
 - Dilution risk flag (headline scan): 0
@@ -82,758 +746,11 @@ Output format (STRICT):
 
 
 ==============================
-TICKER: OUST
+TICKER: FFAI
 ==============================
 
 Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
-Objective: Decide if OUST has >60% probability of achieving +10% within 30 calendar days.
-
-Hard constraints:
-- You MUST penalize "Unknown" earnings + missing headlines (no assuming hidden catalysts).
-- You MUST still score based on tape structure: RVOL, ATR%, RSI, distance to 52W high, setup type.
-- You MUST output at most 2 BUY ratings across the entire batch (if you are given multiple tickers).
-- If catalyst data is weak, default to WATCH/IGNORE even if technicals look good.
-- If Dilution risk flag = 1 (headline scan), cap Verdict at WATCH unless there is a clear positive catalyst that outweighs it.
-- For Breakouts, require structural confirmation: Above_MA20=1 and Above_MA50=1; otherwise downgrade Technical Alignment.
-
-Inputs:
-Market regime snapshot (best-effort):
-- SPY=681.75 vs MA20=689.15 (RISK-OFF); VIX=20.60 (<= 25.00 is OK).
-- Regime Gate OK: False
-
-Earnings (best-effort): Unknown
-
-Screener metrics:
-- Last: 18.26
-- RVOL: 4.4
-- ATR%: 7.5 (≈ $1.37 ATR/day)
-- RSI14: 82.3
-- Dist_to_52W_High%: 4.6
-
-- MA20: 9.93
-- MA50: 10.12
-- Above_MA20: 1 (1=yes, 0=no)
-- Above_MA50: 1 (1=yes, 0=no)
-- Ret20d%: 99.13%
-- Setup: Breakout
-- Score: 30.17
-- Leveraged ETF: NO
-- Source tags: BASE_UNIVERSE
-- Dilution risk flag (headline scan): 0
-- Catalyst tags (headline scan): None
-
-
-Catalyst completeness (penalize Unknowns):
-- Completeness Score: 25/100
-- Earnings known: False (earnings=Unknown)
-- Recent headline count (14d): 0
-- Manual headlines: False
-- Penalties:
-  * Earnings date Unknown (penalize catalyst clarity).
-  * No recent headlines found (penalize narrative visibility).
-
-
-Recent headlines:
-- (No headlines returned. Treat catalysts as Unknown. Check: earnings guidance, SEC filings, major contracts, sector/BTC correlation, terminal/X headlines.)
-
-Standard trade plan template (by setup):
-- Entry: Break & hold above prior day high OR key resistance on ≥1.5× volume; avoid chasing if >2× ATR extension.
-- Stop: 1.2× ATR below breakout level (or below prior day low if tighter and logical).
-- TPs: TP1 = +1.0× ATR, TP2 = +2.0× ATR; trail stop after TP1.
-- Position sizing: risk 1–2% of account per trade. Shares = (AccountRisk$) / (StopDistance$).
-
-
-If data is missing, explicitly state Unknown and list checks:
-- Confirm next earnings date (company IR site / Nasdaq earnings calendar).
-- Pull 14–30d headlines from a second source (SEC, PR, major outlets, terminal).
-- Check upcoming: FDA/clinical readouts, contracts, secondary offering/ATM, lockup expiry, guidance updates.
-- Check technical context: multi-year resistance, gap levels, supply zones, post-earnings drift behavior.
-
-Scoring rubric (0–100):
-- Catalyst Immediacy (0–30)
-- Narrative Velocity (0–25)
-- Volatility Fit (0–20)
-- Technical Alignment (0–25)
-
-Output format (STRICT):
-- Total Score: X/100
-- Verdict: BUY / WATCH / IGNORE
-- Setup: Breakout or Reversal
-- 1-line Spark: what specifically could trigger +10%
-- 1-line Trap: what invalidates the thesis
-- Trade Plan: entry trigger, stop anchor, TP1/TP2, position size rule (risk 1–2%)
-
-
-==============================
-TICKER: OUT
-==============================
-
-Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
-Objective: Decide if OUT has >60% probability of achieving +10% within 30 calendar days.
-
-Hard constraints:
-- You MUST penalize "Unknown" earnings + missing headlines (no assuming hidden catalysts).
-- You MUST still score based on tape structure: RVOL, ATR%, RSI, distance to 52W high, setup type.
-- You MUST output at most 2 BUY ratings across the entire batch (if you are given multiple tickers).
-- If catalyst data is weak, default to WATCH/IGNORE even if technicals look good.
-- If Dilution risk flag = 1 (headline scan), cap Verdict at WATCH unless there is a clear positive catalyst that outweighs it.
-- For Breakouts, require structural confirmation: Above_MA20=1 and Above_MA50=1; otherwise downgrade Technical Alignment.
-
-Inputs:
-Market regime snapshot (best-effort):
-- SPY=681.75 vs MA20=689.15 (RISK-OFF); VIX=20.60 (<= 25.00 is OK).
-- Regime Gate OK: False
-
-Earnings (best-effort): Unknown
-
-Screener metrics:
-- Last: 18.26
-- RVOL: 4.4
-- ATR%: 7.5 (≈ $1.37 ATR/day)
-- RSI14: 82.3
-- Dist_to_52W_High%: 4.6
-
-- MA20: 9.93
-- MA50: 10.12
-- Above_MA20: 1 (1=yes, 0=no)
-- Above_MA50: 1 (1=yes, 0=no)
-- Ret20d%: 99.13%
-- Setup: Breakout
-- Score: 30.17
-- Leveraged ETF: NO
-- Source tags: BASE_UNIVERSE
-- Dilution risk flag (headline scan): 0
-- Catalyst tags (headline scan): None
-
-
-Catalyst completeness (penalize Unknowns):
-- Completeness Score: 25/100
-- Earnings known: False (earnings=Unknown)
-- Recent headline count (14d): 0
-- Manual headlines: False
-- Penalties:
-  * Earnings date Unknown (penalize catalyst clarity).
-  * No recent headlines found (penalize narrative visibility).
-
-
-Recent headlines:
-- (No headlines returned. Treat catalysts as Unknown. Check: earnings guidance, SEC filings, major contracts, sector/BTC correlation, terminal/X headlines.)
-
-Standard trade plan template (by setup):
-- Entry: Break & hold above prior day high OR key resistance on ≥1.5× volume; avoid chasing if >2× ATR extension.
-- Stop: 1.2× ATR below breakout level (or below prior day low if tighter and logical).
-- TPs: TP1 = +1.0× ATR, TP2 = +2.0× ATR; trail stop after TP1.
-- Position sizing: risk 1–2% of account per trade. Shares = (AccountRisk$) / (StopDistance$).
-
-
-If data is missing, explicitly state Unknown and list checks:
-- Confirm next earnings date (company IR site / Nasdaq earnings calendar).
-- Pull 14–30d headlines from a second source (SEC, PR, major outlets, terminal).
-- Check upcoming: FDA/clinical readouts, contracts, secondary offering/ATM, lockup expiry, guidance updates.
-- Check technical context: multi-year resistance, gap levels, supply zones, post-earnings drift behavior.
-
-Scoring rubric (0–100):
-- Catalyst Immediacy (0–30)
-- Narrative Velocity (0–25)
-- Volatility Fit (0–20)
-- Technical Alignment (0–25)
-
-Output format (STRICT):
-- Total Score: X/100
-- Verdict: BUY / WATCH / IGNORE
-- Setup: Breakout or Reversal
-- 1-line Spark: what specifically could trigger +10%
-- 1-line Trap: what invalidates the thesis
-- Trade Plan: entry trigger, stop anchor, TP1/TP2, position size rule (risk 1–2%)
-
-
-==============================
-TICKER: OVBC
-==============================
-
-Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
-Objective: Decide if OVBC has >60% probability of achieving +10% within 30 calendar days.
-
-Hard constraints:
-- You MUST penalize "Unknown" earnings + missing headlines (no assuming hidden catalysts).
-- You MUST still score based on tape structure: RVOL, ATR%, RSI, distance to 52W high, setup type.
-- You MUST output at most 2 BUY ratings across the entire batch (if you are given multiple tickers).
-- If catalyst data is weak, default to WATCH/IGNORE even if technicals look good.
-- If Dilution risk flag = 1 (headline scan), cap Verdict at WATCH unless there is a clear positive catalyst that outweighs it.
-- For Breakouts, require structural confirmation: Above_MA20=1 and Above_MA50=1; otherwise downgrade Technical Alignment.
-
-Inputs:
-Market regime snapshot (best-effort):
-- SPY=681.75 vs MA20=689.15 (RISK-OFF); VIX=20.60 (<= 25.00 is OK).
-- Regime Gate OK: False
-
-Earnings (best-effort): Unknown
-
-Screener metrics:
-- Last: 18.26
-- RVOL: 4.4
-- ATR%: 7.5 (≈ $1.37 ATR/day)
-- RSI14: 82.3
-- Dist_to_52W_High%: 4.6
-
-- MA20: 9.93
-- MA50: 10.12
-- Above_MA20: 1 (1=yes, 0=no)
-- Above_MA50: 1 (1=yes, 0=no)
-- Ret20d%: 99.13%
-- Setup: Breakout
-- Score: 30.17
-- Leveraged ETF: NO
-- Source tags: BASE_UNIVERSE
-- Dilution risk flag (headline scan): 0
-- Catalyst tags (headline scan): None
-
-
-Catalyst completeness (penalize Unknowns):
-- Completeness Score: 25/100
-- Earnings known: False (earnings=Unknown)
-- Recent headline count (14d): 0
-- Manual headlines: False
-- Penalties:
-  * Earnings date Unknown (penalize catalyst clarity).
-  * No recent headlines found (penalize narrative visibility).
-
-
-Recent headlines:
-- (No headlines returned. Treat catalysts as Unknown. Check: earnings guidance, SEC filings, major contracts, sector/BTC correlation, terminal/X headlines.)
-
-Standard trade plan template (by setup):
-- Entry: Break & hold above prior day high OR key resistance on ≥1.5× volume; avoid chasing if >2× ATR extension.
-- Stop: 1.2× ATR below breakout level (or below prior day low if tighter and logical).
-- TPs: TP1 = +1.0× ATR, TP2 = +2.0× ATR; trail stop after TP1.
-- Position sizing: risk 1–2% of account per trade. Shares = (AccountRisk$) / (StopDistance$).
-
-
-If data is missing, explicitly state Unknown and list checks:
-- Confirm next earnings date (company IR site / Nasdaq earnings calendar).
-- Pull 14–30d headlines from a second source (SEC, PR, major outlets, terminal).
-- Check upcoming: FDA/clinical readouts, contracts, secondary offering/ATM, lockup expiry, guidance updates.
-- Check technical context: multi-year resistance, gap levels, supply zones, post-earnings drift behavior.
-
-Scoring rubric (0–100):
-- Catalyst Immediacy (0–30)
-- Narrative Velocity (0–25)
-- Volatility Fit (0–20)
-- Technical Alignment (0–25)
-
-Output format (STRICT):
-- Total Score: X/100
-- Verdict: BUY / WATCH / IGNORE
-- Setup: Breakout or Reversal
-- 1-line Spark: what specifically could trigger +10%
-- 1-line Trap: what invalidates the thesis
-- Trade Plan: entry trigger, stop anchor, TP1/TP2, position size rule (risk 1–2%)
-
-
-==============================
-TICKER: GMGI
-==============================
-
-Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
-Objective: Decide if GMGI has >60% probability of achieving +10% within 30 calendar days.
-
-Hard constraints:
-- You MUST penalize "Unknown" earnings + missing headlines (no assuming hidden catalysts).
-- You MUST still score based on tape structure: RVOL, ATR%, RSI, distance to 52W high, setup type.
-- You MUST output at most 2 BUY ratings across the entire batch (if you are given multiple tickers).
-- If catalyst data is weak, default to WATCH/IGNORE even if technicals look good.
-- If Dilution risk flag = 1 (headline scan), cap Verdict at WATCH unless there is a clear positive catalyst that outweighs it.
-- For Breakouts, require structural confirmation: Above_MA20=1 and Above_MA50=1; otherwise downgrade Technical Alignment.
-
-Inputs:
-Market regime snapshot (best-effort):
-- SPY=681.75 vs MA20=689.15 (RISK-OFF); VIX=20.60 (<= 25.00 is OK).
-- Regime Gate OK: False
-
-Earnings (best-effort): Unknown
-
-Screener metrics:
-- Last: 164.32
-- RVOL: 2.36
-- ATR%: 8.17 (≈ $13.42 ATR/day)
-- RSI14: 32.2
-- Dist_to_52W_High%: 63.05
-
-- MA20: 189.97
-- MA50: 226.76
-- Above_MA20: 0 (1=yes, 0=no)
-- Above_MA50: 0 (1=yes, 0=no)
-- Ret20d%: -31.33%
-- Setup: Reversal
-- Score: 27.24
-- Leveraged ETF: NO
-- Source tags: BASE_UNIVERSE
-- Dilution risk flag (headline scan): 0
-- Catalyst tags (headline scan): None
-
-
-Catalyst completeness (penalize Unknowns):
-- Completeness Score: 25/100
-- Earnings known: False (earnings=Unknown)
-- Recent headline count (14d): 0
-- Manual headlines: False
-- Penalties:
-  * Earnings date Unknown (penalize catalyst clarity).
-  * No recent headlines found (penalize narrative visibility).
-
-
-Recent headlines:
-- (No headlines returned. Treat catalysts as Unknown. Check: earnings guidance, SEC filings, major contracts, sector/BTC correlation, terminal/X headlines.)
-
-Standard trade plan template (by setup):
-- Entry: Reclaim MA20 (or prior swing level) AND RSI curl up; confirm with a green day + elevated volume.
-- Stop: Below recent swing low OR 1.0–1.3× ATR below entry (whichever is tighter and logical).
-- TPs: TP1 = MA50 / prior supply zone, TP2 = gap-fill / next resistance; reduce into strength.
-- Position sizing: risk 1–2% of account per trade. Shares = (AccountRisk$) / (StopDistance$).
-
-
-If data is missing, explicitly state Unknown and list checks:
-- Confirm next earnings date (company IR site / Nasdaq earnings calendar).
-- Pull 14–30d headlines from a second source (SEC, PR, major outlets, terminal).
-- Check upcoming: FDA/clinical readouts, contracts, secondary offering/ATM, lockup expiry, guidance updates.
-- Check technical context: multi-year resistance, gap levels, supply zones, post-earnings drift behavior.
-
-Scoring rubric (0–100):
-- Catalyst Immediacy (0–30)
-- Narrative Velocity (0–25)
-- Volatility Fit (0–20)
-- Technical Alignment (0–25)
-
-Output format (STRICT):
-- Total Score: X/100
-- Verdict: BUY / WATCH / IGNORE
-- Setup: Breakout or Reversal
-- 1-line Spark: what specifically could trigger +10%
-- 1-line Trap: what invalidates the thesis
-- Trade Plan: entry trigger, stop anchor, TP1/TP2, position size rule (risk 1–2%)
-
-
-==============================
-TICKER: GLUE
-==============================
-
-Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
-Objective: Decide if GLUE has >60% probability of achieving +10% within 30 calendar days.
-
-Hard constraints:
-- You MUST penalize "Unknown" earnings + missing headlines (no assuming hidden catalysts).
-- You MUST still score based on tape structure: RVOL, ATR%, RSI, distance to 52W high, setup type.
-- You MUST output at most 2 BUY ratings across the entire batch (if you are given multiple tickers).
-- If catalyst data is weak, default to WATCH/IGNORE even if technicals look good.
-- If Dilution risk flag = 1 (headline scan), cap Verdict at WATCH unless there is a clear positive catalyst that outweighs it.
-- For Breakouts, require structural confirmation: Above_MA20=1 and Above_MA50=1; otherwise downgrade Technical Alignment.
-
-Inputs:
-Market regime snapshot (best-effort):
-- SPY=681.75 vs MA20=689.15 (RISK-OFF); VIX=20.60 (<= 25.00 is OK).
-- Regime Gate OK: False
-
-Earnings (best-effort): Unknown
-
-Screener metrics:
-- Last: 164.32
-- RVOL: 2.36
-- ATR%: 8.17 (≈ $13.42 ATR/day)
-- RSI14: 32.2
-- Dist_to_52W_High%: 63.05
-
-- MA20: 189.97
-- MA50: 226.76
-- Above_MA20: 0 (1=yes, 0=no)
-- Above_MA50: 0 (1=yes, 0=no)
-- Ret20d%: -31.33%
-- Setup: Reversal
-- Score: 27.24
-- Leveraged ETF: NO
-- Source tags: BASE_UNIVERSE
-- Dilution risk flag (headline scan): 0
-- Catalyst tags (headline scan): None
-
-
-Catalyst completeness (penalize Unknowns):
-- Completeness Score: 25/100
-- Earnings known: False (earnings=Unknown)
-- Recent headline count (14d): 0
-- Manual headlines: False
-- Penalties:
-  * Earnings date Unknown (penalize catalyst clarity).
-  * No recent headlines found (penalize narrative visibility).
-
-
-Recent headlines:
-- (No headlines returned. Treat catalysts as Unknown. Check: earnings guidance, SEC filings, major contracts, sector/BTC correlation, terminal/X headlines.)
-
-Standard trade plan template (by setup):
-- Entry: Reclaim MA20 (or prior swing level) AND RSI curl up; confirm with a green day + elevated volume.
-- Stop: Below recent swing low OR 1.0–1.3× ATR below entry (whichever is tighter and logical).
-- TPs: TP1 = MA50 / prior supply zone, TP2 = gap-fill / next resistance; reduce into strength.
-- Position sizing: risk 1–2% of account per trade. Shares = (AccountRisk$) / (StopDistance$).
-
-
-If data is missing, explicitly state Unknown and list checks:
-- Confirm next earnings date (company IR site / Nasdaq earnings calendar).
-- Pull 14–30d headlines from a second source (SEC, PR, major outlets, terminal).
-- Check upcoming: FDA/clinical readouts, contracts, secondary offering/ATM, lockup expiry, guidance updates.
-- Check technical context: multi-year resistance, gap levels, supply zones, post-earnings drift behavior.
-
-Scoring rubric (0–100):
-- Catalyst Immediacy (0–30)
-- Narrative Velocity (0–25)
-- Volatility Fit (0–20)
-- Technical Alignment (0–25)
-
-Output format (STRICT):
-- Total Score: X/100
-- Verdict: BUY / WATCH / IGNORE
-- Setup: Breakout or Reversal
-- 1-line Spark: what specifically could trigger +10%
-- 1-line Trap: what invalidates the thesis
-- Trade Plan: entry trigger, stop anchor, TP1/TP2, position size rule (risk 1–2%)
-
-
-==============================
-TICKER: GLSI
-==============================
-
-Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
-Objective: Decide if GLSI has >60% probability of achieving +10% within 30 calendar days.
-
-Hard constraints:
-- You MUST penalize "Unknown" earnings + missing headlines (no assuming hidden catalysts).
-- You MUST still score based on tape structure: RVOL, ATR%, RSI, distance to 52W high, setup type.
-- You MUST output at most 2 BUY ratings across the entire batch (if you are given multiple tickers).
-- If catalyst data is weak, default to WATCH/IGNORE even if technicals look good.
-- If Dilution risk flag = 1 (headline scan), cap Verdict at WATCH unless there is a clear positive catalyst that outweighs it.
-- For Breakouts, require structural confirmation: Above_MA20=1 and Above_MA50=1; otherwise downgrade Technical Alignment.
-
-Inputs:
-Market regime snapshot (best-effort):
-- SPY=681.75 vs MA20=689.15 (RISK-OFF); VIX=20.60 (<= 25.00 is OK).
-- Regime Gate OK: False
-
-Earnings (best-effort): Unknown
-
-Screener metrics:
-- Last: 164.32
-- RVOL: 2.36
-- ATR%: 8.17 (≈ $13.42 ATR/day)
-- RSI14: 32.2
-- Dist_to_52W_High%: 63.05
-
-- MA20: 189.97
-- MA50: 226.76
-- Above_MA20: 0 (1=yes, 0=no)
-- Above_MA50: 0 (1=yes, 0=no)
-- Ret20d%: -31.33%
-- Setup: Reversal
-- Score: 27.24
-- Leveraged ETF: NO
-- Source tags: BASE_UNIVERSE
-- Dilution risk flag (headline scan): 0
-- Catalyst tags (headline scan): None
-
-
-Catalyst completeness (penalize Unknowns):
-- Completeness Score: 25/100
-- Earnings known: False (earnings=Unknown)
-- Recent headline count (14d): 0
-- Manual headlines: False
-- Penalties:
-  * Earnings date Unknown (penalize catalyst clarity).
-  * No recent headlines found (penalize narrative visibility).
-
-
-Recent headlines:
-- (No headlines returned. Treat catalysts as Unknown. Check: earnings guidance, SEC filings, major contracts, sector/BTC correlation, terminal/X headlines.)
-
-Standard trade plan template (by setup):
-- Entry: Reclaim MA20 (or prior swing level) AND RSI curl up; confirm with a green day + elevated volume.
-- Stop: Below recent swing low OR 1.0–1.3× ATR below entry (whichever is tighter and logical).
-- TPs: TP1 = MA50 / prior supply zone, TP2 = gap-fill / next resistance; reduce into strength.
-- Position sizing: risk 1–2% of account per trade. Shares = (AccountRisk$) / (StopDistance$).
-
-
-If data is missing, explicitly state Unknown and list checks:
-- Confirm next earnings date (company IR site / Nasdaq earnings calendar).
-- Pull 14–30d headlines from a second source (SEC, PR, major outlets, terminal).
-- Check upcoming: FDA/clinical readouts, contracts, secondary offering/ATM, lockup expiry, guidance updates.
-- Check technical context: multi-year resistance, gap levels, supply zones, post-earnings drift behavior.
-
-Scoring rubric (0–100):
-- Catalyst Immediacy (0–30)
-- Narrative Velocity (0–25)
-- Volatility Fit (0–20)
-- Technical Alignment (0–25)
-
-Output format (STRICT):
-- Total Score: X/100
-- Verdict: BUY / WATCH / IGNORE
-- Setup: Breakout or Reversal
-- 1-line Spark: what specifically could trigger +10%
-- 1-line Trap: what invalidates the thesis
-- Trade Plan: entry trigger, stop anchor, TP1/TP2, position size rule (risk 1–2%)
-
-
-==============================
-TICKER: GMRE
-==============================
-
-Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
-Objective: Decide if GMRE has >60% probability of achieving +10% within 30 calendar days.
-
-Hard constraints:
-- You MUST penalize "Unknown" earnings + missing headlines (no assuming hidden catalysts).
-- You MUST still score based on tape structure: RVOL, ATR%, RSI, distance to 52W high, setup type.
-- You MUST output at most 2 BUY ratings across the entire batch (if you are given multiple tickers).
-- If catalyst data is weak, default to WATCH/IGNORE even if technicals look good.
-- If Dilution risk flag = 1 (headline scan), cap Verdict at WATCH unless there is a clear positive catalyst that outweighs it.
-- For Breakouts, require structural confirmation: Above_MA20=1 and Above_MA50=1; otherwise downgrade Technical Alignment.
-
-Inputs:
-Market regime snapshot (best-effort):
-- SPY=681.75 vs MA20=689.15 (RISK-OFF); VIX=20.60 (<= 25.00 is OK).
-- Regime Gate OK: False
-
-Earnings (best-effort): Unknown
-
-Screener metrics:
-- Last: 164.32
-- RVOL: 2.36
-- ATR%: 8.17 (≈ $13.42 ATR/day)
-- RSI14: 32.2
-- Dist_to_52W_High%: 63.05
-
-- MA20: 189.97
-- MA50: 226.76
-- Above_MA20: 0 (1=yes, 0=no)
-- Above_MA50: 0 (1=yes, 0=no)
-- Ret20d%: -31.33%
-- Setup: Reversal
-- Score: 27.24
-- Leveraged ETF: NO
-- Source tags: BASE_UNIVERSE
-- Dilution risk flag (headline scan): 0
-- Catalyst tags (headline scan): None
-
-
-Catalyst completeness (penalize Unknowns):
-- Completeness Score: 25/100
-- Earnings known: False (earnings=Unknown)
-- Recent headline count (14d): 0
-- Manual headlines: False
-- Penalties:
-  * Earnings date Unknown (penalize catalyst clarity).
-  * No recent headlines found (penalize narrative visibility).
-
-
-Recent headlines:
-- (No headlines returned. Treat catalysts as Unknown. Check: earnings guidance, SEC filings, major contracts, sector/BTC correlation, terminal/X headlines.)
-
-Standard trade plan template (by setup):
-- Entry: Reclaim MA20 (or prior swing level) AND RSI curl up; confirm with a green day + elevated volume.
-- Stop: Below recent swing low OR 1.0–1.3× ATR below entry (whichever is tighter and logical).
-- TPs: TP1 = MA50 / prior supply zone, TP2 = gap-fill / next resistance; reduce into strength.
-- Position sizing: risk 1–2% of account per trade. Shares = (AccountRisk$) / (StopDistance$).
-
-
-If data is missing, explicitly state Unknown and list checks:
-- Confirm next earnings date (company IR site / Nasdaq earnings calendar).
-- Pull 14–30d headlines from a second source (SEC, PR, major outlets, terminal).
-- Check upcoming: FDA/clinical readouts, contracts, secondary offering/ATM, lockup expiry, guidance updates.
-- Check technical context: multi-year resistance, gap levels, supply zones, post-earnings drift behavior.
-
-Scoring rubric (0–100):
-- Catalyst Immediacy (0–30)
-- Narrative Velocity (0–25)
-- Volatility Fit (0–20)
-- Technical Alignment (0–25)
-
-Output format (STRICT):
-- Total Score: X/100
-- Verdict: BUY / WATCH / IGNORE
-- Setup: Breakout or Reversal
-- 1-line Spark: what specifically could trigger +10%
-- 1-line Trap: what invalidates the thesis
-- Trade Plan: entry trigger, stop anchor, TP1/TP2, position size rule (risk 1–2%)
-
-
-==============================
-TICKER: GNE
-==============================
-
-Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
-Objective: Decide if GNE has >60% probability of achieving +10% within 30 calendar days.
-
-Hard constraints:
-- You MUST penalize "Unknown" earnings + missing headlines (no assuming hidden catalysts).
-- You MUST still score based on tape structure: RVOL, ATR%, RSI, distance to 52W high, setup type.
-- You MUST output at most 2 BUY ratings across the entire batch (if you are given multiple tickers).
-- If catalyst data is weak, default to WATCH/IGNORE even if technicals look good.
-- If Dilution risk flag = 1 (headline scan), cap Verdict at WATCH unless there is a clear positive catalyst that outweighs it.
-- For Breakouts, require structural confirmation: Above_MA20=1 and Above_MA50=1; otherwise downgrade Technical Alignment.
-
-Inputs:
-Market regime snapshot (best-effort):
-- SPY=681.75 vs MA20=689.15 (RISK-OFF); VIX=20.60 (<= 25.00 is OK).
-- Regime Gate OK: False
-
-Earnings (best-effort): Unknown
-
-Screener metrics:
-- Last: 164.32
-- RVOL: 2.36
-- ATR%: 8.17 (≈ $13.42 ATR/day)
-- RSI14: 32.2
-- Dist_to_52W_High%: 63.05
-
-- MA20: 189.97
-- MA50: 226.76
-- Above_MA20: 0 (1=yes, 0=no)
-- Above_MA50: 0 (1=yes, 0=no)
-- Ret20d%: -31.33%
-- Setup: Reversal
-- Score: 27.24
-- Leveraged ETF: NO
-- Source tags: BASE_UNIVERSE
-- Dilution risk flag (headline scan): 0
-- Catalyst tags (headline scan): None
-
-
-Catalyst completeness (penalize Unknowns):
-- Completeness Score: 25/100
-- Earnings known: False (earnings=Unknown)
-- Recent headline count (14d): 0
-- Manual headlines: False
-- Penalties:
-  * Earnings date Unknown (penalize catalyst clarity).
-  * No recent headlines found (penalize narrative visibility).
-
-
-Recent headlines:
-- (No headlines returned. Treat catalysts as Unknown. Check: earnings guidance, SEC filings, major contracts, sector/BTC correlation, terminal/X headlines.)
-
-Standard trade plan template (by setup):
-- Entry: Reclaim MA20 (or prior swing level) AND RSI curl up; confirm with a green day + elevated volume.
-- Stop: Below recent swing low OR 1.0–1.3× ATR below entry (whichever is tighter and logical).
-- TPs: TP1 = MA50 / prior supply zone, TP2 = gap-fill / next resistance; reduce into strength.
-- Position sizing: risk 1–2% of account per trade. Shares = (AccountRisk$) / (StopDistance$).
-
-
-If data is missing, explicitly state Unknown and list checks:
-- Confirm next earnings date (company IR site / Nasdaq earnings calendar).
-- Pull 14–30d headlines from a second source (SEC, PR, major outlets, terminal).
-- Check upcoming: FDA/clinical readouts, contracts, secondary offering/ATM, lockup expiry, guidance updates.
-- Check technical context: multi-year resistance, gap levels, supply zones, post-earnings drift behavior.
-
-Scoring rubric (0–100):
-- Catalyst Immediacy (0–30)
-- Narrative Velocity (0–25)
-- Volatility Fit (0–20)
-- Technical Alignment (0–25)
-
-Output format (STRICT):
-- Total Score: X/100
-- Verdict: BUY / WATCH / IGNORE
-- Setup: Breakout or Reversal
-- 1-line Spark: what specifically could trigger +10%
-- 1-line Trap: what invalidates the thesis
-- Trade Plan: entry trigger, stop anchor, TP1/TP2, position size rule (risk 1–2%)
-
-
-==============================
-TICKER: GNK
-==============================
-
-Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
-Objective: Decide if GNK has >60% probability of achieving +10% within 30 calendar days.
-
-Hard constraints:
-- You MUST penalize "Unknown" earnings + missing headlines (no assuming hidden catalysts).
-- You MUST still score based on tape structure: RVOL, ATR%, RSI, distance to 52W high, setup type.
-- You MUST output at most 2 BUY ratings across the entire batch (if you are given multiple tickers).
-- If catalyst data is weak, default to WATCH/IGNORE even if technicals look good.
-- If Dilution risk flag = 1 (headline scan), cap Verdict at WATCH unless there is a clear positive catalyst that outweighs it.
-- For Breakouts, require structural confirmation: Above_MA20=1 and Above_MA50=1; otherwise downgrade Technical Alignment.
-
-Inputs:
-Market regime snapshot (best-effort):
-- SPY=681.75 vs MA20=689.15 (RISK-OFF); VIX=20.60 (<= 25.00 is OK).
-- Regime Gate OK: False
-
-Earnings (best-effort): Unknown
-
-Screener metrics:
-- Last: 164.32
-- RVOL: 2.36
-- ATR%: 8.17 (≈ $13.42 ATR/day)
-- RSI14: 32.2
-- Dist_to_52W_High%: 63.05
-
-- MA20: 189.97
-- MA50: 226.76
-- Above_MA20: 0 (1=yes, 0=no)
-- Above_MA50: 0 (1=yes, 0=no)
-- Ret20d%: -31.33%
-- Setup: Reversal
-- Score: 27.24
-- Leveraged ETF: NO
-- Source tags: BASE_UNIVERSE
-- Dilution risk flag (headline scan): 0
-- Catalyst tags (headline scan): None
-
-
-Catalyst completeness (penalize Unknowns):
-- Completeness Score: 25/100
-- Earnings known: False (earnings=Unknown)
-- Recent headline count (14d): 0
-- Manual headlines: False
-- Penalties:
-  * Earnings date Unknown (penalize catalyst clarity).
-  * No recent headlines found (penalize narrative visibility).
-
-
-Recent headlines:
-- (No headlines returned. Treat catalysts as Unknown. Check: earnings guidance, SEC filings, major contracts, sector/BTC correlation, terminal/X headlines.)
-
-Standard trade plan template (by setup):
-- Entry: Reclaim MA20 (or prior swing level) AND RSI curl up; confirm with a green day + elevated volume.
-- Stop: Below recent swing low OR 1.0–1.3× ATR below entry (whichever is tighter and logical).
-- TPs: TP1 = MA50 / prior supply zone, TP2 = gap-fill / next resistance; reduce into strength.
-- Position sizing: risk 1–2% of account per trade. Shares = (AccountRisk$) / (StopDistance$).
-
-
-If data is missing, explicitly state Unknown and list checks:
-- Confirm next earnings date (company IR site / Nasdaq earnings calendar).
-- Pull 14–30d headlines from a second source (SEC, PR, major outlets, terminal).
-- Check upcoming: FDA/clinical readouts, contracts, secondary offering/ATM, lockup expiry, guidance updates.
-- Check technical context: multi-year resistance, gap levels, supply zones, post-earnings drift behavior.
-
-Scoring rubric (0–100):
-- Catalyst Immediacy (0–30)
-- Narrative Velocity (0–25)
-- Volatility Fit (0–20)
-- Technical Alignment (0–25)
-
-Output format (STRICT):
-- Total Score: X/100
-- Verdict: BUY / WATCH / IGNORE
-- Setup: Breakout or Reversal
-- 1-line Spark: what specifically could trigger +10%
-- 1-line Trap: what invalidates the thesis
-- Trade Plan: entry trigger, stop anchor, TP1/TP2, position size rule (risk 1–2%)
-
-
-==============================
-TICKER: SCHL
-==============================
-
-Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
-Objective: Decide if SCHL has >60% probability of achieving +10% within 30 calendar days.
+Objective: Decide if FFAI has >60% probability of achieving +10% within 30 calendar days.
 
 Hard constraints:
 - You MUST penalize "Unknown" earnings + missing headlines (no assuming hidden catalysts).
@@ -912,11 +829,11 @@ Output format (STRICT):
 
 
 ==============================
-TICKER: SCVL
+TICKER: FFIC
 ==============================
 
 Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
-Objective: Decide if SCVL has >60% probability of achieving +10% within 30 calendar days.
+Objective: Decide if FFIC has >60% probability of achieving +10% within 30 calendar days.
 
 Hard constraints:
 - You MUST penalize "Unknown" earnings + missing headlines (no assuming hidden catalysts).
@@ -995,11 +912,11 @@ Output format (STRICT):
 
 
 ==============================
-TICKER: SD
+TICKER: FFBC
 ==============================
 
 Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
-Objective: Decide if SD has >60% probability of achieving +10% within 30 calendar days.
+Objective: Decide if FFBC has >60% probability of achieving +10% within 30 calendar days.
 
 Hard constraints:
 - You MUST penalize "Unknown" earnings + missing headlines (no assuming hidden catalysts).
@@ -1078,11 +995,11 @@ Output format (STRICT):
 
 
 ==============================
-TICKER: SDGR
+TICKER: FFIN
 ==============================
 
 Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
-Objective: Decide if SDGR has >60% probability of achieving +10% within 30 calendar days.
+Objective: Decide if FFIN has >60% probability of achieving +10% within 30 calendar days.
 
 Hard constraints:
 - You MUST penalize "Unknown" earnings + missing headlines (no assuming hidden catalysts).
@@ -1161,177 +1078,11 @@ Output format (STRICT):
 
 
 ==============================
-TICKER: SCSC
+TICKER: ABR
 ==============================
 
 Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
-Objective: Decide if SCSC has >60% probability of achieving +10% within 30 calendar days.
-
-Hard constraints:
-- You MUST penalize "Unknown" earnings + missing headlines (no assuming hidden catalysts).
-- You MUST still score based on tape structure: RVOL, ATR%, RSI, distance to 52W high, setup type.
-- You MUST output at most 2 BUY ratings across the entire batch (if you are given multiple tickers).
-- If catalyst data is weak, default to WATCH/IGNORE even if technicals look good.
-- If Dilution risk flag = 1 (headline scan), cap Verdict at WATCH unless there is a clear positive catalyst that outweighs it.
-- For Breakouts, require structural confirmation: Above_MA20=1 and Above_MA50=1; otherwise downgrade Technical Alignment.
-
-Inputs:
-Market regime snapshot (best-effort):
-- SPY=681.75 vs MA20=689.15 (RISK-OFF); VIX=20.60 (<= 25.00 is OK).
-- Regime Gate OK: False
-
-Earnings (best-effort): Unknown
-
-Screener metrics:
-- Last: 66.55
-- RVOL: 1.82
-- ATR%: 4.99 (≈ $3.32 ATR/day)
-- RSI14: 15.2
-- Dist_to_52W_High%: 23.53
-
-- MA20: 78.92
-- MA50: 81.78
-- Above_MA20: 0 (1=yes, 0=no)
-- Above_MA50: 0 (1=yes, 0=no)
-- Ret20d%: -21.54%
-- Setup: Reversal
-- Score: 19.04
-- Leveraged ETF: NO
-- Source tags: BASE_UNIVERSE
-- Dilution risk flag (headline scan): 0
-- Catalyst tags (headline scan): None
-
-
-Catalyst completeness (penalize Unknowns):
-- Completeness Score: 25/100
-- Earnings known: False (earnings=Unknown)
-- Recent headline count (14d): 0
-- Manual headlines: False
-- Penalties:
-  * Earnings date Unknown (penalize catalyst clarity).
-  * No recent headlines found (penalize narrative visibility).
-
-
-Recent headlines:
-- (No headlines returned. Treat catalysts as Unknown. Check: earnings guidance, SEC filings, major contracts, sector/BTC correlation, terminal/X headlines.)
-
-Standard trade plan template (by setup):
-- Entry: Reclaim MA20 (or prior swing level) AND RSI curl up; confirm with a green day + elevated volume.
-- Stop: Below recent swing low OR 1.0–1.3× ATR below entry (whichever is tighter and logical).
-- TPs: TP1 = MA50 / prior supply zone, TP2 = gap-fill / next resistance; reduce into strength.
-- Position sizing: risk 1–2% of account per trade. Shares = (AccountRisk$) / (StopDistance$).
-
-
-If data is missing, explicitly state Unknown and list checks:
-- Confirm next earnings date (company IR site / Nasdaq earnings calendar).
-- Pull 14–30d headlines from a second source (SEC, PR, major outlets, terminal).
-- Check upcoming: FDA/clinical readouts, contracts, secondary offering/ATM, lockup expiry, guidance updates.
-- Check technical context: multi-year resistance, gap levels, supply zones, post-earnings drift behavior.
-
-Scoring rubric (0–100):
-- Catalyst Immediacy (0–30)
-- Narrative Velocity (0–25)
-- Volatility Fit (0–20)
-- Technical Alignment (0–25)
-
-Output format (STRICT):
-- Total Score: X/100
-- Verdict: BUY / WATCH / IGNORE
-- Setup: Breakout or Reversal
-- 1-line Spark: what specifically could trigger +10%
-- 1-line Trap: what invalidates the thesis
-- Trade Plan: entry trigger, stop anchor, TP1/TP2, position size rule (risk 1–2%)
-
-
-==============================
-TICKER: SDRL
-==============================
-
-Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
-Objective: Decide if SDRL has >60% probability of achieving +10% within 30 calendar days.
-
-Hard constraints:
-- You MUST penalize "Unknown" earnings + missing headlines (no assuming hidden catalysts).
-- You MUST still score based on tape structure: RVOL, ATR%, RSI, distance to 52W high, setup type.
-- You MUST output at most 2 BUY ratings across the entire batch (if you are given multiple tickers).
-- If catalyst data is weak, default to WATCH/IGNORE even if technicals look good.
-- If Dilution risk flag = 1 (headline scan), cap Verdict at WATCH unless there is a clear positive catalyst that outweighs it.
-- For Breakouts, require structural confirmation: Above_MA20=1 and Above_MA50=1; otherwise downgrade Technical Alignment.
-
-Inputs:
-Market regime snapshot (best-effort):
-- SPY=681.75 vs MA20=689.15 (RISK-OFF); VIX=20.60 (<= 25.00 is OK).
-- Regime Gate OK: False
-
-Earnings (best-effort): Unknown
-
-Screener metrics:
-- Last: 66.55
-- RVOL: 1.82
-- ATR%: 4.99 (≈ $3.32 ATR/day)
-- RSI14: 15.2
-- Dist_to_52W_High%: 23.53
-
-- MA20: 78.92
-- MA50: 81.78
-- Above_MA20: 0 (1=yes, 0=no)
-- Above_MA50: 0 (1=yes, 0=no)
-- Ret20d%: -21.54%
-- Setup: Reversal
-- Score: 19.04
-- Leveraged ETF: NO
-- Source tags: BASE_UNIVERSE
-- Dilution risk flag (headline scan): 0
-- Catalyst tags (headline scan): None
-
-
-Catalyst completeness (penalize Unknowns):
-- Completeness Score: 25/100
-- Earnings known: False (earnings=Unknown)
-- Recent headline count (14d): 0
-- Manual headlines: False
-- Penalties:
-  * Earnings date Unknown (penalize catalyst clarity).
-  * No recent headlines found (penalize narrative visibility).
-
-
-Recent headlines:
-- (No headlines returned. Treat catalysts as Unknown. Check: earnings guidance, SEC filings, major contracts, sector/BTC correlation, terminal/X headlines.)
-
-Standard trade plan template (by setup):
-- Entry: Reclaim MA20 (or prior swing level) AND RSI curl up; confirm with a green day + elevated volume.
-- Stop: Below recent swing low OR 1.0–1.3× ATR below entry (whichever is tighter and logical).
-- TPs: TP1 = MA50 / prior supply zone, TP2 = gap-fill / next resistance; reduce into strength.
-- Position sizing: risk 1–2% of account per trade. Shares = (AccountRisk$) / (StopDistance$).
-
-
-If data is missing, explicitly state Unknown and list checks:
-- Confirm next earnings date (company IR site / Nasdaq earnings calendar).
-- Pull 14–30d headlines from a second source (SEC, PR, major outlets, terminal).
-- Check upcoming: FDA/clinical readouts, contracts, secondary offering/ATM, lockup expiry, guidance updates.
-- Check technical context: multi-year resistance, gap levels, supply zones, post-earnings drift behavior.
-
-Scoring rubric (0–100):
-- Catalyst Immediacy (0–30)
-- Narrative Velocity (0–25)
-- Volatility Fit (0–20)
-- Technical Alignment (0–25)
-
-Output format (STRICT):
-- Total Score: X/100
-- Verdict: BUY / WATCH / IGNORE
-- Setup: Breakout or Reversal
-- 1-line Spark: what specifically could trigger +10%
-- 1-line Trap: what invalidates the thesis
-- Trade Plan: entry trigger, stop anchor, TP1/TP2, position size rule (risk 1–2%)
-
-
-==============================
-TICKER: ACA
-==============================
-
-Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
-Objective: Decide if ACA has >60% probability of achieving +10% within 30 calendar days.
+Objective: Decide if ABR has >60% probability of achieving +10% within 30 calendar days.
 
 Hard constraints:
 - You MUST penalize "Unknown" earnings + missing headlines (no assuming hidden catalysts).
@@ -1350,7 +1101,7 @@ Earnings (best-effort): Unknown
 
 Screener metrics:
 - Last: 121.35
-- RVOL: 2.18
+- RVOL: 2.19
 - ATR%: 3.78 (≈ $4.59 ATR/day)
 - RSI14: 32.3
 - Dist_to_52W_High%: 15.66
@@ -1361,173 +1112,7 @@ Screener metrics:
 - Above_MA50: 0 (1=yes, 0=no)
 - Ret20d%: -8.48%
 - Setup: Reversal
-- Score: 17.5
-- Leveraged ETF: NO
-- Source tags: BASE_UNIVERSE
-- Dilution risk flag (headline scan): 0
-- Catalyst tags (headline scan): None
-
-
-Catalyst completeness (penalize Unknowns):
-- Completeness Score: 25/100
-- Earnings known: False (earnings=Unknown)
-- Recent headline count (14d): 0
-- Manual headlines: False
-- Penalties:
-  * Earnings date Unknown (penalize catalyst clarity).
-  * No recent headlines found (penalize narrative visibility).
-
-
-Recent headlines:
-- (No headlines returned. Treat catalysts as Unknown. Check: earnings guidance, SEC filings, major contracts, sector/BTC correlation, terminal/X headlines.)
-
-Standard trade plan template (by setup):
-- Entry: Reclaim MA20 (or prior swing level) AND RSI curl up; confirm with a green day + elevated volume.
-- Stop: Below recent swing low OR 1.0–1.3× ATR below entry (whichever is tighter and logical).
-- TPs: TP1 = MA50 / prior supply zone, TP2 = gap-fill / next resistance; reduce into strength.
-- Position sizing: risk 1–2% of account per trade. Shares = (AccountRisk$) / (StopDistance$).
-
-
-If data is missing, explicitly state Unknown and list checks:
-- Confirm next earnings date (company IR site / Nasdaq earnings calendar).
-- Pull 14–30d headlines from a second source (SEC, PR, major outlets, terminal).
-- Check upcoming: FDA/clinical readouts, contracts, secondary offering/ATM, lockup expiry, guidance updates.
-- Check technical context: multi-year resistance, gap levels, supply zones, post-earnings drift behavior.
-
-Scoring rubric (0–100):
-- Catalyst Immediacy (0–30)
-- Narrative Velocity (0–25)
-- Volatility Fit (0–20)
-- Technical Alignment (0–25)
-
-Output format (STRICT):
-- Total Score: X/100
-- Verdict: BUY / WATCH / IGNORE
-- Setup: Breakout or Reversal
-- 1-line Spark: what specifically could trigger +10%
-- 1-line Trap: what invalidates the thesis
-- Trade Plan: entry trigger, stop anchor, TP1/TP2, position size rule (risk 1–2%)
-
-
-==============================
-TICKER: ACAD
-==============================
-
-Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
-Objective: Decide if ACAD has >60% probability of achieving +10% within 30 calendar days.
-
-Hard constraints:
-- You MUST penalize "Unknown" earnings + missing headlines (no assuming hidden catalysts).
-- You MUST still score based on tape structure: RVOL, ATR%, RSI, distance to 52W high, setup type.
-- You MUST output at most 2 BUY ratings across the entire batch (if you are given multiple tickers).
-- If catalyst data is weak, default to WATCH/IGNORE even if technicals look good.
-- If Dilution risk flag = 1 (headline scan), cap Verdict at WATCH unless there is a clear positive catalyst that outweighs it.
-- For Breakouts, require structural confirmation: Above_MA20=1 and Above_MA50=1; otherwise downgrade Technical Alignment.
-
-Inputs:
-Market regime snapshot (best-effort):
-- SPY=681.75 vs MA20=689.15 (RISK-OFF); VIX=20.60 (<= 25.00 is OK).
-- Regime Gate OK: False
-
-Earnings (best-effort): Unknown
-
-Screener metrics:
-- Last: 121.35
-- RVOL: 2.18
-- ATR%: 3.78 (≈ $4.59 ATR/day)
-- RSI14: 32.3
-- Dist_to_52W_High%: 15.66
-
-- MA20: 126.96
-- MA50: 130.50
-- Above_MA20: 0 (1=yes, 0=no)
-- Above_MA50: 0 (1=yes, 0=no)
-- Ret20d%: -8.48%
-- Setup: Reversal
-- Score: 17.5
-- Leveraged ETF: NO
-- Source tags: BASE_UNIVERSE
-- Dilution risk flag (headline scan): 0
-- Catalyst tags (headline scan): None
-
-
-Catalyst completeness (penalize Unknowns):
-- Completeness Score: 25/100
-- Earnings known: False (earnings=Unknown)
-- Recent headline count (14d): 0
-- Manual headlines: False
-- Penalties:
-  * Earnings date Unknown (penalize catalyst clarity).
-  * No recent headlines found (penalize narrative visibility).
-
-
-Recent headlines:
-- (No headlines returned. Treat catalysts as Unknown. Check: earnings guidance, SEC filings, major contracts, sector/BTC correlation, terminal/X headlines.)
-
-Standard trade plan template (by setup):
-- Entry: Reclaim MA20 (or prior swing level) AND RSI curl up; confirm with a green day + elevated volume.
-- Stop: Below recent swing low OR 1.0–1.3× ATR below entry (whichever is tighter and logical).
-- TPs: TP1 = MA50 / prior supply zone, TP2 = gap-fill / next resistance; reduce into strength.
-- Position sizing: risk 1–2% of account per trade. Shares = (AccountRisk$) / (StopDistance$).
-
-
-If data is missing, explicitly state Unknown and list checks:
-- Confirm next earnings date (company IR site / Nasdaq earnings calendar).
-- Pull 14–30d headlines from a second source (SEC, PR, major outlets, terminal).
-- Check upcoming: FDA/clinical readouts, contracts, secondary offering/ATM, lockup expiry, guidance updates.
-- Check technical context: multi-year resistance, gap levels, supply zones, post-earnings drift behavior.
-
-Scoring rubric (0–100):
-- Catalyst Immediacy (0–30)
-- Narrative Velocity (0–25)
-- Volatility Fit (0–20)
-- Technical Alignment (0–25)
-
-Output format (STRICT):
-- Total Score: X/100
-- Verdict: BUY / WATCH / IGNORE
-- Setup: Breakout or Reversal
-- 1-line Spark: what specifically could trigger +10%
-- 1-line Trap: what invalidates the thesis
-- Trade Plan: entry trigger, stop anchor, TP1/TP2, position size rule (risk 1–2%)
-
-
-==============================
-TICKER: ABUS
-==============================
-
-Role: Momentum hedge fund analyst. You are running a probability audit (NOT a price predictor).
-Objective: Decide if ABUS has >60% probability of achieving +10% within 30 calendar days.
-
-Hard constraints:
-- You MUST penalize "Unknown" earnings + missing headlines (no assuming hidden catalysts).
-- You MUST still score based on tape structure: RVOL, ATR%, RSI, distance to 52W high, setup type.
-- You MUST output at most 2 BUY ratings across the entire batch (if you are given multiple tickers).
-- If catalyst data is weak, default to WATCH/IGNORE even if technicals look good.
-- If Dilution risk flag = 1 (headline scan), cap Verdict at WATCH unless there is a clear positive catalyst that outweighs it.
-- For Breakouts, require structural confirmation: Above_MA20=1 and Above_MA50=1; otherwise downgrade Technical Alignment.
-
-Inputs:
-Market regime snapshot (best-effort):
-- SPY=681.75 vs MA20=689.15 (RISK-OFF); VIX=20.60 (<= 25.00 is OK).
-- Regime Gate OK: False
-
-Earnings (best-effort): Unknown
-
-Screener metrics:
-- Last: 121.35
-- RVOL: 2.18
-- ATR%: 3.78 (≈ $4.59 ATR/day)
-- RSI14: 32.3
-- Dist_to_52W_High%: 15.66
-
-- MA20: 126.96
-- MA50: 130.50
-- Above_MA20: 0 (1=yes, 0=no)
-- Above_MA50: 0 (1=yes, 0=no)
-- Ret20d%: -8.48%
-- Setup: Reversal
-- Score: 17.5
+- Score: 17.52
 - Leveraged ETF: NO
 - Source tags: BASE_UNIVERSE
 - Dilution risk flag (headline scan): 0

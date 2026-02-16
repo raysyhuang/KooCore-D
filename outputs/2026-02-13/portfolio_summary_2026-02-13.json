@@ -7,11 +7,11 @@
   "gross_weight": 0.25,
   "positions": 5,
   "tickers": [
-    "GOOD",
-    "GHC",
-    "GH",
-    "GFF",
-    "GEVO"
+    "IREN",
+    "STZ",
+    "STXS",
+    "GBCI",
+    "GLW"
   ],
   "total_notional_usd": 25000.0
 }

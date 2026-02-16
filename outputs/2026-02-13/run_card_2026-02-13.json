@@ -1,17 +1,17 @@
 {
   "date": "2026-02-13",
-  "run_timestamp_utc": "2026-02-13T23:59:34.487519Z",
+  "run_timestamp_utc": "2026-02-16T23:49:42.384527Z",
   "method_version": "v3.2",
   "summary": {
     "tickers_screened": 1988,
     "swing_candidates": 0,
-    "pro30_candidates": 19,
+    "pro30_candidates": 14,
     "weekly_top5": 2,
     "movers": 0
   },
   "top5_tickers": [
-    "GEO",
-    "CRL"
+    "EOSE",
+    "IREN"
   ],
   "overlap_all_three": [],
   "primary_label": "Weekly",
