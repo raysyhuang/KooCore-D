@@ -2,8 +2,9 @@ name: Auto Run (Daily)
 
 on:
   schedule:
-    # Weekdays at 23:15 UTC (after US market close)
-    - cron: "15 23 * * 1-5"
+    # Weekdays at 22:00 UTC / 5:00 PM ET (after US market close)
+    # Starts first — slowest engine (up to 3 hrs), must finish before 9:30 PM ET collection
+    - cron: "0 22 * * 1-5"
   workflow_dispatch:
 
 env:
@@ -67,6 +68,35 @@ jobs:
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
         run: |
           python main.py all --config config/default.yaml
+
+      - name: Push results to Heroku API
+        if: success()
+        env:
+          KOOCORE_HEROKU_URL: ${{ secrets.KOOCORE_HEROKU_URL }}
+          ENGINE_API_KEY: ${{ secrets.ENGINE_API_KEY }}
+        run: |
+          DATE=$(date -u +%Y-%m-%d)
+          HYBRID_FILE="outputs/${DATE}/hybrid_analysis_${DATE}.json"
+          if [ -f "${HYBRID_FILE}" ] && [ -n "${KOOCORE_HEROKU_URL}" ]; then
+            echo "Pushing results to Heroku API..."
+            PAYLOAD=$(python -c "
+          import json, sys
+          with open('${HYBRID_FILE}') as f:
+              hybrid = json.load(f)
+          print(json.dumps({
+              'hybrid_analysis': hybrid,
+              'run_date': '${DATE}',
+              'pipeline_duration_s': None
+          }))
+          ")
+            curl -s -X POST "${KOOCORE_HEROKU_URL}/api/engine/ingest" \
+              -H "Content-Type: application/json" \
+              -H "X-Engine-Key: ${ENGINE_API_KEY}" \
+              -d "${PAYLOAD}" \
+              --max-time 30 || echo "Warning: Failed to push to Heroku API"
+          else
+            echo "Skipping Heroku push: file not found or URL not configured"
+          fi
 
       - name: Commit outputs to repo
         if: success()
