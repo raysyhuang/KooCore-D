@@ -6,6 +6,8 @@ Invariant R1: Retries re-run computation but MUST NOT emit side effects.
 
 from __future__ import annotations
 import json
+import hashlib
+import os
 import pandas as pd
 from pathlib import Path
 from types import SimpleNamespace
@@ -44,6 +46,65 @@ except ImportError:
     ALERTS_AVAILABLE = False
 
 logger = logging.getLogger(__name__)
+
+
+def _compute_config_hash(config: dict) -> str:
+    """Stable hash for effective runtime configuration."""
+    config_str = json.dumps(config, sort_keys=True, default=str)
+    return hashlib.sha256(config_str.encode("utf-8")).hexdigest()
+
+
+def _build_runtime_fingerprint(
+    args,
+    config: dict,
+    output_date_str: str,
+    asof_date,
+    universe_size: int | None,
+) -> dict:
+    """Capture deterministic runtime context for forensic comparisons."""
+    runtime_cfg = config.get("runtime", {})
+    universe_cfg = config.get("universe", {})
+    db_path = Path("data/prices.db")
+    db_last_modified_utc = None
+    if db_path.exists():
+        db_last_modified_utc = datetime.utcfromtimestamp(db_path.stat().st_mtime).isoformat() + "Z"
+
+    db_row_count = None
+    db_ticker_count = None
+    try:
+        from src.core.price_db import get_price_db
+
+        db_stats = get_price_db(str(db_path)).get_stats()
+        db_row_count = int(db_stats.get("total_records", 0))
+        db_ticker_count = int(db_stats.get("total_tickers", 0))
+    except Exception as e:
+        logger.debug(f"Runtime fingerprint could not read price DB stats: {e}")
+
+    polygon_api_key = os.environ.get("POLYGON_API_KEY")
+    polygon_enabled = bool(runtime_cfg.get("polygon_primary", False) and polygon_api_key)
+
+    return {
+        "date": output_date_str,
+        "asof": asof_date.strftime("%Y-%m-%d") if asof_date else None,
+        "config_path": getattr(args, "config", "config/default.yaml"),
+        "config_hash": _compute_config_hash(config),
+        "workflow_name": os.environ.get("GITHUB_WORKFLOW", "LOCAL"),
+        "workflow_run_id": os.environ.get("GITHUB_RUN_ID"),
+        "workflow_run_attempt": os.environ.get("GITHUB_RUN_ATTEMPT"),
+        "prices_db_path": str(db_path),
+        "prices_db_exists": db_path.exists(),
+        "prices_db_last_modified_utc": db_last_modified_utc,
+        "prices_db_row_count": db_row_count,
+        "prices_db_ticker_count": db_ticker_count,
+        "universe_mode": universe_cfg.get("mode", "SP500+NASDAQ100+R2000"),
+        "universe_cache_file": universe_cfg.get("cache_file", "universe_cache.csv"),
+        "universe_cache_max_age_days": universe_cfg.get("cache_max_age_days", 7),
+        "universe_size": universe_size,
+        "lookback_days": config.get("technicals", {}).get("lookback_days", 300),
+        "polygon_enabled": polygon_enabled,
+        "polygon_workers": runtime_cfg.get("polygon_max_workers", 8),
+        "allow_partial_day_attention": bool(runtime_cfg.get("allow_partial_day_attention", False)),
+    }
 
 
 def _open_browser(file_path: Path) -> None:
@@ -104,10 +165,11 @@ def cmd_all(args) -> int:
     
     results = {}
     
+    universe_size = None
+
     # Step 1: Daily Movers
     logger.info("\n[1/6] Daily Movers Discovery...")
     try:
-        import os
         ucfg = config.get("universe", {})
         quarantine_cfg = config.get("data_reliability", {}).get("quarantine", {})
         universe = build_universe(
@@ -120,6 +182,7 @@ def cmd_all(args) -> int:
             quarantine_file=quarantine_cfg.get("file", "data/bad_tickers.json"),
             quarantine_enabled=bool(quarantine_cfg.get("enabled", True)),
         )
+        universe_size = len(universe)
         movers_config = config.get("movers", {})
         runtime_config = config.get("runtime", {})
         polygon_api_key = os.environ.get("POLYGON_API_KEY")
@@ -169,6 +232,18 @@ def cmd_all(args) -> int:
     output_dir = outputs_root / output_date_str
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    # Record deterministic runtime context once per run
+    runtime_fingerprint = _build_runtime_fingerprint(
+        args=args,
+        config=config,
+        output_date_str=output_date_str,
+        asof_date=asof_date,
+        universe_size=universe_size,
+    )
+    runtime_fingerprint_path = output_dir / f"runtime_fingerprint_{output_date_str}.json"
+    save_json(runtime_fingerprint, runtime_fingerprint_path)
+    logger.info(f"  ✓ Runtime fingerprint saved: {runtime_fingerprint_path.name}")
+
     # Step 2: Swing Strategy (Primary)
     logger.info("\n[2/7] Swing Strategy (Primary)...")
     try:
@@ -215,6 +290,21 @@ def cmd_all(args) -> int:
     # Step 4: 30-Day Screener (Secondary)
     logger.info("\n[4/7] 30-Day Screener (Secondary)...")
     try:
+        ucfg = config.get("universe", {})
+        runtime_cfg = config.get("runtime", {})
+        logger.info(
+            "  Pro30 context: config=%s asof=%s output=%s universe_mode=%s cache=%s max_age_days=%s lookback_days=%s polygon_primary=%s polygon_workers=%s price_db=%s",
+            getattr(args, "config", "config/default.yaml"),
+            asof_date.strftime("%Y-%m-%d") if asof_date else "N/A",
+            output_date_str,
+            ucfg.get("mode", "SP500+NASDAQ100+R2000"),
+            ucfg.get("cache_file", "universe_cache.csv"),
+            ucfg.get("cache_max_age_days", 7),
+            config.get("technicals", {}).get("lookback_days", 300),
+            bool(runtime_cfg.get("polygon_primary", False)),
+            runtime_cfg.get("polygon_max_workers", 8),
+            "data/prices.db",
+        )
         pro30_result = run_pro30(
             config=config,
             asof_date=asof_date,
@@ -368,16 +458,22 @@ def cmd_all(args) -> int:
                     else:
                         pro30_df["_TrendScore"] = 0
                     
-                    # DETERMINISTIC MULTI-KEY SORT (eliminates alphabetical bias)
-                    # Priority: Score > RSI14 > TrendScore > $ADV20 > Ticker
+                    # DETERMINISTIC MULTI-KEY SORT (no alphabetical bias)
+                    # Priority: Score > RSI14 > TrendScore > $ADV20
+                    # Ties after all 4 keys are broken by hash (deterministic but not A-Z)
+                    import hashlib
+                    pro30_df["_hash_key"] = pro30_df["Ticker"].apply(
+                        lambda t: hashlib.md5(f"{t}{output_date_str}".encode()).hexdigest()
+                    )
                     pro30_ranked = (
                         pro30_df
                         .sort_values(
-                            by=["Score", "RSI14", "_TrendScore", "$ADV20", "Ticker"],
+                            by=["Score", "RSI14", "_TrendScore", "$ADV20", "_hash_key"],
                             ascending=[False, False, False, False, True],
                         )
                         .reset_index(drop=True)
                     )
+                    pro30_ranked = pro30_ranked.drop(columns=["_hash_key"])
                     pro30_ranked["pro30_rank"] = pro30_ranked.index + 1
                     
                     # Sanity check: Score must be monotonically decreasing after sort
@@ -519,9 +615,15 @@ def cmd_all(args) -> int:
             "in_primary_pro30": ticker in overlap_primary_pro30,
         })
     
-    # Sort by hybrid score with deterministic tie-break (ticker alphabetical)
-    # This ensures reproducible ordering even when scores are exactly equal
-    weighted_picks.sort(key=lambda x: (-x["hybrid_score"], x["ticker"]))
+    # Sort by hybrid score with source-count tie-break (more sources = higher conviction)
+    # Avoids alphabetical bias: ties broken by number of confirming sources, then random
+    import hashlib
+    run_seed = output_date_str  # deterministic per-day but not alphabetical
+    weighted_picks.sort(key=lambda x: (
+        -x["hybrid_score"],
+        -len(x["sources"]),  # more sources = higher conviction
+        hashlib.md5(f"{x['ticker']}{run_seed}".encode()).hexdigest(),  # deterministic shuffle
+    ))
     
     # Log top weighted picks
     if weighted_picks:

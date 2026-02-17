@@ -575,8 +575,11 @@ def _rerank_with_debate(initial_top5: list[dict], debate_results: dict) -> list[
         
         adjusted.append(pick)
     
-    # Re-sort by adjusted score
-    adjusted.sort(key=lambda x: x.get("composite_score", 0), reverse=True)
+    # Re-sort by adjusted score, break ties by bull-bear spread (not alphabetical)
+    adjusted.sort(key=lambda x: (
+        -x.get("composite_score", 0),
+        -(x.get("debate_bull_score", 0) - x.get("debate_bear_score", 0)),  # higher spread = more conviction
+    ))
     
     # Re-assign ranks
     for i, pick in enumerate(adjusted, 1):

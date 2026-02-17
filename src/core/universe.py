@@ -321,4 +321,13 @@ def build_universe(
         except Exception:
             pass
 
+    # Shuffle to prevent alphabetical position bias in downstream processing.
+    # Uses date-based seed for reproducibility (same day = same order).
+    import hashlib
+    from datetime import date
+    seed = int(hashlib.md5(str(date.today()).encode()).hexdigest()[:8], 16)
+    import random
+    rng = random.Random(seed)
+    rng.shuffle(all_tickers)
+
     return all_tickers

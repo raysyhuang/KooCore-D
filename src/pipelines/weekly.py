@@ -541,9 +541,19 @@ def run_weekly(
     print(f"  Screening complete: {len(candidates)} candidates found")
     
     # Convert to DataFrame and sort by technical score
+    # Break ties with hash-based shuffle to prevent alphabetical position bias
     candidates_df = pd.DataFrame(candidates)
     if not candidates_df.empty:
-        candidates_df = candidates_df.sort_values("technical_score", ascending=False).head(30)
+        import hashlib
+        candidates_df["_hash_key"] = candidates_df["ticker"].apply(
+            lambda t: hashlib.md5(f"{t}{output_date_str}".encode()).hexdigest()
+        )
+        candidates_df = (
+            candidates_df
+            .sort_values(["technical_score", "_hash_key"], ascending=[False, True])
+            .head(30)
+            .drop(columns=["_hash_key"])
+        )
         validate_required_columns(
             candidates_df,
             required_cols=["ticker", "technical_score", "current_price", "asof_price_utc"],
