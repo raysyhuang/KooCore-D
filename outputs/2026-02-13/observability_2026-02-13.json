@@ -3,29 +3,29 @@
   "asof_trading_date": "2026-02-13",
   "technical_score_distribution": {
     "pro30": {
-      "count": 14,
-      "count_gte_6": 14,
-      "count_gte_8": 14,
-      "min": 17.52,
+      "count": 3,
+      "count_gte_6": 3,
+      "count_gte_8": 3,
+      "min": 19.04,
       "p25": 19.04,
-      "median": 25.56,
-      "p75": 27.3,
-      "max": 27.3
+      "median": 19.04,
+      "p75": 21.0,
+      "max": 22.96
     },
     "weekly": {
       "count": 2,
       "count_gte_6": 2,
       "count_gte_8": 2,
-      "min": 8.25,
-      "p25": 8.69,
-      "median": 9.12,
-      "p75": 9.56,
-      "max": 10.0
+      "min": 8.65,
+      "p25": 8.65,
+      "median": 8.65,
+      "p75": 8.65,
+      "max": 8.65
     }
   },
   "overlap_stats": {
     "weekly_only": 2,
-    "pro30_only": 14,
+    "pro30_only": 3,
     "movers_only": 0,
     "weekly_pro30": 0,
     "weekly_movers": 0,
@@ -34,7 +34,7 @@
     "any_overlap_count": 0,
     "overlap_potential": {
       "weekly_candidates": 2,
-      "pro30_candidates": 14,
+      "pro30_candidates": 3,
       "movers_candidates": 0,
       "intersection_possible": true
     }
@@ -42,7 +42,7 @@
   "confidence_distribution": {
     "HIGH": 0,
     "MEDIUM": 0,
-    "LOW": 16
+    "LOW": 5
   },
   "confidence_rates": {
     "high_pct": 0.0,
@@ -51,7 +51,7 @@
   },
   "near_misses": [
     {
-      "ticker": "FFIC",
+      "ticker": "TBRG",
       "conviction_score": 6.2,
       "sources": [
         "pro30"
@@ -59,7 +59,7 @@
       "missing": "needs overlap or tech>=6"
     },
     {
-      "ticker": "EBC",
+      "ticker": "KRYS",
       "conviction_score": 6.2,
       "sources": [
         "pro30"
@@ -67,7 +67,7 @@
       "missing": "needs overlap or tech>=6"
     },
     {
-      "ticker": "ECVT",
+      "ticker": "KRUS",
       "conviction_score": 6.2,
       "sources": [
         "pro30"
@@ -75,18 +75,18 @@
       "missing": "needs overlap or tech>=6"
     },
     {
-      "ticker": "INR",
-      "conviction_score": 6.2,
+      "ticker": "HASI",
+      "conviction_score": 6.11,
       "sources": [
-        "pro30"
+        "weekly_top5"
       ],
       "missing": "needs overlap or tech>=6"
     },
     {
-      "ticker": "FFAI",
-      "conviction_score": 6.2,
+      "ticker": "HAL",
+      "conviction_score": 5.61,
       "sources": [
-        "pro30"
+        "weekly_top5"
       ],
       "missing": "needs overlap or tech>=6"
     }
