@@ -7,11 +7,11 @@
   "gross_weight": 0.25,
   "positions": 5,
   "tickers": [
-    "JBGS",
-    "JBHT",
-    "JANX",
-    "HAS",
-    "GYRE"
+    "HGV",
+    "MCBS",
+    "UTZ",
+    "NEOG",
+    "MTW"
   ],
   "total_notional_usd": 25000.0
 }
