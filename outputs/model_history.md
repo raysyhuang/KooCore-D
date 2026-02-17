@@ -126,3 +126,37 @@ Ask Cursor:
 - Weekly+Pro30: (none)
 
 ---
+
+### 📊 Validation Check (2026-02-17)
+
+**KPI:** Hit +7% within T+7 days
+- Hit Rate: 18.6%
+- Win Rate: 52.7%
+- Avg Return: 0.6%
+- Model Health: 🔴 Poor
+
+**Strategy Performance:**
+- pro30: 19.5% hit rate (n=113)
+- weekly_top5: 12.5% hit rate (n=16)
+
+---
+
+### 📊 Validation Check (2026-02-17)
+
+**KPI:** Hit +7% within T+7 days
+- Hit Rate: 35.3%
+- Win Rate: 48.9%
+- Avg Return: -0.5%
+- Model Health: 🟠 Needs Attention
+
+**Strategy Performance:**
+- weekly_top5: 39.5% hit rate (n=147)
+- pro30: 39.2% hit rate (n=204)
+- movers: 38.1% hit rate (n=126)
+- swing_top5: 20.0% hit rate (n=105)
+
+**Improvement Suggestions:**
+- [High] High scores (≥5.5) outperform (54.5% vs 34.8%). Raise minimum threshold.
+- [Medium] T+14d has higher hit rate (47.3% vs 35.3%).
+
+---
