@@ -1475,3 +1475,45 @@ Primary Candidates: 30
 Details:
   asof: 2026-02-13
 
+
+============================================================
+[2026-02-17 22:43:27 UTC] [LOW] Scan Complete: 2026-02-17 (Weekly)
+============================================================
+===================================
+SCAN COMPLETE - 2026-02-17
+===================================
+Regime: stress
+Primary Strategy: Weekly
+Primary Candidates: 30
+
+🏆 HYBRID TOP 3 (Best Picks):
+  1. FMAO (Pro30(r1))
+     Score: 3.0 pts | LOW
+  2. UPS (Weekly(1))
+     Score: 1.6 pts | LOW
+  3. PYPL (Weekly(2))
+     Score: 1.1 pts | LOW
+
+⭐ Weekly TOP PICKS:
+  - UPS: 4.76 LOW
+  - PYPL: 4.06 LOW
+
+📊 SUMMARY:
+  Weekly: 2 | Pro30: 1 | Movers: 0
+
+📈 MODEL: 🟠 Needs Attention
+  Hit: 30% | Win: 38%
+  movers:38% | pro30:29% | weekly_top5:29%
+  📊 bull:32% | stress:18%
+
+📌 POSITION ALERTS:
+  Total: 6 | High: 2 | Warning: 0
+  - 🎯 TARGET HIT: COHR up 12.2% (target: 7.0%)
+  - ⏰ HOLDING EXPIRED: SEI at -5.2% after 26 days
+  - 🎯 TARGET HIT: MU up 18.8% (target: 7.0%)
+
+===================================
+
+Details:
+  asof: 2026-02-17
+
