@@ -1069,7 +1069,7 @@ def cmd_all(args) -> int:
         from src.commands.validate import run_full_backtest, generate_scorecard
         from datetime import timedelta
         
-        cutoff = (utc_now() - timedelta(days=14)).strftime("%Y-%m-%d")
+        cutoff = (utc_now() - timedelta(days=30)).strftime("%Y-%m-%d")
         val_df = run_full_backtest(
             start_date=cutoff,
             holding_periods=[5, 7],
@@ -1101,7 +1101,8 @@ def cmd_all(args) -> int:
                 "status": health,
                 "hit_rate": kpi.get('hit_rate'),
                 "win_rate": kpi.get('win_rate'),
-                "strategies": strategy_data
+                "strategies": strategy_data,
+                "regime_breakdown": scorecard.get("regime_breakdown", []),
             }
         else:
             logger.info("  ⚠ Insufficient historical data for validation")

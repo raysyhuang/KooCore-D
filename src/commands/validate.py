@@ -75,6 +75,7 @@ class DatePicks:
     movers: list[str]
     combined: list[str]
     metadata: dict
+    regime: str | None = None
 
 
 def iter_output_dates(root: Path = OUTPUTS_ROOT) -> list[str]:
@@ -159,7 +160,14 @@ def load_picks_for_date(date_str: str, root: Path = OUTPUTS_ROOT) -> DatePicks:
     movers = _dedup_keep_order(movers)
     
     combined = _dedup_keep_order(swing + weekly + pro30 + movers)
-    
+
+    # Load regime from observability file
+    regime = None
+    obs_path = run_dir / f"observability_{date_str}.json"
+    obs_data = _safe_json(obs_path)
+    if obs_data:
+        regime = obs_data.get("regime")
+
     return DatePicks(
         date_str=date_str,
         swing_top5=swing,
@@ -168,6 +176,7 @@ def load_picks_for_date(date_str: str, root: Path = OUTPUTS_ROOT) -> DatePicks:
         movers=movers,
         combined=combined,
         metadata=metadata,
+        regime=regime,
     )
 
 
@@ -440,6 +449,7 @@ def run_full_backtest(
                     "scan_date": date_str,
                     "ticker": ticker,
                     "period": period,
+                    "regime": picks.regime,
                     "in_swing_top5": ticker in swing_set,
                     "in_weekly_top5": ticker in weekly_set,
                     "in_pro30": ticker in pro30_set,
@@ -508,11 +518,25 @@ def generate_scorecard(df: pd.DataFrame, primary_period: int = 7, primary_thresh
             })
     
     scorecard["strategy_ranking"] = sorted(
-        scorecard["strategy_ranking"], 
-        key=lambda x: x.get("hit_rate") or 0, 
+        scorecard["strategy_ranking"],
+        key=lambda x: x.get("hit_rate") or 0,
         reverse=True
     )
-    
+
+    # Regime breakdown
+    regime_col = primary_df.get("regime")
+    if regime_col is not None and regime_col.notna().any():
+        regime_breakdown = []
+        for regime_val in sorted(regime_col.dropna().unique()):
+            sub = primary_df[regime_col == regime_val]
+            regime_breakdown.append({
+                "regime": regime_val,
+                "hit_rate": float(sub[hit_col].mean()) if hit_col in sub.columns else None,
+                "win_rate": float((sub["return_pct"] > 0).mean()),
+                "n": len(sub),
+            })
+        scorecard["regime_breakdown"] = regime_breakdown
+
     hit_rate = scorecard["primary_kpi"]["hit_rate"] or 0
     win_rate = scorecard["primary_kpi"]["win_rate"] or 0
     

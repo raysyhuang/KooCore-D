@@ -755,6 +755,16 @@ def send_run_summary_alert(
                 s_hit = s.get("hit_rate", 0) * 100
                 strat_parts.append(f"{name}:{s_hit:.0f}%")
             lines.append(f"  {' | '.join(strat_parts)}")
+
+        # Regime breakdown (compact)
+        regime_bd = model_health.get("regime_breakdown", [])
+        if regime_bd:
+            parts = []
+            for r in regime_bd:
+                name = r.get("regime", "?")
+                hr = (r.get("hit_rate") or 0) * 100
+                parts.append(f"{name}:{hr:.0f}%")
+            lines.append(f"  📊 {' | '.join(parts)}")
         lines.append("")
 
     if position_alerts:
