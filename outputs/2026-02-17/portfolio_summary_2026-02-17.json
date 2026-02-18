@@ -7,11 +7,11 @@
   "gross_weight": 0.25,
   "positions": 5,
   "tickers": [
-    "BBSI",
-    "MSCI",
-    "PWR",
-    "PROP",
-    "BBW"
+    "MAZE",
+    "SLND",
+    "POWI",
+    "RPT",
+    "MOD"
   ],
   "total_notional_usd": 25000.0
 }

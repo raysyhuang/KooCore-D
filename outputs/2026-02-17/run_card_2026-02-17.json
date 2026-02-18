@@ -1,17 +1,17 @@
 {
   "date": "2026-02-17",
-  "run_timestamp_utc": "2026-02-17T22:36:39.275710Z",
+  "run_timestamp_utc": "2026-02-18T02:32:16.256418Z",
   "method_version": "v3.2",
   "summary": {
     "tickers_screened": 1988,
     "swing_candidates": 0,
-    "pro30_candidates": 1,
+    "pro30_candidates": 4,
     "weekly_top5": 2,
     "movers": 0
   },
   "top5_tickers": [
-    "UPS",
-    "PYPL"
+    "QUBT",
+    "HBAN"
   ],
   "overlap_all_three": [],
   "primary_label": "Weekly",
