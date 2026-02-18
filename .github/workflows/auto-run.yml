@@ -75,27 +75,54 @@ jobs:
           KOOCORE_HEROKU_URL: ${{ secrets.KOOCORE_HEROKU_URL }}
           ENGINE_API_KEY: ${{ secrets.ENGINE_API_KEY }}
         run: |
-          DATE=$(date -u +%Y-%m-%d)
-          HYBRID_FILE="outputs/${DATE}/hybrid_analysis_${DATE}.json"
-          if [ -f "${HYBRID_FILE}" ] && [ -n "${KOOCORE_HEROKU_URL}" ]; then
-            echo "Pushing results to Heroku API..."
-            PAYLOAD=$(python -c "
-          import json, sys
-          with open('${HYBRID_FILE}') as f:
+          if [ -z "${KOOCORE_HEROKU_URL}" ]; then
+            echo "ERROR: KOOCORE_HEROKU_URL is not configured"
+            exit 1
+          fi
+
+          HYBRID_FILE=$(ls -t outputs/*/hybrid_analysis_*.json 2>/dev/null | head -1)
+          if [ -z "${HYBRID_FILE}" ]; then
+            echo "ERROR: No hybrid_analysis_*.json file found under outputs/"
+            exit 1
+          fi
+
+          RUN_DATE=$(basename "${HYBRID_FILE}" | sed -E 's/^hybrid_analysis_([0-9]{4}-[0-9]{2}-[0-9]{2})\.json$/\1/')
+          if [ -z "${RUN_DATE}" ]; then
+            echo "ERROR: Could not derive run_date from ${HYBRID_FILE}"
+            exit 1
+          fi
+
+          echo "Pushing ${HYBRID_FILE} to ${KOOCORE_HEROKU_URL} for run_date=${RUN_DATE}"
+          export HYBRID_FILE RUN_DATE
+          PAYLOAD=$(python - <<'PY'
+          import json
+          import os
+
+          with open(os.environ["HYBRID_FILE"], "r", encoding="utf-8") as f:
               hybrid = json.load(f)
-          print(json.dumps({
-              'hybrid_analysis': hybrid,
-              'run_date': '${DATE}',
-              'pipeline_duration_s': None
-          }))
-          ")
-            curl -s -X POST "${KOOCORE_HEROKU_URL}/api/engine/ingest" \
-              -H "Content-Type: application/json" \
-              -H "X-Engine-Key: ${ENGINE_API_KEY}" \
-              -d "${PAYLOAD}" \
-              --max-time 30 || echo "Warning: Failed to push to Heroku API"
-          else
-            echo "Skipping Heroku push: file not found or URL not configured"
+
+          print(
+              json.dumps(
+                  {
+                      "hybrid_analysis": hybrid,
+                      "run_date": os.environ["RUN_DATE"],
+                      "pipeline_duration_s": None,
+                  }
+              )
+          )
+          PY
+          )
+
+          HTTP_CODE=$(curl -sS -o /tmp/ingest_response.json -w "%{http_code}" -X POST "${KOOCORE_HEROKU_URL}/api/engine/ingest" \
+            -H "Content-Type: application/json" \
+            -H "X-Engine-Key: ${ENGINE_API_KEY}" \
+            -d "${PAYLOAD}" \
+            --max-time 30)
+
+          echo "Ingest response HTTP ${HTTP_CODE}: $(cat /tmp/ingest_response.json)"
+          if [ "${HTTP_CODE}" -lt 200 ] || [ "${HTTP_CODE}" -ge 300 ]; then
+            echo "ERROR: Ingest failed"
+            exit 1
           fi
 
       - name: Commit outputs to repo

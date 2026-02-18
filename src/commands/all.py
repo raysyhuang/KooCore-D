@@ -557,10 +557,18 @@ def cmd_all(args) -> int:
     for ticker in all_tickers:
         hybrid_score = 0.0
         sources = []
+        candidate_price = 0.0
         
         # Primary Top 5 contribution (Swing preferred)
         if ticker in primary_top5_tickers:
             primary_item = next((x for x in results.get("llm_primary_top5", []) if x.get("ticker") == ticker), None)
+            if primary_item:
+                try:
+                    primary_price = float(primary_item.get("current_price") or 0)
+                    if primary_price > 0:
+                        candidate_price = primary_price
+                except (TypeError, ValueError):
+                    pass
             hw = config.get("hybrid_weighting", {})
             if primary_label == "Swing":
                 base_weight = float(hw.get("swing_weight", 1.2))
@@ -585,6 +593,15 @@ def cmd_all(args) -> int:
         if ticker in pro30_lookup:
             pro30_info = pro30_lookup[ticker]
             rank = pro30_info["pro30_rank"]
+            if candidate_price <= 0:
+                for price_key in ("current_price", "Last", "Close"):
+                    try:
+                        v = float(pro30_info.get(price_key) or 0)
+                        if v > 0:
+                            candidate_price = v
+                            break
+                    except (TypeError, ValueError):
+                        continue
             base_weight = 2.0
             # Rank bonus: r1 gets +1.0, r2 gets +0.95, ... r21+ gets +0.0
             rank_bonus = max(0.0, 1.0 - 0.05 * (rank - 1))
@@ -611,6 +628,7 @@ def cmd_all(args) -> int:
             "ticker": ticker,
             "hybrid_score": hybrid_score,
             "sources": sources,
+            "current_price": round(candidate_price, 4) if candidate_price > 0 else 0.0,
             "in_all_three": ticker in overlap_all_three,
             "in_primary_pro30": ticker in overlap_primary_pro30,
         })
@@ -653,7 +671,7 @@ def cmd_all(args) -> int:
             hybrid_entry.update({
                 "name": primary_item.get("name", ""),
                 "sector": primary_item.get("sector", ""),
-                "current_price": primary_item.get("current_price", 0),
+                "current_price": float(primary_item.get("current_price") or pick.get("current_price") or 0),
                 "composite_score": primary_item.get("composite_score", 0),
                 "confidence": primary_item.get("confidence", "SPECULATIVE"),
                 "primary_catalyst": primary_item.get("primary_catalyst", {}),
@@ -668,7 +686,7 @@ def cmd_all(args) -> int:
             hybrid_entry.update({
                 "name": "",
                 "sector": "",
-                "current_price": 0,
+                "current_price": float(pick.get("current_price") or 0),
                 "composite_score": pick["hybrid_score"],  # Use hybrid score
                 "confidence": "MEDIUM" if "Pro30" in pick["sources"] else "SPECULATIVE",
             })
@@ -1427,6 +1445,5 @@ def _append_model_history(
     # Append to file
     with open(history_path, "a", encoding="utf-8") as f:
         f.write("\n".join(lines))
-
 
 
