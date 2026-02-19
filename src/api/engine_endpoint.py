@@ -141,8 +141,6 @@ def _map_hybrid_to_payload(hybrid: dict, run_date: str, duration: float | None =
 @router.get("/results")
 async def get_engine_results():
     """Return latest engine results in standardized format."""
-    global _latest_result
-
     if _latest_result:
         return _latest_result
 
