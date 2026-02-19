@@ -361,8 +361,18 @@ if FASTAPI_AVAILABLE:
             }
         
         # Register engine endpoint for cross-engine integration
-        from src.api.engine_endpoint import router as engine_router
+        from src.api.engine_endpoint import (
+            _to_legacy_picks_payload,
+            get_engine_results as _get_engine_results,
+            router as engine_router,
+        )
         app.include_router(engine_router)
+
+        @app.get("/api/picks")
+        async def get_legacy_picks():
+            """Compatibility endpoint used by MAS KooCore adapter."""
+            payload = await _get_engine_results()
+            return _to_legacy_picks_payload(payload)
 
         @app.get("/tickers/{ticker}")
         async def get_ticker_history(

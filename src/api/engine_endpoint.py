@@ -213,6 +213,34 @@ def _load_latest_from_github() -> dict | None:
         return None
 
 
+def _to_legacy_picks_payload(engine_payload: dict) -> dict:
+    """Convert standardized engine payload to legacy /api/picks format."""
+    run_date = engine_payload.get("run_date") or date.today().isoformat()
+    day = {"weekly": [], "pro30": [], "movers": []}
+    seen = {k: set() for k in day}
+
+    for pick in engine_payload.get("picks", []):
+        ticker = str(pick.get("ticker") or "").upper()
+        if not ticker:
+            continue
+        strategy = str(pick.get("strategy") or "").lower()
+        meta = pick.get("metadata") or {}
+        sources = {str(s).lower() for s in (meta.get("sources") or [])}
+
+        if "movers" in sources or "breakout" in strategy:
+            bucket = "movers"
+        elif "pro30" in sources or "momentum" in strategy:
+            bucket = "pro30"
+        else:
+            bucket = "weekly"
+
+        if ticker not in seen[bucket]:
+            day[bucket].append(ticker)
+            seen[bucket].add(ticker)
+
+    return {"picks_data": {run_date: day}}
+
+
 @router.get("/results")
 async def get_engine_results():
     """Return latest engine results in standardized format."""
