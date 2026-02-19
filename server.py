@@ -114,6 +114,51 @@ def _gh_headers():
         hdr["Authorization"] = f"Bearer {GITHUB_TOKEN}"
     return hdr
 
+
+def _load_latest_engine_result_from_github():
+    """Fetch latest hybrid_analysis artifact and map to engine payload."""
+    try:
+        url = f"https://api.github.com/repos/{CORE_OWNER}/{CORE_REPO}/actions/artifacts?per_page=100"
+        r = requests.get(url, headers=_gh_headers(), timeout=20)
+        r.raise_for_status()
+
+        arts = r.json().get("artifacts", [])
+        candidates = [a for a in arts if a.get("name") == CORE_ARTIFACT_NAME and not a.get("expired", False)]
+        if not candidates:
+            return None
+
+        candidates.sort(key=lambda a: a.get("created_at", ""), reverse=True)
+        art = candidates[0]
+
+        dl_url = art["archive_download_url"]
+        r2 = requests.get(dl_url, headers=_gh_headers(), timeout=60)
+        r2.raise_for_status()
+
+        newest_hybrid = None
+        newest_name = ""
+        with zipfile.ZipFile(io.BytesIO(r2.content), "r") as z:
+            for info in z.infolist():
+                name = info.filename
+                if "hybrid_analysis_" not in name or not name.endswith(".json"):
+                    continue
+                if name > newest_name:
+                    newest_name = name
+                    newest_hybrid = json.loads(z.read(name).decode("utf-8"))
+
+        if not newest_hybrid:
+            return None
+
+        run_date = (
+            newest_hybrid.get("asof_trading_date")
+            or newest_hybrid.get("date")
+            or datetime.utcnow().strftime("%Y-%m-%d")
+        )
+        run_date = str(run_date).split("T")[0]
+        return _map_hybrid_to_engine_payload(newest_hybrid, run_date)
+    except Exception:
+        return None
+
+
 def fetch_latest_github_data():
     """Fetch latest artifact from GitHub Actions and extract picks data."""
     try:
@@ -314,6 +359,12 @@ def api_engine_ingest():
 def api_engine_results():
     """Serve latest standardized engine result for external collection."""
     data = _engine_result_cache.get("data")
+    if not data:
+        fallback = _load_latest_engine_result_from_github()
+        if fallback:
+            _engine_result_cache["data"] = fallback
+            _engine_result_cache["timestamp"] = datetime.utcnow().isoformat()
+            data = fallback
     if not data:
         return jsonify({"error": "No engine results available"}), 404
     return jsonify(data)
