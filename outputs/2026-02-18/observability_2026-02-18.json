@@ -1,0 +1,103 @@
+{
+  "date": "2026-02-18",
+  "asof_trading_date": "2026-02-18",
+  "technical_score_distribution": {
+    "pro30": {
+      "count": 5,
+      "count_gte_6": 5,
+      "count_gte_8": 5,
+      "min": 18.19,
+      "p25": 20.95,
+      "median": 21.62,
+      "p75": 21.86,
+      "max": 23.44
+    },
+    "weekly": {
+      "count": 2,
+      "count_gte_6": 2,
+      "count_gte_8": 2,
+      "min": 8.85,
+      "p25": 8.85,
+      "median": 8.85,
+      "p75": 8.85,
+      "max": 8.85
+    }
+  },
+  "overlap_stats": {
+    "weekly_only": 2,
+    "pro30_only": 5,
+    "movers_only": 0,
+    "weekly_pro30": 0,
+    "weekly_movers": 0,
+    "pro30_movers": 0,
+    "all_three": 0,
+    "any_overlap_count": 0,
+    "overlap_potential": {
+      "weekly_candidates": 2,
+      "pro30_candidates": 5,
+      "movers_candidates": 0,
+      "intersection_possible": true
+    }
+  },
+  "confidence_distribution": {
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 7
+  },
+  "confidence_rates": {
+    "high_pct": 0.0,
+    "medium_pct": 0.0,
+    "low_pct": 100.0
+  },
+  "near_misses": [
+    {
+      "ticker": "TDOC",
+      "conviction_score": 6.2,
+      "sources": [
+        "pro30"
+      ],
+      "missing": "needs overlap or tech>=6"
+    },
+    {
+      "ticker": "BATRK",
+      "conviction_score": 6.2,
+      "sources": [
+        "pro30"
+      ],
+      "missing": "needs overlap or tech>=6"
+    },
+    {
+      "ticker": "PGNY",
+      "conviction_score": 6.2,
+      "sources": [
+        "pro30"
+      ],
+      "missing": "needs overlap or tech>=6"
+    },
+    {
+      "ticker": "NPO",
+      "conviction_score": 6.2,
+      "sources": [
+        "pro30"
+      ],
+      "missing": "needs overlap or tech>=6"
+    },
+    {
+      "ticker": "ORRF",
+      "conviction_score": 6.2,
+      "sources": [
+        "pro30"
+      ],
+      "missing": "needs overlap or tech>=6"
+    }
+  ],
+  "model_maturity": {
+    "observations": 0,
+    "min_required": 50,
+    "pct_complete": 0.0,
+    "observations_remaining": 50,
+    "version": 1,
+    "last_trained": null
+  },
+  "regime": "chop"
+}

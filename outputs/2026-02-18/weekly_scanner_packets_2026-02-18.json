@@ -1,0 +1,2512 @@
+{
+  "run_timestamp_utc": "2026-02-19T07:11:59.290256Z",
+  "method_version": "v3.2",
+  "universe_note": "Universe: 2478 tickers",
+  "packets": [
+    {
+      "ticker": "FLR",
+      "name": "Fluor Corporation",
+      "exchange": "NYSE",
+      "sector": "Industrials",
+      "current_price": 50.63999938964844,
+      "market_cap_usd": 8186683392,
+      "avg_dollar_volume_20d": 131424203.72692108,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.85,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 11.93,
+        "within_5pct_52w_high": false,
+        "volume_ratio_3d_to_20d": 1.57,
+        "rsi14": 63.08,
+        "ma10": 47.16,
+        "ma20": 46.63,
+        "ma50": 44.3,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 68.12,
+        "breakout": {
+          "score": 6.0,
+          "donchian20_prev": 49.88,
+          "donchian55_prev": 49.88,
+          "atr14": 2.3307,
+          "vol_ratio_3_20": 1.5659,
+          "breakout_strength_atr": 0.3261,
+          "is_breakout_20": true
+        },
+        "momentum_norm": {
+          "atr_pct": 4.6,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 1.13,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": true,
+      "options_score": 6.0,
+      "options_evidence": {
+        "call_put_ratio": 4.505597014925373,
+        "unusual_volume_multiple": 3.24,
+        "largest_bullish_premium_usd": null,
+        "iv_rank": null,
+        "implied_volatility": 0.37487823688282673,
+        "notable_contracts": [
+          {
+            "type": "call",
+            "strike": 55.0,
+            "expiration": "2026-03-20",
+            "volume": 576,
+            "open_interest": 0,
+            "iv": 0.062509375
+          },
+          {
+            "type": "call",
+            "strike": 57.5,
+            "expiration": "2026-03-20",
+            "volume": 519,
+            "open_interest": 0,
+            "iv": 0.12500875
+          }
+        ],
+        "data_source": "yahoo"
+      },
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 6.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    },
+    {
+      "ticker": "PZZA",
+      "name": "Papa John's International, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Consumer Cyclical",
+      "current_price": 50.63999938964844,
+      "market_cap_usd": 1076476544,
+      "avg_dollar_volume_20d": 131424203.72692108,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.85,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 11.93,
+        "within_5pct_52w_high": false,
+        "volume_ratio_3d_to_20d": 1.57,
+        "rsi14": 63.08,
+        "ma10": 47.16,
+        "ma20": 46.63,
+        "ma50": 44.3,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 68.12,
+        "breakout": {
+          "score": 6.0,
+          "donchian20_prev": 49.88,
+          "donchian55_prev": 49.88,
+          "atr14": 2.3307,
+          "vol_ratio_3_20": 1.5659,
+          "breakout_strength_atr": 0.3261,
+          "is_breakout_20": true
+        },
+        "momentum_norm": {
+          "atr_pct": 4.6,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 1.13,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": true,
+      "options_score": 1.5,
+      "options_evidence": {
+        "call_put_ratio": 0.07739242132305717,
+        "unusual_volume_multiple": 6710.0,
+        "largest_bullish_premium_usd": null,
+        "iv_rank": null,
+        "implied_volatility": 0.22113599694293465,
+        "notable_contracts": [],
+        "data_source": "yahoo"
+      },
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 6.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    },
+    {
+      "ticker": "AROC",
+      "name": "Archrock, Inc.",
+      "exchange": "NYSE",
+      "sector": "Energy",
+      "current_price": 50.63999938964844,
+      "market_cap_usd": 5769661440,
+      "avg_dollar_volume_20d": 131424203.72692108,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.85,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 11.93,
+        "within_5pct_52w_high": false,
+        "volume_ratio_3d_to_20d": 1.57,
+        "rsi14": 63.08,
+        "ma10": 47.16,
+        "ma20": 46.63,
+        "ma50": 44.3,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 68.12,
+        "breakout": {
+          "score": 6.0,
+          "donchian20_prev": 49.88,
+          "donchian55_prev": 49.88,
+          "atr14": 2.3307,
+          "vol_ratio_3_20": 1.5659,
+          "breakout_strength_atr": 0.3261,
+          "is_breakout_20": true
+        },
+        "momentum_norm": {
+          "atr_pct": 4.6,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 1.13,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": true,
+      "options_score": 5.0,
+      "options_evidence": {
+        "call_put_ratio": 17.57894736842105,
+        "unusual_volume_multiple": 6.19,
+        "largest_bullish_premium_usd": null,
+        "iv_rank": null,
+        "implied_volatility": 0.9090990269886364,
+        "notable_contracts": [],
+        "data_source": "yahoo"
+      },
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 6.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    },
+    {
+      "ticker": "STAA",
+      "name": "STAAR Surgical Company",
+      "exchange": "NGM",
+      "sector": "Healthcare",
+      "current_price": 50.63999938964844,
+      "market_cap_usd": 866866112,
+      "avg_dollar_volume_20d": 131424203.72692108,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.85,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 11.93,
+        "within_5pct_52w_high": false,
+        "volume_ratio_3d_to_20d": 1.57,
+        "rsi14": 63.08,
+        "ma10": 47.16,
+        "ma20": 46.63,
+        "ma50": 44.3,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 68.12,
+        "breakout": {
+          "score": 6.0,
+          "donchian20_prev": 49.88,
+          "donchian55_prev": 49.88,
+          "atr14": 2.3307,
+          "vol_ratio_3_20": 1.5659,
+          "breakout_strength_atr": 0.3261,
+          "is_breakout_20": true
+        },
+        "momentum_norm": {
+          "atr_pct": 4.6,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 1.13,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": true,
+      "options_score": 2.0,
+      "options_evidence": {
+        "call_put_ratio": 0.8193832599118943,
+        "unusual_volume_multiple": 2.8,
+        "largest_bullish_premium_usd": null,
+        "iv_rank": null,
+        "implied_volatility": 0.2989751248604908,
+        "notable_contracts": [],
+        "data_source": "yahoo"
+      },
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 6.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    },
+    {
+      "ticker": "BATRK",
+      "name": "Atlanta Braves Holdings, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Communication Services",
+      "current_price": 64.06999969482422,
+      "market_cap_usd": 2769705216,
+      "avg_dollar_volume_20d": 83507591.6381073,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.45,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 8.08,
+        "within_5pct_52w_high": false,
+        "volume_ratio_3d_to_20d": 1.72,
+        "rsi14": 66.35,
+        "ma10": 61.75,
+        "ma20": 60.12,
+        "ma50": 55.91,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 65.08,
+        "breakout": {
+          "score": 2.0,
+          "donchian20_prev": 64.24,
+          "donchian55_prev": 64.24,
+          "atr14": 2.3043,
+          "vol_ratio_3_20": 1.7157,
+          "breakout_strength_atr": -0.0738,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 3.6,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 1.61,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": true,
+      "options_score": 4.0,
+      "options_evidence": {
+        "call_put_ratio": 6.333333333333333,
+        "unusual_volume_multiple": 0.32,
+        "largest_bullish_premium_usd": null,
+        "iv_rank": null,
+        "implied_volatility": 1.2545482799072265,
+        "notable_contracts": [],
+        "data_source": "yahoo"
+      },
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 2.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    },
+    {
+      "ticker": "FIGS",
+      "name": "FIGS, Inc.",
+      "exchange": "NYSE",
+      "sector": "Consumer Cyclical",
+      "current_price": 64.06999969482422,
+      "market_cap_usd": 1773296000,
+      "avg_dollar_volume_20d": 83507591.6381073,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.45,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 8.08,
+        "within_5pct_52w_high": false,
+        "volume_ratio_3d_to_20d": 1.72,
+        "rsi14": 66.35,
+        "ma10": 61.75,
+        "ma20": 60.12,
+        "ma50": 55.91,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 65.08,
+        "breakout": {
+          "score": 2.0,
+          "donchian20_prev": 64.24,
+          "donchian55_prev": 64.24,
+          "atr14": 2.3043,
+          "vol_ratio_3_20": 1.7157,
+          "breakout_strength_atr": -0.0738,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 3.6,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 1.61,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": true,
+      "options_score": 6.0,
+      "options_evidence": {
+        "call_put_ratio": 1140.340425531915,
+        "unusual_volume_multiple": null,
+        "largest_bullish_premium_usd": null,
+        "iv_rank": null,
+        "implied_volatility": 0.14946502717391308,
+        "notable_contracts": [
+          {
+            "type": "call",
+            "strike": 12.5,
+            "expiration": "2026-03-20",
+            "volume": 26714,
+            "open_interest": 0,
+            "iv": 0.12500875
+          },
+          {
+            "type": "call",
+            "strike": 17.5,
+            "expiration": "2026-03-20",
+            "volume": 25230,
+            "open_interest": 0,
+            "iv": 0.500005
+          },
+          {
+            "type": "call",
+            "strike": 10.0,
+            "expiration": "2026-03-20",
+            "volume": 1070,
+            "open_interest": 0,
+            "iv": 1.0000000000000003e-05
+          }
+        ],
+        "data_source": "yahoo"
+      },
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 2.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    },
+    {
+      "ticker": "CCS",
+      "name": "Century Communities, Inc.",
+      "exchange": "NYSE",
+      "sector": "Real Estate",
+      "current_price": 360.2300109863281,
+      "market_cap_usd": 2151811584,
+      "avg_dollar_volume_20d": 498551142.6460266,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 4.58,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.68,
+        "rsi14": 54.23,
+        "ma10": 356.24,
+        "ma20": 355.95,
+        "ma50": 347.96,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 40.73,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 374.89,
+          "donchian55_prev": 376.98,
+          "atr14": 13.2393,
+          "vol_ratio_3_20": 0.6766,
+          "breakout_strength_atr": -1.1073,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 3.68,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 0.02,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": true,
+      "options_score": 4.0,
+      "options_evidence": {
+        "call_put_ratio": 0.6268656716417911,
+        "unusual_volume_multiple": 1.54,
+        "largest_bullish_premium_usd": null,
+        "iv_rank": null,
+        "implied_volatility": 0.4686777960699955,
+        "notable_contracts": [],
+        "data_source": "yahoo"
+      },
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 0.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    },
+    {
+      "ticker": "TDY",
+      "name": "Teledyne Technologies Incorporated",
+      "exchange": "NYSE",
+      "sector": "Technology",
+      "current_price": 662.6599731445312,
+      "market_cap_usd": 31112540160,
+      "avg_dollar_volume_20d": 282372738.782959,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 1.77,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.65,
+        "rsi14": 64.85,
+        "ma10": 650.21,
+        "ma20": 634.96,
+        "ma50": 571.07,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 32.6,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 674.63,
+          "donchian55_prev": 674.63,
+          "atr14": 18.0814,
+          "vol_ratio_3_20": 0.6453,
+          "breakout_strength_atr": -0.662,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 2.73,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 0.15,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": true,
+      "options_score": 2.0,
+      "options_evidence": {
+        "call_put_ratio": 1.0097087378640777,
+        "unusual_volume_multiple": 7.39,
+        "largest_bullish_premium_usd": null,
+        "iv_rank": null,
+        "implied_volatility": 0.2182591163340481,
+        "notable_contracts": [],
+        "data_source": "yahoo"
+      },
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 0.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    },
+    {
+      "ticker": "BELFB",
+      "name": "Bel Fuse Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Technology",
+      "current_price": 68.86000061035156,
+      "market_cap_usd": 2800389888,
+      "avg_dollar_volume_20d": 215090371.5332985,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 2.23,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.75,
+        "rsi14": 64.68,
+        "ma10": 63.75,
+        "ma20": 60.26,
+        "ma50": 54.03,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 56.89,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 70.43,
+          "donchian55_prev": 70.43,
+          "atr14": 4.5428,
+          "vol_ratio_3_20": 0.7462,
+          "breakout_strength_atr": -0.3456,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 6.6,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 1.13,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": true,
+      "options_score": 7.0,
+      "options_evidence": {
+        "call_put_ratio": 6.42,
+        "unusual_volume_multiple": 1.11,
+        "largest_bullish_premium_usd": null,
+        "iv_rank": null,
+        "implied_volatility": 0.579348472245869,
+        "notable_contracts": [],
+        "data_source": "yahoo"
+      },
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 0.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    },
+    {
+      "ticker": "KOS",
+      "name": "Kosmos Energy Ltd.",
+      "exchange": "NYSE",
+      "sector": "Energy",
+      "current_price": 328.92999267578125,
+      "market_cap_usd": 813155840,
+      "avg_dollar_volume_20d": 155985338.36166382,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 2.03,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.7,
+        "rsi14": 62.65,
+        "ma10": 319.9,
+        "ma20": 314.71,
+        "ma50": 294.6,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 51.34,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 335.75,
+          "donchian55_prev": 335.75,
+          "atr14": 16.1178,
+          "vol_ratio_3_20": 0.6963,
+          "breakout_strength_atr": -0.4231,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 4.9,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 0.54,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": true,
+      "options_score": 3.0,
+      "options_evidence": {
+        "call_put_ratio": 3.9043715846994536,
+        "unusual_volume_multiple": null,
+        "largest_bullish_premium_usd": null,
+        "iv_rank": null,
+        "implied_volatility": 0.21875781249999995,
+        "notable_contracts": [],
+        "data_source": "yahoo"
+      },
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 0.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    },
+    {
+      "ticker": "LAUR",
+      "name": "Laureate Education, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Consumer Defensive",
+      "current_price": 360.2300109863281,
+      "market_cap_usd": 5172657664,
+      "avg_dollar_volume_20d": 498551142.6460266,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 4.58,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.68,
+        "rsi14": 54.23,
+        "ma10": 356.24,
+        "ma20": 355.95,
+        "ma50": 347.96,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 40.73,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 374.89,
+          "donchian55_prev": 376.98,
+          "atr14": 13.2393,
+          "vol_ratio_3_20": 0.6766,
+          "breakout_strength_atr": -1.1073,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 3.68,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 0.02,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": true,
+      "options_score": 7.0,
+      "options_evidence": {
+        "call_put_ratio": 9.0,
+        "unusual_volume_multiple": 1.2,
+        "largest_bullish_premium_usd": null,
+        "iv_rank": null,
+        "implied_volatility": 0.5066708849379594,
+        "notable_contracts": [],
+        "data_source": "yahoo"
+      },
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 0.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    },
+    {
+      "ticker": "KELYA",
+      "name": "Kelly Services, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Industrials",
+      "current_price": 13.850000381469727,
+      "market_cap_usd": 335272992,
+      "avg_dollar_volume_20d": 999213275.1601648,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 4.48,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.97,
+        "rsi14": 50.84,
+        "ma10": 13.85,
+        "ma20": 13.81,
+        "ma50": 13.64,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 24.1,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 14.36,
+          "donchian55_prev": 14.5,
+          "atr14": 0.3043,
+          "vol_ratio_3_20": 0.965,
+          "breakout_strength_atr": -1.6761,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 2.2,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 0.94,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": true,
+      "options_score": 2.0,
+      "options_evidence": {
+        "call_put_ratio": 0.9285714285714286,
+        "unusual_volume_multiple": 54.0,
+        "largest_bullish_premium_usd": null,
+        "iv_rank": null,
+        "implied_volatility": 1.597362331730769,
+        "notable_contracts": [],
+        "data_source": "yahoo"
+      },
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 0.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    },
+    {
+      "ticker": "PACB",
+      "name": "Pacific Biosciences of California, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Healthcare",
+      "current_price": 125.23999786376953,
+      "market_cap_usd": 492109088,
+      "avg_dollar_volume_20d": 592448840.0807571,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 3.68,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.96,
+        "rsi14": 63.87,
+        "ma10": 124.43,
+        "ma20": 122.08,
+        "ma50": 118.96,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 21.32,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 129.0,
+          "donchian55_prev": 129.0,
+          "atr14": 2.3943,
+          "vol_ratio_3_20": 0.9591,
+          "breakout_strength_atr": -1.5704,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 1.91,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 0.68,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": true,
+      "options_score": 2.0,
+      "options_evidence": {
+        "call_put_ratio": 0.7460815047021944,
+        "unusual_volume_multiple": 29.32,
+        "largest_bullish_premium_usd": null,
+        "iv_rank": null,
+        "implied_volatility": 0.8108332554408479,
+        "notable_contracts": [],
+        "data_source": "yahoo"
+      },
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 0.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    },
+    {
+      "ticker": "PODD",
+      "name": "Insulet Corporation",
+      "exchange": "NASDAQ",
+      "sector": "Healthcare",
+      "current_price": 27.90999984741211,
+      "market_cap_usd": 18166202368,
+      "avg_dollar_volume_20d": 178042222.26766586,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 1.45,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.65,
+        "rsi14": 67.33,
+        "ma10": 27.49,
+        "ma20": 26.73,
+        "ma50": 25.32,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 28.2,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 28.32,
+          "donchian55_prev": 28.32,
+          "atr14": 0.9321,
+          "vol_ratio_3_20": 0.6519,
+          "breakout_strength_atr": -0.4398,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 3.34,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": -0.27,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": true,
+      "options_score": 5.0,
+      "options_evidence": {
+        "call_put_ratio": 2.406392694063927,
+        "unusual_volume_multiple": 2.85,
+        "largest_bullish_premium_usd": null,
+        "iv_rank": null,
+        "implied_volatility": 0.346565099303363,
+        "notable_contracts": [],
+        "data_source": "yahoo"
+      },
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 0.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    },
+    {
+      "ticker": "LPRO",
+      "name": "Open Lending Corporation",
+      "exchange": "NGM",
+      "sector": "Financial Services",
+      "current_price": 152.74000549316406,
+      "market_cap_usd": 161919536,
+      "avg_dollar_volume_20d": 1228793583.4963226,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 2.89,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.7,
+        "rsi14": 67.62,
+        "ma10": 151.76,
+        "ma20": 145.0,
+        "ma50": 131.38,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 52.91,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 157.29,
+          "donchian55_prev": 157.29,
+          "atr14": 4.3043,
+          "vol_ratio_3_20": 0.7039,
+          "breakout_strength_atr": -1.0571,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 2.82,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 1.33,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": true,
+      "options_score": 3.0,
+      "options_evidence": {
+        "call_put_ratio": 13.0,
+        "unusual_volume_multiple": 0.09,
+        "largest_bullish_premium_usd": null,
+        "iv_rank": null,
+        "implied_volatility": 2.8551194335937504,
+        "notable_contracts": [],
+        "data_source": "yahoo"
+      },
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 0.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    },
+    {
+      "ticker": "GH",
+      "name": "Guardant Health, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Healthcare",
+      "current_price": 593.0,
+      "market_cap_usd": 13951110144,
+      "avg_dollar_volume_20d": 664030681.5539551,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 4.04,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.82,
+        "rsi14": 53.47,
+        "ma10": 589.08,
+        "ma20": 585.62,
+        "ma50": 551.75,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 26.78,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 617.98,
+          "donchian55_prev": 617.98,
+          "atr14": 25.5457,
+          "vol_ratio_3_20": 0.8235,
+          "breakout_strength_atr": -0.9779,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 4.31,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 0.19,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": true,
+      "options_score": 0.0,
+      "options_evidence": {
+        "call_put_ratio": 0.11039484286865431,
+        "unusual_volume_multiple": null,
+        "largest_bullish_premium_usd": null,
+        "iv_rank": null,
+        "implied_volatility": 0.17411540178571414,
+        "notable_contracts": [],
+        "data_source": "yahoo"
+      },
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 0.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    },
+    {
+      "ticker": "QCRH",
+      "name": "QCR Holdings, Inc.",
+      "exchange": "NGM",
+      "sector": "Financial Services",
+      "current_price": 152.02000427246094,
+      "market_cap_usd": 1549998208,
+      "avg_dollar_volume_20d": 411182722.40631104,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 1.92,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 1.0,
+        "rsi14": 60.65,
+        "ma10": 148.57,
+        "ma20": 147.21,
+        "ma50": 141.93,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 35.94,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 155.0,
+          "donchian55_prev": 155.0,
+          "atr14": 4.6429,
+          "vol_ratio_3_20": 1.0043,
+          "breakout_strength_atr": -0.6418,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 3.05,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 1.29,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": true,
+      "options_score": 2.0,
+      "options_evidence": {
+        "call_put_ratio": 2.0,
+        "unusual_volume_multiple": null,
+        "largest_bullish_premium_usd": null,
+        "iv_rank": null,
+        "implied_volatility": 0.01786696428571429,
+        "notable_contracts": [],
+        "data_source": "yahoo"
+      },
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 0.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    },
+    {
+      "ticker": "AEO",
+      "name": "American Eagle Outfitters, Inc.",
+      "exchange": "NYSE",
+      "sector": "Consumer Cyclical",
+      "current_price": 360.2300109863281,
+      "market_cap_usd": 4249665792,
+      "avg_dollar_volume_20d": 498551142.6460266,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 4.58,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.68,
+        "rsi14": 54.23,
+        "ma10": 356.24,
+        "ma20": 355.95,
+        "ma50": 347.96,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 40.73,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 374.89,
+          "donchian55_prev": 376.98,
+          "atr14": 13.2393,
+          "vol_ratio_3_20": 0.6766,
+          "breakout_strength_atr": -1.1073,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 3.68,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 0.02,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": true,
+      "options_score": 2.0,
+      "options_evidence": {
+        "call_put_ratio": 0.7376344086021506,
+        "unusual_volume_multiple": 0.65,
+        "largest_bullish_premium_usd": null,
+        "iv_rank": null,
+        "implied_volatility": 0.2498524370895611,
+        "notable_contracts": [],
+        "data_source": "yahoo"
+      },
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 0.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    },
+    {
+      "ticker": "MBCN",
+      "name": "Middlefield Banc Corp.",
+      "exchange": "NCM",
+      "sector": "Financial Services",
+      "current_price": 689.4199829101562,
+      "market_cap_usd": 281226464,
+      "avg_dollar_volume_20d": 369766193.21502686,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 3.57,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.95,
+        "rsi14": 65.3,
+        "ma10": 685.23,
+        "ma20": 673.59,
+        "ma50": 642.88,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 42.66,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 707.25,
+          "donchian55_prev": 707.25,
+          "atr14": 20.3957,
+          "vol_ratio_3_20": 0.9519,
+          "breakout_strength_atr": -0.8742,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 2.96,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 0.5,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": false,
+      "options_score": 0.0,
+      "options_evidence": {},
+      "options_data_gaps": [
+        "No options data available from any source; score capped at 3.0"
+      ],
+      "options_cap_applied": 3.0,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 0.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    },
+    {
+      "ticker": "CTGO",
+      "name": "Contango Ore, Inc.",
+      "exchange": "ASE",
+      "sector": "Basic Materials",
+      "current_price": 34.77000045776367,
+      "market_cap_usd": 437354304,
+      "avg_dollar_volume_20d": 473316808.4061241,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 2.19,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.74,
+        "rsi14": 58.44,
+        "ma10": 34.38,
+        "ma20": 34.01,
+        "ma50": 31.41,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 38.54,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 35.55,
+          "donchian55_prev": 35.55,
+          "atr14": 1.2107,
+          "vol_ratio_3_20": 0.737,
+          "breakout_strength_atr": -0.6442,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 3.48,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 0.63,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": true,
+      "options_score": 4.0,
+      "options_evidence": {
+        "call_put_ratio": 1.5714285714285714,
+        "unusual_volume_multiple": 5.14,
+        "largest_bullish_premium_usd": null,
+        "iv_rank": null,
+        "implied_volatility": 0.3635496796874999,
+        "notable_contracts": [],
+        "data_source": "yahoo"
+      },
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 0.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    },
+    {
+      "ticker": "IIIV",
+      "name": "i3 Verticals, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Technology",
+      "current_price": 111.61000061035156,
+      "market_cap_usd": 678707712,
+      "avg_dollar_volume_20d": 215750200.50403595,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 3.16,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 1.11,
+        "rsi14": 68.01,
+        "ma10": 110.05,
+        "ma20": 107.6,
+        "ma50": 102.57,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 25.36,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 115.25,
+          "donchian55_prev": 115.25,
+          "atr14": 2.5614,
+          "vol_ratio_3_20": 1.1111,
+          "breakout_strength_atr": -1.4211,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 2.29,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 1.28,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": true,
+      "options_score": 0.0,
+      "options_evidence": {
+        "call_put_ratio": 1.1481481481481481,
+        "unusual_volume_multiple": null,
+        "largest_bullish_premium_usd": null,
+        "iv_rank": null,
+        "implied_volatility": 0.21591693181818183,
+        "notable_contracts": [],
+        "data_source": "yahoo"
+      },
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 0.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    },
+    {
+      "ticker": "OSPN",
+      "name": "OneSpan Inc.",
+      "exchange": "NCM",
+      "sector": "Technology",
+      "current_price": 125.23999786376953,
+      "market_cap_usd": 428852512,
+      "avg_dollar_volume_20d": 592448840.0807571,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 3.68,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.96,
+        "rsi14": 63.87,
+        "ma10": 124.43,
+        "ma20": 122.08,
+        "ma50": 118.96,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 21.32,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 129.0,
+          "donchian55_prev": 129.0,
+          "atr14": 2.3943,
+          "vol_ratio_3_20": 0.9591,
+          "breakout_strength_atr": -1.5704,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 1.91,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 0.68,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": true,
+      "options_score": 4.0,
+      "options_evidence": {
+        "call_put_ratio": 10.666666666666666,
+        "unusual_volume_multiple": 0.27,
+        "largest_bullish_premium_usd": null,
+        "iv_rank": null,
+        "implied_volatility": 0.2819903869628905,
+        "notable_contracts": [],
+        "data_source": "yahoo"
+      },
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 0.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    },
+    {
+      "ticker": "CAH",
+      "name": "Cardinal Health, Inc.",
+      "exchange": "NYSE",
+      "sector": "Healthcare",
+      "current_price": 224.99000549316406,
+      "market_cap_usd": 52943753216,
+      "avg_dollar_volume_20d": 408731886.1932373,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 2.52,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.68,
+        "rsi14": 60.12,
+        "ma10": 221.71,
+        "ma20": 216.96,
+        "ma50": 209.35,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 44.12,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 230.81,
+          "donchian55_prev": 230.81,
+          "atr14": 7.5257,
+          "vol_ratio_3_20": 0.6832,
+          "breakout_strength_atr": -0.7733,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 3.34,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 0.64,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": true,
+      "options_score": 1.5,
+      "options_evidence": {
+        "call_put_ratio": 0.1476166068682727,
+        "unusual_volume_multiple": 2239.0,
+        "largest_bullish_premium_usd": null,
+        "iv_rank": null,
+        "implied_volatility": 0.1797554795485275,
+        "notable_contracts": [],
+        "data_source": "yahoo"
+      },
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 0.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    },
+    {
+      "ticker": "OPRT",
+      "name": "Oportun Financial Corporation",
+      "exchange": "NASDAQ",
+      "sector": "Financial Services",
+      "current_price": 946.969970703125,
+      "market_cap_usd": 230794768,
+      "avg_dollar_volume_20d": 769231623.079834,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 2.57,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.75,
+        "rsi14": 68.01,
+        "ma10": 932.34,
+        "ma20": 881.12,
+        "ma50": 844.67,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 39.13,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 971.93,
+          "donchian55_prev": 971.93,
+          "atr14": 36.3371,
+          "vol_ratio_3_20": 0.7529,
+          "breakout_strength_atr": -0.6869,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 3.84,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 0.33,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": true,
+      "options_score": 1.5,
+      "options_evidence": {
+        "call_put_ratio": 0.07027649769585254,
+        "unusual_volume_multiple": 21.11,
+        "largest_bullish_premium_usd": null,
+        "iv_rank": null,
+        "implied_volatility": 1.6015702783203123,
+        "notable_contracts": [],
+        "data_source": "yahoo"
+      },
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 0.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    },
+    {
+      "ticker": "SION",
+      "name": "Sionna Therapeutics, Inc.",
+      "exchange": "NGM",
+      "sector": "Healthcare",
+      "current_price": 79.68000030517578,
+      "market_cap_usd": 1683844096,
+      "avg_dollar_volume_20d": 404988497.38544464,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 4.01,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.88,
+        "rsi14": 66.25,
+        "ma10": 78.11,
+        "ma20": 76.95,
+        "ma50": 75.52,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 29.97,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 82.3,
+          "donchian55_prev": 82.3,
+          "atr14": 1.7836,
+          "vol_ratio_3_20": 0.8824,
+          "breakout_strength_atr": -1.469,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 2.24,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 1.26,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": false,
+      "options_score": 0.0,
+      "options_evidence": {},
+      "options_data_gaps": [
+        "No options data available from any source; score capped at 3.0"
+      ],
+      "options_cap_applied": 3.0,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 0.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    },
+    {
+      "ticker": "COR",
+      "name": "Cencora, Inc.",
+      "exchange": "NYSE",
+      "sector": "Healthcare",
+      "current_price": 360.2300109863281,
+      "market_cap_usd": 70075793408,
+      "avg_dollar_volume_20d": 498551142.6460266,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 4.58,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.68,
+        "rsi14": 54.23,
+        "ma10": 356.24,
+        "ma20": 355.95,
+        "ma50": 347.96,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 40.73,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 374.89,
+          "donchian55_prev": 376.98,
+          "atr14": 13.2393,
+          "vol_ratio_3_20": 0.6766,
+          "breakout_strength_atr": -1.1073,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 3.68,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 0.02,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": true,
+      "options_score": 6.0,
+      "options_evidence": {
+        "call_put_ratio": 2.3517495395948433,
+        "unusual_volume_multiple": 4.53,
+        "largest_bullish_premium_usd": null,
+        "iv_rank": null,
+        "implied_volatility": 0.4037324812402344,
+        "notable_contracts": [],
+        "data_source": "yahoo"
+      },
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 0.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    },
+    {
+      "ticker": "FSFG",
+      "name": "First Savings Financial Group, Inc.",
+      "exchange": "NCM",
+      "sector": "Financial Services",
+      "current_price": 328.92999267578125,
+      "market_cap_usd": 238372416,
+      "avg_dollar_volume_20d": 155985338.36166382,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 2.03,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.7,
+        "rsi14": 62.65,
+        "ma10": 319.9,
+        "ma20": 314.71,
+        "ma50": 294.6,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 51.34,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 335.75,
+          "donchian55_prev": 335.75,
+          "atr14": 16.1178,
+          "vol_ratio_3_20": 0.6963,
+          "breakout_strength_atr": -0.4231,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 4.9,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 0.54,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": false,
+      "options_score": 0.0,
+      "options_evidence": {},
+      "options_data_gaps": [
+        "No options data available from any source; score capped at 3.0"
+      ],
+      "options_cap_applied": 3.0,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 0.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    },
+    {
+      "ticker": "SOFI",
+      "name": "SoFi Technologies, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Financial Services",
+      "current_price": 27.1200008392334,
+      "market_cap_usd": 24691873792,
+      "avg_dollar_volume_20d": 141447612.59242058,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 2.34,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 1.07,
+        "rsi14": 69.7,
+        "ma10": 25.14,
+        "ma20": 24.11,
+        "ma50": 21.08,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 23.3,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 27.21,
+          "donchian55_prev": 27.21,
+          "atr14": 1.9074,
+          "vol_ratio_3_20": 1.0708,
+          "breakout_strength_atr": -0.0472,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 7.03,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 1.72,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": true,
+      "options_score": 5.0,
+      "options_evidence": {
+        "call_put_ratio": 2.173927284638061,
+        "unusual_volume_multiple": null,
+        "largest_bullish_premium_usd": null,
+        "iv_rank": null,
+        "implied_volatility": 0.23502017554995944,
+        "notable_contracts": [
+          {
+            "type": "call",
+            "strike": 20.0,
+            "expiration": "2026-02-20",
+            "volume": 21989,
+            "open_interest": 0,
+            "iv": 0.12500875
+          },
+          {
+            "type": "call",
+            "strike": 20.5,
+            "expiration": "2026-02-20",
+            "volume": 13913,
+            "open_interest": 0,
+            "iv": 0.2500075
+          },
+          {
+            "type": "call",
+            "strike": 21.0,
+            "expiration": "2026-02-20",
+            "volume": 7967,
+            "open_interest": 0,
+            "iv": 0.2500075
+          },
+          {
+            "type": "call",
+            "strike": 21.0,
+            "expiration": "2026-02-27",
+            "volume": 5561,
+            "open_interest": 0,
+            "iv": 0.12500875
+          },
+          {
+            "type": "call",
+            "strike": 20.0,
+            "expiration": "2026-02-27",
+            "volume": 5196,
+            "open_interest": 0,
+            "iv": 0.062509375
+          },
+          {
+            "type": "call",
+            "strike": 20.5,
+            "expiration": "2026-02-27",
+            "volume": 3473,
+            "open_interest": 0,
+            "iv": 0.12500875
+          },
+          {
+            "type": "call",
+            "strike": 19.5,
+            "expiration": "2026-02-20",
+            "volume": 3149,
+            "open_interest": 0,
+            "iv": 1.0000000000000003e-05
+          },
+          {
+            "type": "call",
+            "strike": 21.5,
+            "expiration": "2026-02-20",
+            "volume": 3064,
+            "open_interest": 0,
+            "iv": 0.2500075
+          },
+          {
+            "type": "call",
+            "strike": 21.5,
+            "expiration": "2026-02-27",
+            "volume": 2884,
+            "open_interest": 0,
+            "iv": 0.12500875
+          },
+          {
+            "type": "call",
+            "strike": 22.0,
+            "expiration": "2026-02-27",
+            "volume": 2414,
+            "open_interest": 0,
+            "iv": 0.2500075
+          }
+        ],
+        "data_source": "yahoo"
+      },
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 0.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    },
+    {
+      "ticker": "LDI",
+      "name": "loanDepot, Inc.",
+      "exchange": "NYSE",
+      "sector": "Financial Services",
+      "current_price": 66.7699966430664,
+      "market_cap_usd": 703736768,
+      "avg_dollar_volume_20d": 686979819.9496651,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 2.67,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.73,
+        "rsi14": 63.19,
+        "ma10": 65.82,
+        "ma20": 64.01,
+        "ma50": 60.66,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 20.98,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 67.77,
+          "donchian55_prev": 67.77,
+          "atr14": 1.7036,
+          "vol_ratio_3_20": 0.7261,
+          "breakout_strength_atr": -0.587,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 2.55,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 1.44,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": true,
+      "options_score": 3.0,
+      "options_evidence": {
+        "call_put_ratio": 1.4276315789473684,
+        "unusual_volume_multiple": 19.42,
+        "largest_bullish_premium_usd": null,
+        "iv_rank": null,
+        "implied_volatility": 0.7118127886284726,
+        "notable_contracts": [],
+        "data_source": "yahoo"
+      },
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 0.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    },
+    {
+      "ticker": "IESC",
+      "name": "IES Holdings, Inc.",
+      "exchange": "NGM",
+      "sector": "Industrials",
+      "current_price": 593.0,
+      "market_cap_usd": 9774484480,
+      "avg_dollar_volume_20d": 664030681.5539551,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "technical_score": 8.25,
+      "technical_evidence": {
+        "dist_to_52w_high_pct": 4.04,
+        "within_5pct_52w_high": true,
+        "volume_ratio_3d_to_20d": 0.82,
+        "rsi14": 53.47,
+        "ma10": 589.08,
+        "ma20": 585.62,
+        "ma50": 551.75,
+        "above_ma10_ma20_ma50": true,
+        "realized_vol_5d_ann_pct": 26.78,
+        "breakout": {
+          "score": 0.0,
+          "donchian20_prev": 617.98,
+          "donchian55_prev": 617.98,
+          "atr14": 25.5457,
+          "vol_ratio_3_20": 0.8235,
+          "breakout_strength_atr": -0.9779,
+          "is_breakout_20": false
+        },
+        "momentum_norm": {
+          "atr_pct": 4.31,
+          "volatility_adj": 0.25,
+          "volatility_note": "moderate_volatility_bonus",
+          "ret5_atr_units": 0.19,
+          "extension_adj": 0.0
+        },
+        "data_gaps": []
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "earnings_info": null,
+      "headlines": [],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "catalyst_sources": [],
+      "options_data_available": true,
+      "options_score": 4.0,
+      "options_evidence": {
+        "call_put_ratio": 1.1845574387947269,
+        "unusual_volume_multiple": 29.0,
+        "largest_bullish_premium_usd": null,
+        "iv_rank": null,
+        "implied_volatility": 0.5513542927515795,
+        "notable_contracts": [],
+        "data_source": "yahoo"
+      },
+      "options_data_gaps": [],
+      "options_cap_applied": null,
+      "sentiment_data_available": false,
+      "sentiment_score": 0.0,
+      "sentiment_evidence": {},
+      "sentiment_data_gaps": [
+        "Adanos data unavailable (no API key or rate limited)",
+        "No sentiment sources available; score capped at 3.0"
+      ],
+      "sentiment_cap_applied": 3.0,
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "event_gate": {
+        "blocked": false,
+        "reason": null,
+        "earnings_date": null,
+        "block_days": 3
+      },
+      "breakout_score": 0.0,
+      "momentum_adj": 0.25,
+      "prob_hit_10": null,
+      "expected_value": null
+    }
+  ]
+}

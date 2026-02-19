@@ -1,0 +1,1050 @@
+{
+  "run_timestamp_utc": "2026-02-19T07:21:42.867365Z",
+  "method_version": "v4.0-debate",
+  "universe_note": "SP500 + NASDAQ100 + R2000 (with debate analysis)",
+  "model_used": "gpt-5.2",
+  "debate_enabled": true,
+  "debate_rounds": 1,
+  "memory_enabled": true,
+  "top5": [
+    {
+      "rank": 1,
+      "ticker": "FLR",
+      "name": "Fluor Corporation",
+      "exchange": "NYSE",
+      "sector": "Industrials",
+      "current_price": 50.63999938964844,
+      "market_cap_usd": 8186683392,
+      "avg_dollar_volume_20d": 131424203.72692108,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 55.704,
+        "base_case_upside_pct_range": [
+          10,
+          18
+        ],
+        "bear_case_note": "Invalidation if price loses the short-term trend (fails to hold above MA20/MA50 zone) and breakout attempt reverses on rising volume."
+      },
+      "primary_catalyst": {
+        "title": "No verified dated catalyst in packet (catalyst score capped)",
+        "key_date_local": null,
+        "timing": null,
+        "why_it_matters": "No headlines/catalyst_sources were provided in the packet, so no upcoming event within 7 trading days could be verified.",
+        "sources": []
+      },
+      "scores": {
+        "technical": 8.85,
+        "catalyst": 4.0,
+        "options": 6.0,
+        "sentiment": 3.0
+      },
+      "composite_score": 5.362500000000001,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": false,
+          "resistance_level": 49.88,
+          "volume_ratio_3d_to_20d": 1.57,
+          "rsi14": 63.08,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 68.12
+        },
+        "options": {
+          "call_put_ratio": 4.505597014925373,
+          "unusual_volume_multiple": 3.24,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": [
+            {
+              "type": "call",
+              "strike": 55.0,
+              "expiration": "2026-03-20",
+              "volume": 576,
+              "open_interest": 0,
+              "iv": 0.062509375
+            },
+            {
+              "type": "call",
+              "strike": 57.5,
+              "expiration": "2026-03-20",
+              "volume": 519,
+              "open_interest": 0,
+              "iv": 0.12500875
+            }
+          ]
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": null
+        }
+      },
+      "risk_factors": [
+        "No verified near-term catalyst in packet; move may rely purely on technical/flow.",
+        "Options IV rank missing; options score may not reflect whether IV is already extreme."
+      ],
+      "confidence": "MEDIUM",
+      "data_gaps": [
+        "Catalyst/news: packet headlines and catalyst_sources empty; catalyst score capped at 4.0 per rules.",
+        "Sentiment: sentiment_data_available=false; sentiment score capped at 3.0 (packet note).",
+        "Universe exclusions: last-5d % move not provided; cannot enforce >15% exclusion."
+      ],
+      "original_score": 5.4625,
+      "debate_verdict": "BUY",
+      "debate_reasoning": "The bull case presents stronger, directly observable evidence: a confirmed 20-day Donchian breakout with trend alignment above key moving averages and supportive volume, reinforced by bullish options flow. The bear case correctly flags fragility (small ATR-based breakout margin) and catalyst/data gaps, which reduce confidence in achieving a full +10% in 7 days, but do not outweigh the current momentum/positioning edge.",
+      "debate_bull_score": 7.7,
+      "debate_bear_score": 6.4,
+      "key_risks_from_debate": [
+        "Failed breakout/mean reversion given limited breakout strength vs ATR and extended distance above short-term moving averages",
+        "Crowded call-skew positioning and elevated volatility increasing whipsaw risk in a 7-day window, especially without a confirmed fundamental catalyst"
+      ],
+      "key_catalysts_from_debate": [
+        "Momentum continuation from the 20-day breakout with above-average participation (volume ratio 3d/20d = 1.57)",
+        "Bullish derivatives demand (call/put = 4.51; unusual options volume = 3.24x) potentially supporting upside follow-through"
+      ]
+    },
+    {
+      "rank": 2,
+      "ticker": "AROC",
+      "name": "Archrock, Inc.",
+      "exchange": "NYSE",
+      "sector": "Energy",
+      "current_price": 50.63999938964844,
+      "market_cap_usd": 5769661440,
+      "avg_dollar_volume_20d": 131424203.72692108,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 55.704,
+        "base_case_upside_pct_range": [
+          10,
+          18
+        ],
+        "bear_case_note": "Invalidation if price breaks below MA20/MA50 and momentum stalls (RSI rolls over) while options demand fades."
+      },
+      "primary_catalyst": {
+        "title": "No verified dated catalyst in packet (catalyst score capped)",
+        "key_date_local": null,
+        "timing": null,
+        "why_it_matters": "No headlines/catalyst_sources were provided in the packet, so no upcoming event within 7 trading days could be verified.",
+        "sources": []
+      },
+      "scores": {
+        "technical": 8.85,
+        "catalyst": 4.0,
+        "options": 5.0,
+        "sentiment": 3.0
+      },
+      "composite_score": 5.112500000000001,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": false,
+          "resistance_level": 49.88,
+          "volume_ratio_3d_to_20d": 1.57,
+          "rsi14": 63.08,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 68.12
+        },
+        "options": {
+          "call_put_ratio": 17.57894736842105,
+          "unusual_volume_multiple": 6.19,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": null
+        }
+      },
+      "risk_factors": [
+        "Energy sector beta: setup may be dominated by crude/nat gas macro moves.",
+        "No verified near-term catalyst in packet; catalyst score capped."
+      ],
+      "confidence": "MEDIUM",
+      "data_gaps": [
+        "Catalyst/news: packet headlines and catalyst_sources empty; catalyst score capped at 4.0 per rules.",
+        "Sentiment: sentiment_data_available=false; sentiment score capped at 3.0 (packet note).",
+        "Universe exclusions: last-5d % move not provided; cannot enforce >15% exclusion."
+      ],
+      "original_score": 5.2125,
+      "debate_verdict": "BUY",
+      "debate_reasoning": "The bull case presents stronger objective evidence for near-term continuation: a confirmed Donchian breakout with aligned rising MAs plus unusually aggressive call-side options activity and above-average volume, which together often precede follow-through. The bear case correctly highlights extension/crowding and the lack of a known catalyst, which lowers the probability of achieving a clean +10% in 7 days, but does not outweigh the current momentum/positioning edge.",
+      "debate_bull_score": 7.8,
+      "debate_bear_score": 6.4,
+      "key_risks_from_debate": [
+        "Crowded call positioning (very high call/put) leading to reversal or dealer-driven volatility if price stalls",
+        "Breakout failure back below the prior Donchian high (~49.88) triggering fast mean reversion/consolidation",
+        "Event risk uncertainty (unknown earnings/catalyst timing) causing adverse gap or drift"
+      ],
+      "key_catalysts_from_debate": [
+        "Momentum/systematic buying follow-through after the 20-day Donchian breakout with MAs in bullish alignment",
+        "Sustained elevated options activity and hedging flows amplifying upside if spot continues higher"
+      ]
+    }
+  ],
+  "debate_analysis": {
+    "FLR": {
+      "ticker": "FLR",
+      "final_verdict": "BUY",
+      "verdict_reasoning": "The bull case presents stronger, directly observable evidence: a confirmed 20-day Donchian breakout with trend alignment above key moving averages and supportive volume, reinforced by bullish options flow. The bear case correctly flags fragility (small ATR-based breakout margin) and catalyst/data gaps, which reduce confidence in achieving a full +10% in 7 days, but do not outweigh the current momentum/positioning edge.",
+      "bull_score": 7.7,
+      "bear_score": 6.4,
+      "conviction_delta": -0.6,
+      "risk_adjusted_score": 8.25,
+      "key_risks": [
+        "Failed breakout/mean reversion given limited breakout strength vs ATR and extended distance above short-term moving averages",
+        "Crowded call-skew positioning and elevated volatility increasing whipsaw risk in a 7-day window, especially without a confirmed fundamental catalyst"
+      ],
+      "key_catalysts": [
+        "Momentum continuation from the 20-day breakout with above-average participation (volume ratio 3d/20d = 1.57)",
+        "Bullish derivatives demand (call/put = 4.51; unusual options volume = 3.24x) potentially supporting upside follow-through"
+      ],
+      "debate_rounds": 1,
+      "timestamp": "2026-02-19T07:16:42.635614Z",
+      "bull_arguments": [
+        {
+          "argument": "FLR is set up for a near-term continuation move driven primarily by technical breakout conditions and corroborating options positioning. The stock is in a clean uptrend, trading above its key moving averages (MA10 47.16, MA20 46.63, MA50 44.30) while printing a 20-day Donchian breakout (donchian20_prev 49.88; current_price 50.64). This combination typically attracts momentum and trend-following flows, and the recent volume confirmation (3-day vs 20-day volume ratio 1.57) suggests the move is bei",
+          "key_points": [
+            "Breakout + trend alignment: current_price 50.64 is above MA10/MA20/MA50 (47.16/46.63/44.30) and is_breakout_20 is true with donchian20_prev 49.88 (technical_evidence.breakout).",
+            "Participation confirms the move: volume_ratio_3d_to_20d is 1.57, supporting that the breakout is being bought rather than fading (technical_evidence.volume_ratio_3d_to_20d).",
+            "Upside feasibility within 7 days: ATR14 is 2.3307 (~4.6% atr_pct) and realized_vol_5d_ann_pct is 68.12%, indicating enough short-term range for a ~10% swing if momentum persists (technical_evidence.atr14, momentum_norm.atr_pct, realized_vol_5d_ann_pct).",
+            "Bullish derivatives skew: call_put_ratio is 4.51 and unusual_volume_multiple is 3.24, with notable call volume at 55 and 57.5 strikes (2026-03-20), signaling upside demand (options_evidence, source: yahoo)."
+          ],
+          "confidence": 7.5
+        }
+      ],
+      "bear_arguments": [
+        {
+          "argument": "FLR has strong near-term momentum, but the setup looks vulnerable to a pullback or churn rather than a clean ≥10% gain over the next 7 trading days. At $50.64, a 10% move requires roughly $55.70 quickly; that’s a large short-horizon hurdle given the stock is already extended above key moving averages (MA10/20/50) and showing elevated realized volatility. The recent breakout is present, but the breakout strength is not especially forceful in ATR terms, increasing the odds of a failed breakout or ",
+          "key_points": [
+            "High short-horizon hurdle: needs ~+10% from $50.64 to ~$55.70 in 7 trading days, while already extended above MA10/MA20/MA50 (47.16/46.63/44.30), increasing mean-reversion risk.",
+            "Breakout may be fragile: breakout_strength_atr is only 0.326 (with ATR14=2.3307), suggesting the move beyond prior Donchian levels (49.88) isn’t large relative to typical daily range—failed breakouts are plausible.",
+            "Volatility/whipsaw risk is elevated: realized_vol_5d_ann_pct is 68.12 and ATR% is 4.6, which can cut both ways but raises the probability of sharp pullbacks during a 7-day holding period.",
+            "Crowded bullish positioning risk: options call/put ratio is 4.51 with unusual volume multiple 3.24; if upside doesn’t continue immediately, call-heavy flows can unwind and pressure the stock.",
+            "Data gaps increase downside uncertainty: earnings date is unknown, headlines/catalyst tags are empty, and sentiment data is unavailable with a capped score—reducing confidence in identifying near-term supportive catalysts and increasing surprise risk."
+          ],
+          "confidence": 6.0
+        }
+      ]
+    },
+    "AROC": {
+      "ticker": "AROC",
+      "final_verdict": "BUY",
+      "verdict_reasoning": "The bull case presents stronger objective evidence for near-term continuation: a confirmed Donchian breakout with aligned rising MAs plus unusually aggressive call-side options activity and above-average volume, which together often precede follow-through. The bear case correctly highlights extension/crowding and the lack of a known catalyst, which lowers the probability of achieving a clean +10% in 7 days, but does not outweigh the current momentum/positioning edge.",
+      "bull_score": 7.8,
+      "bear_score": 6.4,
+      "conviction_delta": -0.6,
+      "risk_adjusted_score": 8.25,
+      "key_risks": [
+        "Crowded call positioning (very high call/put) leading to reversal or dealer-driven volatility if price stalls",
+        "Breakout failure back below the prior Donchian high (~49.88) triggering fast mean reversion/consolidation",
+        "Event risk uncertainty (unknown earnings/catalyst timing) causing adverse gap or drift"
+      ],
+      "key_catalysts": [
+        "Momentum/systematic buying follow-through after the 20-day Donchian breakout with MAs in bullish alignment",
+        "Sustained elevated options activity and hedging flows amplifying upside if spot continues higher"
+      ],
+      "debate_rounds": 1,
+      "timestamp": "2026-02-19T07:17:19.224595Z",
+      "bull_arguments": [
+        {
+          "argument": "AROC is set up for a near-term continuation move driven primarily by technical breakout conditions and corroborating options-market positioning. The stock is trading at $50.64 (as of 2026-02-18) and has already cleared key trend levels (MA10/20/50), while also triggering a 20-day Donchian breakout (prior channel high 49.88). This combination—trend alignment + fresh breakout—often attracts systematic momentum and breakout buyers, which can compress the time-to-move into a 1–2 week window.\n\nThe op",
+          "key_points": [
+            "Breakout confirmation: 20-day Donchian breakout is true (donchian20_prev=49.88) with price now at 50.64, indicating a fresh range expansion attempt.",
+            "Trend strength: price is above MA10=47.16, MA20=46.63, and MA50=44.30 (all aligned upward), supporting continuation rather than mean reversion.",
+            "Participation + positioning: volume ratio (3d/20d)=1.57 shows above-average activity, and options are strongly bullish with call/put=17.58 and unusual volume multiple=6.19 (Yahoo), consistent with speculative upside demand."
+          ],
+          "confidence": 7.5
+        }
+      ],
+      "bear_arguments": [
+        {
+          "argument": "AROC’s setup looks strong on trend metrics, but the near-term (next 7 trading days) risk/reward is unfavorable for a ≥10% gain because the move is already extended and volatility is elevated. Price is above the 10/20/50-day moving averages (MA10 47.16, MA20 46.63, MA50 44.30) with RSI14 at 63.08, which increases the odds of mean reversion or consolidation rather than another sharp leg higher. With ATR14 at 2.33 (~4.6% of price), a 10% move (~$5.06) requires roughly ~2.2 ATR in a week—possible, b",
+          "key_points": [
+            "Extended/near-overbought conditions increase pullback risk: RSI14 is 63.08 and price is above MA10/MA20/MA50 (47.16/46.63/44.30), making a consolidation or mean reversion more likely than a fresh +10% leg in 7 days.",
+            "High short-term volatility raises downside swing risk: realized_vol_5d_ann_pct is 68.12 and ATR14 is 2.3307 (~4.6% of price). A normal 1–2 ATR adverse move implies ~4.6%–9.2% downside quickly, which can derail a +10% target within a week.",
+            "Breakout may be fragile/late-stage: breakout_strength_atr is only 0.3261 despite being a Donchian breakout (donchian20_prev 49.88; price 50.64), suggesting the breakout is not far beyond the prior range and could fail back into it.",
+            "Crowded bullish positioning risk in options: call_put_ratio 17.58 and unusual_volume_multiple 6.19 can precede sharp reversals if the move stalls (profit-taking, dealer hedging dynamics), reducing odds of a clean +10% continuation.",
+            "Event/catalyst uncertainty is high: earnings_date is Unknown, headlines are empty, and sentiment data is unavailable/capped—negative surprises or lack of catalysts could cause drift or a pullback rather than a rapid +10% gain."
+          ],
+          "confidence": 6.0
+        }
+      ]
+    },
+    "PZZA": {
+      "ticker": "PZZA",
+      "final_verdict": "BUY",
+      "verdict_reasoning": "The bull case has stronger objective evidence: a confirmed Donchian breakout with above-average volume and a clean multi-timeframe uptrend (price above MA10/20/50) supports near-term continuation. However, the bear case credibly flags that the breakout thrust is modest and options skew/catalyst visibility are weak, so upside is plausible but not high-certainty over just 7 sessions.",
+      "bull_score": 7.6,
+      "bear_score": 6.4,
+      "conviction_delta": -0.6,
+      "risk_adjusted_score": 8.25,
+      "key_risks": [
+        "Breakout failure/mean reversion given modest breakout_strength_atr and price extension above short/intermediate MAs",
+        "Options flow may be defensive (very low call/put) and high realized volatility increases downside path risk over a 7-day horizon"
+      ],
+      "key_catalysts": [
+        "Technical follow-through after Donchian 20/55 breakout with continued volume confirmation",
+        "Momentum-driven move toward prior reference levels (52-week high proximity) if trend persists"
+      ],
+      "debate_rounds": 1,
+      "timestamp": "2026-02-19T07:17:56.173777Z",
+      "bull_arguments": [
+        {
+          "argument": "PZZA is set up for a near-term continuation move driven primarily by technical momentum and a fresh breakout. As of 2026-02-18, the stock is at 50.64 and is trading above its key short- and intermediate-term trend measures (MA10 47.16, MA20 46.63, MA50 44.30), indicating a strong uptrend with supportive structure underneath. The breakout signal is explicit: it cleared the prior 20-day and 55-day Donchian levels (both 49.88) with elevated participation (3-day vs 20-day volume ratio 1.57), which o",
+          "key_points": [
+            "Confirmed breakout above prior range: Donchian20_prev = 49.88 and Donchian55_prev = 49.88 with is_breakout_20 = true and breakout score = 6.0 (technical_evidence.breakout).",
+            "Trend strength is broad-based: price 50.64 is above MA10 47.16, MA20 46.63, and MA50 44.30 (above_ma10_ma20_ma50 = true), with RSI14 at 63.08 indicating bullish momentum without being extremely overbought.",
+            "Volatility supports a fast 7-day move: ATR14 = 2.3307 (~4.6% ATR_pct) and realized_vol_5d_ann_pct = 68.12, making a ~2.2 ATR move (≈10%) feasible in a week if breakout follow-through persists; volume confirmation is present with volume_ratio_3d_to_20d = 1.57."
+          ],
+          "confidence": 7.5
+        }
+      ],
+      "bear_arguments": [
+        {
+          "argument": "PZZA has strong near-term technicals, but the setup looks vulnerable to a fast mean-reversion rather than a clean continuation to +10% in the next 7 trading days. Price is extended above short/intermediate moving averages (MA10 47.16, MA20 46.63, MA50 44.30 vs current 50.64) and RSI(14) is elevated at 63.08—conditions that often increase pullback risk if incremental buyers don’t keep stepping in. The breakout signal exists, but its measured strength is modest (breakout_strength_atr 0.3261), impl",
+          "key_points": [
+            "Extension/mean-reversion risk: current price 50.64 is well above MA10 47.16, MA20 46.63, and MA50 44.30, increasing the chance of a pullback toward trend over the next week rather than a further +10% continuation.",
+            "Momentum may be late-cycle: RSI14 is 63.08 (elevated) and the breakout’s strength is modest (breakout_strength_atr 0.3261), suggesting the breakout could fail or stall without fresh catalysts.",
+            "Options skew is cautionary: call/put ratio is extremely low at 0.0774 and unusual volume multiple is 6710x, but the packet lacks contract-level direction (no notable contracts, no bullish premium), raising the probability the flow is hedging/bearish rather than upside-chasing.",
+            "High short-term volatility increases downside path risk: realized_vol_5d_ann_pct is 68.12%, so a normal adverse move over 7 sessions can be large enough to prevent achieving +10% even if the longer trend is up.",
+            "Catalyst/sentiment visibility is poor: headlines are empty, catalyst_tags are blank, and earnings_date is unknown; sentiment data is unavailable and capped, limiting confidence in any ‘news-driven’ continuation thesis."
+          ],
+          "confidence": 6.0
+        }
+      ]
+    },
+    "STAA": {
+      "ticker": "STAA",
+      "final_verdict": "BUY",
+      "verdict_reasoning": "The bull case has stronger objective evidence for near-term continuation: a confirmed 20-day Donchian breakout with price above key MAs and supportive participation (3d/20d volume 1.57) in a volatility regime where a ~2.2 ATR move (+10%) is feasible within a week. The bear case correctly flags fragility (small breakout clearance vs ATR) and event/positioning uncertainty (call/put < 1, earnings unknown), which tempers confidence but does not outweigh the trend/momentum setup.",
+      "bull_score": 7.6,
+      "bear_score": 6.2,
+      "conviction_delta": -0.6,
+      "risk_adjusted_score": 8.25,
+      "key_risks": [
+        "Failed breakout/mean reversion due to modest breakout strength (breakout_strength_atr 0.326) and extension above short-term MAs",
+        "Event/positioning risk: earnings date unknown and options skew (call/put ~0.82) could amplify downside on adverse surprise"
+      ],
+      "key_catalysts": [
+        "Breakout follow-through: continued closes above prior Donchian resistance (~49.88) with sustained elevated volume",
+        "Volatility/flow-driven upside: continued unusual options activity (2.8x) and momentum bids pushing a retest toward 52-week highs"
+      ],
+      "debate_rounds": 1,
+      "timestamp": "2026-02-19T07:18:28.478468Z",
+      "bull_arguments": [
+        {
+          "argument": "STAA is set up for a tactical, momentum-driven move over the next 7 trading days because it is in an active breakout regime with strong trend confirmation and rising participation. The stock is trading at 50.64 (as of 2026-02-18) and is above its key moving averages (MA10 47.16, MA20 46.63, MA50 44.30), which is a classic trend-quality filter. Importantly, it has triggered a 20-day Donchian breakout (donchian20_prev 49.88; is_breakout_20=true) while short-term volume is elevated (3d/20d volume r",
+          "key_points": [
+            "Breakout + trend alignment: 20-day breakout is active (is_breakout_20=true; donchian20_prev=49.88) and price is above MA10/MA20/MA50 (47.16/46.63/44.30), supporting continuation odds.",
+            "Participation is improving: volume ratio over the last 3 days vs 20-day average is 1.57 (breakout vol_ratio_3_20=1.5659), consistent with buyers stepping in during the breakout.",
+            "Volatility supports a 7-day +10% move: ATR14=2.3307 (~4.6% of price) and realized_vol_5d_ann_pct=68.12% increase the probability of a multi-ATR advance within a week; +10% (~+5.06) is ~2.2 ATR, feasible in this regime."
+          ],
+          "confidence": 7.5
+        }
+      ],
+      "bear_arguments": [
+        {
+          "argument": "STAA is technically strong but looks vulnerable to a near-term pullback that could prevent a ≥10% gain over the next 7 trading days. The stock is extended above key moving averages (price 50.64 vs MA10 47.16 / MA20 46.63 / MA50 44.30), with RSI14 at 63.08 (not extreme, but elevated). With 5-day realized volatility annualized at 68.12% and ATR14 at 2.33 (~4.6% of price), the stock can move quickly in either direction; after a breakout, mean reversion risk rises, especially if follow-through volum",
+          "key_points": [
+            "Mean-reversion/extension risk: price 50.64 is materially above MA10 47.16, MA20 46.63, and MA50 44.30; RSI14=63.08 suggests momentum may be getting crowded and vulnerable to a pullback rather than another +10% leg in 7 days.",
+            "Breakout fragility: although is_breakout_20=true with prior Donchian levels at 49.88, breakout_strength_atr is only 0.326 and ATR14=2.33 (~4.6% of price), indicating only a small clearance above resistance—failed breakout risk is meaningful over the next week.",
+            "Derivatives/sentiment confirmation is weak and data is missing: call/put ratio=0.819 (tilt to puts), no largest bullish premium data, IV rank missing, and sentiment data unavailable; earnings date is unknown—these gaps raise the probability of being blindsided by positioning or event risk."
+          ],
+          "confidence": 6.0
+        }
+      ]
+    },
+    "BATRK": {
+      "ticker": "BATRK",
+      "final_verdict": "HOLD",
+      "verdict_reasoning": "The bull case has solid technical/flow support (trend above key MAs and improving volume), but the bear case more convincingly highlights that price is not yet a confirmed breakout and that a 10% move in 7 sessions (~2.8–3.0 ATR) typically needs a catalyst that is currently unverified. Probability-weighted, upside exists but is not clearly dominant versus chop/rejection risk at the Donchian ceiling, so the edge is insufficient for a buy with high confidence.",
+      "bull_score": 7.2,
+      "bear_score": 6.8,
+      "conviction_delta": -1.1,
+      "risk_adjusted_score": 7.35,
+      "key_risks": [
+        "Rejection/mean reversion at the ~64.24 Donchian prior high given negative breakout_strength_atr and elevated RSI",
+        "Catalyst/information risk over the 7-day window (no headlines/sentiment/earnings context), making a ≥10% upside burst less probable and increasing gap risk"
+      ],
+      "key_catalysts": [
+        "Clean breakout and close above ~64.24 with continued >1.5x volume confirming momentum follow-through",
+        "Any unexpected positive company/industry news or event-driven catalyst that expands volatility in the direction of the prevailing uptrend"
+      ],
+      "debate_rounds": 1,
+      "timestamp": "2026-02-19T07:19:05.594844Z",
+      "bull_arguments": [
+        {
+          "argument": "BATRK is set up for a near-term continuation move driven primarily by technical strength and positioning. The stock is in a clean uptrend, trading above its key moving averages (MA10 61.75, MA20 60.12, MA50 55.91) with RSI(14) at 66.35—strong but not yet at an extreme. Importantly, recent participation has improved: the 3-day volume is 1.72x the 20-day average (volume_ratio_3d_to_20d = 1.72), which supports the idea that buyers are stepping in as price presses toward prior channel highs (Donchia",
+          "key_points": [
+            "Trend alignment is strong: price is above MA10 (61.75), MA20 (60.12), and MA50 (55.91), supporting continuation rather than mean reversion (above_ma10_ma20_ma50 = true).",
+            "Participation confirms the move: 3-day volume is 1.72x the 20-day average (volume_ratio_3d_to_20d = 1.72), consistent with accumulation as price tests prior range highs (Donchian20_prev/Donchian55_prev = 64.24 vs current 64.07).",
+            "Volatility supports a fast 7-day move: ATR(14) is 2.3043 (~3.6% atr_pct) and realized_vol_5d_ann_pct is 65.08%, making a ~10% advance (~2.8 ATR) achievable if a breakout triggers."
+          ],
+          "confidence": 7.1
+        }
+      ],
+      "bear_arguments": [
+        {
+          "argument": "BATRK is already extended in the very near term, making a ≥10% gain over the next 7 trading days less likely on a probability-weighted basis. Price is above the 10/20/50-day moving averages (MA10 61.75, MA20 60.12, MA50 55.91) and RSI(14) is elevated at 66.35, which increases the odds of mean reversion or churn rather than a clean continuation. Importantly, the stock is not actually breaking out: the 20/55-day Donchian prior level is 64.24 versus a current price ~64.07, and breakout strength is ",
+          "key_points": [
+            "Not a confirmed breakout: current price (~64.07) is still below prior Donchian20/55 level (64.24) and breakout_strength_atr is negative (-0.0738), implying resistance overhead and higher odds of rejection/chop than a continuation run.",
+            "Near-term overextension/mean-reversion risk: RSI14 is 66.35 and price is above MA10/MA20/MA50 (61.75/60.12/55.91), which can cap upside over a 7-day window as buyers become incremental and pullbacks become more likely.",
+            "10% in 7 days requires a large volatility event: target ~70.48 is ~2.8–3.0x ATR14 (ATR14 2.3043; ATR% 3.6%), which is a high bar without a clear catalyst; realized_vol_5d_ann is already elevated (65.08%), increasing downside swing risk as much as upside.",
+            "Options signal is potentially misleading: call/put ratio is high (6.33) but unusual_volume_multiple is low (0.32) and IV rank is missing (null), so the apparent bullish skew may not reflect strong, informed positioning; lack of notable contracts/premium data reduces confidence.",
+            "Catalyst and sentiment data gaps increase downside surprise risk: headlines are empty, catalyst_tags are blank, earnings_date is unknown, and sentiment data is unavailable/capped—making it harder to justify a time-bound ≥10% upside thesis and increasing the risk of adverse information emerging within the 7-day horizon."
+          ],
+          "confidence": 6.0
+        }
+      ]
+    },
+    "FIGS": {
+      "ticker": "FIGS",
+      "final_verdict": "HOLD",
+      "verdict_reasoning": "The bull case has solid trend/volume confirmation (price above key MAs with elevated volume) and momentum that is constructive, but the bear case more directly challenges the 7-day +10% objective by highlighting the lack of a confirmed breakout (still below Donchian resistance) and the asymmetric risk from crowded call positioning near resistance. Probability-weighted, upside continuation is plausible, but the near-term risk/reward is not clearly favorable without a clean breakout or identifiable catalyst.",
+      "bull_score": 7.3,
+      "bear_score": 6.8,
+      "conviction_delta": -1.2,
+      "risk_adjusted_score": 7.25,
+      "key_risks": [
+        "Failed breakout at/near 64.24 Donchian resistance leading to mean reversion over the next week",
+        "Crowded bullish options positioning (extreme call/put) amplifying downside if price stalls and positioning unwinds"
+      ],
+      "key_catalysts": [
+        "Confirmed breakout above prior Donchian high with follow-through volume",
+        "Any positive fundamental/news catalyst (e.g., earnings timing clarity, guidance, or sector tailwind) that expands demand beyond technical momentum"
+      ],
+      "debate_rounds": 1,
+      "timestamp": "2026-02-19T07:19:39.759539Z",
+      "bull_arguments": [
+        {
+          "argument": "FIGS is set up for a near-term continuation move because price is in a strong uptrend, trading above all key short-term and intermediate moving averages, with elevated recent volume supporting the advance. The stock is at 64.07 (as of 2026-02-18) and remains only 8.08% below its 52-week high, meaning a ≥10% gain in the next 7 trading days is directionally aligned with the existing trend and would likely coincide with a push through recent highs rather than requiring a full trend reversal.\n\nTechn",
+          "key_points": [
+            "Trend strength: Price 64.07 is above MA10 61.75, MA20 60.12, and MA50 55.91 (above_ma10_ma20_ma50 = true), indicating a well-established uptrend supportive of a continuation rally over the next week.",
+            "Participation/confirmation: Volume ratio (3d/20d) is 1.72, signaling increased activity alongside the move—often a prerequisite for a breakout/continuation attempt.",
+            "Momentum/option skew: RSI14 is 66.35 (bullish but not extremely overbought), and options show an extremely bullish call/put ratio of 1140.34 with implied volatility ~0.149, implying strong upside interest without extreme volatility pricing."
+          ],
+          "confidence": 7.5
+        }
+      ],
+      "bear_arguments": [
+        {
+          "argument": "FIGS is already extended into a near-high zone without a confirmed breakout, which raises the odds of a short-term pullback or churn rather than a clean +10% move over the next 7 trading days. Price is above the 10/20/50-day moving averages (MA10 61.75, MA20 60.12, MA50 55.91) and RSI(14) is 66.35—strong momentum, but also closer to overbought conditions where upside can become harder to sustain. With the stock only ~8.1% below its 52-week high, the remaining “air” to a new high is limited unles",
+          "key_points": [
+            "No confirmed breakout at resistance: current price 64.07 is still below Donchian20/55 prior 64.24 and breakout_strength_atr is negative (-0.0738), implying a higher risk of a failed breakout and pullback within days.",
+            "Momentum may be late-cycle/extended: RSI14 is 66.35 (near overbought) and price is above MA10/MA20/MA50; with dist_to_52w_high only 8.08%, upside to new highs may be limited without a catalyst, increasing probability of consolidation rather than +10%.",
+            "Volatility cuts both ways: realized_vol_5d_ann is 65.08% and ATR14 is 2.3043 (~3.6% ATR%); a normal 1–2 ATR downside move could erase several days of gains quickly, making the +10% target harder to achieve on a risk-adjusted basis.",
+            "Crowding/positioning risk signaled by options skew: call_put_ratio is extremely high (1140.34), which can indicate one-sided bullish positioning; if price stalls at resistance, unwinds can amplify downside over a short horizon.",
+            "Data gaps elevate surprise risk: earnings_date is Unknown and sentiment is unavailable (score capped at 3.0), limiting visibility into near-term catalysts and market mood—both critical for a 7-trading-day +10% thesis."
+          ],
+          "confidence": 6.0
+        }
+      ]
+    },
+    "BELFB": {
+      "ticker": "BELFB",
+      "final_verdict": "HOLD",
+      "verdict_reasoning": "The bull case has solid trend and positioning evidence (price above key MAs, near highs, strong call/put), but it lacks confirmation of an actual breakout and has weak volume participation. With no visible catalyst and elevated IV/crowded calls, the probability-weighted upside to a clean +10% in 7 sessions is not clearly favorable versus a routine 1–2 ATR pullback risk.",
+      "bull_score": 7.2,
+      "bear_score": 7.0,
+      "conviction_delta": -1.0,
+      "risk_adjusted_score": 7.25,
+      "key_risks": [
+        "Failure at overhead resistance near prior Donchian level (~70.43) leading to mean reversion from near 52-week highs",
+        "Crowded bullish options/IV compression risk (high call/put and high IV) causing downside acceleration if price stalls"
+      ],
+      "key_catalysts": [
+        "Technical breakout and close above ~70.43 with improving volume (volume ratio reverting >1.0)",
+        "Any newly emerging fundamental/news catalyst (earnings date confirmation, guidance, or sector/company headline) to justify volatility expansion"
+      ],
+      "debate_rounds": 1,
+      "timestamp": "2026-02-19T07:20:12.304800Z",
+      "bull_arguments": [
+        {
+          "argument": "BELFB is set up for a near-term continuation move because it is already in a strong uptrend and trading very close to its 52-week high, which often acts as a magnet in momentum regimes. The stock is only 2.23% below its 52-week high (within_5pct_52w_high: true) while holding above all key moving averages (MA10 63.75, MA20 60.26, MA50 54.03 vs current 68.86). That alignment signals persistent demand and trend control by buyers—conditions that can support a fast +10% push over a 7-trading-day wind",
+          "key_points": [
+            "Trend strength: price 68.86 is above MA10 63.75, MA20 60.26, and MA50 54.03 (above_ma10_ma20_ma50: true), supporting continuation odds over the next week.",
+            "Proximity to breakout zone: only 2.23% below 52-week high (within_5pct_52w_high: true). A move through prior Donchian levels (donchian20_prev/donchian55_prev: 70.43) can trigger momentum buying and push toward a +10% week.",
+            "Bullish derivatives tilt + high movement priced: call_put_ratio 6.42 and implied_volatility ~0.579 (Yahoo). Realized_vol_5d_ann_pct 56.89% suggests the stock can plausibly travel ~10% in 7 sessions."
+          ],
+          "confidence": 7.5
+        }
+      ],
+      "bear_arguments": [
+        {
+          "argument": "BELFB is already trading very close to its 52-week high (2.23% below), which increases the risk of near-term mean reversion and profit-taking rather than a fresh leg higher. The setup looks more like an extended uptrend than a confirmed breakout: the 20/55-day Donchian prior level is 70.43 while the breakout strength is negative (-0.3456 ATR) and the system flags is_breakout_20 = false. For a ≥10% gain in just 7 trading days, the stock likely needs a catalyst-driven expansion; the packet shows n",
+          "key_points": [
+            "Near-peak pricing increases pullback risk: only 2.23% below 52-week high and within_5pct_52w_high=true, so upside may be limited while profit-taking risk rises over the next 1–7 sessions.",
+            "No confirmed breakout despite strong trend: breakout_score=0.0, is_breakout_20=false, and breakout_strength_atr=-0.3456 with Donchian20_prev=70.43 vs current_price=68.86—suggesting resistance overhead and higher odds of chop/rejection than a momentum surge.",
+            "Crowded/expensive options setup can cap upside: call_put_ratio=6.42 and implied_volatility≈0.579; if no catalyst appears, IV crush and positioning unwind can pressure price even without bad news.",
+            "Volume is not confirming a push higher: volume_ratio_3d_to_20d=0.75, which is weak participation for a near-high attempt and reduces the probability of a sustained 7-day +10% run.",
+            "Catalyst and sentiment visibility are poor: headlines=[] and catalyst_tags=\"\" plus sentiment_data_available=false with sentiment capped due to missing sources—raising the risk that the move is purely technical and vulnerable to reversal without supportive news flow."
+          ],
+          "confidence": 6.0
+        }
+      ]
+    },
+    "LAUR": {
+      "ticker": "LAUR",
+      "final_verdict": "HOLD",
+      "verdict_reasoning": "Trend and proximity to highs support upside continuation, but the evidence for a near-term +10% move is weak without a confirmed breakout, volume confirmation, or a visible catalyst. The very bullish options skew alongside elevated IV raises the risk that upside is already priced and that any disappointment leads to a sharp pullback, making the 7-day risk/reward roughly balanced.",
+      "bull_score": 7.2,
+      "bear_score": 6.8,
+      "conviction_delta": -1.2,
+      "risk_adjusted_score": 7.05,
+      "key_risks": [
+        "Rejection at overhead resistance (Donchian 20/55 highs ~374.9-377.0) given negative breakout strength and subpar recent volume",
+        "Crowded bullish options positioning (call/put 9.0) with elevated IV increasing risk of vol crush and asymmetric downside on no-catalyst drift"
+      ],
+      "key_catalysts": [
+        "Technical breakout/close above ~375-377 with improving volume confirming momentum continuation",
+        "Sustained trend-following bid while holding above MA20/MA50, enabling a grind to new highs even without a discrete event"
+      ],
+      "debate_rounds": 1,
+      "timestamp": "2026-02-19T07:20:42.298006Z",
+      "bull_arguments": [
+        {
+          "argument": "LAUR is set up for a near-term continuation move because it is already in a confirmed uptrend and trading very close to its 52-week high, which often acts as a magnet when price is holding above key moving averages. The stock is above its MA10 (356.24), MA20 (355.95), and MA50 (347.96) while the current price is 360.23 (as of 2026-02-18). That alignment supports a “buy-the-dip / trend-following” posture and increases the odds that any incremental demand can push price into a new high attempt.\n\nA",
+          "key_points": [
+            "Trend strength: Price 360.23 is above MA10 356.24, MA20 355.95, and MA50 347.96 (above_ma10_ma20_ma50 = true), supporting continued upside follow-through.",
+            "Proximity to breakout zone: Only 4.58% below the 52-week high (within_5pct_52w_high = true); prior Donchian levels at 374.89 (20) and 376.98 (55) define nearby upside targets where momentum can accelerate if reclaimed.",
+            "Movement potential is priced in: 5-day realized vol is 40.73% annualized and options implied volatility is ~0.5067, consistent with the stock being capable of a sharp 1-week move; options flow is skewed bullish with call/put ratio 9.0 (data_source: yahoo)."
+          ],
+          "confidence": 7.5
+        }
+      ],
+      "bear_arguments": [
+        {
+          "argument": "LAUR is already trading near its 52-week high (only 4.58% below), which makes a ≥10% gain over the next 7 trading days statistically harder without a fresh catalyst. The technicals show price above key moving averages, but the breakout framework explicitly flags no breakout (Donchian 20/55 prior highs at 374.89/376.98 vs current 360.23) and negative breakout strength (-1.1073 ATR). In other words, the setup looks more like late-stage strength/mean-reversion risk than an early breakout with room ",
+          "key_points": [
+            "Near 52-week high increases asymmetry risk: only 4.58% below 52w high, so a +10% move likely requires a new catalyst rather than trend drift (dist_to_52w_high_pct=4.58; within_5pct_52w_high=true).",
+            "No confirmed breakout and negative breakout strength: current price (360.23) is below prior Donchian levels (374.89/376.98) and breakout_strength_atr is negative (-1.1073), suggesting resistance overhead and higher odds of rejection than continuation (breakout.is_breakout_20=false).",
+            "Volume does not confirm upside: 3-day volume is only 0.68x the 20-day average, weakening the case for an imminent momentum push (volume_ratio_3d_to_20d=0.68).",
+            "Options positioning looks potentially crowded/fragile: call_put_ratio=9.0 with high implied volatility (~0.5067) can mean bullish expectations are already priced, raising risk of upside being capped and downside accelerating on disappointment (options_data_available=true).",
+            "Catalyst visibility is poor: earnings date is unknown and there are no headlines/catalyst tags provided, increasing the chance the next 7 days lack a positive trigger needed for +10% (earnings_date='Unknown'; headlines=[]; catalyst_tags='').",
+            "Data gaps add uncertainty: sentiment data is unavailable and capped, so there is no reliable read on crowding/over-optimism beyond options; this uncertainty itself is a risk for short-horizon forecasting (sentiment_data_available=false; sentiment_data_gaps listed; sentiment_cap_applied=3.0)."
+          ],
+          "confidence": 6.0
+        }
+      ]
+    },
+    "COR": {
+      "ticker": "COR",
+      "final_verdict": "HOLD",
+      "verdict_reasoning": "The bull case has credible support from trend alignment (price above key MAs) and notably bullish options positioning, but it lacks confirmation from price/volume (no Donchian breakout and subpar recent volume). Given overhead resistance near 375–377 and data gaps on catalysts (no headlines/sentiment/earnings timing), the probability of a +10% move in 7 sessions is not high enough to justify an outright BUY versus a consolidation/pullback base case.",
+      "bull_score": 6.9,
+      "bear_score": 6.6,
+      "conviction_delta": -1.0,
+      "risk_adjusted_score": 7.25,
+      "key_risks": [
+        "Failed breakout at 20D/55D Donchian resistance (~374.9–377.0) leading to mean reversion toward moving averages",
+        "Options-flow reversal/hedging unwind given elevated IV (~0.404) and unusual volume, creating downside air pockets",
+        "Low participation (3d/20d volume ratio 0.68) increasing vulnerability to pullbacks near highs",
+        "Unmodeled catalyst risk due to missing earnings date/headlines/sentiment visibility"
+      ],
+      "key_catalysts": [
+        "Confirmed breakout above ~375–377 (Donchian levels) with improving volume, triggering momentum/systematic flows",
+        "Sustained bullish dealer-gamma/positioning effects if call-heavy flow persists and spot trends upward"
+      ],
+      "debate_rounds": 1,
+      "timestamp": "2026-02-19T07:21:14.381925Z",
+      "bull_arguments": [
+        {
+          "argument": "COR is set up for a near-term upside move because it is already in a strong uptrend and trading close to its 52-week highs, while options positioning is notably bullish. The stock is above its key moving averages (MA10 356.24, MA20 355.95, MA50 347.96) with a neutral RSI (54.23), suggesting it is not technically overbought and still has room to run. With the current price at 360.23 and only 4.58% below the 52-week high, a push to new highs can quickly translate into a ≥10% 7-trading-day move if ",
+          "key_points": [
+            "Trend strength is intact: price 360.23 is above MA10/MA20/MA50 (356.24/355.95/347.96) and RSI14 is 54.23 (not overbought), supporting continued upside rather than mean-reversion.",
+            "Near-term upside is plausible because COR is only 4.58% below its 52-week high (within_5pct_52w_high=true); a push through nearby Donchian resistance (20D 374.89, 55D 376.98) could trigger momentum/breakout participation.",
+            "Options market is leaning bullish: call/put ratio 2.35 with unusual volume at 4.53x (data_source: yahoo), consistent with positive positioning that can reinforce a sharp 1-week move."
+          ],
+          "confidence": 6.8
+        }
+      ],
+      "bear_arguments": [
+        {
+          "argument": "A ≥10% gain in the next 7 trading days looks unlikely because the setup is not a confirmed breakout and the tape lacks participation. COR is near its 52-week high (4.58% below), but the breakout module explicitly flags no breakout (is_breakout_20: false) with negative breakout strength (-1.1073 ATR). At the same time, recent volume is light (3d/20d volume ratio 0.68), which raises the risk that price near highs is more vulnerable to pullbacks than poised for an upside expansion.\n\nOptions are sho",
+          "key_points": [
+            "No confirmed breakout despite proximity to highs: dist_to_52w_high_pct 4.58% but breakout is false (is_breakout_20: false) and breakout_strength_atr is negative (-1.1073), suggesting resistance overhead rather than an imminent expansion move.",
+            "Weak participation near highs: volume_ratio_3d_to_20d is 0.68, indicating below-average recent volume; rallies without volume support are more prone to stalling or reversing within a 1–2 week window.",
+            "Volatility/positioning risk without clear direction: implied_volatility ~0.404 and unusual_volume_multiple 4.53 can signal event-driven uncertainty; if the options flow is hedging or short-dated speculation, it can unwind quickly and pressure spot.",
+            "Limited momentum pressure: RSI14 is 54.23 (neutral) and ret5_atr_units is only 0.02, implying recent gains are small relative to ATR and not indicative of a strong impulse move needed for +10% in 7 sessions.",
+            "Catalyst and sentiment data gaps increase downside surprise risk: headlines are empty, sentiment sources unavailable (score capped), and earnings_date is unknown—making it harder to justify a near-term rerating and increasing the chance of an unmodeled negative catalyst within the 7-day horizon."
+          ],
+          "confidence": 6.0
+        }
+      ]
+    },
+    "CCS": {
+      "ticker": "CCS",
+      "final_verdict": "HOLD",
+      "verdict_reasoning": "The bull case has credible trend/volatility support (price above key MAs and not overbought), but it relies on a catalyst that is not evidenced in the packet. The bear case is better supported by participation and breakout diagnostics (subpar volume, no breakout confirmation, negative breakout strength), which materially lowers the odds of achieving a +10% move within 7 trading days despite the constructive trend.",
+      "bull_score": 6.8,
+      "bear_score": 7.2,
+      "conviction_delta": -1.25,
+      "risk_adjusted_score": 7.0,
+      "key_risks": [
+        "Failed/false breakout near the 52-week high given negative breakout strength and light recent volume",
+        "Event risk from unknown earnings/catalyst timing combined with elevated implied volatility and put-leaning options positioning"
+      ],
+      "key_catalysts": [
+        "Clean breakout and close above the 52-week high with expanding volume (volume ratio reverting above 1.0)",
+        "Positive company-specific news or guidance/earnings timing clarity that triggers incremental demand"
+      ],
+      "debate_rounds": 1,
+      "timestamp": "2026-02-19T07:21:42.866966Z",
+      "bull_arguments": [
+        {
+          "argument": "CCS is set up for a near-term push higher primarily on technical positioning: the stock is trading at 360.23 (as of 2026-02-18) and is already within 4.58% of its 52-week high, indicating price is pressing into the upper end of its yearly range. Importantly, it is above its key short- and intermediate-term moving averages (MA10=356.24, MA20=355.95, MA50=347.96), which supports the view that trend participants are still in control and that dips are being bought. With RSI14 at 54.23, momentum is c",
+          "key_points": [
+            "Trend strength: CCS is above MA10 (356.24), MA20 (355.95), and MA50 (347.96) while trading at 360.23, supporting continued upside bias (technical_evidence).",
+            "Near-high positioning: only 4.58% below the 52-week high (within_5pct_52w_high=true), which can attract momentum flows if price re-tests/clears prior highs.",
+            "Move potential exists: ATR14=13.24 (~3.68% of price) and realized_vol_5d_ann_pct=40.73 suggest the stock is capable of large weekly swings; unusual options volume is 1.54x, indicating elevated activity that can accelerate price moves."
+          ],
+          "confidence": 6.6
+        }
+      ],
+      "bear_arguments": [
+        {
+          "argument": "CCS looks technically “fine” on moving averages, but the setup is not compelling for a ≥10% gain over the next 7 trading days because it is already near its 52-week high without confirming participation. Price is within 5% of the 52-week high (4.58% away), yet the breakout module flags no breakout (is_breakout_20: false) and the breakout strength is negative (-1.1073 ATR). That combination often implies overhead supply near prior highs and a higher chance of chop or pullback than a clean continu",
+          "key_points": [
+            "Near highs but no breakout confirmation: within 5% of 52w high (dist_to_52w_high_pct: 4.58) while breakout score is 0.0 and is_breakout_20 is false; breakout_strength_atr is negative (-1.1073), suggesting resistance/failed breakout risk over the next week.",
+            "Weak participation: volume_ratio_3d_to_20d is only 0.68, which undermines the odds of a sustained upside push needed to reach +10% in 7 sessions.",
+            "Options positioning is not bullish-leaning: call_put_ratio is 0.6269 (<1), implying more puts than calls; with implied_volatility at ~0.4687, the market is pricing sizable moves, increasing downside tail risk if price fails at resistance.",
+            "Catalyst/visibility risk: headlines are empty, catalyst_tags is blank, and earnings_date is Unknown—raising the chance of an unanticipated event within the 7-day window and limiting the basis for a bullish re-rating.",
+            "Sentiment data gap is itself a risk: sentiment_data_available is false and sentiment score is capped due to missing sources, so potential crowding/over-optimism (or deterioration) cannot be assessed."
+          ],
+          "confidence": 6.0
+        }
+      ]
+    }
+  },
+  "initial_ranking": [
+    {
+      "rank": 1,
+      "ticker": "FLR",
+      "name": "Fluor Corporation",
+      "exchange": "NYSE",
+      "sector": "Industrials",
+      "current_price": 50.63999938964844,
+      "market_cap_usd": 8186683392,
+      "avg_dollar_volume_20d": 131424203.72692108,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 55.704,
+        "base_case_upside_pct_range": [
+          10,
+          18
+        ],
+        "bear_case_note": "Invalidation if price loses the short-term trend (fails to hold above MA20/MA50 zone) and breakout attempt reverses on rising volume."
+      },
+      "primary_catalyst": {
+        "title": "No verified dated catalyst in packet (catalyst score capped)",
+        "key_date_local": null,
+        "timing": null,
+        "why_it_matters": "No headlines/catalyst_sources were provided in the packet, so no upcoming event within 7 trading days could be verified.",
+        "sources": []
+      },
+      "scores": {
+        "technical": 8.85,
+        "catalyst": 4.0,
+        "options": 6.0,
+        "sentiment": 3.0
+      },
+      "composite_score": 5.4625,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": false,
+          "resistance_level": 49.88,
+          "volume_ratio_3d_to_20d": 1.57,
+          "rsi14": 63.08,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 68.12
+        },
+        "options": {
+          "call_put_ratio": 4.505597014925373,
+          "unusual_volume_multiple": 3.24,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": [
+            {
+              "type": "call",
+              "strike": 55.0,
+              "expiration": "2026-03-20",
+              "volume": 576,
+              "open_interest": 0,
+              "iv": 0.062509375
+            },
+            {
+              "type": "call",
+              "strike": 57.5,
+              "expiration": "2026-03-20",
+              "volume": 519,
+              "open_interest": 0,
+              "iv": 0.12500875
+            }
+          ]
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": null
+        }
+      },
+      "risk_factors": [
+        "No verified near-term catalyst in packet; move may rely purely on technical/flow.",
+        "Options IV rank missing; options score may not reflect whether IV is already extreme."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Catalyst/news: packet headlines and catalyst_sources empty; catalyst score capped at 4.0 per rules.",
+        "Sentiment: sentiment_data_available=false; sentiment score capped at 3.0 (packet note).",
+        "Universe exclusions: last-5d % move not provided; cannot enforce >15% exclusion."
+      ]
+    },
+    {
+      "rank": 2,
+      "ticker": "AROC",
+      "name": "Archrock, Inc.",
+      "exchange": "NYSE",
+      "sector": "Energy",
+      "current_price": 50.63999938964844,
+      "market_cap_usd": 5769661440,
+      "avg_dollar_volume_20d": 131424203.72692108,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 55.704,
+        "base_case_upside_pct_range": [
+          10,
+          18
+        ],
+        "bear_case_note": "Invalidation if price breaks below MA20/MA50 and momentum stalls (RSI rolls over) while options demand fades."
+      },
+      "primary_catalyst": {
+        "title": "No verified dated catalyst in packet (catalyst score capped)",
+        "key_date_local": null,
+        "timing": null,
+        "why_it_matters": "No headlines/catalyst_sources were provided in the packet, so no upcoming event within 7 trading days could be verified.",
+        "sources": []
+      },
+      "scores": {
+        "technical": 8.85,
+        "catalyst": 4.0,
+        "options": 5.0,
+        "sentiment": 3.0
+      },
+      "composite_score": 5.2125,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": false,
+          "resistance_level": 49.88,
+          "volume_ratio_3d_to_20d": 1.57,
+          "rsi14": 63.08,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 68.12
+        },
+        "options": {
+          "call_put_ratio": 17.57894736842105,
+          "unusual_volume_multiple": 6.19,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": null
+        }
+      },
+      "risk_factors": [
+        "Energy sector beta: setup may be dominated by crude/nat gas macro moves.",
+        "No verified near-term catalyst in packet; catalyst score capped."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Catalyst/news: packet headlines and catalyst_sources empty; catalyst score capped at 4.0 per rules.",
+        "Sentiment: sentiment_data_available=false; sentiment score capped at 3.0 (packet note).",
+        "Universe exclusions: last-5d % move not provided; cannot enforce >15% exclusion."
+      ]
+    },
+    {
+      "rank": 3,
+      "ticker": "BELFB",
+      "name": "Bel Fuse Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Technology",
+      "current_price": 68.86000061035156,
+      "market_cap_usd": 2800389888,
+      "avg_dollar_volume_20d": 215090371.5332985,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 75.746,
+        "base_case_upside_pct_range": [
+          10,
+          16
+        ],
+        "bear_case_note": "Invalidation if price fails to reclaim/hold near-term highs (Donchian20 ~70.43) and slips back below MA20 with weakening RSI."
+      },
+      "primary_catalyst": {
+        "title": "No verified dated catalyst in packet (catalyst score capped)",
+        "key_date_local": null,
+        "timing": null,
+        "why_it_matters": "No headlines/catalyst_sources were provided in the packet, so no upcoming event within 7 trading days could be verified.",
+        "sources": []
+      },
+      "scores": {
+        "technical": 8.25,
+        "catalyst": 4.0,
+        "options": 7.0,
+        "sentiment": 3.0
+      },
+      "composite_score": 5.5625,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": 70.43,
+          "volume_ratio_3d_to_20d": 0.75,
+          "rsi14": 64.68,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 56.89
+        },
+        "options": {
+          "call_put_ratio": 6.42,
+          "unusual_volume_multiple": 1.11,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": null
+        }
+      },
+      "risk_factors": [
+        "No verified near-term catalyst in packet; move may depend on continuation/breakout through ~70.43.",
+        "Options IV rank missing; cannot assess whether calls are expensive vs history."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Catalyst/news: packet headlines and catalyst_sources empty; catalyst score capped at 4.0 per rules.",
+        "Sentiment: sentiment_data_available=false; sentiment score capped at 3.0 (packet note).",
+        "Universe exclusions: last-5d % move not provided; cannot enforce >15% exclusion."
+      ]
+    },
+    {
+      "rank": 4,
+      "ticker": "LAUR",
+      "name": "Laureate Education, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Consumer Defensive",
+      "current_price": 360.2300109863281,
+      "market_cap_usd": 5172657664,
+      "avg_dollar_volume_20d": 498551142.6460266,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 396.253,
+        "base_case_upside_pct_range": [
+          10,
+          14
+        ],
+        "bear_case_note": "Invalidation if price loses MA20/MA50 support area and fails to stay within ~5% of 52-week highs."
+      },
+      "primary_catalyst": {
+        "title": "No verified dated catalyst in packet (catalyst score capped)",
+        "key_date_local": null,
+        "timing": null,
+        "why_it_matters": "No headlines/catalyst_sources were provided in the packet, so no upcoming event within 7 trading days could be verified.",
+        "sources": []
+      },
+      "scores": {
+        "technical": 8.25,
+        "catalyst": 4.0,
+        "options": 7.0,
+        "sentiment": 3.0
+      },
+      "composite_score": 5.5625,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": 376.98,
+          "volume_ratio_3d_to_20d": 0.68,
+          "rsi14": 54.23,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 40.73
+        },
+        "options": {
+          "call_put_ratio": 9.0,
+          "unusual_volume_multiple": 1.2,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": null
+        }
+      },
+      "risk_factors": [
+        "No verified near-term catalyst in packet; catalyst score capped.",
+        "Volume ratio below 1.0 may indicate less urgency behind the move despite strong trend positioning."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Catalyst/news: packet headlines and catalyst_sources empty; catalyst score capped at 4.0 per rules.",
+        "Sentiment: sentiment_data_available=false; sentiment score capped at 3.0 (packet note).",
+        "Universe exclusions: last-5d % move not provided; cannot enforce >15% exclusion."
+      ]
+    },
+    {
+      "rank": 5,
+      "ticker": "COR",
+      "name": "Cencora, Inc.",
+      "exchange": "NYSE",
+      "sector": "Healthcare",
+      "current_price": 360.2300109863281,
+      "market_cap_usd": 70075793408,
+      "avg_dollar_volume_20d": 498551142.6460266,
+      "asof_price_utc": "2026-02-18T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 396.253,
+        "base_case_upside_pct_range": [
+          10,
+          13
+        ],
+        "bear_case_note": "Invalidation if price breaks below MA20/MA50 and fails to remain near the 52-week high zone (trend deterioration)."
+      },
+      "primary_catalyst": {
+        "title": "No verified dated catalyst in packet (catalyst score capped)",
+        "key_date_local": null,
+        "timing": null,
+        "why_it_matters": "No headlines/catalyst_sources were provided in the packet, so no upcoming event within 7 trading days could be verified.",
+        "sources": []
+      },
+      "scores": {
+        "technical": 8.25,
+        "catalyst": 4.0,
+        "options": 6.0,
+        "sentiment": 3.0
+      },
+      "composite_score": 5.3125,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": 374.89,
+          "volume_ratio_3d_to_20d": 0.68,
+          "rsi14": 54.23,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 40.73
+        },
+        "options": {
+          "call_put_ratio": 2.3517495395948433,
+          "unusual_volume_multiple": 4.53,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": []
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": null
+        }
+      },
+      "risk_factors": [
+        "No verified near-term catalyst in packet; catalyst score capped.",
+        "Options IV rank missing; cannot assess whether elevated IV is already pricing the move."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Catalyst/news: packet headlines and catalyst_sources empty; catalyst score capped at 4.0 per rules.",
+        "Sentiment: sentiment_data_available=false; sentiment score capped at 3.0 (packet note).",
+        "Universe exclusions: last-5d % move not provided; cannot enforce >15% exclusion."
+      ]
+    }
+  ],
+  "rank_filter_applied": "Top 2 only",
+  "primary_label": "Weekly"
+}
