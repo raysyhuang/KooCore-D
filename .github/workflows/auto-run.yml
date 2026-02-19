@@ -136,7 +136,13 @@ jobs:
           else
             DATE=$(date -u +%Y-%m-%d)
             git commit -m "auto: outputs for ${DATE}"
-            git push
+            # Keep workflow green even if origin moved (another run pushed first).
+            if ! git pull --rebase origin main; then
+              echo "WARN: rebase failed; skipping output push (non-fatal)"
+              git rebase --abort || true
+            elif ! git push origin HEAD:main; then
+              echo "WARN: output push failed due to race/non-fast-forward (non-fatal)"
+            fi
           fi
 
       - name: Upload outputs artifact
