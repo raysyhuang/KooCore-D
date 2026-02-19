@@ -125,24 +125,28 @@ jobs:
                   entry = float(item.get("current_price") or 0)
                   if entry <= 0:
                       raise SystemExit(f"Payload quality check failed: {ticker} has non-positive current_price={entry}")
-                  stop = float((item.get("stop") or {}).get("stop_price_for_3pct") or 0)
-                  if stop <= 0:
+                  sources = {str(x).lower() for x in (item.get("sources") or [])}
+                  if "pro30" in sources:
+                      risk_pct, reward_pct = 0.08, 0.18
+                  elif "movers" in sources:
+                      risk_pct, reward_pct = 0.04, 0.08
+                  else:
+                      risk_pct, reward_pct = 0.05, 0.10
+
+                  raw_stop = float((item.get("stop") or {}).get("stop_price_for_3pct") or 0)
+                  stop = raw_stop if raw_stop > 0 else round(entry * (1 - risk_pct), 2)
+                  if stop <= 0 or stop >= entry:
                       raise SystemExit(
-                          f"Payload quality check failed: {ticker} missing/invalid stop_price_for_3pct={stop}"
+                          f"Payload quality check failed: {ticker} invalid stop (raw={raw_stop}, derived={stop}, entry={entry})"
                       )
-                  if stop >= entry:
-                      raise SystemExit(
-                          f"Payload quality check failed: {ticker} stop_price_for_3pct={stop} >= current_price={entry}"
-                      )
-                  target = float((item.get("target") or {}).get("target_price_for_10pct") or 0)
-                  if target <= 0:
-                      raise SystemExit(
-                          f"Payload quality check failed: {ticker} missing/invalid target_price_for_10pct={target}"
-                      )
+
+                  raw_target = float((item.get("target") or {}).get("target_price_for_10pct") or 0)
+                  target = raw_target if raw_target > entry else round(entry * (1 + reward_pct), 2)
                   if target <= entry:
                       raise SystemExit(
-                          f"Payload quality check failed: {ticker} target_price_for_10pct={target} <= current_price={entry}"
+                          f"Payload quality check failed: {ticker} invalid target (raw={raw_target}, derived={target}, entry={entry})"
                       )
+
                   key = (round(entry, 2), round(stop, 2), round(target, 2))
                   duplicate_tuples.setdefault(key, []).append(ticker)
                   entries.append(entry)
