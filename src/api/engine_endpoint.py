@@ -61,6 +61,16 @@ class IngestPayload(BaseModel):
     pipeline_duration_s: float | None = None
 
 
+def _risk_profile_from_sources(sources: list[str]) -> tuple[float, float, str]:
+    """Infer risk/target defaults from contributing source models."""
+    src = {str(s).lower() for s in (sources or [])}
+    if "pro30" in src:
+        return 0.08, 0.18, "momentum"
+    if "movers" in src:
+        return 0.04, 0.08, "breakout"
+    return 0.05, 0.10, "swing"
+
+
 def _map_hybrid_to_payload(hybrid: dict, run_date: str, duration: float | None = None) -> dict:
     """Convert KooCore-D hybrid_analysis JSON to EngineResultPayload format."""
     picks = []
@@ -73,17 +83,27 @@ def _map_hybrid_to_payload(hybrid: dict, run_date: str, duration: float | None =
         ticker = item.get("ticker", "")
         composite_score = item.get("composite_score") or item.get("hybrid_score", 0)
         sources = item.get("sources", [])
-        strategy = "hybrid_" + "_".join(sources) if sources else "hybrid"
+        risk_pct, reward_pct, fallback_strategy = _risk_profile_from_sources(sources)
+        strategy = "hybrid_" + "_".join(sources) if sources else fallback_strategy
+        entry_price = float(item.get("current_price") or 0)
+        if entry_price <= 0:
+            continue
 
         # Normalize confidence: composite_score is 0-10, multiply by 10
         confidence = min(max(composite_score * 10, 0), 100)
+        explicit_target = item.get("target", {}).get("target_price_for_10pct")
+        target_price = (
+            float(explicit_target)
+            if explicit_target is not None and float(explicit_target) > entry_price
+            else round(entry_price * (1 + reward_pct), 2)
+        )
 
         picks.append({
             "ticker": ticker,
             "strategy": strategy,
-            "entry_price": item.get("current_price", 0),
-            "stop_loss": None,
-            "target_price": item.get("target", {}).get("target_price_for_10pct"),
+            "entry_price": entry_price,
+            "stop_loss": round(entry_price * (1 - risk_pct), 2),
+            "target_price": target_price,
             "confidence": round(confidence, 1),
             "holding_period_days": 14,  # KooCore-D typical hold: 7-30d
             "thesis": item.get("verdict") or item.get("confidence"),
@@ -106,13 +126,17 @@ def _map_hybrid_to_payload(hybrid: dict, run_date: str, duration: float | None =
         if composite_score < 3:  # Skip low-scoring picks
             break
         sources = item.get("sources", [])
+        risk_pct, reward_pct, strategy = _risk_profile_from_sources(sources)
+        entry_price = float(item.get("current_price") or 0)
+        if entry_price <= 0:
+            continue
         confidence = min(max(composite_score * 10, 0), 100)
         picks.append({
             "ticker": ticker,
-            "strategy": "swing" if "pro30" in str(sources) else "momentum",
-            "entry_price": item.get("current_price", 0),
-            "stop_loss": None,
-            "target_price": None,
+            "strategy": strategy,
+            "entry_price": entry_price,
+            "stop_loss": round(entry_price * (1 - risk_pct), 2),
+            "target_price": round(entry_price * (1 + reward_pct), 2),
             "confidence": round(confidence, 1),
             "holding_period_days": 14,
             "thesis": None,
