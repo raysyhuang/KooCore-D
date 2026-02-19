@@ -13,6 +13,7 @@ import logging
 import os
 import re
 from datetime import datetime, date
+from pathlib import Path
 from typing import Optional
 
 from fastapi import APIRouter, HTTPException, Header
@@ -25,7 +26,32 @@ router = APIRouter(prefix="/api/engine", tags=["engine"])
 
 # In-memory store for latest results (Heroku ephemeral filesystem)
 _latest_result: dict | None = None
+_LATEST_RESULT_FILE = Path("/tmp/koocore_latest_engine_result.json")
 _DATE_DIR_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
+
+def _load_latest_from_disk() -> dict | None:
+    """Load latest ingested payload from local tmp cache (shared by workers)."""
+    try:
+        if not _LATEST_RESULT_FILE.exists():
+            return None
+        with _LATEST_RESULT_FILE.open("r", encoding="utf-8") as f:
+            payload = json.load(f)
+        if isinstance(payload, dict) and payload.get("engine_name") == "koocore_d":
+            return payload
+    except Exception as e:
+        logger.warning("Failed to load latest engine payload from disk cache: %s", e)
+    return None
+
+
+def _save_latest_to_disk(payload: dict) -> None:
+    """Persist latest payload so all workers serve the same run_date."""
+    try:
+        _LATEST_RESULT_FILE.parent.mkdir(parents=True, exist_ok=True)
+        with _LATEST_RESULT_FILE.open("w", encoding="utf-8") as f:
+            json.dump(payload, f)
+    except Exception as e:
+        logger.warning("Failed to persist latest engine payload to disk cache: %s", e)
 
 
 class EnginePick(BaseModel):
@@ -249,8 +275,13 @@ async def get_engine_results():
     if _latest_result:
         return _latest_result
 
+    # First fallback: worker-shared tmp cache populated by /ingest.
+    disk_payload = _load_latest_from_disk()
+    if disk_payload:
+        _latest_result = disk_payload
+        return _latest_result
+
     # Fallback: try to read from filesystem (local dev)
-    from pathlib import Path
     outputs_dir = Path("outputs")
     if outputs_dir.exists():
         dates = sorted(
@@ -268,6 +299,7 @@ async def get_engine_results():
     gh_result = _load_latest_from_github()
     if gh_result:
         _latest_result = gh_result
+        _save_latest_to_disk(_latest_result)
         return _latest_result
 
     raise HTTPException(404, "No engine results available")
@@ -292,6 +324,7 @@ async def ingest_results(
         payload.run_date,
         payload.pipeline_duration_s,
     )
+    _save_latest_to_disk(_latest_result)
 
     logger.info(
         "Ingested KooCore-D results for %s: %d picks",
