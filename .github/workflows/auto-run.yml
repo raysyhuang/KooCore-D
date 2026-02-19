@@ -93,8 +93,63 @@ jobs:
           fi
           echo "RUN_DATE=${RUN_DATE}" >> "$GITHUB_ENV"
 
-          echo "Pushing ${HYBRID_FILE} to ${KOOCORE_HEROKU_URL} for run_date=${RUN_DATE}"
+          # Pre-ingest data quality guard: block obviously corrupted payloads.
           export HYBRID_FILE RUN_DATE
+          python - <<'PY'
+          import json
+          import os
+          import statistics
+
+          with open(os.environ["HYBRID_FILE"], "r", encoding="utf-8") as f:
+              hybrid = json.load(f)
+
+          summary = hybrid.get("summary", {}) or {}
+          screened = int(
+              (summary.get("weekly_top5_count", 0) or 0)
+              + (summary.get("pro30_candidates_count", 0) or 0)
+              + (summary.get("movers_count", 0) or 0)
+          )
+          if screened <= 0:
+              raise SystemExit("Payload quality check failed: candidates_screened must be > 0")
+
+          top3 = hybrid.get("hybrid_top3", []) or []
+          if not top3:
+              print("Payload quality warning: hybrid_top3 is empty (allowed)")
+          else:
+              duplicate_tuples = {}
+              entries = []
+              for item in top3:
+                  ticker = str(item.get("ticker") or "").upper()
+                  if not ticker:
+                      raise SystemExit("Payload quality check failed: top3 item missing ticker")
+                  entry = float(item.get("current_price") or 0)
+                  if entry <= 0:
+                      raise SystemExit(f"Payload quality check failed: {ticker} has non-positive current_price={entry}")
+                  target = float((item.get("target") or {}).get("target_price_for_10pct") or 0)
+                  if target > 0 and target <= entry:
+                      raise SystemExit(
+                          f"Payload quality check failed: {ticker} target_price_for_10pct={target} <= current_price={entry}"
+                      )
+                  key = (round(entry, 2), round(target, 2))
+                  duplicate_tuples.setdefault(key, []).append(ticker)
+                  entries.append(entry)
+
+              dups = [f"{k}->{v}" for k, v in duplicate_tuples.items() if len(set(v)) > 1]
+              if dups:
+                  raise SystemExit(f"Payload quality check failed: duplicate entry/target tuples across tickers: {dups[:3]}")
+
+              if len(entries) >= 3:
+                  med = statistics.median(entries)
+                  mx = max(entries)
+                  if med > 0 and mx / med > 8 and med < 40:
+                      raise SystemExit(
+                          f"Payload quality check failed: entry price outlier ratio too high (max={mx}, median={med})"
+                      )
+
+          print(f"Payload quality checks passed for run_date={os.environ['RUN_DATE']}, screened={screened}")
+          PY
+
+          echo "Pushing ${HYBRID_FILE} to ${KOOCORE_HEROKU_URL} for run_date=${RUN_DATE}"
           PAYLOAD=$(python - <<'PY'
           import json
           import os
@@ -158,6 +213,23 @@ jobs:
           engine_name = payload.get("engine_name")
           if engine_name != "koocore_d":
               raise SystemExit(f"Unexpected engine_name: {engine_name}")
+
+          screened = int(payload.get("candidates_screened", 0) or 0)
+          if screened <= 0:
+              raise SystemExit(f"Invalid candidates_screened: {screened}")
+
+          picks = payload.get("picks", []) or []
+          duplicate_tuples = {}
+          for p in picks:
+              key = (
+                  round(float(p.get("entry_price") or 0), 2),
+                  round(float(p.get("stop_loss") or 0), 2),
+                  round(float(p.get("target_price") or 0), 2),
+              )
+              duplicate_tuples.setdefault(key, []).append(str(p.get("ticker") or ""))
+          dups = [f"{k}->{v}" for k, v in duplicate_tuples.items() if len(set(v)) > 1 and k[0] > 0]
+          if dups:
+              raise SystemExit(f"Freshness/quality check failed: duplicate risk tuples across tickers: {dups[:3]}")
 
           print(f"Freshness check passed: engine={engine_name}, run_date={actual}")
           PY
