@@ -125,12 +125,25 @@ jobs:
                   entry = float(item.get("current_price") or 0)
                   if entry <= 0:
                       raise SystemExit(f"Payload quality check failed: {ticker} has non-positive current_price={entry}")
+                  stop = float((item.get("stop") or {}).get("stop_price_for_3pct") or 0)
+                  if stop <= 0:
+                      raise SystemExit(
+                          f"Payload quality check failed: {ticker} missing/invalid stop_price_for_3pct={stop}"
+                      )
+                  if stop >= entry:
+                      raise SystemExit(
+                          f"Payload quality check failed: {ticker} stop_price_for_3pct={stop} >= current_price={entry}"
+                      )
                   target = float((item.get("target") or {}).get("target_price_for_10pct") or 0)
-                  if target > 0 and target <= entry:
+                  if target <= 0:
+                      raise SystemExit(
+                          f"Payload quality check failed: {ticker} missing/invalid target_price_for_10pct={target}"
+                      )
+                  if target <= entry:
                       raise SystemExit(
                           f"Payload quality check failed: {ticker} target_price_for_10pct={target} <= current_price={entry}"
                       )
-                  key = (round(entry, 2), round(target, 2))
+                  key = (round(entry, 2), round(stop, 2), round(target, 2))
                   duplicate_tuples.setdefault(key, []).append(ticker)
                   entries.append(entry)
 
@@ -221,13 +234,23 @@ jobs:
           picks = payload.get("picks", []) or []
           duplicate_tuples = {}
           for p in picks:
-              key = (
-                  round(float(p.get("entry_price") or 0), 2),
-                  round(float(p.get("stop_loss") or 0), 2),
-                  round(float(p.get("target_price") or 0), 2),
-              )
+              ticker = str(p.get("ticker") or "")
+              entry = float(p.get("entry_price") or 0)
+              stop = float(p.get("stop_loss") or 0)
+              target = float(p.get("target_price") or 0)
+              if entry <= 0 or stop <= 0 or target <= 0:
+                  raise SystemExit(
+                      f"Freshness/quality check failed: {ticker} has non-positive risk fields "
+                      f"(entry={entry}, stop={stop}, target={target})"
+                  )
+              if not (stop < entry < target):
+                  raise SystemExit(
+                      f"Freshness/quality check failed: {ticker} invalid ordering "
+                      f"(stop={stop}, entry={entry}, target={target})"
+                  )
+              key = (round(entry, 2), round(stop, 2), round(target, 2))
               duplicate_tuples.setdefault(key, []).append(str(p.get("ticker") or ""))
-          dups = [f"{k}->{v}" for k, v in duplicate_tuples.items() if len(set(v)) > 1 and k[0] > 0]
+          dups = [f"{k}->{v}" for k, v in duplicate_tuples.items() if len(set(v)) > 1]
           if dups:
               raise SystemExit(f"Freshness/quality check failed: duplicate risk tuples across tickers: {dups[:3]}")
 
