@@ -272,13 +272,15 @@ async def get_engine_results():
     """Return latest engine results in standardized format."""
     global _latest_result
 
-    if _latest_result:
-        return _latest_result
-
     # First fallback: worker-shared tmp cache populated by /ingest.
+    # Always check disk before in-memory cache so requests served by a
+    # different worker process can still observe the latest ingested run.
     disk_payload = _load_latest_from_disk()
     if disk_payload:
         _latest_result = disk_payload
+        return _latest_result
+
+    if _latest_result:
         return _latest_result
 
     # Fallback: try to read from filesystem (local dev)
