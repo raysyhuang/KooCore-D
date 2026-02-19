@@ -91,6 +91,7 @@ jobs:
             echo "ERROR: Could not derive run_date from ${HYBRID_FILE}"
             exit 1
           fi
+          echo "RUN_DATE=${RUN_DATE}" >> "$GITHUB_ENV"
 
           echo "Pushing ${HYBRID_FILE} to ${KOOCORE_HEROKU_URL} for run_date=${RUN_DATE}"
           export HYBRID_FILE RUN_DATE
@@ -124,6 +125,42 @@ jobs:
             echo "ERROR: Ingest failed"
             exit 1
           fi
+
+      - name: Verify Heroku results freshness
+        if: success()
+        env:
+          KOOCORE_HEROKU_URL: ${{ secrets.KOOCORE_HEROKU_URL }}
+        run: |
+          if [ -z "${RUN_DATE}" ]; then
+            echo "ERROR: RUN_DATE not set"
+            exit 1
+          fi
+
+          HTTP_CODE=$(curl -sS -o /tmp/results_response.json -w "%{http_code}" "${KOOCORE_HEROKU_URL}/api/engine/results" --max-time 30)
+          echo "Results endpoint HTTP ${HTTP_CODE}: $(cat /tmp/results_response.json)"
+          if [ "${HTTP_CODE}" -lt 200 ] || [ "${HTTP_CODE}" -ge 300 ]; then
+            echo "ERROR: results endpoint failed"
+            exit 1
+          fi
+
+          python - <<'PY'
+          import json
+          import os
+
+          expected = os.environ["RUN_DATE"]
+          with open("/tmp/results_response.json", "r", encoding="utf-8") as f:
+              payload = json.load(f)
+
+          actual = payload.get("run_date")
+          if actual != expected:
+              raise SystemExit(f"Freshness check failed: expected run_date={expected}, got {actual}")
+
+          engine_name = payload.get("engine_name")
+          if engine_name != "koocore_d":
+              raise SystemExit(f"Unexpected engine_name: {engine_name}")
+
+          print(f"Freshness check passed: engine={engine_name}, run_date={actual}")
+          PY
 
       - name: Commit outputs to repo
         if: success()
