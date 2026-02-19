@@ -696,10 +696,19 @@ def cmd_all(args) -> int:
     for pick in weighted_picks[:3]:
         ticker = pick["ticker"]
         packet_item = primary_packet_lookup.get(str(ticker).upper(), {})
+        sources = pick.get("sources", [])
+        src_lower = {str(s).lower() for s in sources}
+        if "pro30" in src_lower:
+            risk_pct, reward_pct = 0.08, 0.18
+        elif "movers" in src_lower:
+            risk_pct, reward_pct = 0.04, 0.08
+        else:
+            risk_pct, reward_pct = 0.05, 0.10
+
         hybrid_entry = {
             "ticker": ticker,
             "hybrid_score": pick["hybrid_score"],
-            "sources": pick["sources"],
+            "sources": sources,
             "rank": weighted_picks.index(pick) + 1,
         }
         
@@ -724,7 +733,14 @@ def cmd_all(args) -> int:
                 target = {}
             target_10 = float(target.get("target_price_for_10pct") or 0)
             if current_price > 0 and (target_10 <= current_price or target_10 > current_price * 2.5):
-                target = {"target_price_for_10pct": round(current_price * 1.10, 2)}
+                target = {"target_price_for_10pct": round(current_price * (1 + reward_pct), 2)}
+
+            stop = primary_item.get("stop", {})
+            if not isinstance(stop, dict):
+                stop = {}
+            stop_3 = float(stop.get("stop_price_for_3pct") or 0)
+            if current_price > 0 and (stop_3 <= 0 or stop_3 >= current_price):
+                stop = {"stop_price_for_3pct": round(current_price * (1 - risk_pct), 2)}
 
             # Copy relevant fields from primary packet
             hybrid_entry.update({
@@ -737,17 +753,21 @@ def cmd_all(args) -> int:
                 "scores": primary_item.get("scores", {}),
                 "evidence": primary_item.get("evidence", {}),
                 "target": target,
+                "stop": stop,
                 "risk_factors": primary_item.get("risk_factors", []),
                 "data_gaps": primary_item.get("data_gaps", []),
             })
         else:
             # For Pro30/Movers only picks, get basic info from packets if available
+            fallback_price = float(pick.get("current_price") or 0)
             hybrid_entry.update({
                 "name": "",
                 "sector": "",
-                "current_price": float(pick.get("current_price") or 0),
+                "current_price": fallback_price,
                 "composite_score": pick["hybrid_score"],  # Use hybrid score
-                "confidence": "MEDIUM" if "Pro30" in pick["sources"] else "SPECULATIVE",
+                "confidence": "MEDIUM" if "Pro30" in sources else "SPECULATIVE",
+                "target": {"target_price_for_10pct": round(fallback_price * (1 + reward_pct), 2)} if fallback_price > 0 else {},
+                "stop": {"stop_price_for_3pct": round(fallback_price * (1 - risk_pct), 2)} if fallback_price > 0 else {},
             })
         
         hybrid_top3.append(hybrid_entry)
