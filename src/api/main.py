@@ -360,6 +360,10 @@ if FASTAPI_AVAILABLE:
                 "overlaps": hybrid.get("overlaps", {}),
             }
         
+        # Register engine endpoint for cross-engine integration
+        from src.api.engine_endpoint import router as engine_router
+        app.include_router(engine_router)
+
         @app.get("/tickers/{ticker}")
         async def get_ticker_history(
             ticker: str,
@@ -435,11 +439,15 @@ if FASTAPI_AVAILABLE:
             reload=reload,
         )
 
+    # Module-level app instance for Heroku / uvicorn deployment
+    app = create_app(cors_origins=["*"])
+
 else:
     # Stub implementations when FastAPI is not available
-    
+    app = None
+
     def create_app(*args, **kwargs):
         raise ImportError("FastAPI not installed. Install with: pip install fastapi uvicorn")
-    
+
     def run_server(*args, **kwargs):
         raise ImportError("FastAPI not installed. Install with: pip install uvicorn")
