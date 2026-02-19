@@ -26,6 +26,84 @@ _cache = {
     'ttl': 300  # 5 minutes
 }
 
+# In-memory latest standardized engine result for cross-engine collection
+_engine_result_cache = {
+    'data': None,
+    'timestamp': None,
+}
+
+
+def _map_hybrid_to_engine_payload(hybrid: dict, run_date: str, duration: float | None = None) -> dict:
+    """Map KooCore hybrid_analysis payload to standardized engine contract."""
+    picks = []
+    hybrid_top3 = hybrid.get("hybrid_top3", [])
+    weighted_picks = hybrid.get("weighted_picks", [])
+
+    for item in hybrid_top3:
+        composite_score = item.get("composite_score") or item.get("hybrid_score", 0)
+        confidence = max(0.0, min(float(composite_score) * 10.0, 100.0))
+        picks.append({
+            "ticker": item.get("ticker", ""),
+            "strategy": "hybrid",
+            "entry_price": float(item.get("current_price") or 0),
+            "stop_loss": None,
+            "target_price": (item.get("target") or {}).get("target_price_for_10pct"),
+            "confidence": round(confidence, 1),
+            "holding_period_days": 14,
+            "thesis": item.get("verdict") or item.get("confidence"),
+            "risk_factors": [],
+            "raw_score": composite_score,
+            "metadata": {
+                "sources": item.get("sources", []),
+                "rank": item.get("rank"),
+            },
+        })
+
+    seen = {p["ticker"] for p in picks}
+    for item in weighted_picks:
+        ticker = item.get("ticker", "")
+        if not ticker or ticker in seen:
+            continue
+        score = float(item.get("hybrid_score") or 0)
+        if score < 3.0:
+            break
+        confidence = max(0.0, min(score * 10.0, 100.0))
+        picks.append({
+            "ticker": ticker,
+            "strategy": "hybrid_weighted",
+            "entry_price": float(item.get("current_price") or 0),
+            "stop_loss": None,
+            "target_price": None,
+            "confidence": round(confidence, 1),
+            "holding_period_days": 14,
+            "thesis": None,
+            "risk_factors": [],
+            "raw_score": score,
+            "metadata": {"sources": item.get("sources", [])},
+        })
+        seen.add(ticker)
+        if len(picks) >= 10:
+            break
+
+    summary = hybrid.get("summary", {})
+    screened = (
+        int(summary.get("weekly_top5_count", 0))
+        + int(summary.get("pro30_candidates_count", 0))
+        + int(summary.get("movers_count", 0))
+    )
+
+    return {
+        "engine_name": "koocore_d",
+        "engine_version": "2.0",
+        "run_date": run_date,
+        "run_timestamp": datetime.utcnow().isoformat(),
+        "regime": None,
+        "picks": picks,
+        "candidates_screened": screened,
+        "pipeline_duration_s": duration,
+        "status": "success",
+    }
+
 def _gh_headers():
     """Get GitHub API headers with authentication."""
     hdr = {
@@ -201,6 +279,44 @@ def api_prices():
         
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+
+@app.route('/api/engine/ingest', methods=['POST'])
+def api_engine_ingest():
+    """Receive standardized ingestion payload from GitHub Actions."""
+    expected_key = os.getenv("ENGINE_API_KEY", "").strip()
+    if not expected_key:
+        return jsonify({"error": "ENGINE_API_KEY not configured"}), 503
+
+    provided_key = request.headers.get("X-Engine-Key", "")
+    if provided_key != expected_key:
+        return jsonify({"error": "Invalid API key"}), 403
+
+    payload = request.get_json(silent=True) or {}
+    hybrid = payload.get("hybrid_analysis")
+    run_date = payload.get("run_date")
+    duration = payload.get("pipeline_duration_s")
+
+    if not isinstance(hybrid, dict) or not run_date:
+        return jsonify({"error": "Invalid payload"}), 400
+
+    _engine_result_cache["data"] = _map_hybrid_to_engine_payload(hybrid, str(run_date), duration)
+    _engine_result_cache["timestamp"] = datetime.utcnow().isoformat()
+
+    return jsonify({
+        "status": "ok",
+        "picks_count": len(_engine_result_cache["data"].get("picks", [])),
+    })
+
+
+@app.route('/api/engine/results', methods=['GET'])
+@app.route('/api/engine/results/latest', methods=['GET'])
+def api_engine_results():
+    """Serve latest standardized engine result for external collection."""
+    data = _engine_result_cache.get("data")
+    if not data:
+        return jsonify({"error": "No engine results available"}), 404
+    return jsonify(data)
 
 @app.route('/<path:path>')
 def serve_static(path):
