@@ -97,6 +97,27 @@ def _risk_profile_from_sources(sources: list[str]) -> tuple[float, float, str]:
     return 0.05, 0.10, "swing"
 
 
+def _build_scores_metadata(item: dict, fallback_score: float) -> dict:
+    """Build non-empty score metadata for downstream quality checks."""
+    raw_scores = item.get("scores")
+    if isinstance(raw_scores, dict) and raw_scores:
+        return raw_scores
+
+    scores: dict[str, float] = {}
+    for key in ("hybrid_score", "composite_score", "weekly_score", "pro30_score", "movers_score"):
+        value = item.get(key)
+        if value is None:
+            continue
+        try:
+            scores[key] = float(value)
+        except (TypeError, ValueError):
+            continue
+
+    if not scores:
+        scores["hybrid_score"] = float(fallback_score)
+    return scores
+
+
 def _map_hybrid_to_payload(hybrid: dict, run_date: str, duration: float | None = None) -> dict:
     """Convert KooCore-D hybrid_analysis JSON to EngineResultPayload format."""
     picks = []
@@ -138,7 +159,7 @@ def _map_hybrid_to_payload(hybrid: dict, run_date: str, duration: float | None =
             "metadata": {
                 "sources": sources,
                 "rank": item.get("rank"),
-                "scores": item.get("scores", {}),
+                "scores": _build_scores_metadata(item, composite_score),
             },
         })
 
@@ -168,7 +189,10 @@ def _map_hybrid_to_payload(hybrid: dict, run_date: str, duration: float | None =
             "thesis": None,
             "risk_factors": [],
             "raw_score": composite_score,
-            "metadata": {"sources": sources},
+            "metadata": {
+                "sources": sources,
+                "scores": _build_scores_metadata(item, composite_score),
+            },
         })
         if len(picks) >= 10:
             break
