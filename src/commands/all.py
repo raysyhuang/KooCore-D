@@ -320,6 +320,7 @@ def cmd_all(args) -> int:
     # Step 5: LLM Ranking & Hybrid Analysis (with optional Bull/Bear Debate)
     logger.info("\n[5/7] LLM Ranking & Hybrid Analysis...")
     debate_analysis = {}  # Store debate results for later use
+    primary_packet_lookup = {}  # ticker -> source packet with deterministic fields
     try:
         # Load primary packets (configurable; fallback to other source)
         use_swing_primary = bool(config.get("swing_strategy", {}).get("use_as_primary", True))
@@ -349,6 +350,11 @@ def cmd_all(args) -> int:
                 packets = packets_data.get("packets", [])
             
             if packets:
+                primary_packet_lookup = {
+                    str(p.get("ticker", "")).upper(): p
+                    for p in packets
+                    if isinstance(p, dict) and p.get("ticker")
+                }
                 # Rank candidates
                 model = args.model or "gpt-5.2"
                 
@@ -562,11 +568,22 @@ def cmd_all(args) -> int:
         # Primary Top 5 contribution (Swing preferred)
         if ticker in primary_top5_tickers:
             primary_item = next((x for x in results.get("llm_primary_top5", []) if x.get("ticker") == ticker), None)
+            packet_item = primary_packet_lookup.get(str(ticker).upper(), {})
             if primary_item:
                 try:
-                    primary_price = float(primary_item.get("current_price") or 0)
+                    packet_price = float(packet_item.get("current_price") or 0)
+                    llm_price = float(primary_item.get("current_price") or 0)
+                    primary_price = packet_price if packet_price > 0 else llm_price
                     if primary_price > 0:
                         candidate_price = primary_price
+                    if packet_price > 0 and llm_price > 0:
+                        ratio = max(packet_price, llm_price) / max(min(packet_price, llm_price), 1e-9)
+                        if ratio > 3:
+                            logger.warning(
+                                "Price mismatch for %s in primary ranking: packet=%.2f llm=%.2f. "
+                                "Using packet price.",
+                                ticker, packet_price, llm_price,
+                            )
                 except (TypeError, ValueError):
                     pass
             hw = config.get("hybrid_weighting", {})
@@ -657,6 +674,7 @@ def cmd_all(args) -> int:
     hybrid_top3 = []
     for pick in weighted_picks[:3]:
         ticker = pick["ticker"]
+        packet_item = primary_packet_lookup.get(str(ticker).upper(), {})
         hybrid_entry = {
             "ticker": ticker,
             "hybrid_score": pick["hybrid_score"],
@@ -667,17 +685,37 @@ def cmd_all(args) -> int:
         # Try to get detailed info from weekly or pro30 data
         primary_item = next((x for x in results.get("llm_primary_top5", []) if x.get("ticker") == ticker), None)
         if primary_item:
+            packet_price = float(packet_item.get("current_price") or 0)
+            pick_price = float(pick.get("current_price") or 0)
+            llm_price = float(primary_item.get("current_price") or 0)
+            current_price = packet_price if packet_price > 0 else (pick_price if pick_price > 0 else llm_price)
+
+            if packet_price > 0 and llm_price > 0:
+                ratio = max(packet_price, llm_price) / max(min(packet_price, llm_price), 1e-9)
+                if ratio > 3:
+                    logger.warning(
+                        "Hybrid export price mismatch for %s: packet=%.2f llm=%.2f. Using packet price.",
+                        ticker, packet_price, llm_price,
+                    )
+
+            target = primary_item.get("target", {})
+            if not isinstance(target, dict):
+                target = {}
+            target_10 = float(target.get("target_price_for_10pct") or 0)
+            if current_price > 0 and (target_10 <= current_price or target_10 > current_price * 2.5):
+                target = {"target_price_for_10pct": round(current_price * 1.10, 2)}
+
             # Copy relevant fields from primary packet
             hybrid_entry.update({
                 "name": primary_item.get("name", ""),
                 "sector": primary_item.get("sector", ""),
-                "current_price": float(primary_item.get("current_price") or pick.get("current_price") or 0),
+                "current_price": current_price,
                 "composite_score": primary_item.get("composite_score", 0),
                 "confidence": primary_item.get("confidence", "SPECULATIVE"),
                 "primary_catalyst": primary_item.get("primary_catalyst", {}),
                 "scores": primary_item.get("scores", {}),
                 "evidence": primary_item.get("evidence", {}),
-                "target": primary_item.get("target", {}),
+                "target": target,
                 "risk_factors": primary_item.get("risk_factors", []),
                 "data_gaps": primary_item.get("data_gaps", []),
             })
@@ -1445,5 +1483,4 @@ def _append_model_history(
     # Append to file
     with open(history_path, "a", encoding="utf-8") as f:
         f.write("\n".join(lines))
-
 
