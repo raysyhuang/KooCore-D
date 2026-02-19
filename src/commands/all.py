@@ -446,6 +446,27 @@ def cmd_all(args) -> int:
         try:
             pro30_df = pd.read_csv(results["pro30"]["candidates_csv"])
             if not pro30_df.empty and "Ticker" in pro30_df.columns:
+                # Data-integrity guard: remove duplicated feature signatures that
+                # indicate copied OHLCV rows mapped to different tickers.
+                signature_cols = [
+                    c for c in [
+                        "Last", "RVOL", "ATR%", "RSI14", "Dist_to_52W_High%",
+                        "$ADV20", "MA20", "MA50", "Ret20d%", "Ret5d%", "Setup", "Score",
+                    ]
+                    if c in pro30_df.columns
+                ]
+                if signature_cols:
+                    dupe_mask = pro30_df.duplicated(subset=signature_cols, keep="first")
+                    dupe_count = int(dupe_mask.sum())
+                    if dupe_count > 0:
+                        dropped = pro30_df.loc[dupe_mask, "Ticker"].astype(str).tolist()
+                        logger.warning(
+                            "Pro30 integrity: dropping %d duplicated feature rows (tickers=%s)",
+                            dupe_count,
+                            dropped[:10],
+                        )
+                        pro30_df = pro30_df.loc[~dupe_mask].reset_index(drop=True)
+
                 # Validate required columns for deterministic ranking
                 REQUIRED_PRO30_COLS = {"Ticker", "Score", "$ADV20", "RSI14"}
                 missing = REQUIRED_PRO30_COLS - set(pro30_df.columns)
@@ -1483,4 +1504,3 @@ def _append_model_history(
     # Append to file
     with open(history_path, "a", encoding="utf-8") as f:
         f.write("\n".join(lines))
-
