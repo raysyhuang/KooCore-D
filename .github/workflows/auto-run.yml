@@ -173,9 +173,29 @@ jobs:
           else
             DATE=$(date -u +%Y-%m-%d)
             git commit -m "auto: outputs for ${DATE}"
-            # Keep workflow green even if origin moved (another run pushed first).
-            if ! git push origin HEAD:main; then
-              echo "WARN: output push failed due to race/non-fast-forward (non-fatal)"
+            ATTEMPTS=3
+            PUSHED=0
+            for i in $(seq 1 ${ATTEMPTS}); do
+              if git push origin HEAD:main; then
+                PUSHED=1
+                echo "Outputs push succeeded on attempt ${i}/${ATTEMPTS}"
+                break
+              fi
+
+              if [ "${i}" -lt "${ATTEMPTS}" ]; then
+                echo "Push attempt ${i}/${ATTEMPTS} failed; rebasing on origin/main and retrying..."
+                git fetch origin main
+                if ! git rebase origin/main; then
+                  echo "ERROR: Rebase failed while retrying outputs push"
+                  git rebase --abort || true
+                  exit 1
+                fi
+              fi
+            done
+
+            if [ "${PUSHED}" -ne 1 ]; then
+              echo "ERROR: Failed to push outputs after ${ATTEMPTS} attempts"
+              exit 1
             fi
           fi
 
