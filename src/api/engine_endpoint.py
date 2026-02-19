@@ -7,13 +7,17 @@ and /api/engine/results serves the latest stored results from memory.
 
 from __future__ import annotations
 
+import base64
 import json
 import logging
+import os
+import re
 from datetime import datetime, date
 from typing import Optional
 
 from fastapi import APIRouter, HTTPException, Header
 from pydantic import BaseModel
+import requests
 
 logger = logging.getLogger(__name__)
 
@@ -21,6 +25,7 @@ router = APIRouter(prefix="/api/engine", tags=["engine"])
 
 # In-memory store for latest results (Heroku ephemeral filesystem)
 _latest_result: dict | None = None
+_DATE_DIR_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 
 class EnginePick(BaseModel):
@@ -138,9 +143,57 @@ def _map_hybrid_to_payload(hybrid: dict, run_date: str, duration: float | None =
     }
 
 
+def _load_latest_from_github() -> dict | None:
+    """Fetch latest hybrid analysis from GitHub outputs directory."""
+    repo = os.environ.get("ENGINE_OUTPUTS_REPO", "raysyhuang/KooCore-D")
+    token = os.environ.get("GITHUB_TOKEN")
+    headers = {"Accept": "application/vnd.github+json"}
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+
+    try:
+        # List output date folders.
+        resp = requests.get(
+            f"https://api.github.com/repos/{repo}/contents/outputs",
+            headers=headers,
+            timeout=10,
+        )
+        resp.raise_for_status()
+        items = resp.json()
+        date_dirs = sorted(
+            [
+                i.get("name", "")
+                for i in items
+                if i.get("type") == "dir" and _DATE_DIR_RE.match(i.get("name", ""))
+            ],
+            reverse=True,
+        )
+        if not date_dirs:
+            return None
+
+        run_date = date_dirs[0]
+        file_resp = requests.get(
+            f"https://api.github.com/repos/{repo}/contents/outputs/{run_date}/hybrid_analysis_{run_date}.json",
+            headers=headers,
+            timeout=10,
+        )
+        file_resp.raise_for_status()
+        payload = file_resp.json()
+        encoded = payload.get("content")
+        if not encoded:
+            return None
+        hybrid = json.loads(base64.b64decode(encoded).decode("utf-8"))
+        return _map_hybrid_to_payload(hybrid, run_date)
+    except Exception as e:
+        logger.warning("GitHub fallback failed: %s", e)
+        return None
+
+
 @router.get("/results")
 async def get_engine_results():
     """Return latest engine results in standardized format."""
+    global _latest_result
+
     if _latest_result:
         return _latest_result
 
@@ -158,6 +211,12 @@ async def get_engine_results():
                 with open(hybrid_path) as f:
                     hybrid = json.load(f)
                 return _map_hybrid_to_payload(hybrid, date_str)
+
+    # Last resort: fetch latest committed outputs from GitHub.
+    gh_result = _load_latest_from_github()
+    if gh_result:
+        _latest_result = gh_result
+        return _latest_result
 
     raise HTTPException(404, "No engine results available")
 
