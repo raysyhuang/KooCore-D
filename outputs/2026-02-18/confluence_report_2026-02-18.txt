@@ -7,13 +7,7 @@ Higher signal count = Higher probability of success.
 
 ----------------------------------------------------------------------
 
-1. FIGS - Score: 7.5/10 🔥
-   Signals: 2 | Conviction: HIGH
-   Thesis: Multi-factor alignment (2 signals)
-   Notes: Setup: Breakout
-   Sources: pro30, weekly
-
-2. BATRK - Score: 7.5/10 🔥
+1. LUNR - Score: 9.0/10 🔥
    Signals: 2 | Conviction: HIGH
    Thesis: Multi-factor alignment (2 signals)
    Notes: Setup: Breakout
