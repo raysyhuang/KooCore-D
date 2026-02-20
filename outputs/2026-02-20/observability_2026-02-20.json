@@ -1,0 +1,103 @@
+{
+  "date": "2026-02-20",
+  "asof_trading_date": "2026-02-20",
+  "technical_score_distribution": {
+    "pro30": {
+      "count": 4,
+      "count_gte_6": 4,
+      "count_gte_8": 4,
+      "min": 19.27,
+      "p25": 20.69,
+      "median": 22.46,
+      "p75": 24.14,
+      "max": 25.29
+    },
+    "weekly": {
+      "count": 2,
+      "count_gte_6": 2,
+      "count_gte_8": 2,
+      "min": 8.25,
+      "p25": 8.3,
+      "median": 8.35,
+      "p75": 8.4,
+      "max": 8.45
+    }
+  },
+  "overlap_stats": {
+    "weekly_only": 2,
+    "pro30_only": 4,
+    "movers_only": 0,
+    "weekly_pro30": 0,
+    "weekly_movers": 0,
+    "pro30_movers": 0,
+    "all_three": 0,
+    "any_overlap_count": 0,
+    "overlap_potential": {
+      "weekly_candidates": 2,
+      "pro30_candidates": 4,
+      "movers_candidates": 0,
+      "intersection_possible": true
+    }
+  },
+  "confidence_distribution": {
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 6
+  },
+  "confidence_rates": {
+    "high_pct": 0.0,
+    "medium_pct": 0.0,
+    "low_pct": 100.0
+  },
+  "near_misses": [
+    {
+      "ticker": "RXT",
+      "conviction_score": 6.2,
+      "sources": [
+        "pro30"
+      ],
+      "missing": "needs overlap or tech>=6"
+    },
+    {
+      "ticker": "LPG",
+      "conviction_score": 6.2,
+      "sources": [
+        "pro30"
+      ],
+      "missing": "needs overlap or tech>=6"
+    },
+    {
+      "ticker": "WKC",
+      "conviction_score": 6.2,
+      "sources": [
+        "pro30"
+      ],
+      "missing": "needs overlap or tech>=6"
+    },
+    {
+      "ticker": "BUSE",
+      "conviction_score": 6.2,
+      "sources": [
+        "pro30"
+      ],
+      "missing": "needs overlap or tech>=6"
+    },
+    {
+      "ticker": "AVDL",
+      "conviction_score": 6.06,
+      "sources": [
+        "weekly_top5"
+      ],
+      "missing": "needs overlap or tech>=6"
+    }
+  ],
+  "model_maturity": {
+    "observations": 0,
+    "min_required": 50,
+    "pct_complete": 0.0,
+    "observations_remaining": 50,
+    "version": 1,
+    "last_trained": null
+  },
+  "regime": "chop"
+}

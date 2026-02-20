@@ -1,0 +1,374 @@
+{
+  "date": "2026-02-20",
+  "asof_trading_date": "2026-02-20",
+  "summary": {
+    "primary_top5_count": 2,
+    "weekly_top5_count": 2,
+    "pro30_candidates_count": 4,
+    "movers_count": 0,
+    "hybrid_top3_count": 3
+  },
+  "overlaps": {
+    "all_three": [],
+    "primary_pro30": [],
+    "primary_movers": [],
+    "pro30_movers": [],
+    "weekly_pro30": [],
+    "weekly_movers": []
+  },
+  "hybrid_top3": [
+    {
+      "ticker": "BUSE",
+      "hybrid_score": 3.0,
+      "sources": [
+        "Pro30(r1)"
+      ],
+      "rank": 1,
+      "name": "",
+      "sector": "",
+      "current_price": 50.07,
+      "composite_score": 3.0,
+      "confidence": "SPECULATIVE",
+      "target": {
+        "target_price_for_10pct": 55.08
+      },
+      "stop": {
+        "stop_price_for_3pct": 47.57
+      }
+    },
+    {
+      "ticker": "RXT",
+      "hybrid_score": 2.95,
+      "sources": [
+        "Pro30(r2)"
+      ],
+      "rank": 2,
+      "name": "",
+      "sector": "",
+      "current_price": 83.26,
+      "composite_score": 2.95,
+      "confidence": "SPECULATIVE",
+      "target": {
+        "target_price_for_10pct": 91.59
+      },
+      "stop": {
+        "stop_price_for_3pct": 79.1
+      }
+    },
+    {
+      "ticker": "WKC",
+      "hybrid_score": 2.9,
+      "sources": [
+        "Pro30(r3)"
+      ],
+      "rank": 3,
+      "name": "",
+      "sector": "",
+      "current_price": 36.48,
+      "composite_score": 2.9,
+      "confidence": "SPECULATIVE",
+      "target": {
+        "target_price_for_10pct": 40.13
+      },
+      "stop": {
+        "stop_price_for_3pct": 34.66
+      }
+    }
+  ],
+  "weighted_picks": [
+    {
+      "ticker": "BUSE",
+      "hybrid_score": 3.0,
+      "sources": [
+        "Pro30(r1)"
+      ],
+      "current_price": 50.07,
+      "in_all_three": false,
+      "in_primary_pro30": false
+    },
+    {
+      "ticker": "RXT",
+      "hybrid_score": 2.95,
+      "sources": [
+        "Pro30(r2)"
+      ],
+      "current_price": 83.26,
+      "in_all_three": false,
+      "in_primary_pro30": false
+    },
+    {
+      "ticker": "WKC",
+      "hybrid_score": 2.9,
+      "sources": [
+        "Pro30(r3)"
+      ],
+      "current_price": 36.48,
+      "in_all_three": false,
+      "in_primary_pro30": false
+    },
+    {
+      "ticker": "LPG",
+      "hybrid_score": 2.85,
+      "sources": [
+        "Pro30(r4)"
+      ],
+      "current_price": 46.31,
+      "in_all_three": false,
+      "in_primary_pro30": false
+    },
+    {
+      "ticker": "AVDL",
+      "hybrid_score": 1.6,
+      "sources": [
+        "Weekly(1)"
+      ],
+      "current_price": 99.54,
+      "in_all_three": false,
+      "in_primary_pro30": false
+    },
+    {
+      "ticker": "IBRX",
+      "hybrid_score": 1.1,
+      "sources": [
+        "Weekly(2)"
+      ],
+      "current_price": 685.94,
+      "in_all_three": false,
+      "in_primary_pro30": false
+    }
+  ],
+  "weighting_note": "Primary=Weekly, Pro30, Movers, overlaps (configurable)",
+  "primary_label": "Weekly",
+  "primary_top5": [
+    {
+      "rank": 1,
+      "ticker": "AVDL",
+      "name": "Avadel Pharmaceuticals PLC",
+      "exchange": "NGM",
+      "sector": "Healthcare",
+      "current_price": 99.54000091552734,
+      "market_cap_usd": 2123997824,
+      "avg_dollar_volume_20d": 89436488.13842125,
+      "asof_price_utc": "2026-02-20T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 109.49400100708009,
+        "base_case_upside_pct_range": [
+          10,
+          18
+        ],
+        "bear_case_note": "Momentum fails if price loses short-term trend (below clustered MAs) and options activity mean-reverts without follow-through volume."
+      },
+      "primary_catalyst": {
+        "title": "No verified dated catalyst in packet (catalyst score capped)",
+        "key_date_local": null,
+        "timing": null,
+        "why_it_matters": "No headlines/catalyst_sources provided in the packet to verify a scheduled or breaking catalyst within the next 7 trading days.",
+        "sources": []
+      },
+      "scores": {
+        "technical": 8.45,
+        "catalyst": 4,
+        "options": 10,
+        "sentiment": 3
+      },
+      "composite_score": 5.262499999999999,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": false,
+          "resistance_level": 107.19,
+          "volume_ratio_3d_to_20d": 1.68,
+          "rsi14": 50.6,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 84.78
+        },
+        "options": {
+          "call_put_ratio": 53.3756157635468,
+          "unusual_volume_multiple": 3.42,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": [
+            {
+              "type": "call",
+              "strike": 15.0,
+              "expiration": "2026-02-20",
+              "volume": 13701,
+              "open_interest": 4,
+              "iv": 1.0000000000000003e-05
+            },
+            {
+              "type": "call",
+              "strike": 20.0,
+              "expiration": "2026-03-20",
+              "volume": 12093,
+              "open_interest": 725,
+              "iv": 1.0000000000000003e-05
+            }
+          ]
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": null
+        }
+      },
+      "risk_factors": [
+        "Biotech/pharma names can gap on unmodeled clinical/regulatory headlines; no catalyst verification available in packet.",
+        "Options prints show extreme call/put and near-term volume; some contract IV fields look anomalous (very low), raising data-quality risk."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Catalyst/news: headlines and catalyst_sources empty; cannot verify any catalyst within 7 trading days (catalyst capped at 4).",
+        "Sentiment: sentiment_data_available=false; score capped at 3 per packet.",
+        "Exclusion check: last-5-trading-days % move not provided; cannot enforce >15% run-up exclusion."
+      ],
+      "original_score": 6.3625,
+      "debate_verdict": "HOLD",
+      "debate_reasoning": "The bull case has the stronger near-term trading evidence via extreme call-skew and elevated volatility, but it lacks confirmation from price action (no 20-day breakout; neutral RSI; price only marginally above key MAs). With catalyst visibility low, the same volatility/positioning that could fuel a fast upside move also raises the odds of a sharp reversal if the stock stalls, making the 7-day +10% outcome insufficiently advantaged on a probability-weighted basis.",
+      "debate_bull_score": 7.2,
+      "debate_bear_score": 6.6,
+      "key_risks_from_debate": [
+        "Crowded call-heavy options positioning (very high call/put) could unwind quickly if price fails to break resistance, amplifying downside",
+        "No confirmed breakout and neutral momentum increase mean-reversion risk; high realized/IV implies a -5% to -10% move is plausible without a catalyst"
+      ],
+      "key_catalysts_from_debate": [
+        "Technical retest/clear of the ~107 prior channel high (a ~1.5 ATR move) could trigger momentum buying and dealer hedging dynamics",
+        "Sustained unusual options activity into/through near-dated expiries could create a short-term gamma-driven push if spot starts trending up"
+      ]
+    },
+    {
+      "rank": 2,
+      "ticker": "IBRX",
+      "name": "ImmunityBio, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Healthcare",
+      "current_price": 685.9400024414062,
+      "market_cap_usd": 8569197056,
+      "avg_dollar_volume_20d": 344241627.8978058,
+      "asof_price_utc": "2026-02-20T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 754.5340026855469,
+        "base_case_upside_pct_range": [
+          10,
+          20
+        ],
+        "bear_case_note": "Invalidation if price rolls over below short-term MAs and options call demand fades without spot follow-through."
+      },
+      "primary_catalyst": {
+        "title": "No verified dated catalyst in packet (catalyst score capped)",
+        "key_date_local": null,
+        "timing": null,
+        "why_it_matters": "No headlines/catalyst_sources provided in the packet to verify a scheduled or breaking catalyst within the next 7 trading days.",
+        "sources": []
+      },
+      "scores": {
+        "technical": 8.25,
+        "catalyst": 4,
+        "options": 6,
+        "sentiment": 4
+      },
+      "composite_score": 4.5625,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": true,
+          "resistance_level": 710.97,
+          "volume_ratio_3d_to_20d": 1.16,
+          "rsi14": 60.31,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 31.27
+        },
+        "options": {
+          "call_put_ratio": 12.27416766947453,
+          "unusual_volume_multiple": 0.22,
+          "largest_bullish_premium_usd": null,
+          "iv_rank": null,
+          "notable_contracts": [
+            {
+              "type": "call",
+              "strike": 9.0,
+              "expiration": "2026-02-20",
+              "volume": 23434,
+              "open_interest": 17108,
+              "iv": 0.6562534375000001
+            },
+            {
+              "type": "call",
+              "strike": 7.5,
+              "expiration": "2026-02-20",
+              "volume": 9341,
+              "open_interest": 31475,
+              "iv": 0.500005
+            },
+            {
+              "type": "call",
+              "strike": 10.0,
+              "expiration": "2026-03-20",
+              "volume": 4706,
+              "open_interest": 7840,
+              "iv": 1.65625171875
+            }
+          ]
+        },
+        "sentiment": {
+          "twitter": {
+            "mention_velocity_vs_7d": null,
+            "quality_accounts_est": null,
+            "bullish_pct_est": null
+          },
+          "reddit": {
+            "mention_velocity": null,
+            "upvote_ratio_est": null
+          },
+          "stocktwits": {
+            "bull_bear_ratio_est": null
+          },
+          "news_tone": null
+        }
+      },
+      "risk_factors": [
+        "Sentiment score unavailable in packet (null); sentiment factor capped, reducing confidence.",
+        "Healthcare/biotech headline risk; without verified catalyst, gaps can be adverse as well as favorable."
+      ],
+      "confidence": "SPECULATIVE",
+      "data_gaps": [
+        "Catalyst/news: headlines and catalyst_sources empty; cannot verify any catalyst within 7 trading days (catalyst capped at 4).",
+        "Sentiment: sentiment_data_available=false and sentiment_score is null; sentiment factor capped at 4 by rule.",
+        "Exclusion check: last-5-trading-days % move not provided; cannot enforce >15% run-up exclusion."
+      ],
+      "original_score": 5.5625,
+      "debate_verdict": "HOLD",
+      "debate_reasoning": "The bull case has solid technical evidence (price above key MAs, near highs) and supportive options skew, but it does not overcome the bear’s stronger point that there is no confirmed breakout and limited runway to achieve a +10% move in 7 sessions without a clear catalyst. The extremely one-sided call/put ratio with low “unusual” volume also raises crowding/pinning risk, making the probability-weighted near-term edge insufficient to upgrade to BUY.",
+      "debate_bull_score": 7.2,
+      "debate_bear_score": 6.8,
+      "key_risks_from_debate": [
+        "Rejection/consolidation near 52-week high and Donchian resistance (~710.97) given breakout_score=0 and negative breakout_strength_atr",
+        "Crowded bullish options positioning (call/put 12.27) with low unusual volume (0.22x) increasing pinning/whipsaw and post-expiration fade/volatility crush risk",
+        "Catalyst visibility gap (unknown earnings date/no headlines) reducing odds of a rapid +10% continuation in 7 trading days"
+      ],
+      "key_catalysts_from_debate": [
+        "Confirmed breakout above ~710.97 (Donchian prior levels/near 52-week high) with follow-through volume",
+        "New fundamental catalyst (earnings date confirmation, trial/regulatory update, partnership/financing news) that can justify momentum continuation"
+      ]
+    }
+  ],
+  "pro30_tickers": [
+    "BUSE",
+    "LPG",
+    "RXT",
+    "WKC"
+  ],
+  "movers_tickers": []
+}
