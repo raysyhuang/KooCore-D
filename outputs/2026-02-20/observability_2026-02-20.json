@@ -6,21 +6,21 @@
       "count": 4,
       "count_gte_6": 4,
       "count_gte_8": 4,
-      "min": 19.27,
-      "p25": 20.69,
-      "median": 22.46,
-      "p75": 24.14,
-      "max": 25.29
+      "min": 20.82,
+      "p25": 21.02,
+      "median": 21.12,
+      "p75": 22.22,
+      "max": 25.39
     },
     "weekly": {
       "count": 2,
       "count_gte_6": 2,
       "count_gte_8": 2,
       "min": 8.25,
-      "p25": 8.3,
-      "median": 8.35,
-      "p75": 8.4,
-      "max": 8.45
+      "p25": 8.25,
+      "median": 8.25,
+      "p75": 8.25,
+      "max": 8.25
     }
   },
   "overlap_stats": {
@@ -51,7 +51,7 @@
   },
   "near_misses": [
     {
-      "ticker": "RXT",
+      "ticker": "ADTN",
       "conviction_score": 6.2,
       "sources": [
         "pro30"
@@ -59,7 +59,7 @@
       "missing": "needs overlap or tech>=6"
     },
     {
-      "ticker": "LPG",
+      "ticker": "BTU",
       "conviction_score": 6.2,
       "sources": [
         "pro30"
@@ -67,7 +67,7 @@
       "missing": "needs overlap or tech>=6"
     },
     {
-      "ticker": "WKC",
+      "ticker": "PATK",
       "conviction_score": 6.2,
       "sources": [
         "pro30"
@@ -75,7 +75,7 @@
       "missing": "needs overlap or tech>=6"
     },
     {
-      "ticker": "BUSE",
+      "ticker": "ENVA",
       "conviction_score": 6.2,
       "sources": [
         "pro30"
@@ -83,8 +83,8 @@
       "missing": "needs overlap or tech>=6"
     },
     {
-      "ticker": "AVDL",
-      "conviction_score": 6.06,
+      "ticker": "QCOM",
+      "conviction_score": 5.11,
       "sources": [
         "weekly_top5"
       ],

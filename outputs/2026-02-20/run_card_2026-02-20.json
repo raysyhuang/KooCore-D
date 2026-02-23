@@ -1,17 +1,17 @@
 {
   "date": "2026-02-20",
-  "run_timestamp_utc": "2026-02-20T22:36:46.321358Z",
+  "run_timestamp_utc": "2026-02-23T18:18:29.727196Z",
   "method_version": "v3.2",
   "summary": {
     "tickers_screened": 1988,
     "swing_candidates": 0,
-    "pro30_candidates": 7,
+    "pro30_candidates": 6,
     "weekly_top5": 2,
     "movers": 0
   },
   "top5_tickers": [
-    "AVDL",
-    "IBRX"
+    "QCOM",
+    "CLOV"
   ],
   "overlap_all_three": [],
   "primary_label": "Weekly",
