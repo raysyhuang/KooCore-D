@@ -1769,3 +1769,45 @@ Primary Candidates: 30
 Details:
   asof: 2026-02-20
 
+
+============================================================
+[2026-02-23 23:01:45 UTC] [LOW] Scan Complete: 2026-02-23 (Weekly)
+============================================================
+===================================
+SCAN COMPLETE - 2026-02-23
+===================================
+Regime: chop
+Primary Strategy: Weekly
+Primary Candidates: 30
+
+🏆 HYBRID TOP 3 (Best Picks):
+  1. CRNC (Pro30(r1))
+     Score: 3.0 pts | LOW
+  2. VRM (Pro30(r2))
+     Score: 3.0 pts | LOW
+  3. OFLX (Weekly(1))
+     Score: 1.6 pts | LOW
+
+⭐ Weekly TOP PICKS:
+  - OFLX: 3.76 LOW
+  - EME: 3.56 LOW
+
+📊 SUMMARY:
+  Weekly: 2 | Pro30: 2 | Movers: 0
+
+📈 MODEL: 🟠 Needs Attention
+  Hit: 26% | Win: 35%
+  pro30:28% | weekly_top5:11%
+  📊 bull:35% | chop:0% | stress:26%
+
+📌 POSITION ALERTS:
+  Total: 4 | High: 2 | Warning: 0
+  - 🎯 TARGET HIT: COHR up 27.0% (target: 7.0%)
+  - 🛑 STOP LOSS: SEI down -8.5% (limit: -6.0%)
+  - 🎯 TARGET HIT: MU up 25.1% (target: 7.0%)
+
+===================================
+
+Details:
+  asof: 2026-02-23
+
