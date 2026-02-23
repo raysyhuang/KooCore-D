@@ -1,6 +1,0 @@
-rank,ticker,name,sector,current_price,composite_score,verdict,confidence,technical_score,catalyst_score,options_score,sentiment_score,primary_catalyst,target_price,upside_pct_min,upside_pct_max
-1,WMT,Walmart Inc.,Consumer Defensive,107.11000061035156,4.5,SPECULATIVE,SPECULATIVE,8.0,3.0,3.0,4.0,Index inclusion / partnership newsflow (near-term continuation risk-on catalyst),117.82100067138671,10,14
-2,GILD,"Gilead Sciences, Inc.",Healthcare,124.98999786376953,4.5,SPECULATIVE,SPECULATIVE,8.0,3.0,3.0,4.0,Analyst upgrades / price target raises (near-term rerating impulse),137.4889976501465,10,13
-3,MDT,Medtronic plc,Healthcare,99.3499984741211,4.375,SPECULATIVE,SPECULATIVE,8.0,2.5,3.0,4.0,Analyst upgrade + product milestone narrative,109.28499832153321,10,12
-4,NUVL,"Nuvalent, Inc.",Healthcare,108.01000213623047,4.75,SPECULATIVE,SPECULATIVE,10.0,2.0,3.0,4.0,Regulatory/approval path narrative from pivotal trial positioning (not a dated event),118.81100234985352,10,20
-5,WBD,"Warner Bros. Discovery, Inc.",Communication Services,22.8799991607666,4.125,SPECULATIVE,SPECULATIVE,6.0,3.5,3.0,4.0,Hostile bid / lawsuit / proxy-fight escalation (event-driven newsflow),25.16799907684326,10,18

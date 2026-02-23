@@ -1,6 +1,0 @@
-rank,ticker,name,sector,current_price,composite_score,verdict,confidence,technical_score,catalyst_score,options_score,sentiment_score,primary_catalyst,target_price,upside_pct_min,upside_pct_max
-1,ULTA,"Ulta Beauty, Inc.",Consumer Cyclical,604.64,3.75,MEDIUM,MEDIUM,8.0,0,3.0,4.0,Unknown,665.1,10,18
-2,CMI,Cummins Inc.,Industrials,514.64,3.75,MEDIUM,MEDIUM,8.0,0,3.0,4.0,Unknown,566.1,10,18
-3,HWM,Howmet Aerospace Inc.,Industrials,209.49,3.75,MEDIUM,MEDIUM,8.0,0,3.0,4.0,Unknown,230.44,10,18
-4,KRYS,"Krystal Biotech, Inc.",Healthcare,253.68,3.75,MEDIUM,MEDIUM,8.0,0,3.0,4.0,Unknown,279.05,10,18
-5,LHX,"L3Harris Technologies, Inc.",Industrials,295.93,3.75,MEDIUM,MEDIUM,8.0,0,3.0,4.0,Unknown,325.52,10,18

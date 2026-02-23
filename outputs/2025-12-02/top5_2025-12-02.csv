@@ -1,6 +1,0 @@
-rank,ticker,name,sector,current_price,composite_score,verdict,confidence,technical_score,catalyst_score,options_score,sentiment_score,primary_catalyst,target_price,upside_pct_min,upside_pct_max
-1,RIG,Transocean Ltd.,Energy,4.309999942779541,5.375,SPECULATIVE,SPECULATIVE,8.0,6.5,3.0,4.0,New offshore rig contract awards / backlog additions,4.741,10,18
-2,SPHR,Sphere Entertainment Co.,Communication Services,81.86000061035156,5.125,SPECULATIVE,SPECULATIVE,8.0,5.5,3.0,4.0,Partnership newsflow (Delta Air Lines expands beyond flight with Sphere partnership),90.046,10,17
-3,COMM,"CommScope Holding Company, Inc.",Technology,19.510000228881836,5.0,SPECULATIVE,SPECULATIVE,8.0,5.0,3.0,4.0,Product/innovation news (RUCKUS Networks AI and Wi‑Fi 7 innovations; secure boot solution),21.461,10,16
-4,EL,The Estée Lauder Companies Inc.,Consumer Defensive,99.63999938964844,4.875,SPECULATIVE,SPECULATIVE,8.0,4.5,3.0,4.0,Analyst upgrades / target raises (turnaround narrative support),109.604,10,15
-5,FIBK,"First Interstate BancSystem, Inc.",Financial Services,32.779998779296875,4.75,SPECULATIVE,SPECULATIVE,10.0,2.0,3.0,4.0,No verified dated catalyst in packet (momentum/flow-driven),36.058,10,14

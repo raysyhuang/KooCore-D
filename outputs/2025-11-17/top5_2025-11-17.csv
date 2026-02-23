@@ -1,6 +1,0 @@
-rank,ticker,name,sector,current_price,composite_score,verdict,confidence,technical_score,catalyst_score,options_score,sentiment_score,primary_catalyst,target_price,upside_pct_min,upside_pct_max
-1,CSCO,"Cisco Systems, Inc.",Technology,77.77999877929688,5.0,SPECULATIVE,SPECULATIVE,10,3,3,4,M&A / strategic narrative (unconfirmed timing),85.56,10,14
-2,WBD,"Warner Bros. Discovery, Inc.",Communication Services,22.739999771118164,4.75,SPECULATIVE,SPECULATIVE,8,4,3,4,"Hostile bid / lawsuit / proxy fight newsflow (near-term, but not a scheduled date)",25.01,10,20
-3,GILD,"Gilead Sciences, Inc.",Healthcare,124.08999633789062,4.5,SPECULATIVE,SPECULATIVE,8,3,3,4,"Analyst upgrades / price target raises (recent, not scheduled)",136.5,10,16
-4,GOOGL,Alphabet Inc.,Communication Services,285.0199890136719,4.5,SPECULATIVE,SPECULATIVE,8,3,3,4,"Apple AI partnership / major narrative catalyst (reported, not scheduled)",313.52,10,13
-5,MCK,McKesson Corporation,Healthcare,855.22998046875,4.25,SPECULATIVE,SPECULATIVE,8,2,3,4,Earnings (date not provided in packet) + pre-earnings positioning,940.75,10,15

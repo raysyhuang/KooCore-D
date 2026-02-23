@@ -1,6 +1,0 @@
-rank,ticker,name,sector,current_price,composite_score,verdict,confidence,technical_score,catalyst_score,options_score,sentiment_score,primary_catalyst,target_price,upside_pct_min,upside_pct_max
-1,CRH,CRH,Unknown,125.13999938964844,2,SPECULATIVE,SPECULATIVE,8,0,0,0,No verified dated catalyst in packet,137.65,10,18
-2,MU,MU,Unknown,263.7099914550781,2,SPECULATIVE,SPECULATIVE,8,0,0,0,No verified dated catalyst in packet,290.08,10,18
-3,ALB,ALB,Unknown,133.2100067138672,2,SPECULATIVE,SPECULATIVE,8,0,0,0,No verified dated catalyst in packet,146.53,10,18
-4,ASO,ASO,Unknown,55.0,2,SPECULATIVE,SPECULATIVE,8,0,0,0,No verified dated catalyst in packet,60.5,10,18
-5,DJCO,DJCO,Unknown,483.010009765625,2,SPECULATIVE,SPECULATIVE,8,0,0,0,No verified dated catalyst in packet,531.31,10,18

@@ -1,6 +1,0 @@
-rank,ticker,name,sector,current_price,composite_score,verdict,confidence,technical_score,catalyst_score,options_score,sentiment_score,primary_catalyst,target_price,upside_pct_min,upside_pct_max
-1,NOC,Northrop Grumman Corporation,Industrials,611.9000244140625,5.5,SPECULATIVE,SPECULATIVE,10,5,3,4,Defense spending / policy-driven sector catalyst (newsflow),673.0900268554688,10,16
-2,F,Ford Motor Company,Consumer Cyclical,14.269700050354004,5.0,SPECULATIVE,SPECULATIVE,8,5,3,4,Product/strategy newsflow + analyst upgrade momentum,15.696670055389406,10,18
-3,BBIO,"BridgeBio Pharma, Inc.",Healthcare,76.62999725341797,4.75,SPECULATIVE,SPECULATIVE,8,4,3,4,Clinical trial milestone / readout proximity (Phase 3 update),84.29299797875977,10,20
-4,COF,Capital One Financial Corporation,Financial Services,252.7969970703125,4.75,SPECULATIVE,SPECULATIVE,8,4,3,4,Analyst upgrade cluster + litigation/settlement clarity (newsflow),278.0766967773438,10,15
-5,BFH,"Bread Financial Holdings, Inc.",Financial Services,80.25,4.75,SPECULATIVE,SPECULATIVE,8,4,3,4,Analyst upgrade / credit-story inflection (newsflow),88.275,10,22

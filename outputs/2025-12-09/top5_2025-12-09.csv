@@ -1,6 +1,0 @@
-rank,ticker,name,sector,current_price,composite_score,verdict,confidence,technical_score,catalyst_score,options_score,sentiment_score,primary_catalyst,target_price,upside_pct_min,upside_pct_max
-1,MUR,Murphy Oil Corporation,Energy,32.58000183105469,5.5,SPECULATIVE,SPECULATIVE,8.0,7.0,3.0,4.0,Vietnam offshore oil discovery headlines / follow-through newsflow,35.838001,10,18
-2,RIG,Transocean Ltd.,Energy,4.449999809265137,5.25,SPECULATIVE,SPECULATIVE,8.0,6.0,3.0,4.0,New rig contract wins / backlog additions,4.895,10,20
-3,PSX,Phillips 66,Energy,139.8800048828125,4.75,SPECULATIVE,SPECULATIVE,6.0,6.0,3.0,4.0,Acquisition of Lindsey Oil Refinery (England) / refining narrative,153.868005,10,15
-4,LUV,Southwest Airlines Co.,Industrials,38.150001525878906,5.0,SPECULATIVE,SPECULATIVE,8.0,5.0,3.0,4.0,Analyst action: JPMorgan double-upgrade + new street-high price target,41.965002,10,16
-5,KRYS,"Krystal Biotech, Inc.",Healthcare,234.63999938964844,5.0,SPECULATIVE,SPECULATIVE,8.0,5.0,3.0,4.0,Clinical/FDA-related update newsflow (KB407 CF gene therapy data + FDA study filing),258.104,10,22

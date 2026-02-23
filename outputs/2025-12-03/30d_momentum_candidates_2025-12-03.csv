@@ -1,3 +1,0 @@
-Ticker,Last,RVOL,ATR%,RSI14,Dist_to_52W_High%,$ADV20,MA20,MA50,Above_MA20,Above_MA50,Ret20d%,Setup,Score,Is_Leveraged_ETF,Ret5d%
-JANX,17.11,2.63,19.2,31.3,64.04,50754999.0,28.52,26.79,0,0,-36.65,Reversal,43.22,False,-50.75
-AEO,23.97,4.04,4.16,89.1,1.8,164067076.0,18.65,17.22,1,1,48.15,Breakout,24.5,False,

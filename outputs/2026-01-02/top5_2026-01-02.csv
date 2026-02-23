@@ -1,6 +1,0 @@
-rank,ticker,name,sector,current_price,composite_score,verdict,confidence,technical_score,catalyst_score,options_score,sentiment_score,primary_catalyst,target_price,upside_pct_min,upside_pct_max
-1,SATS,EchoStar Corporation,Communication Services,108.69999694824219,4.75,SPECULATIVE,SPECULATIVE,8.0,4.0,3.0,4.0,Analyst price target raises / spectrum-deal narrative follow-through,119.57,10,18
-2,MU,"Micron Technology, Inc.",Technology,285.4100036621094,4.5,SPECULATIVE,SPECULATIVE,8.0,3.0,3.0,4.0,AI/semis narrative + options-related headline-driven attention,313.95,10,16
-3,SPHR,Sphere Entertainment Co.,Communication Services,95.08000183105469,4.25,SPECULATIVE,SPECULATIVE,8.0,2.0,3.0,4.0,Momentum/coverage-driven attention (no confirmed scheduled event),104.59,10,17
-4,LHX,"L3Harris Technologies, Inc.",Industrials,293.57000732421875,4.0,SPECULATIVE,SPECULATIVE,6.0,3.0,3.0,4.0,Major contract award headline + analyst upgrades narrative,322.93,10,14
-5,LUNR,"Intuitive Machines, Inc.",Industrials,16.229999542236328,4.0,SPECULATIVE,SPECULATIVE,6.0,3.0,3.0,4.0,Analyst price target hike / coverage-driven momentum in lunar missions theme,17.85,10,20

@@ -1,6 +1,0 @@
-rank,ticker,name,sector,current_price,composite_score,verdict,confidence,technical_score,catalyst_score,options_score,sentiment_score,primary_catalyst,target_price,upside_pct_min,upside_pct_max
-1,DLTR,"Dollar Tree, Inc.",Consumer Defensive,112.91999816894531,5.5,SPECULATIVE,SPECULATIVE,10,5,3,4,Analyst call/newsflow cluster (upgrades/top calls) supporting near-term repricing,124.21,10,16
-2,CVCO,"Cavco Industries, Inc.",Consumer Cyclical,586.6900024414062,5.25,SPECULATIVE,SPECULATIVE,10,4,3,4,Manufactured housing policy tailwind headline (legislation theme),645.36,10,18
-3,PATH,UiPath Inc.,Technology,14.859999656677246,5.25,SPECULATIVE,SPECULATIVE,8,6,3,4,Index inclusion/news-driven repricing (S&P adds UiPath) with follow-on coverage,16.35,10,20
-4,PSX,Phillips 66,Energy,139.85000610351562,5.25,SPECULATIVE,SPECULATIVE,8,6,3,4,Deal/news catalyst: Lindsey Refinery deal + refining gains narrative,153.84,10,15
-5,SPHR,Sphere Entertainment Co.,Communication Services,81.47000122070312,5.25,SPECULATIVE,SPECULATIVE,8,6,3,4,Commercial partnership/news catalyst: Delta Air Lines expands beyond flight with Sphere partnership,89.62,10,22

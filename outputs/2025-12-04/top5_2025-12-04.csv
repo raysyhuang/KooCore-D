@@ -1,6 +1,0 @@
-rank,ticker,name,sector,current_price,composite_score,verdict,confidence,technical_score,catalyst_score,options_score,sentiment_score,primary_catalyst,target_price,upside_pct_min,upside_pct_max
-1,APH,Amphenol Corporation,Technology,139.4600067138672,4.75,SPECULATIVE,SPECULATIVE,8.0,4.0,3.0,4.0,AI/data-center breakout newsflow (non-scheduled) + board appointment headline,153.40600738525393,10,16
-2,TTMI,"TTM Technologies, Inc.",Technology,72.83999633789062,4.75,SPECULATIVE,SPECULATIVE,8.0,4.0,3.0,4.0,Needham Growth Conference focus (expected newsflow/visibility),80.12399597167969,10,20
-3,MUR,Murphy Oil Corporation,Energy,32.5,5.0,SPECULATIVE,SPECULATIVE,8.0,5.0,3.0,4.0,Major Vietnam offshore oil discovery / appraisal success newsflow,35.75,10,18
-4,RIG,Transocean Ltd.,Energy,4.429999828338623,5.0,SPECULATIVE,SPECULATIVE,8.0,5.0,3.0,4.0,New rig contracts / backlog additions ($168M) (breaking catalyst),4.872999811172486,10,25
-5,DLTR,"Dollar Tree, Inc.",Consumer Defensive,115.87000274658203,5.25,SPECULATIVE,SPECULATIVE,10.0,4.0,3.0,4.0,Analyst call/newsflow around strategic shift (Family Dollar sale/buyback) and upgrades,127.45700302124024,10,14
