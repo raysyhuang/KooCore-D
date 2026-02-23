@@ -1137,7 +1137,24 @@ def cmd_all(args) -> int:
         logger.debug(f"Phase-5 learning not available: {e}")
     except Exception as e:
         logger.warning(f"  ⚠ Phase-5 learning write failed: {e}")
-    
+
+    # ── Phase 6: Adaptive Model Recommendations ──
+    try:
+        phase6_cfg = config.get("phase6", {})
+        if phase6_cfg.get("enabled", False) and phase6_cfg.get("auto_analyze", False):
+            from src.overlays.phase6_adaptive import run_phase6_analysis
+            phase6_result = run_phase6_analysis(
+                outcomes_data=None,
+                context={"regime": primary_label, "date": output_date_str},
+                cfg=phase6_cfg,
+            )
+            if phase6_result:
+                logger.info(f"  ✓ Phase-6 recommendations generated")
+    except ImportError as e:
+        logger.debug(f"Phase-6 analysis not available: {e}")
+    except Exception as e:
+        logger.warning(f"  ⚠ Phase-6 analysis failed: {e}")
+
     # Open browser if requested
     if hasattr(args, 'open') and args.open and html_path:
         _open_browser(html_path)

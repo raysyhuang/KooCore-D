@@ -1,0 +1,18 @@
+phase5:
+  enabled: true
+  persist: true
+  summarize: true
+phase6:
+  enabled: true
+  data_source: "outcomes_db"
+  min_observations: 20
+  bayesian_prior_weight: 0.3
+  bayesian_prior_hit_rate: 0.25
+  auto_analyze: true
+  auto_apply: false
+  recommendations:
+    output_path: "outputs/phase6/recommendations.json"
+    backup_dir: "outputs/phase6/backups"
+    source_bonus_min: -1.5
+    source_bonus_max: 3.0
+    min_source_samples: 5

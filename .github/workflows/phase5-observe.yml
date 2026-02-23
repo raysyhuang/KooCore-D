@@ -1,4 +1,4 @@
-name: Phase 5 - Learning Only
+name: Phase 5+6 - Learning & Recommendations
 
 on:
   schedule:
@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   run:
-    name: Run main.py all (phase5)
+    name: Run main.py all (phase5+6)
     runs-on: ubuntu-latest
     timeout-minutes: 180
     steps:
@@ -40,7 +40,17 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run with Phase 5 enabled
+      - name: Rebuild price database
+        env:
+          POLYGON_API_KEY: ${{ secrets.POLYGON_API_KEY }}
+        run: |
+          rm -f data/prices.db
+          START_DATE=$(date -u -d "400 days ago" +%Y-%m-%d)
+          END_DATE=$(date -u +%Y-%m-%d)
+          echo "Rebuilding prices.db from ${START_DATE} to ${END_DATE}"
+          python main.py db download --start "${START_DATE}" --end "${END_DATE}" --config config/default.yaml --workers 8
+
+      - name: Run with Phase 5+6 enabled
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -54,11 +64,18 @@ jobs:
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
         run: |
-          python main.py all --config config/phase5.yaml
+          python main.py all --config config/phase6.yaml
 
-      - name: Upload Phase 5 learning artifacts
+      - name: Generate Phase 6 recommendations
+        run: |
+          python main.py learn recommend --config config/phase6.yaml
+
+      - name: Upload learning artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: phase5-learning
-          path: learning/phase5/
+          name: phase5-6-learning
+          path: |
+            outputs/phase5/**
+            learning/phase5/**
+            outputs/phase6/**

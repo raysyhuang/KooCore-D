@@ -9,6 +9,7 @@ from __future__ import annotations
 import logging
 from datetime import datetime
 from pathlib import Path
+from typing import Optional
 
 logger = logging.getLogger(__name__)
 
@@ -529,5 +530,203 @@ def cmd_learn_stats(args) -> int:
     print(f"   Resolution rate: {stats.get('resolution_rate', 0):.1%}")
     print(f"   Merged rows: {stats.get('merged_rows', 0)}")
     print(f"\n   Base path: {store.base_path}")
-    
+
     return 0
+
+
+# =============================================================================
+# PHASE-6 LEARNING COMMANDS
+# =============================================================================
+
+def cmd_learn_recommend(args) -> int:
+    """
+    Generate Phase-6 weight-update recommendations for human review.
+
+    Usage:
+        python main.py learn recommend [--config CONFIG]
+    """
+    logger.info("=" * 60)
+    logger.info("PHASE-6 RECOMMENDATION ENGINE")
+    logger.info("=" * 60)
+
+    try:
+        from src.learning.phase6_engine import Phase6RecommendationEngine
+    except ImportError as e:
+        logger.error(f"Could not import Phase-6 modules: {e}")
+        return 1
+
+    # Load config
+    config_path = getattr(args, "config", None)
+    phase6_cfg = _load_phase6_config(config_path)
+
+    if not phase6_cfg:
+        logger.error("Phase 6 config not found. Provide --config or add phase6: to default.yaml")
+        return 1
+
+    engine = Phase6RecommendationEngine(phase6_cfg)
+
+    # Generate recommendations
+    logger.info("\nGenerating recommendations...")
+    rec = engine.generate_recommendations()
+
+    # Display summary
+    logger.info(f"\n  Total outcomes: {rec['total_outcomes']}")
+    logger.info(f"  Overall hit rate: {rec['overall_hit_rate']:.1%}")
+
+    if rec["source_recommendations"]:
+        logger.info("\n  Source Recommendations:")
+        for sr in rec["source_recommendations"]:
+            delta_str = f"{sr['delta']:+.3f}" if sr['delta'] != 0 else "  0.000"
+            logger.info(
+                f"    {sr['source']:15s}: bonus {sr['current_bonus']:+.2f} -> "
+                f"{sr['suggested_bonus']:+.3f} (delta {delta_str}) "
+                f"[{sr['confidence']}] n={sr['n']}"
+            )
+
+    if rec["suppression_rules"]:
+        logger.info("\n  Suppression Rules:")
+        for rule in rec["suppression_rules"]:
+            logger.info(f"    {rule['action']} {rule['source']}: {rule['reason']}")
+
+    if rec["filter_recommendations"]:
+        logger.info("\n  Filter Issues:")
+        for f in rec["filter_recommendations"]:
+            logger.info(f"    [{f['severity']}] {f['type']}: {f['recommendation']}")
+
+    # Save
+    path = engine.save_recommendations(rec)
+
+    logger.info("\n" + "=" * 60)
+    logger.info(f"Recommendations saved: {path}")
+    logger.info("Review the JSON, then run: python main.py learn apply --confirm")
+    logger.info("=" * 60)
+
+    return 0
+
+
+def cmd_learn_apply(args) -> int:
+    """
+    Apply Phase-6 recommendations to model weights.
+
+    Usage:
+        python main.py learn apply --confirm [--config CONFIG] [--dry-run]
+    """
+    import json as _json
+
+    logger.info("=" * 60)
+    logger.info("PHASE-6 APPLY RECOMMENDATIONS")
+    logger.info("=" * 60)
+
+    confirm = getattr(args, "confirm", False)
+    dry_run = getattr(args, "dry_run", False)
+
+    if not confirm and not dry_run:
+        logger.error("Safety gate: must pass --confirm to apply changes (or --dry-run to preview)")
+        return 1
+
+    # Load config to find recommendation path
+    config_path = getattr(args, "config", None)
+    phase6_cfg = _load_phase6_config(config_path)
+    rec_cfg = (phase6_cfg or {}).get("recommendations", {})
+    rec_path = Path(rec_cfg.get("output_path", "outputs/phase6/recommendations.json"))
+
+    if not rec_path.exists():
+        logger.error(f"No recommendations found at {rec_path}")
+        logger.info("Run 'python main.py learn recommend' first")
+        return 1
+
+    with open(rec_path) as f:
+        rec = _json.load(f)
+
+    logger.info(f"\nLoaded recommendations from {rec_path}")
+    logger.info(f"  Generated: {rec.get('generated_at', 'unknown')}")
+    logger.info(f"  Outcomes:  {rec.get('total_outcomes', 0)}")
+
+    # Load current weights
+    from src.core.adaptive_scorer import get_adaptive_scorer, WEIGHTS_PATH
+
+    scorer = get_adaptive_scorer()
+    current = dict(scorer.weights.source_bonus)
+
+    # Show diff
+    source_recs = rec.get("source_recommendations", [])
+    if not source_recs:
+        logger.info("\nNo source weight changes recommended.")
+        return 0
+
+    logger.info("\n  Proposed Weight Changes:")
+    changes = {}
+    for sr in source_recs:
+        source = sr["source"]
+        old_val = current.get(source, 0.0)
+        new_val = sr["suggested_bonus"]
+        changes[source] = new_val
+        marker = " *" if abs(new_val - old_val) > 0.1 else ""
+        logger.info(
+            f"    {source:15s}: {old_val:+.2f} -> {new_val:+.3f} "
+            f"(delta {sr['delta']:+.3f}, {sr['confidence']}){marker}"
+        )
+
+    suppression = rec.get("suppression_rules", [])
+    if suppression:
+        logger.info("\n  Suppression Warnings:")
+        for rule in suppression:
+            logger.info(f"    {rule['source']}: {rule['reason']}")
+
+    if dry_run:
+        logger.info("\n  [DRY RUN - no changes applied]")
+        return 0
+
+    # Backup current weights
+    weights_path = Path(WEIGHTS_PATH)
+    backup_dir = Path(rec_cfg.get("backup_dir", "outputs/phase6/backups"))
+    backup_dir.mkdir(parents=True, exist_ok=True)
+
+    if weights_path.exists():
+        import shutil
+        from datetime import datetime
+        ts = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
+        backup = backup_dir / f"model_weights_{ts}.json"
+        shutil.copy2(weights_path, backup)
+        logger.info(f"\n  Backed up weights to {backup}")
+
+    # Apply changes
+    for source, new_bonus in changes.items():
+        scorer.weights.source_bonus[source] = new_bonus
+
+    scorer.weights.version += 1
+    scorer.weights.last_trained = datetime.utcnow().strftime("%Y-%m-%d")
+    scorer._save_weights()
+
+    logger.info(f"\n  Applied {len(changes)} source bonus updates")
+    logger.info(f"  New model version: v{scorer.weights.version}")
+
+    logger.info("\n" + "=" * 60)
+    logger.info("PHASE-6 APPLY COMPLETE")
+    logger.info("=" * 60)
+
+    return 0
+
+
+def _load_phase6_config(config_path: Optional[str] = None) -> Optional[dict]:
+    """Load phase6 config from the given YAML path or fallback to default."""
+    import yaml
+
+    paths_to_try = []
+    if config_path:
+        paths_to_try.append(Path(config_path))
+    paths_to_try.append(Path("config/phase6.yaml"))
+    paths_to_try.append(Path("config/default.yaml"))
+
+    for path in paths_to_try:
+        if path.exists():
+            try:
+                with open(path) as f:
+                    cfg = yaml.safe_load(f)
+                phase6 = cfg.get("phase6")
+                if phase6:
+                    return phase6
+            except Exception:
+                continue
+
+    return None

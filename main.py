@@ -154,6 +154,15 @@ def main():
     learn_analyze.add_argument("--no-save", action="store_true", help="Don't save scorecard to file")
     
     learn_stats = learn_sub.add_parser("stats", help="Display Phase-5 storage statistics")
+
+    # Phase-6 Learning Commands
+    learn_recommend = learn_sub.add_parser("recommend", help="Generate Phase-6 weight-update recommendations")
+    learn_recommend.add_argument("--config", help="Path to config YAML (default: config/phase6.yaml)")
+
+    learn_apply = learn_sub.add_parser("apply", help="Apply Phase-6 recommendations to model weights")
+    learn_apply.add_argument("--confirm", action="store_true", help="Required safety gate to apply changes")
+    learn_apply.add_argument("--dry-run", action="store_true", help="Preview changes without applying")
+    learn_apply.add_argument("--config", help="Path to config YAML (default: config/phase6.yaml)")
     
     # Calibration Training (PR5 + PR7)
     p_calibrate = subparsers.add_parser("train-calibration", help="Train probability calibration model from historical data")
@@ -743,7 +752,8 @@ def main():
     # Learn command handler (Self-Improving System)
     def cmd_learn_handler(args):
         from src.commands.learn import (
-            cmd_learn_resolve, cmd_learn_merge, cmd_learn_analyze, cmd_learn_stats
+            cmd_learn_resolve, cmd_learn_merge, cmd_learn_analyze, cmd_learn_stats,
+            cmd_learn_recommend, cmd_learn_apply,
         )
         
         if args.learn_command == "train" or args.learn_command is None:
@@ -766,8 +776,13 @@ def main():
             return cmd_learn_analyze(args)
         elif args.learn_command == "stats":
             return cmd_learn_stats(args)
+        # Phase-6 Learning Commands
+        elif args.learn_command == "recommend":
+            return cmd_learn_recommend(args)
+        elif args.learn_command == "apply":
+            return cmd_learn_apply(args)
         else:
-            print("Use: learn train|status|export|memory|resolve|merge|analyze|stats")
+            print("Use: learn train|status|export|memory|resolve|merge|analyze|stats|recommend|apply")
             return 1
     
     # Train calibration command handler (PR5)

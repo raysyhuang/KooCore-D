@@ -6,6 +6,7 @@ Based on backtest analysis: Winners avg -2.2% drawdown, losers avg -5.4%.
 """
 
 from __future__ import annotations
+import math
 import os
 import json
 import logging
@@ -206,11 +207,17 @@ class PositionTracker:
                 source = "weekly_top5"
             
             features = get_features(ticker)
-            
+
+            # Validate entry price to prevent ghost positions (Phase 6 fix)
+            raw_price = pick.get("current_price")
+            if raw_price is None or (isinstance(raw_price, float) and math.isnan(raw_price)) or raw_price <= 0:
+                logger.warning(f"  Skipping {ticker}: invalid entry_price={raw_price}")
+                continue
+
             pos = Position(
                 ticker=ticker,
                 entry_date=scan_date,
-                entry_price=pick.get("current_price", 0.0),
+                entry_price=raw_price,
                 source=source,
                 rank=pick.get("rank"),
                 composite_score=pick.get("composite_score") or pick.get("hybrid_score", 0),
