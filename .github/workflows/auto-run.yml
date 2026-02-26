@@ -298,6 +298,22 @@ jobs:
             fi
           fi
 
+      - name: Deploy to Heroku
+        if: success()
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: |
+          if [ -z "${HEROKU_API_KEY}" ]; then
+            echo "WARNING: HEROKU_API_KEY not configured, skipping Heroku deploy"
+            exit 0
+          fi
+          git remote add heroku-deploy https://heroku:${HEROKU_API_KEY}@git.heroku.com/koocore-dashboard.git 2>/dev/null || true
+          if git push heroku-deploy HEAD:main --force; then
+            echo "Heroku deploy succeeded — fresh outputs baked into slug"
+          else
+            echo "WARNING: Heroku deploy failed (non-blocking)"
+          fi
+
       - name: Upload outputs artifact
         if: always()
         uses: actions/upload-artifact@v4

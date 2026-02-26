@@ -30,6 +30,27 @@ _LATEST_RESULT_FILE = Path("/tmp/koocore_latest_engine_result.json")
 _DATE_DIR_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 
+def _parse_run_date(value: str | None) -> date | None:
+    """Best-effort parse of YYYY-MM-DD run_date values."""
+    if not value:
+        return None
+    try:
+        return datetime.fromisoformat(str(value).split("T")[0]).date()
+    except Exception:
+        return None
+
+
+def _is_newer_run_date(candidate: str | None, current: str | None) -> bool:
+    """Return True when candidate run_date is strictly newer than current."""
+    c = _parse_run_date(candidate)
+    cur = _parse_run_date(current)
+    if c is None:
+        return False
+    if cur is None:
+        return True
+    return c > cur
+
+
 def _load_latest_from_disk() -> dict | None:
     """Load latest ingested payload from local tmp cache (shared by workers)."""
     try:
@@ -296,18 +317,24 @@ async def get_engine_results():
     """Return latest engine results in standardized format."""
     global _latest_result
 
-    # First fallback: worker-shared tmp cache populated by /ingest.
-    # Always check disk before in-memory cache so requests served by a
-    # different worker process can still observe the latest ingested run.
+    # Prefer shared tmp cache from /ingest across workers.
     disk_payload = _load_latest_from_disk()
     if disk_payload:
         _latest_result = disk_payload
-        return _latest_result
+
+    # If GitHub has a newer committed output than cache, promote it.
+    gh_result = _load_latest_from_github()
+    if gh_result and _is_newer_run_date(
+        gh_result.get("run_date"),
+        (_latest_result or {}).get("run_date"),
+    ):
+        _latest_result = gh_result
+        _save_latest_to_disk(_latest_result)
 
     if _latest_result:
         return _latest_result
 
-    # Fallback: try to read from filesystem (local dev)
+    # Local filesystem fallback (dev only).
     outputs_dir = Path("outputs")
     if outputs_dir.exists():
         dates = sorted(
@@ -320,13 +347,6 @@ async def get_engine_results():
                 with open(hybrid_path) as f:
                     hybrid = json.load(f)
                 return _map_hybrid_to_payload(hybrid, date_str)
-
-    # Last resort: fetch latest committed outputs from GitHub.
-    gh_result = _load_latest_from_github()
-    if gh_result:
-        _latest_result = gh_result
-        _save_latest_to_disk(_latest_result)
-        return _latest_result
 
     raise HTTPException(404, "No engine results available")
 
@@ -344,6 +364,20 @@ async def ingest_results(
         raise HTTPException(403, "Invalid API key")
 
     global _latest_result
+
+    current_payload = _latest_result or _load_latest_from_disk() or {}
+    current_run_date = current_payload.get("run_date")
+    if _is_newer_run_date(current_run_date, payload.run_date):
+        logger.warning(
+            "Ignoring stale ingest payload run_date=%s because current run_date=%s is newer",
+            payload.run_date,
+            current_run_date,
+        )
+        return {
+            "status": "ignored_stale",
+            "current_run_date": current_run_date,
+            "incoming_run_date": payload.run_date,
+        }
 
     _latest_result = _map_hybrid_to_payload(
         payload.hybrid_analysis,
