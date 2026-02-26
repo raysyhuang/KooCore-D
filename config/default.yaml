@@ -345,6 +345,15 @@ hybrid_weighting:
   weekly_pro30_overlap_bonus: 2.0
 
 # -----------------------------------------------------------------------------
+# FMP Fundamentals Enrichment
+# -----------------------------------------------------------------------------
+fmp_fundamentals:
+  # Enable FMP fundamentals in weekly scanner packets (requires FMP_API_KEY)
+  enabled: true
+  # Max tickers per run to avoid exceeding daily API budget
+  max_tickers: 25
+
+# -----------------------------------------------------------------------------
 # Data Provider Settings
 # -----------------------------------------------------------------------------
 runtime:

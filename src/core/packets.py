@@ -5,6 +5,7 @@ Build LLM packets for ranking and analysis.
 """
 
 from __future__ import annotations
+import logging
 import os
 import pandas as pd
 from typing import Optional
@@ -16,6 +17,8 @@ from src.core.sentiment import (
     fetch_all_catalysts,
     fetch_fmp_earnings_calendar,
 )
+
+logger = logging.getLogger(__name__)
 
 
 def build_weekly_scanner_packet(
@@ -235,6 +238,25 @@ def build_weekly_scanner_packet(
         # Source tags
         "source_tags": source_tags if source_tags else ["BASE_UNIVERSE"],
     }
-    
+
+    # Fundamentals enrichment from FMP (when key is present)
+    fundamentals = _fetch_fundamentals(ticker, api_key_fmp)
+    if fundamentals:
+        packet["fundamentals"] = fundamentals
+        packet["fundamental_score"] = fundamentals.get("fundamental_score")
+
     return packet
+
+
+def _fetch_fundamentals(ticker: str, fmp_api_key: str | None) -> dict | None:
+    """Best-effort FMP fundamentals fetch. Returns None on failure or missing key."""
+    if not fmp_api_key:
+        return None
+    try:
+        from src.core.fundamentals import fetch_fundamentals_batch
+        results = fetch_fundamentals_batch([ticker], api_key=fmp_api_key, max_tickers=1)
+        return results.get(ticker)
+    except Exception as e:
+        logger.debug("Fundamentals fetch skipped for %s: %s", ticker, e)
+        return None
 
