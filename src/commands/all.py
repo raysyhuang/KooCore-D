@@ -262,11 +262,15 @@ def cmd_all(args) -> int:
     # Step 3: Weekly Scanner (Secondary)
     logger.info("\n[3/7] Weekly Scanner (Secondary)...")
     try:
+        # Pass regime from pro30 to weekly so it can widen funnel in bear markets
+        _pro30_regime_info = (results.get("pro30") or {}).get("regime_info", {})
+        _weekly_regime = "stress" if not _pro30_regime_info.get("spy_above_ma", True) else None
         weekly_result = run_weekly(
             config=config,
             asof_date=asof_date,
             output_date=output_date,
             run_dir=output_dir,
+            regime=_weekly_regime,
         )
         results["weekly"] = weekly_result
         logger.info("  ✓ Weekly scanner complete")

@@ -31,8 +31,8 @@ liquidity:
   price_min: 5.0
   
   # Minimum 20-day average dollar volume (USD)
-  # 50M = institutional-grade liquidity
-  min_avg_dollar_volume_20d: 75_000_000
+  # 30M = liquid enough for retail; widened from 75M to increase candidate pool
+  min_avg_dollar_volume_20d: 30_000_000
   
   # Maximum 5-day return (exclude already-exploded names)
   # 0.15 = 15%
@@ -55,19 +55,33 @@ technicals:
 # INSIGHT: Rank 1=38% hit, Rank 2=29%, Ranks 3-5 underperform
 quality_filters_weekly:
   # Minimum technical score (0-10) to pass screening
-  # RAISED from 6.0 based on backtest showing higher scores = better outcomes
-  min_technical_score: 6.5
+  # Lowered from 6.5 to widen funnel — 5.5 still filters bottom half
+  min_technical_score: 5.5
   
   # Minimum composite score for final ranking
   # RAISED from 5.25 - composite ≥5.5 has 2x hit rate
   min_composite_score: 5.5
   
-  # Weekly rank filtering - TIGHTENED to Ranks 1-2 only
-  # Rank 1=38% hit, Rank 2=29%, Rank 3+=underperform significantly
-  top_ranks_only: 2
+  # Weekly rank filtering - allow Rank 3 for convergence opportunities
+  # Rank 1=38% hit, Rank 2=29%, Rank 3 still has value for cross-engine overlap
+  top_ranks_only: 3
   
   # Prefer Rank 1 picks (has 38% hit rate vs 27.6% avg)
   prefer_rank_1: true
+
+# -----------------------------------------------------------------------------
+# Regime Overrides (bear market adjustments)
+# -----------------------------------------------------------------------------
+# When SPY is below its 50-day SMA, the system shifts to favor reversals
+# over momentum/breakout setups.
+regime_overrides:
+  bear:
+    # Boost reversal setup bonus (default is 3.0)
+    reversal_setup_bonus: 6.0
+    # Penalize breakout setup bonus (default is 4.0)
+    breakout_setup_bonus: 2.0
+    # Widen weekly funnel for reversals (default is 5.5)
+    weekly_min_technical_score: 5.0
 
 # -----------------------------------------------------------------------------
 # Swing Strategy (5-10 trading day horizon) - NEW
@@ -116,10 +130,12 @@ swing_strategy:
 # NOTE: Pro30 has 21% hit rate vs Weekly's 9% - prioritize Pro30 picks!
 quality_filters_30d:
   # Relative volume minimum (today's volume / 20d average)
-  rvol_min: 1.8
-  
+  # Lowered from 1.8 — still above average, widens candidate pool
+  rvol_min: 1.3
+
   # ATR as percentage of price minimum
-  atr_pct_min: 3.5
+  # Lowered from 3.5 — includes moderate-volatility names
+  atr_pct_min: 2.5
   
   # Maximum distance from 52W high for breakout setups (%)
   near_high_max_pct: 10.0
@@ -149,13 +165,16 @@ outputs_30d:
 # -----------------------------------------------------------------------------
 attention_pool:
   # Minimum relative volume to enter attention pool
-  rvol_min: 1.8
-  
+  # Lowered from 1.8 — biggest bottleneck, 1.3 still above average
+  rvol_min: 1.3
+
   # Minimum ATR% to enter attention pool
-  atr_pct_min: 3.5
-  
+  # Lowered from 3.5 — widens to include moderate-volatility names
+  atr_pct_min: 2.5
+
   # Minimum absolute day move (%)
-  min_abs_day_move_pct: 3.0
+  # Lowered from 3.0 — 1.5% daily move still meaningful, 3% was very aggressive
+  min_abs_day_move_pct: 1.5
   
   # Lookback for attention pool calculation
   lookback_days: 120

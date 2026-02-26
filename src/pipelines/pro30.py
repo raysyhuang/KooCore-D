@@ -112,6 +112,11 @@ def _convert_config_to_legacy_params(config: dict) -> dict:
     p["spy_ma_days"] = rg.get("spy_ma_days", 20)
     p["vix_max"] = rg.get("vix_max", 25.0)
     p["regime_action"] = rg.get("action", "WARN")
+
+    # Regime overrides (bear market scoring adjustments)
+    ro = config.get("regime_overrides", {}).get("bear", {})
+    p["regime_bear_reversal_bonus"] = ro.get("reversal_setup_bonus", 6.0)
+    p["regime_bear_breakout_bonus"] = ro.get("breakout_setup_bonus", 2.0)
     
     # News
     p["news_max_items"] = get_config_value(config, "news", "max_items", default=25)
@@ -362,7 +367,11 @@ def _run_pro30_pipeline(params: dict, asof_date: date_type | None = None) -> dic
     print(f"Sample (first 10 of {len(tickers_to_screen)}): {', '.join(tickers_to_screen[:10])}")
 
     print(f"\n[2/4] Applying quality filters to {len(tickers_to_screen)} tickers...")
-    screened = screen_universe_30d(tickers_to_screen, params)
+    # Determine regime for scoring adjustments
+    _regime_for_scoring = None
+    if not regime_info.get("spy_above_ma", True):
+        _regime_for_scoring = "stress"
+    screened = screen_universe_30d(tickers_to_screen, params, regime=_regime_for_scoring)
     breakout_df = screened["breakout_df"]
     reversal_df = screened["reversal_df"]
     candidates = screened["combined_df"]

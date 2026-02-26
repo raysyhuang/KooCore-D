@@ -116,6 +116,7 @@ def run_weekly(
     *,
     output_date: Optional[date_type] = None,
     run_dir: Optional[Path] = None,
+    regime: Optional[str] = None,
 ) -> dict:
     """
     Run the Weekly Momentum Scanner pipeline.
@@ -444,6 +445,14 @@ def run_weekly(
         "price_up_5d_max_pct": float(get_config_value(config, "liquidity", "max_5d_return", default=0.15)) * 100.0,
     }
     min_tech_score = float(get_config_value(config, "quality_filters_weekly", "min_technical_score", default=0.0) or 0.0)
+    # In bear/stress regime, use lower min_technical_score to widen funnel for reversals
+    if regime in ("stress", "bear"):
+        bear_min = float(
+            get_config_value(config, "regime_overrides", "bear", "weekly_min_technical_score", default=0.0)
+            or 0.0
+        )
+        if bear_min > 0 and bear_min < min_tech_score:
+            min_tech_score = bear_min
     
     total = len(universe)
     for idx, ticker in enumerate(universe):

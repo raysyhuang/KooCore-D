@@ -293,14 +293,17 @@ def build_attention_pool(tickers: list[str], params: dict) -> list[str]:
     return sorted(set(pool))
 
 
-def screen_universe_30d(tickers: list[str], params: dict) -> dict:
+def screen_universe_30d(tickers: list[str], params: dict, regime: str | None = None) -> dict:
     """
     Screen universe for 30-day momentum candidates (breakout and reversal setups).
-    
+
     Args:
         tickers: List of ticker symbols to screen
         params: Dict with screening parameters
-    
+        regime: Optional market regime ("bull", "chop", "stress"). When "stress",
+                reversal setups get a higher bonus and breakout setups get a lower bonus
+                per regime_overrides config.
+
     Returns:
         Dict with keys: breakout_df, reversal_df, combined_df, ledger
     """
@@ -589,19 +592,30 @@ def screen_universe_30d(tickers: list[str], params: dict) -> dict:
                 continue
 
             # Scoring: TapeScore + StructureScore + SetupBonus
+            # Regime-aware bonuses: in stress/bear regime, boost reversals, penalize breakouts
+            _is_bear = regime in ("stress", "bear")
+            _breakout_bonus = (
+                float(params.get("regime_bear_breakout_bonus", 2.0))
+                if _is_bear else 4.0
+            )
+            _reversal_bonus = (
+                float(params.get("regime_bear_reversal_bonus", 6.0))
+                if _is_bear else 3.0
+            )
+
             tape_score = (rvol_val * 2.0) + (atr_pct_val * 1.4)
-            
+
             if is_breakout:
                 rsi_structure = max(0.0, (70 - abs(rsi14_val - 62))) / 20.0
             else:
                 rsi_structure = max(0.0, (45 - abs(rsi14_val - 28))) / 20.0
             dist_structure = max(0.0, (100 - dist_52w_high_pct)) / 20.0
             ma_structure = (2.0 if above_ma20 and above_ma50 else (1.0 if above_ma20 else 0.0))
-            
+
             structure_score = rsi_structure + (dist_structure * 0.5) + ma_structure
-            
+
             if is_breakout:
-                setup_bonus = 4.0
+                setup_bonus = _breakout_bonus
                 score = tape_score + structure_score + setup_bonus
                 breakout_rows.append({
                     "Ticker": t,
@@ -624,7 +638,7 @@ def screen_universe_30d(tickers: list[str], params: dict) -> dict:
 
             if is_reversal:
                 reversal_structure = min(6.0, dist_52w_high_pct / 8.0)
-                setup_bonus = 3.0
+                setup_bonus = _reversal_bonus
                 score = tape_score + (structure_score * 0.7) + reversal_structure + setup_bonus
                 reversal_rows.append({
                     "Ticker": t,
