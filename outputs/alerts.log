@@ -1941,3 +1941,46 @@ Primary Candidates: 30
 Details:
   asof: 2026-02-26
 
+
+============================================================
+[2026-02-27 22:37:04 UTC] [LOW] Scan Complete: 2026-02-27 (Weekly)
+============================================================
+===================================
+SCAN COMPLETE - 2026-02-27
+===================================
+Regime: chop
+Primary Strategy: Weekly
+Primary Candidates: 30
+
+🏆 HYBRID TOP 3 (Best Picks):
+  1. RSI (Pro30(r1))
+     Score: 3.0 pts | LOW
+  2. OVLY (Pro30(r2))
+     Score: 3.0 pts | LOW
+  3. MC (Pro30(r3))
+     Score: 2.9 pts | LOW
+
+⭐ Weekly TOP PICKS:
+  - ONDS: 4.80 LOW
+  - NKE: 4.31 LOW
+  - EB: 4.31 LOW
+
+📊 SUMMARY:
+  Weekly: 3 | Pro30: 17 | Movers: 0
+
+📈 MODEL: 🟠 Needs Attention
+  Hit: 29% | Win: 41%
+  pro30:31% | weekly_top5:16%
+  📊 bull:29% | chop:23% | stress:35%
+
+📌 POSITION ALERTS:
+  Total: 4 | High: 2 | Warning: 0
+  - 🎯 TARGET HIT: COHR up 32.1% (target: 7.0%)
+  - 🛑 STOP LOSS: SEI down -10.4% (limit: -6.0%)
+  - 🎯 TARGET HIT: MU up 22.5% (target: 7.0%)
+
+===================================
+
+Details:
+  asof: 2026-02-27
+
