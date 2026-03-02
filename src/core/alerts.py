@@ -29,6 +29,23 @@ logger = logging.getLogger(__name__)
 from src.utils.time import utc_now
 
 
+def _forward_to_mas_log(source: str, message: str, chat_id: str | None = None) -> None:
+    """Best-effort forward of a sent Telegram message to MAS central log."""
+    mas_url = os.environ.get("MAS_TELEGRAM_LOG_URL")
+    mas_key = os.environ.get("MAS_API_SECRET_KEY")
+    if not mas_url or not mas_key:
+        return
+    try:
+        requests.post(
+            mas_url,
+            json={"source": source, "message": message, "chat_id": chat_id},
+            headers={"Authorization": f"Bearer {mas_key}"},
+            timeout=5,
+        )
+    except Exception:
+        pass  # best-effort, never fail the main flow
+
+
 @dataclass
 class AlertConfig:
     """Configuration for alerts."""
@@ -418,13 +435,16 @@ class AlertManager:
             
             if response.status_code == 200:
                 logger.info(f"Telegram alert sent successfully: {title} (run_id={run_id}, attempt={run_attempt})")
-                
+
+                # Forward to MAS telegram log (best-effort)
+                _forward_to_mas_log("koocore_d", text, chat_id)
+
                 # Write marker file to prevent duplicate sends
                 if asof_date and run_id != "N/A":
                     outputs_dir = Path("outputs") / asof_date
                     outputs_dir.mkdir(parents=True, exist_ok=True)
                     marker_file = outputs_dir / f".telegram_sent_{run_id}_{run_attempt}.txt"
-                    
+
                     try:
                         with open(marker_file, "w") as f:
                             f.write(f"Sent at: {run_started_utc}\n")
@@ -436,7 +456,7 @@ class AlertManager:
                         logger.info(f"Created marker file: {marker_file}")
                     except Exception as e:
                         logger.warning(f"Failed to create marker file: {e}")
-                
+
                 return True
             else:
                 # Log the actual error from Telegram
