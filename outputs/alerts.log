@@ -2027,3 +2027,46 @@ Primary Candidates: 30
 Details:
   asof: 2026-03-02
 
+
+============================================================
+[2026-03-03 22:51:19 UTC] [LOW] Scan Complete: 2026-03-03 (Weekly)
+============================================================
+===================================
+SCAN COMPLETE - 2026-03-03
+===================================
+Regime: stress
+Primary Strategy: Weekly
+Primary Candidates: 30
+
+🏆 HYBRID TOP 3 (Best Picks):
+  1. PLPC (Pro30(r1))
+     Score: 3.0 pts | LOW
+  2. EXTR (Pro30(r2))
+     Score: 3.0 pts | LOW
+  3. ARWR (Pro30(r3))
+     Score: 2.9 pts | LOW
+
+⭐ Weekly TOP PICKS:
+  - CVX: 4.31 LOW
+  - CMPX: 4.11 LOW
+  - DUK: 3.65 LOW
+
+📊 SUMMARY:
+  Weekly: 3 | Pro30: 11 | Movers: 0
+
+📈 MODEL: 🟠 Needs Attention
+  Hit: 27% | Win: 45%
+  pro30:28% | weekly_top5:19%
+  📊 bull:35% | chop:21% | stress:23%
+
+📌 POSITION ALERTS:
+  Total: 7 | High: 3 | Warning: 0
+  - 🎯 TARGET HIT: COHR up 43.3% (target: 7.0%)
+  - 🛑 STOP LOSS: SEI down -14.1% (limit: -6.0%)
+  - 🎯 TARGET HIT: MU up 12.8% (target: 7.0%)
+
+===================================
+
+Details:
+  asof: 2026-03-03
+
