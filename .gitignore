@@ -12,6 +12,9 @@ __pycache__/
 .idea/
 *.swp
 *.swo
+.cursor/
+.claude/
+.agents/
 
 # Outputs (optional - uncomment if you don't want to track outputs)
 # outputs/
@@ -27,3 +30,12 @@ universe_cache_*.csv
 venv/
 env/
 .venv/
+.env
+.env.*
+
+# Local logs
+*.log
+
+# macOS/iCloud duplicate copy artifacts
+* 2
+* 2.*
