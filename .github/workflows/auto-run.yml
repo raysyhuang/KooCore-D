@@ -1,10 +1,9 @@
 name: Auto Run (Daily)
 
 on:
-  schedule:
-    # Weekdays at 22:00 UTC / 5:00 PM ET (after US market close)
-    # Starts first — slowest engine (up to 3 hrs), must finish before 9:30 PM ET collection
-    - cron: "0 22 * * 1-5"
+  # Disabled: system migrated to CN A-shares. Use cn-nightly.yml and cn-morning.yml instead.
+  # schedule:
+  #   - cron: "0 22 * * 1-5"
   workflow_dispatch:
 
 env:
