@@ -12,7 +12,7 @@ from typing import Optional
 from .technicals import rsi, sma
 
 
-def compute_technical_score_weekly(df: pd.DataFrame, ticker: str) -> dict:
+def compute_technical_score_weekly(df: pd.DataFrame, ticker: str, **kwargs) -> dict:
     """
     Compute Technical Momentum Score (0-10) using OPTIMIZED rubric for Weekly Scanner.
     

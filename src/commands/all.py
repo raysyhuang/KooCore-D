@@ -307,35 +307,39 @@ def cmd_all(args) -> int:
         logger.error(f"  ✗ Weekly scanner failed: {e}", exc_info=True)
         results["weekly"] = None
     
-    # Step 4: 30-Day Screener (Secondary)
-    logger.info("\n[4/7] 30-Day Screener (Secondary)...")
-    try:
-        ucfg = config.get("universe", {})
-        runtime_cfg = config.get("runtime", {})
-        logger.info(
-            "  Pro30 context: config=%s asof=%s output=%s universe_mode=%s cache=%s max_age_days=%s lookback_days=%s polygon_primary=%s polygon_workers=%s price_db=%s",
-            getattr(args, "config", "config/default.yaml"),
-            asof_date.strftime("%Y-%m-%d") if asof_date else "N/A",
-            output_date_str,
-            ucfg.get("mode", "SP500+NASDAQ100+R2000"),
-            ucfg.get("cache_file", "universe_cache.csv"),
-            ucfg.get("cache_max_age_days", 7),
-            config.get("technicals", {}).get("lookback_days", 300),
-            bool(runtime_cfg.get("polygon_primary", False)),
-            runtime_cfg.get("polygon_max_workers", 8),
-            "data/prices.db",
-        )
-        pro30_result = run_pro30(
-            config=config,
-            asof_date=asof_date,
-            output_date=output_date,
-            run_dir=output_dir,
-        )
-        results["pro30"] = pro30_result
-        logger.info("  ✓ 30-Day screener complete")
-    except Exception as e:
-        logger.error(f"  ✗ 30-Day screener failed: {e}", exc_info=True)
+    # Step 4: 30-Day Screener (Secondary) — US-only (yfinance/Polygon), skip for CN
+    if market_region == "CN":
+        logger.info("\n[4/7] 30-Day Screener — skipped (CN market, US-only pipeline)")
         results["pro30"] = None
+    else:
+        logger.info("\n[4/7] 30-Day Screener (Secondary)...")
+        try:
+            ucfg = config.get("universe", {})
+            runtime_cfg = config.get("runtime", {})
+            logger.info(
+                "  Pro30 context: config=%s asof=%s output=%s universe_mode=%s cache=%s max_age_days=%s lookback_days=%s polygon_primary=%s polygon_workers=%s price_db=%s",
+                getattr(args, "config", "config/default.yaml"),
+                asof_date.strftime("%Y-%m-%d") if asof_date else "N/A",
+                output_date_str,
+                ucfg.get("mode", "SP500+NASDAQ100+R2000"),
+                ucfg.get("cache_file", "universe_cache.csv"),
+                ucfg.get("cache_max_age_days", 7),
+                config.get("technicals", {}).get("lookback_days", 300),
+                bool(runtime_cfg.get("polygon_primary", False)),
+                runtime_cfg.get("polygon_max_workers", 8),
+                "data/prices.db",
+            )
+            pro30_result = run_pro30(
+                config=config,
+                asof_date=asof_date,
+                output_date=output_date,
+                run_dir=output_dir,
+            )
+            results["pro30"] = pro30_result
+            logger.info("  ✓ 30-Day screener complete")
+        except Exception as e:
+            logger.error(f"  ✗ 30-Day screener failed: {e}", exc_info=True)
+            results["pro30"] = None
     
     # Step 5: LLM Ranking & Hybrid Analysis (with optional Bull/Bear Debate)
     logger.info("\n[5/7] LLM Ranking & Hybrid Analysis...")
