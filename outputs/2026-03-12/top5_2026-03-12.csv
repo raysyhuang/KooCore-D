@@ -1,0 +1,2 @@
+rank,ticker,name,sector,hybrid_score,sources,current_price,composite_score,confidence,technical_score,catalyst_score,options_score,sentiment_score,primary_catalyst,target_price
+1,002261.SZ,拓维信息,计算机/算力与软件服务 (inferred),0,,39.72,7.4,MEDIUM,7.5,6.5,0,0,年报披露窗口（已公告延期至3月19日）,43.69

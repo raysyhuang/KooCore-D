@@ -1,0 +1,24 @@
+{
+  "date": "2026-03-12",
+  "regime": "unknown",
+  "generated_utc": "2026-03-13T14:35:29.180770+00:00",
+  "preflight_config": {
+    "max_gap_up_pct": 3.0,
+    "max_gap_down_pct": 5.0,
+    "min_volume_ratio": 0.1
+  },
+  "picks": [
+    {
+      "ticker": "002261.SZ",
+      "name": "拓维信息",
+      "sources": [
+        "Weekly(1)"
+      ],
+      "entry_price": 39.72,
+      "target_price": 43.69,
+      "stop_price": 37.73,
+      "hybrid_score": 1.5,
+      "confidence": "MEDIUM"
+    }
+  ]
+}

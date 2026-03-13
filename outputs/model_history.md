@@ -212,3 +212,19 @@ Ask Cursor:
 - Primary+Pro30: (none)
 
 ---
+
+### 2026-03-12 (run: 2026-03-13 14:35 UTC)
+
+**Picks:**
+- Primary Top 5: 002261.SZ
+- Pro30: (none)
+- Movers: (none)
+
+**Overlaps:**
+- All Three: (none)
+- Primary+Pro30: (none)
+
+**Top Pick Details:**
+- 002261.SZ: score=7.40, confidence=MEDIUM, catalyst="年报披露窗口（已公告延期至3月19日）"
+
+---

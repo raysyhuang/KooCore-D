@@ -1,0 +1,1200 @@
+{
+  "run_timestamp_utc": "2026-03-13T14:29:18.452674Z",
+  "method_version": "v3.2-CN",
+  "universe_note": "Universe: 5489 tickers",
+  "data_quality_summary": {
+    "n_tickers": 9,
+    "avg_completeness": 0.467,
+    "source_coverage": {
+      "price": 1.0,
+      "dragon_tiger": 0.333,
+      "sector": 0.0,
+      "sentiment": 0.0,
+      "news": 1.0
+    }
+  },
+  "packets": [
+    {
+      "ticker": "300750.SZ",
+      "name": "宁德时代",
+      "exchange": "SZ",
+      "sector": "Unknown",
+      "current_price": 395.5,
+      "market_cap_usd": null,
+      "avg_dollar_volume_20d": 110690570.0925,
+      "asof_price_utc": "2026-03-12T00:00:00Z",
+      "technical_score": 8.5,
+      "technical_evidence": {
+        "within_5pct_52w_high": false,
+        "dist_to_52w_high_pct": 6.8,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 1.51,
+        "volume_signal": "confirmed",
+        "rsi14": 59.41,
+        "rsi_zone": "sweet_spot",
+        "above_ma10_ma20_ma50": true,
+        "ma10": 359.63,
+        "ma20": 362.07,
+        "ma50": 360.13,
+        "realized_vol_5d_ann_pct": 42.56
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "17股今日获机构买入评级 7股上涨空间超20%",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603133671606557.html",
+          "published_at": "2026-03-13"
+        },
+        {
+          "title": "强势股追踪 主力资金连续5日净流入82股",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603133671580588.html",
+          "published_at": "2026-03-13"
+        },
+        {
+          "title": "宁德时代：津巴布韦锂禁令对全球供需实质性影响有限",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603103667249873.html",
+          "published_at": "2026-03-10"
+        },
+        {
+          "title": "宁德时代：若碳酸锂价格进一步上涨，钠新电池应用场景及市场渗透率有望扩大",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603103667248326.html",
+          "published_at": "2026-03-10"
+        },
+        {
+          "title": "宁德时代：公司二季度及全年排产规划没有明显变化 产能利用率较为饱和",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603103667247827.html",
+          "published_at": "2026-03-10"
+        },
+        {
+          "title": "宁德时代：若碳酸锂价格进一步上涨 钠新电池应用场景及市场渗透率有望扩大",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603103667241961.html",
+          "published_at": "2026-03-10"
+        },
+        {
+          "title": "宁德时代2025年净利润722亿元 同比增长42.28%",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603093666416922.html",
+          "published_at": "2026-03-09"
+        },
+        {
+          "title": "宁德时代2025年净利722.01亿元，同比增长42.28%",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603093666282682.html",
+          "published_at": "2026-03-09"
+        },
+        {
+          "title": "宁德时代：2025年度拟每10股派发现金红利69.57元",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603093666275518.html",
+          "published_at": "2026-03-09"
+        },
+        {
+          "title": "宁德时代：拟注册发行不超过400亿元债券",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603093666272017.html",
+          "published_at": "2026-03-09"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "name_cn": "宁德时代",
+      "trading_number": "300750.SZ",
+      "market_activity": {
+        "dragon_tiger_score": null,
+        "on_dragon_tiger_list": false,
+        "net_institutional_buy_cny": null,
+        "sector_momentum_score": null,
+        "hot_sector": false,
+        "sentiment_score": null,
+        "hot_stock_rank": null
+      },
+      "market_activity_available": false,
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "dragon_tiger": {
+        "on_list": false,
+        "flow_score": null,
+        "net_buy_cny": null
+      },
+      "sector_rotation": {
+        "sector": "Unknown",
+        "sector_momentum_score": null,
+        "is_hot_sector": false
+      },
+      "sentiment_cn": {
+        "score": null,
+        "hot_stock_rank": null,
+        "news_tone": "neutral"
+      },
+      "data_quality": {
+        "ticker": "300750.SZ",
+        "has_price": true,
+        "has_dragon_tiger": false,
+        "has_sector": false,
+        "has_sentiment": false,
+        "has_news": true,
+        "completeness_score": 0.4
+      }
+    },
+    {
+      "ticker": "002261.SZ",
+      "name": "拓维信息",
+      "exchange": "SZ",
+      "sector": "Unknown",
+      "current_price": 39.72,
+      "market_cap_usd": null,
+      "avg_dollar_volume_20d": 52725532.0475,
+      "asof_price_utc": "2026-03-12T00:00:00Z",
+      "technical_score": 7.5,
+      "technical_evidence": {
+        "within_5pct_52w_high": false,
+        "dist_to_52w_high_pct": 12.57,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 1.96,
+        "volume_signal": "confirmed",
+        "rsi14": 67.06,
+        "rsi_zone": "acceptable",
+        "above_ma10_ma20_ma50": true,
+        "ma10": 38.71,
+        "ma20": 35.36,
+        "ma50": 34.07,
+        "realized_vol_5d_ann_pct": 109.84
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "计算机行业今日净流出资金123.92亿元，华胜天成等34股净流出资金超亿元",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603133671524790.html",
+          "published_at": "2026-03-13"
+        },
+        {
+          "title": "深股通现身20只个股龙虎榜",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603093666342174.html",
+          "published_at": "2026-03-09"
+        },
+        {
+          "title": "拓维信息连续2个交易日收盘价格涨幅偏离值累计超20%",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603093666307516.html",
+          "published_at": "2026-03-09"
+        },
+        {
+          "title": "002261，尾盘直线涨停！“龙虾”火爆A股，腾讯出手了……",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603093666130126.html",
+          "published_at": "2026-03-09"
+        },
+        {
+          "title": "拓维信息002261龙虎榜数据03-09)",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603093666089912.html",
+          "published_at": "2026-03-09"
+        },
+        {
+          "title": "拓维信息：年报编制工作繁杂，延期至3月19日披露",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603063664633031.html",
+          "published_at": "2026-03-06"
+        },
+        {
+          "title": "拓维信息：延期至3月19日披露2025年年度报告",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603063664621488.html",
+          "published_at": "2026-03-06"
+        },
+        {
+          "title": "拓维信息002261龙虎榜数据03-06",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603063664525247.html",
+          "published_at": "2026-03-06"
+        },
+        {
+          "title": "拓维信息002261龙虎榜数据02-27)",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202602273656675827.html",
+          "published_at": "2026-02-27"
+        },
+        {
+          "title": "002261，超50万手封板！算力概念股，集体走强！",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202602273656473671.html",
+          "published_at": "2026-02-27"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "name_cn": "拓维信息",
+      "trading_number": "002261.SZ",
+      "market_activity": {
+        "dragon_tiger_score": 10,
+        "on_dragon_tiger_list": true,
+        "net_institutional_buy_cny": 1718910971.8800006,
+        "sector_momentum_score": null,
+        "hot_sector": false,
+        "sentiment_score": null,
+        "hot_stock_rank": null
+      },
+      "market_activity_available": true,
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "dragon_tiger": {
+        "on_list": true,
+        "flow_score": 10,
+        "net_buy_cny": 1718910971.8800006,
+        "buy_amount_cny": 4619980513.76,
+        "sell_amount_cny": 2901069541.8799996,
+        "reason": "日涨幅偏离值达到7%的前5只证券",
+        "trade_date": ""
+      },
+      "sector_rotation": {
+        "sector": "Unknown",
+        "sector_momentum_score": null,
+        "is_hot_sector": false
+      },
+      "sentiment_cn": {
+        "score": null,
+        "hot_stock_rank": null,
+        "news_tone": "neutral"
+      },
+      "data_quality": {
+        "ticker": "002261.SZ",
+        "has_price": true,
+        "has_dragon_tiger": true,
+        "has_sector": false,
+        "has_sentiment": false,
+        "has_news": true,
+        "completeness_score": 0.6
+      }
+    },
+    {
+      "ticker": "300274.SZ",
+      "name": "阳光电源",
+      "exchange": "SZ",
+      "sector": "Unknown",
+      "current_price": 173.1,
+      "market_cap_usd": null,
+      "avg_dollar_volume_20d": 96680739.7155,
+      "asof_price_utc": "2026-03-12T00:00:00Z",
+      "technical_score": 7.5,
+      "technical_evidence": {
+        "within_5pct_52w_high": false,
+        "dist_to_52w_high_pct": 17.52,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 1.64,
+        "volume_signal": "confirmed",
+        "rsi14": 65.16,
+        "rsi_zone": "acceptable",
+        "above_ma10_ma20_ma50": true,
+        "ma10": 154.73,
+        "ma20": 152.74,
+        "ma50": 159.75,
+        "realized_vol_5d_ann_pct": 60.6
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "强势股追踪 主力资金连续5日净流入82股",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603133671580588.html",
+          "published_at": "2026-03-13"
+        },
+        {
+          "title": "强势股追踪 主力资金连续5日净流入91股",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603123670219540.html",
+          "published_at": "2026-03-12"
+        },
+        {
+          "title": "强势股追踪 主力资金连续5日净流入109股",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603113668846419.html",
+          "published_at": "2026-03-11"
+        },
+        {
+          "title": "今日105只个股突破半年线",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603113668785164.html",
+          "published_at": "2026-03-11"
+        },
+        {
+          "title": "【盘中播报】84只个股突破半年线",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603113668705256.html",
+          "published_at": "2026-03-11"
+        },
+        {
+          "title": "今日89只个股突破半年线",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603113668624760.html",
+          "published_at": "2026-03-11"
+        },
+        {
+          "title": "300274，成交额A股第一",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603113668618483.html",
+          "published_at": "2026-03-11"
+        },
+        {
+          "title": "今日盘中突破半年线个股",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603113668588110.html",
+          "published_at": "2026-03-11"
+        },
+        {
+          "title": "阳光电源：银在公司光伏逆变器、储能系统等核心产品中用量较少，对相关产品成本影响有限",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603063664691423.html",
+          "published_at": "2026-03-06"
+        },
+        {
+          "title": "阳光电源：公司暂不涉及铁空气电池技术",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603063664691264.html",
+          "published_at": "2026-03-06"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "name_cn": "阳光电源",
+      "trading_number": "300274.SZ",
+      "market_activity": {
+        "dragon_tiger_score": null,
+        "on_dragon_tiger_list": false,
+        "net_institutional_buy_cny": null,
+        "sector_momentum_score": null,
+        "hot_sector": false,
+        "sentiment_score": null,
+        "hot_stock_rank": null
+      },
+      "market_activity_available": false,
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "dragon_tiger": {
+        "on_list": false,
+        "flow_score": null,
+        "net_buy_cny": null
+      },
+      "sector_rotation": {
+        "sector": "Unknown",
+        "sector_momentum_score": null,
+        "is_hot_sector": false
+      },
+      "sentiment_cn": {
+        "score": null,
+        "hot_stock_rank": null,
+        "news_tone": "neutral"
+      },
+      "data_quality": {
+        "ticker": "300274.SZ",
+        "has_price": true,
+        "has_dragon_tiger": false,
+        "has_sector": false,
+        "has_sentiment": false,
+        "has_news": true,
+        "completeness_score": 0.4
+      }
+    },
+    {
+      "ticker": "688525.SH",
+      "name": "佰维存储",
+      "exchange": "SH",
+      "sector": "Unknown",
+      "current_price": 202.85,
+      "market_cap_usd": null,
+      "avg_dollar_volume_20d": 57452146.08099999,
+      "asof_price_utc": "2026-03-12T00:00:00Z",
+      "technical_score": 6.5,
+      "technical_evidence": {
+        "within_5pct_52w_high": false,
+        "dist_to_52w_high_pct": 7.93,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 1.2,
+        "volume_signal": "neutral",
+        "rsi14": 62.77,
+        "rsi_zone": "sweet_spot",
+        "above_ma10_ma20_ma50": true,
+        "ma10": 189.71,
+        "ma20": 177.53,
+        "ma50": 161.95,
+        "realized_vol_5d_ann_pct": 86.92
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "3月13日科创板主力资金净流出42.00亿元",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603133671608376.html",
+          "published_at": "2026-03-13"
+        },
+        {
+          "title": "129.30亿元资金今日流出电子股",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603123670226218.html",
+          "published_at": "2026-03-12"
+        },
+        {
+          "title": "3月11日科创板主力资金净流出45.06亿元",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603113668848629.html",
+          "published_at": "2026-03-11"
+        },
+        {
+          "title": "3月10日科创板主力资金净流入36.85亿元",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603103667552048.html",
+          "published_at": "2026-03-10"
+        },
+        {
+          "title": "佰维存储3日收盘价涨幅偏离值累超30%，公司发风险提示：存储价格处历史高位 AI业务存不确定性",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603063664647554.html",
+          "published_at": "2026-03-06"
+        },
+        {
+          "title": "佰维存储：一季度存储产品价格大涨 但未来价格趋势仍存不确定性",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603063664647269.html",
+          "published_at": "2026-03-06"
+        },
+        {
+          "title": "佰维存储688525龙虎榜数据(03-06",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603063664547081.html",
+          "published_at": "2026-03-06"
+        },
+        {
+          "title": "佰维存储688525龙虎榜数据(03-04)",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603043661768211.html",
+          "published_at": "2026-03-04"
+        },
+        {
+          "title": "利好 688525 开盘“20cm”涨停！业绩有望飙升的AI产业股（附名单）",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603043661544427.html",
+          "published_at": "2026-03-04"
+        },
+        {
+          "title": "688525，开盘3分钟涨停",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603043661479768.html",
+          "published_at": "2026-03-04"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "name_cn": "佰维存储",
+      "trading_number": "688525.SH",
+      "market_activity": {
+        "dragon_tiger_score": null,
+        "on_dragon_tiger_list": false,
+        "net_institutional_buy_cny": null,
+        "sector_momentum_score": null,
+        "hot_sector": false,
+        "sentiment_score": null,
+        "hot_stock_rank": null
+      },
+      "market_activity_available": false,
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "dragon_tiger": {
+        "on_list": false,
+        "flow_score": null,
+        "net_buy_cny": null
+      },
+      "sector_rotation": {
+        "sector": "Unknown",
+        "sector_momentum_score": null,
+        "is_hot_sector": false
+      },
+      "sentiment_cn": {
+        "score": null,
+        "hot_stock_rank": null,
+        "news_tone": "neutral"
+      },
+      "data_quality": {
+        "ticker": "688525.SH",
+        "has_price": true,
+        "has_dragon_tiger": false,
+        "has_sector": false,
+        "has_sentiment": false,
+        "has_news": true,
+        "completeness_score": 0.4
+      }
+    },
+    {
+      "ticker": "600487.SH",
+      "name": "亨通光电",
+      "exchange": "SH",
+      "sector": "Unknown",
+      "current_price": 51.42,
+      "market_cap_usd": null,
+      "avg_dollar_volume_20d": 70952677.73049998,
+      "asof_price_utc": "2026-03-12T00:00:00Z",
+      "technical_score": 6.2,
+      "technical_evidence": {
+        "within_5pct_52w_high": false,
+        "dist_to_52w_high_pct": 5.3,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 0.99,
+        "volume_signal": "declining",
+        "rsi14": 63.81,
+        "rsi_zone": "sweet_spot",
+        "above_ma10_ma20_ma50": true,
+        "ma10": 49.03,
+        "ma20": 44.51,
+        "ma50": 34.53,
+        "realized_vol_5d_ann_pct": 95.77
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "58只股收盘价创历史新高",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603123670236095.html",
+          "published_at": "2026-03-12"
+        },
+        {
+          "title": "通信行业3月12日资金流向日报",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603123670222051.html",
+          "published_at": "2026-03-12"
+        },
+        {
+          "title": "太赫兹概念下跌2.62%，主力资金净流出17股",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603123670220521.html",
+          "published_at": "2026-03-12"
+        },
+        {
+          "title": "亨通光电：公司AI先进光纤材料研发制造中心扩产项目正在有序推进中，一期扩产项目厂房建设已收官",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603113668893281.html",
+          "published_at": "2026-03-11"
+        },
+        {
+          "title": "亨通光电：控股股东“解旧押新”2000万股 累计质押超半数持股",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603113668875180.html",
+          "published_at": "2026-03-11"
+        },
+        {
+          "title": "F5G概念上涨2.09%，5股主力资金净流入超亿元",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603113668838938.html",
+          "published_at": "2026-03-11"
+        },
+        {
+          "title": "45股获杠杆资金净买入超亿元",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603113668502878.html",
+          "published_at": "2026-03-11"
+        },
+        {
+          "title": "亨通光电：控股股东亨通集团阵营累计质押52.12%持股",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603103667516547.html",
+          "published_at": "2026-03-10"
+        },
+        {
+          "title": "亨通光电控股股东解除质押1240万股，累计超五成持股被质押",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603043661731526.html",
+          "published_at": "2026-03-04"
+        },
+        {
+          "title": "亨通光电600487龙虎榜数据03-02)",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603023658585770.html",
+          "published_at": "2026-03-02"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "name_cn": "亨通光电",
+      "trading_number": "600487.SH",
+      "market_activity": {
+        "dragon_tiger_score": null,
+        "on_dragon_tiger_list": false,
+        "net_institutional_buy_cny": null,
+        "sector_momentum_score": null,
+        "hot_sector": false,
+        "sentiment_score": null,
+        "hot_stock_rank": null
+      },
+      "market_activity_available": false,
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "dragon_tiger": {
+        "on_list": false,
+        "flow_score": null,
+        "net_buy_cny": null
+      },
+      "sector_rotation": {
+        "sector": "Unknown",
+        "sector_momentum_score": null,
+        "is_hot_sector": false
+      },
+      "sentiment_cn": {
+        "score": null,
+        "hot_stock_rank": null,
+        "news_tone": "neutral"
+      },
+      "data_quality": {
+        "ticker": "600487.SH",
+        "has_price": true,
+        "has_dragon_tiger": false,
+        "has_sector": false,
+        "has_sentiment": false,
+        "has_news": true,
+        "completeness_score": 0.4
+      }
+    },
+    {
+      "ticker": "002506.SZ",
+      "name": "协鑫集成",
+      "exchange": "SZ",
+      "sector": "Unknown",
+      "current_price": 5.87,
+      "market_cap_usd": null,
+      "avg_dollar_volume_20d": 69413408.01750001,
+      "asof_price_utc": "2026-03-12T00:00:00Z",
+      "technical_score": 5.5,
+      "technical_evidence": {
+        "within_5pct_52w_high": false,
+        "dist_to_52w_high_pct": 7.7,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 1.01,
+        "volume_signal": "neutral",
+        "rsi14": 66.57,
+        "rsi_zone": "acceptable",
+        "above_ma10_ma20_ma50": true,
+        "ma10": 5.43,
+        "ma20": 5.12,
+        "ma50": 3.86,
+        "realized_vol_5d_ann_pct": 78.88
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "协鑫集成：前海金控减持股份至5%以下",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603133671689941.html",
+          "published_at": "2026-03-13"
+        },
+        {
+          "title": "空气能热泵概念涨0.46%，主力资金净流入这些股",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603133671567813.html",
+          "published_at": "2026-03-13"
+        },
+        {
+          "title": "91只A股筹码大换手（3月11日）",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603113668844778.html",
+          "published_at": "2026-03-11"
+        },
+        {
+          "title": "协鑫集成：截至目前，公司尚不具备“太空光伏”领域相关产品的生产能力，尚未获得相关订单",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603093666174925.html",
+          "published_at": "2026-03-09"
+        },
+        {
+          "title": "协鑫集成：公司生产的产品无法用于商业航天火箭发射",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603093666174242.html",
+          "published_at": "2026-03-09"
+        },
+        {
+          "title": "3月6日龙虎榜净买入额前10个股",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603063664569458.html",
+          "published_at": "2026-03-06"
+        },
+        {
+          "title": "协鑫集成002506龙虎榜数据03-06",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603063664525017.html",
+          "published_at": "2026-03-06"
+        },
+        {
+          "title": "协鑫集成002506龙虎榜数据03-03)",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603033660364471.html",
+          "published_at": "2026-03-03"
+        },
+        {
+          "title": "两连板！002506提示“太空光伏”风险",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202602053642995658.html",
+          "published_at": "2026-02-05"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "name_cn": "协鑫集成",
+      "trading_number": "002506.SZ",
+      "market_activity": {
+        "dragon_tiger_score": 10,
+        "on_dragon_tiger_list": true,
+        "net_institutional_buy_cny": 694913324.8899999,
+        "sector_momentum_score": null,
+        "hot_sector": false,
+        "sentiment_score": null,
+        "hot_stock_rank": null
+      },
+      "market_activity_available": true,
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "dragon_tiger": {
+        "on_list": true,
+        "flow_score": 10,
+        "net_buy_cny": 694913324.8899999,
+        "buy_amount_cny": 1235542033.1,
+        "sell_amount_cny": 540628708.21,
+        "reason": "日涨幅偏离值达到7%的前5只证券",
+        "trade_date": ""
+      },
+      "sector_rotation": {
+        "sector": "Unknown",
+        "sector_momentum_score": null,
+        "is_hot_sector": false
+      },
+      "sentiment_cn": {
+        "score": null,
+        "hot_stock_rank": null,
+        "news_tone": "neutral"
+      },
+      "data_quality": {
+        "ticker": "002506.SZ",
+        "has_price": true,
+        "has_dragon_tiger": true,
+        "has_sector": false,
+        "has_sentiment": false,
+        "has_news": true,
+        "completeness_score": 0.6
+      }
+    },
+    {
+      "ticker": "600498.SH",
+      "name": "烽火通信",
+      "exchange": "SH",
+      "sector": "Unknown",
+      "current_price": 55.5,
+      "market_cap_usd": null,
+      "avg_dollar_volume_20d": 65310325.432500005,
+      "asof_price_utc": "2026-03-12T00:00:00Z",
+      "technical_score": 5.5,
+      "technical_evidence": {
+        "within_5pct_52w_high": false,
+        "dist_to_52w_high_pct": 10.17,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 1.1,
+        "volume_signal": "neutral",
+        "rsi14": 66.89,
+        "rsi_zone": "acceptable",
+        "above_ma10_ma20_ma50": true,
+        "ma10": 55.41,
+        "ma20": 49.06,
+        "ma50": 42.02,
+        "realized_vol_5d_ann_pct": 100.03
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "烽火通信终止与联通等共同设立投资基金 合伙企业今年1月已成立|速读公告",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603133671820137.html",
+          "published_at": "2026-03-13"
+        },
+        {
+          "title": "烽火通信：决定终止参与投资设立基金合伙企业",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603133671602528.html",
+          "published_at": "2026-03-13"
+        },
+        {
+          "title": "通信行业3月12日资金流向日报",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603123670222051.html",
+          "published_at": "2026-03-12"
+        },
+        {
+          "title": "F5G概念上涨2.09%，5股主力资金净流入超亿元",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603113668838938.html",
+          "published_at": "2026-03-11"
+        },
+        {
+          "title": "沪股通现身9只个股龙虎榜",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603063664724062.html",
+          "published_at": "2026-03-06"
+        },
+        {
+          "title": "3月6日龙虎榜机构席位买卖详情",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603063664577656.html",
+          "published_at": "2026-03-06"
+        },
+        {
+          "title": "烽火通信600498龙虎榜数据03-06",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603063664549476.html",
+          "published_at": "2026-03-06"
+        },
+        {
+          "title": "连续涨停！603738、600498，紧急提示！",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603023658758173.html",
+          "published_at": "2026-03-02"
+        },
+        {
+          "title": "烽火通信600498龙虎榜数据02-27)",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202602273656717520.html",
+          "published_at": "2026-02-27"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "name_cn": "烽火通信",
+      "trading_number": "600498.SH",
+      "market_activity": {
+        "dragon_tiger_score": 10.0,
+        "on_dragon_tiger_list": true,
+        "net_institutional_buy_cny": 252016126.24,
+        "sector_momentum_score": null,
+        "hot_sector": false,
+        "sentiment_score": null,
+        "hot_stock_rank": null
+      },
+      "market_activity_available": true,
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "dragon_tiger": {
+        "on_list": true,
+        "flow_score": 10.0,
+        "net_buy_cny": 252016126.24,
+        "buy_amount_cny": 1175988809.74,
+        "sell_amount_cny": 923972683.5,
+        "reason": "有价格涨跌幅限制的日收盘价格跌幅偏离值达到7%的前五只证券",
+        "trade_date": ""
+      },
+      "sector_rotation": {
+        "sector": "Unknown",
+        "sector_momentum_score": null,
+        "is_hot_sector": false
+      },
+      "sentiment_cn": {
+        "score": null,
+        "hot_stock_rank": null,
+        "news_tone": "neutral"
+      },
+      "data_quality": {
+        "ticker": "600498.SH",
+        "has_price": true,
+        "has_dragon_tiger": true,
+        "has_sector": false,
+        "has_sentiment": false,
+        "has_news": true,
+        "completeness_score": 0.6
+      }
+    },
+    {
+      "ticker": "002384.SZ",
+      "name": "东山精密",
+      "exchange": "SZ",
+      "sector": "Unknown",
+      "current_price": 109.3,
+      "market_cap_usd": null,
+      "avg_dollar_volume_20d": 68700295.877,
+      "asof_price_utc": "2026-03-12T00:00:00Z",
+      "technical_score": 5.5,
+      "technical_evidence": {
+        "within_5pct_52w_high": true,
+        "dist_to_52w_high_pct": 2.1,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 1.13,
+        "volume_signal": "neutral",
+        "rsi14": 86.51,
+        "rsi_zone": "overbought",
+        "above_ma10_ma20_ma50": true,
+        "ma10": 97.5,
+        "ma20": 87.24,
+        "ma50": 82.44,
+        "realized_vol_5d_ann_pct": 73.56
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "30只股收盘价创历史新高",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603133671792037.html",
+          "published_at": "2026-03-13"
+        },
+        {
+          "title": "45股特大单净流入资金超2亿元",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603123670235444.html",
+          "published_at": "2026-03-12"
+        },
+        {
+          "title": "129.30亿元资金今日流出电子股",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603123670226218.html",
+          "published_at": "2026-03-12"
+        },
+        {
+          "title": "45股获杠杆资金净买入超亿元",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603113668502878.html",
+          "published_at": "2026-03-11"
+        },
+        {
+          "title": "龙虎榜动向：10股获机构及北向资金集体净买入",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603103667704635.html",
+          "published_at": "2026-03-10"
+        },
+        {
+          "title": "深股通现身19只个股龙虎榜",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603103667703924.html",
+          "published_at": "2026-03-10"
+        },
+        {
+          "title": "3月10日龙虎榜净卖出额前10个股",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603103667522615.html",
+          "published_at": "2026-03-10"
+        },
+        {
+          "title": "东山精密002384龙虎榜数据03-10",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603103667462611.html",
+          "published_at": "2026-03-10"
+        },
+        {
+          "title": "东山精密股价首次突破百元 A股市值逼近2000亿元",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603103667308989.html",
+          "published_at": "2026-03-10"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "name_cn": "东山精密",
+      "trading_number": "002384.SZ",
+      "market_activity": {
+        "dragon_tiger_score": null,
+        "on_dragon_tiger_list": false,
+        "net_institutional_buy_cny": null,
+        "sector_momentum_score": null,
+        "hot_sector": false,
+        "sentiment_score": null,
+        "hot_stock_rank": null
+      },
+      "market_activity_available": false,
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "dragon_tiger": {
+        "on_list": false,
+        "flow_score": null,
+        "net_buy_cny": null
+      },
+      "sector_rotation": {
+        "sector": "Unknown",
+        "sector_momentum_score": null,
+        "is_hot_sector": false
+      },
+      "sentiment_cn": {
+        "score": null,
+        "hot_stock_rank": null,
+        "news_tone": "neutral"
+      },
+      "data_quality": {
+        "ticker": "002384.SZ",
+        "has_price": true,
+        "has_dragon_tiger": false,
+        "has_sector": false,
+        "has_sentiment": false,
+        "has_news": true,
+        "completeness_score": 0.4
+      }
+    },
+    {
+      "ticker": "000988.SZ",
+      "name": "华工科技",
+      "exchange": "SZ",
+      "sector": "Unknown",
+      "current_price": 127.9,
+      "market_cap_usd": null,
+      "avg_dollar_volume_20d": 95171366.295,
+      "asof_price_utc": "2026-03-12T00:00:00Z",
+      "technical_score": 5.5,
+      "technical_evidence": {
+        "within_5pct_52w_high": false,
+        "dist_to_52w_high_pct": 9.55,
+        "resistance_level": null,
+        "volume_ratio_3d_to_20d": 1.63,
+        "volume_signal": "confirmed",
+        "rsi14": 87.34,
+        "rsi_zone": "overbought",
+        "above_ma10_ma20_ma50": true,
+        "ma10": 110.85,
+        "ma20": 94.69,
+        "ma50": 85.83,
+        "realized_vol_5d_ann_pct": 88.75
+      },
+      "technical_data_gaps": [],
+      "earnings_date": "Unknown",
+      "headlines": [
+        {
+          "title": "46股特大单净流入资金超2亿元",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603133671610280.html",
+          "published_at": "2026-03-13"
+        },
+        {
+          "title": "45股特大单净流入资金超2亿元",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603123670235444.html",
+          "published_at": "2026-03-12"
+        },
+        {
+          "title": "机械设备行业3月12日资金流向日报",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603123670219690.html",
+          "published_at": "2026-03-12"
+        },
+        {
+          "title": "81只A股筹码大换手（3月12日）",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603123670142582.html",
+          "published_at": "2026-03-12"
+        },
+        {
+          "title": "华工科技首次拿下A股成交额冠军",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603123670121688.html",
+          "published_at": "2026-03-12"
+        },
+        {
+          "title": "000988，首次问鼎成交额冠军",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603123670124189.html",
+          "published_at": "2026-03-12"
+        },
+        {
+          "title": "杠杆资金大手笔加仓股名单",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603123669701211.html",
+          "published_at": "2026-03-12"
+        },
+        {
+          "title": "F5G概念上涨2.09%，5股主力资金净流入超亿元",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603113668838938.html",
+          "published_at": "2026-03-11"
+        },
+        {
+          "title": "华工科技股价创历史新高",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202603103667407864.html",
+          "published_at": "2026-03-10"
+        },
+        {
+          "title": "利好来了！000988，订单排到四季度！",
+          "publisher": "",
+          "url": "http://finance.eastmoney.com/a/202602223651856280.html",
+          "published_at": "2026-02-22"
+        }
+      ],
+      "dilution_flag": 0,
+      "catalyst_tags": "",
+      "source_tags": [
+        "BASE_UNIVERSE"
+      ],
+      "name_cn": "华工科技",
+      "trading_number": "000988.SZ",
+      "market_activity": {
+        "dragon_tiger_score": null,
+        "on_dragon_tiger_list": false,
+        "net_institutional_buy_cny": null,
+        "sector_momentum_score": null,
+        "hot_sector": false,
+        "sentiment_score": null,
+        "hot_stock_rank": null
+      },
+      "market_activity_available": false,
+      "options_data_available": false,
+      "sentiment_data_available": false,
+      "dragon_tiger": {
+        "on_list": false,
+        "flow_score": null,
+        "net_buy_cny": null
+      },
+      "sector_rotation": {
+        "sector": "Unknown",
+        "sector_momentum_score": null,
+        "is_hot_sector": false
+      },
+      "sentiment_cn": {
+        "score": null,
+        "hot_stock_rank": null,
+        "news_tone": "neutral"
+      },
+      "data_quality": {
+        "ticker": "000988.SZ",
+        "has_price": true,
+        "has_dragon_tiger": false,
+        "has_sector": false,
+        "has_sentiment": false,
+        "has_news": true,
+        "completeness_score": 0.4
+      }
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "date": "2026-03-12",
+  "asof_trading_date": "2026-03-12",
+  "summary": {
+    "primary_top5_count": 1,
+    "weekly_top5_count": 1,
+    "pro30_candidates_count": 0,
+    "movers_count": 0,
+    "hybrid_top3_count": 1
+  },
+  "overlaps": {
+    "all_three": [],
+    "primary_pro30": [],
+    "primary_movers": [],
+    "pro30_movers": [],
+    "weekly_pro30": [],
+    "weekly_movers": []
+  },
+  "hybrid_top3": [
+    {
+      "ticker": "002261.SZ",
+      "hybrid_score": 1.5,
+      "sources": [
+        "Weekly(1)"
+      ],
+      "rank": 1,
+      "name": "拓维信息",
+      "sector": "计算机/算力与软件服务 (inferred)",
+      "current_price": 39.72,
+      "composite_score": 7.4,
+      "confidence": "MEDIUM",
+      "primary_catalyst": {
+        "title": "年报披露窗口（已公告延期至3月19日）",
+        "key_date_local": "2026-03-19",
+        "timing": "Unknown",
+        "why_it_matters": "年报披露是7个交易日内明确的事件窗口，叠加近期强势资金博弈与龙虎榜机构净买入，容易触发业绩/指引超预期带来的二次加速。",
+        "sources": [
+          {
+            "title": "拓维信息：年报编制工作繁杂，延期至3月19日披露",
+            "publisher": "东方财富",
+            "url": "http://finance.eastmoney.com/a/202603063664633031.html",
+            "published_at": "2026-03-06"
+          },
+          {
+            "title": "拓维信息：延期至3月19日披露2025年年度报告",
+            "publisher": "东方财富",
+            "url": "http://finance.eastmoney.com/a/202603063664621488.html",
+            "published_at": "2026-03-06"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 7.5,
+        "catalyst": 6.5,
+        "market_activity": 9.0
+      },
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": false,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 1.96,
+          "rsi14": 67.06,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 109.84
+        },
+        "market_activity": {
+          "on_dragon_tiger_list": true,
+          "dragon_tiger_net_buy_cny": 1718910971.8800006,
+          "northbound_net_flow_5d_cny": null,
+          "sector_rotation_signal": null,
+          "retail_sentiment": null
+        }
+      },
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 43.69,
+        "base_case_upside_pct_range": [
+          10,
+          18
+        ],
+        "bear_case_note": "若3/19年报披露不及预期或出现风险提示/监管问询，且量能衰竭跌破MA20附近，则10%上行概率显著下降。"
+      },
+      "stop": {
+        "stop_price_for_3pct": 37.73
+      },
+      "risk_factors": [
+        "年报延期本身可能反映披露复杂度/不确定性，若出现风险提示或业绩不及预期易引发回撤",
+        "高波动（5日年化波动>100%）下，追高容易遭遇涨停打开后的快速回撤"
+      ],
+      "data_gaps": [
+        "No verified 5-day return to enforce >20% exclusion filter",
+        "Dragon Tiger trade_date missing in packet (timing precision reduced)",
+        "No northbound flow data",
+        "Sector classification/rotation data missing"
+      ]
+    }
+  ],
+  "weighted_picks": [
+    {
+      "ticker": "002261.SZ",
+      "hybrid_score": 1.5,
+      "sources": [
+        "Weekly(1)"
+      ],
+      "current_price": 39.72,
+      "in_all_three": false,
+      "in_primary_pro30": false
+    }
+  ],
+  "weighting_note": "Primary=Weekly, Pro30, Movers, overlaps (configurable)",
+  "primary_label": "Weekly",
+  "primary_top5": [
+    {
+      "rank": 1,
+      "ticker": "002261.SZ",
+      "name": "拓维信息",
+      "name_en": "Talkweb Information System",
+      "exchange": "SZSE",
+      "sector": "计算机/算力与软件服务 (inferred)",
+      "current_price": 39.72,
+      "market_cap_cny": null,
+      "avg_dollar_volume_20d": 52725532.0475,
+      "asof_price_utc": "2026-03-12T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 43.69,
+        "base_case_upside_pct_range": [
+          10,
+          18
+        ],
+        "bear_case_note": "若3/19年报披露不及预期或出现风险提示/监管问询，且量能衰竭跌破MA20附近，则10%上行概率显著下降。"
+      },
+      "primary_catalyst": {
+        "title": "年报披露窗口（已公告延期至3月19日）",
+        "key_date_local": "2026-03-19",
+        "timing": "Unknown",
+        "why_it_matters": "年报披露是7个交易日内明确的事件窗口，叠加近期强势资金博弈与龙虎榜机构净买入，容易触发业绩/指引超预期带来的二次加速。",
+        "sources": [
+          {
+            "title": "拓维信息：年报编制工作繁杂，延期至3月19日披露",
+            "publisher": "东方财富",
+            "url": "http://finance.eastmoney.com/a/202603063664633031.html",
+            "published_at": "2026-03-06"
+          },
+          {
+            "title": "拓维信息：延期至3月19日披露2025年年度报告",
+            "publisher": "东方财富",
+            "url": "http://finance.eastmoney.com/a/202603063664621488.html",
+            "published_at": "2026-03-06"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 7.5,
+        "catalyst": 6.5,
+        "market_activity": 9.0
+      },
+      "composite_score": 7.4,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": false,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 1.96,
+          "rsi14": 67.06,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 109.84
+        },
+        "market_activity": {
+          "on_dragon_tiger_list": true,
+          "dragon_tiger_net_buy_cny": 1718910971.8800006,
+          "northbound_net_flow_5d_cny": null,
+          "sector_rotation_signal": null,
+          "retail_sentiment": null
+        }
+      },
+      "risk_factors": [
+        "年报延期本身可能反映披露复杂度/不确定性，若出现风险提示或业绩不及预期易引发回撤",
+        "高波动（5日年化波动>100%）下，追高容易遭遇涨停打开后的快速回撤"
+      ],
+      "confidence": "MEDIUM",
+      "data_gaps": [
+        "No verified 5-day return to enforce >20% exclusion filter",
+        "Dragon Tiger trade_date missing in packet (timing precision reduced)",
+        "No northbound flow data",
+        "Sector classification/rotation data missing"
+      ],
+      "debate_verdict": "HOLD",
+      "debate_reasoning": "Bull evidence on trend/volume confirmation and strong Dragon Tiger net inflow supports continuation odds, but the move is already abnormal and crowded, with elevated volatility and an annual report disclosure (postponed to 2026-03-19) landing inside the 7-trading-day window. Probability-weighted outcomes look more symmetric (sharp pullback risk comparable to further upside), making risk/reward less attractive for a fresh 7-day ≥10% call.",
+      "risk_adjusted_score": 6.7,
+      "key_risks": [
+        "Event/catalyst risk: annual report disclosure postponed to 2026-03-19, increasing uncertainty and potential sell-the-news volatility within the target window",
+        "Crowded momentum + high volatility regime (2-day deviation >20%, RSI near overbought, very high 5d realized vol) raising odds of a fast mean-reversion drawdown"
+      ],
+      "key_catalysts": [
+        "Sustained institutional/active flow support (Dragon Tiger net buy ~1.72B CNY) enabling another momentum leg if risk-on persists",
+        "Technical continuation setup: price above MA10/20/50 with volume confirmation (3d/20d volume ratio ~1.96) supporting breakout/hold of trend supports"
+      ]
+    }
+  ],
+  "pro30_tickers": [],
+  "movers_tickers": []
+}

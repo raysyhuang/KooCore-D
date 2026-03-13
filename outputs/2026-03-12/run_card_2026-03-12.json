@@ -1,0 +1,21 @@
+{
+  "date": "2026-03-12",
+  "run_timestamp_utc": "2026-03-13T14:29:18.454207Z",
+  "method_version": "v3.2-CN",
+  "summary": {
+    "tickers_screened": null,
+    "swing_candidates": 0,
+    "pro30_candidates": 0,
+    "weekly_top5": 1,
+    "movers": 0
+  },
+  "top5_tickers": [
+    "002261.SZ"
+  ],
+  "overlap_all_three": [],
+  "primary_label": "Weekly",
+  "regime": {
+    "ok": false,
+    "message": ""
+  }
+}

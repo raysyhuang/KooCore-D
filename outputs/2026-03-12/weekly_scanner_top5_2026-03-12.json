@@ -1,0 +1,500 @@
+{
+  "run_timestamp_utc": "2026-03-13T14:30:27.623776Z",
+  "universe_note": "Universe limited to provided packets (SSE/SZSE A-shares). Liquidity gate applied using packet avg_dollar_volume_20d (assumed CNY). Exclusions applied: price>=5, non-ST (ST flag not provided -> assumed non-ST), not suspended (not provided -> assumed trading). 5-day >20% filter cannot be verified from packets -> not enforced; noted in data_gaps per name.",
+  "method_version": "v3.2-CN-debate",
+  "top5": [
+    {
+      "rank": 1,
+      "ticker": "002261.SZ",
+      "name": "拓维信息",
+      "name_en": "Talkweb Information System",
+      "exchange": "SZSE",
+      "sector": "计算机/算力与软件服务 (inferred)",
+      "current_price": 39.72,
+      "market_cap_cny": null,
+      "avg_dollar_volume_20d": 52725532.0475,
+      "asof_price_utc": "2026-03-12T00:00:00Z",
+      "target": {
+        "horizon_trading_days": 7,
+        "upside_threshold_pct": 10,
+        "target_price_for_10pct": 43.69,
+        "base_case_upside_pct_range": [
+          10,
+          18
+        ],
+        "bear_case_note": "若3/19年报披露不及预期或出现风险提示/监管问询，且量能衰竭跌破MA20附近，则10%上行概率显著下降。"
+      },
+      "primary_catalyst": {
+        "title": "年报披露窗口（已公告延期至3月19日）",
+        "key_date_local": "2026-03-19",
+        "timing": "Unknown",
+        "why_it_matters": "年报披露是7个交易日内明确的事件窗口，叠加近期强势资金博弈与龙虎榜机构净买入，容易触发业绩/指引超预期带来的二次加速。",
+        "sources": [
+          {
+            "title": "拓维信息：年报编制工作繁杂，延期至3月19日披露",
+            "publisher": "东方财富",
+            "url": "http://finance.eastmoney.com/a/202603063664633031.html",
+            "published_at": "2026-03-06"
+          },
+          {
+            "title": "拓维信息：延期至3月19日披露2025年年度报告",
+            "publisher": "东方财富",
+            "url": "http://finance.eastmoney.com/a/202603063664621488.html",
+            "published_at": "2026-03-06"
+          }
+        ]
+      },
+      "scores": {
+        "technical": 7.5,
+        "catalyst": 6.5,
+        "market_activity": 9.0
+      },
+      "composite_score": 7.4,
+      "evidence": {
+        "technical": {
+          "within_5pct_52w_high": false,
+          "resistance_level": null,
+          "volume_ratio_3d_to_20d": 1.96,
+          "rsi14": 67.06,
+          "above_ma10_ma20_ma50": true,
+          "realized_vol_5d_ann_pct": 109.84
+        },
+        "market_activity": {
+          "on_dragon_tiger_list": true,
+          "dragon_tiger_net_buy_cny": 1718910971.8800006,
+          "northbound_net_flow_5d_cny": null,
+          "sector_rotation_signal": null,
+          "retail_sentiment": null
+        }
+      },
+      "risk_factors": [
+        "年报延期本身可能反映披露复杂度/不确定性，若出现风险提示或业绩不及预期易引发回撤",
+        "高波动（5日年化波动>100%）下，追高容易遭遇涨停打开后的快速回撤"
+      ],
+      "confidence": "MEDIUM",
+      "data_gaps": [
+        "No verified 5-day return to enforce >20% exclusion filter",
+        "Dragon Tiger trade_date missing in packet (timing precision reduced)",
+        "No northbound flow data",
+        "Sector classification/rotation data missing"
+      ],
+      "debate_verdict": "HOLD",
+      "debate_reasoning": "Bull evidence on trend/volume confirmation and strong Dragon Tiger net inflow supports continuation odds, but the move is already abnormal and crowded, with elevated volatility and an annual report disclosure (postponed to 2026-03-19) landing inside the 7-trading-day window. Probability-weighted outcomes look more symmetric (sharp pullback risk comparable to further upside), making risk/reward less attractive for a fresh 7-day ≥10% call.",
+      "risk_adjusted_score": 6.7,
+      "key_risks": [
+        "Event/catalyst risk: annual report disclosure postponed to 2026-03-19, increasing uncertainty and potential sell-the-news volatility within the target window",
+        "Crowded momentum + high volatility regime (2-day deviation >20%, RSI near overbought, very high 5d realized vol) raising odds of a fast mean-reversion drawdown"
+      ],
+      "key_catalysts": [
+        "Sustained institutional/active flow support (Dragon Tiger net buy ~1.72B CNY) enabling another momentum leg if risk-on persists",
+        "Technical continuation setup: price above MA10/20/50 with volume confirmation (3d/20d volume ratio ~1.96) supporting breakout/hold of trend supports"
+      ]
+    }
+  ],
+  "gate_rejections": [
+    "300750.SZ rejected: composite 5.80 < 6.5, confidence SPECULATIVE < MEDIUM",
+    "600498.SH rejected: composite 5.70 < 6.5, confidence SPECULATIVE < MEDIUM",
+    "002506.SZ rejected: composite 4.80 < 6.5, confidence SPECULATIVE < MEDIUM",
+    "300274.SZ rejected: composite 4.80 < 6.5, confidence SPECULATIVE < MEDIUM"
+  ],
+  "debate_analysis": {
+    "300750.SZ": {
+      "ticker": "300750.SZ",
+      "final_verdict": "BUY",
+      "verdict_reasoning": "The bull case provides stronger, more actionable evidence: a clear fundamental positive shock (profit +42% YoY plus a meaningful dividend) coinciding with a technically confirmed uptrend (price above key MAs, RSI in a non-overbought zone, and volume confirmation). The bear case correctly flags near-term extension and breakout supply risk near the 52-week high, but these are typical friction points rather than decisive negatives given the catalyst stack and supportive tape; overall risk/reward remains favorable though not strong enough for STRONG_BUY.",
+      "bull_score": 7.8,
+      "bear_score": 6.4,
+      "conviction_delta": -0.6,
+      "risk_adjusted_score": 7.9,
+      "key_risks": [
+        "Mean-reversion/pullback risk after a sharp move: price is materially extended vs MA10/20/50 (~360) and could retrace on profit-taking",
+        "Breakout failure near/above the 52-week high leading to a bull-trap, amplified by elevated short-term realized volatility"
+      ],
+      "key_catalysts": [
+        "Post-results repricing from reported 2025 net profit ~722bn CNY (+42% YoY) and proposed cash dividend (69.57 CNY per 10 shares)",
+        "Continuation of institutional accumulation signals: volume confirmation (3d/20d=1.51) and reported buy-side/flow-positive coverage"
+      ],
+      "debate_rounds": 1,
+      "timestamp": "2026-03-13T14:31:02.874065Z",
+      "bull_arguments": [
+        {
+          "argument": "300750.SZ (宁德时代) has a credible setup for a ≥10% move over the next 7 trading days because fundamentals just delivered a fresh positive shock while the chart shows a high-quality, volume-confirmed uptrend. On the news flow, multiple March 9–13 items point to a strong earnings print and shareholder-friendly actions: 2025 net profit was reported at 722.01–722亿元 with +42.28% YoY growth (2026-03-09 headlines), alongside a proposed cash dividend of 69.57元 per 10 shares (2026-03-09). This combination ",
+          "key_points": [
+            "Near-term catalyst stack from March 9–13: 2025净利润 722.01–722亿元、同比增长 42.28% (published 2026-03-09) plus proposed cash dividend 69.57元/10股 (2026-03-09) can drive rapid re-rating and incremental demand.",
+            "Trend + momentum confirmation: price 395.5 is above MA10/MA20/MA50 (359.63/362.07/360.13) and RSI14 is 59.41 in the “sweet_spot,” indicating upside momentum without an overbought warning (technical_evidence).",
+            "Institutional/flow tone improving: headlines indicate “机构买入评级” activity (2026-03-13) and “主力资金连续5日净流入” theme coverage (2026-03-13), aligning with the volume confirmation signal (3d/20d volume ratio 1.51)."
+          ],
+          "confidence": 7.5
+        }
+      ],
+      "bear_arguments": [
+        {
+          "argument": "A ≥10% gain in the next 7 trading days looks challenging because the setup already reflects strong momentum and recent positive news, raising the risk of near-term mean reversion rather than continuation. Technically, the stock is extended above key moving averages (MA10/20/50 all ~360 vs price 395.5), and it is only 6.8% below the 52-week high—meaning a 10% rally would likely require a clean breakout into new highs, which often faces supply and profit-taking.\n\nNear-term downside risk is amplifi",
+          "key_points": [
+            "Extension/mean-reversion risk: price 395.5 is far above MA10 359.63, MA20 362.07, MA50 360.13 (all MAs clustered ~360), implying a stretched move that can snap back over a 1-week horizon.",
+            "Breakout hurdle: the stock is still 6.8% below its 52-week high; achieving ≥10% in 7 days likely requires pushing through/above prior highs where profit-taking and overhead supply commonly appear (no explicit resistance level provided).",
+            "Volatility + volume spike can precede reversals: realized_vol_5d_ann_pct 42.56 and volume_ratio_3d_to_20d 1.51 ('confirmed') suggest a hot tape that can quickly unwind if follow-through buying fades.",
+            "Catalyst execution/interpretation risk from company headlines: '产能利用率较为饱和' and '排产规划没有明显变化' (Mar 10) can be read as limited incremental growth acceleration near-term, which may cap upside after results-related optimism.",
+            "Financing/overhang risk: headline indicates plan to register issuance of up to 40bn CNY bonds (Mar 9), which can introduce perceived funding/overhang concerns and temper short-term multiple expansion.",
+            "Data gaps increase tail risk: earnings_date is 'Unknown'; sector is 'Unknown'; sentiment/flows/dragon-tiger data unavailable—making it harder to assess whether the trade is crowded or if a near-term event could disrupt a 7-day target."
+          ],
+          "confidence": 6.0
+        }
+      ]
+    },
+    "002261.SZ": {
+      "ticker": "002261.SZ",
+      "final_verdict": "HOLD",
+      "verdict_reasoning": "Bull evidence on trend/volume confirmation and strong Dragon Tiger net inflow supports continuation odds, but the move is already abnormal and crowded, with elevated volatility and an annual report disclosure (postponed to 2026-03-19) landing inside the 7-trading-day window. Probability-weighted outcomes look more symmetric (sharp pullback risk comparable to further upside), making risk/reward less attractive for a fresh 7-day ≥10% call.",
+      "bull_score": 7.6,
+      "bear_score": 6.8,
+      "conviction_delta": -0.8,
+      "risk_adjusted_score": 6.7,
+      "key_risks": [
+        "Event/catalyst risk: annual report disclosure postponed to 2026-03-19, increasing uncertainty and potential sell-the-news volatility within the target window",
+        "Crowded momentum + high volatility regime (2-day deviation >20%, RSI near overbought, very high 5d realized vol) raising odds of a fast mean-reversion drawdown"
+      ],
+      "key_catalysts": [
+        "Sustained institutional/active flow support (Dragon Tiger net buy ~1.72B CNY) enabling another momentum leg if risk-on persists",
+        "Technical continuation setup: price above MA10/20/50 with volume confirmation (3d/20d volume ratio ~1.96) supporting breakout/hold of trend supports"
+      ],
+      "debate_rounds": 1,
+      "timestamp": "2026-03-13T14:31:39.814186Z",
+      "bull_arguments": [
+        {
+          "argument": "002261.SZ（拓维信息）具备“资金+趋势”共振的短线加速条件，7个交易日内实现≥10%上涨的概率偏高。核心在于：近期成交量显著放大且趋势均线多头排列，叠加龙虎榜显示强机构净买入，短线资金关注度与承接力同步增强，容易在回踩后再度上攻形成二次拉升。\n\n从结构上看，当前价39.72已站上MA10/20/50（MA10=38.71、MA20=35.36、MA50=34.07），说明中短期趋势向上且回撤有均线支撑；同时3日/20日量比达1.96且“volume_signal=confirmed”，表明上涨并非缩量虚涨。龙虎榜资金面更是给出强背书：净买入约17.19亿元（net_buy_cny=1,718,910,971.88），买入额46.20亿元、卖出额29.01亿元，显示大资金在高波动阶段仍选择净流入，短线继续冲高具备资金基础。",
+          "key_points": [
+            "趋势强：价格39.72同时高于MA10/MA20/MA50（38.71/35.36/34.07），多头结构明确，技术评分7.5支持继续上行",
+            "量能确认：3日/20日量比1.96且volume_signal为“confirmed”，上涨阶段有量配合，利于突破与延续",
+            "资金催化：龙虎榜在“日涨幅偏离值达7%”触发条件下仍录得净买入17.19亿元（买46.20亿/卖29.01亿），dragon_tiger_score=10且on_dragon_tiger_list=true，短线资金关注度高、承接强"
+          ],
+          "confidence": 7.5
+        }
+      ],
+      "bear_arguments": [
+        {
+          "argument": "002261.SZ has already exhibited “event-driven” behavior that often precedes mean reversion rather than a clean continuation. Recent headlines flag that the stock’s 2-day cumulative close-to-close deviation exceeded 20% (published 2026-03-09), and it appeared on the Dragon Tiger list for abnormal daily move criteria. With RSI14 at 67.06 (near overbought) and 5-day realized annualized volatility at 109.84%, the near-term distribution of outcomes is wide; achieving an additional ≥10% in the next 7 ",
+          "key_points": [
+            "Crowded/abnormal move risk: headline notes 2 trading days of cumulative price deviation >20% (2026-03-09) and Dragon Tiger listing for abnormal daily move criteria; these conditions often attract short-term capital that can exit quickly, raising pullback risk within a 7-day horizon.",
+            "Near-overbought + high volatility: RSI14 = 67.06 (close to overbought) and realized_vol_5d_ann_pct = 109.84 indicate stretched momentum and unstable price dynamics; a small sentiment shift can translate into a >10% drawdown as easily as a further rally.",
+            "Catalyst/disclosure risk inside the 7-day window: annual report disclosure delayed to 2026-03-19 (headlines 2026-03-06), increasing uncertainty and the chance of adverse interpretation or profit-taking around the new date.",
+            "Flow regime risk: despite net institutional buy on Dragon Tiger (net_buy_cny ≈ 1.72B), the same dataset shows very large two-way turnover (buy_amount_cny ≈ 4.62B vs sell_amount_cny ≈ 2.90B), consistent with heavy churn; if marginal buyers fade, price can gap down.",
+            "Data gaps elevate risk: earnings_date is 'Unknown', market_cap_usd is null, sector is 'Unknown', and sentiment score is missing; limited fundamental/valuation context makes it harder to justify a high-conviction expectation of ≥10% upside in 7 days and increases the chance the move is purely momentum-driven."
+          ],
+          "confidence": 6.0
+        }
+      ]
+    },
+    "300274.SZ": {
+      "ticker": "300274.SZ",
+      "final_verdict": "BUY",
+      "verdict_reasoning": "Bull evidence is stronger on observable, near-term drivers: clear multi-MA uptrend plus sustained volume expansion and repeated “strong stock/continuous inflow” news flow support a momentum continuation setup. Bear points on crowding and high volatility are valid and cap confidence, but they do not outweigh the current trend/flow confirmation; probability of a +10% move in 7 sessions looks moderately above baseline, albeit with elevated drawdown risk.",
+      "bull_score": 7.7,
+      "bear_score": 6.3,
+      "conviction_delta": -0.4,
+      "risk_adjusted_score": 7.1,
+      "key_risks": [
+        "High short-horizon volatility increases odds of a sharp pullback/profit-taking within the 7-day window, potentially negating gains",
+        "Crowding/late-stage momentum risk (RSI near upper range + elevated volume) and overhead supply could cap follow-through without fresh catalysts"
+      ],
+      "key_catalysts": [
+        "Trend/flow continuation: price holding above MA10/20/50 with multi-day volume expansion (3d/20d=1.64) suggests incremental buyers still active",
+        "Sustained attention/rotation: repeated “strong stock tracking/continuous net inflow” headlines and very high turnover can keep momentum funds engaged short-term"
+      ],
+      "debate_rounds": 1,
+      "timestamp": "2026-03-13T14:32:11.317502Z",
+      "bull_arguments": [
+        {
+          "argument": "300274.SZ（阳光电源）具备“资金+趋势”共振的短线冲刺条件，未来7个交易日实现≥10%上涨的概率偏高。技术面上，股价173.1已同时站上MA10/MA20/MA50（MA10=154.73、MA20=152.74、MA50=159.75），说明中短期趋势已转强且均线系统呈多头排列；同时近3日量能相对20日放大（volume_ratio_3d_to_20d=1.64，volume_signal=confirmed），在趋势上行阶段的放量往往意味着增量资金持续进场，而不是单日脉冲。\n\n催化与情绪端，新闻流显示其被多次纳入“强势股追踪/主力资金连续净流入”类榜单（2026-03-11/12/13连续出现相关标题），并在2026-03-11出现“300274，成交额A股第一”的报道，强化了短线关注度与交易拥挤度。考虑到5日年化实现波动率为60.6%，该波动水平在7个交易日窗口内为10%级别的价格位移提供了“空间”；同时RSI14=65.16处于“acceptable”区间，尚未进入明显过热区，意味着在不极端透支的情况下仍可能延续上攻。",
+          "key_points": [
+            "趋势确认：当前价173.1同时高于MA10=154.73、MA20=152.74、MA50=159.75（above_ma10_ma20_ma50=true），多头结构明确，支持短线延续性。",
+            "量能与资金关注：近3日成交量/20日比=1.64且volume_signal=“confirmed”，并且新闻在2026-03-11/12/13连续出现“主力资金连续5日净流入”类强势股追踪标题，叠加2026-03-11“成交额A股第一”，显示增量资金与关注度同步抬升。",
+            "波动提供10%空间且未极端过热：realized_vol_5d_ann_pct=60.6为短期大波动环境提供上冲幅度；RSI14=65.16（rsi_zone=acceptable）表明动能偏强但仍未到明显超买失真区。"
+          ],
+          "confidence": 7.5
+        }
+      ],
+      "bear_arguments": [
+        {
+          "argument": "300274.SZ has strong recent momentum (price above MA10/20/50 and elevated volume), but that strength itself increases near-term downside risk and makes a ≥10% gain over the next 7 trading days less likely on a probability-weighted basis. With RSI14 at 65.16 (upper end of “acceptable”) and a 3-day/20-day volume ratio of 1.64 (“confirmed”), the move looks increasingly crowded/extended; in this setup, even a modest shift in risk appetite can trigger profit-taking and mean reversion rather than anot",
+          "key_points": [
+            "Momentum may be late-stage/crowded: RSI14 is 65.16 (near overbought) while volume is elevated (3d/20d volume ratio 1.64, volume signal “confirmed”), a common setup for profit-taking rather than sustained +10% continuation in a 7-trading-day window.",
+            "High near-term drawdown risk: 5-day realized volatility is 60.6% annualized, indicating large short-horizon swings; this increases the probability of a sharp pullback that can negate gains within the next week.",
+            "Upside may be harder from here: the stock is still 17.52% below its 52-week high (not within 5%), suggesting overhead supply/previous distribution zone could cap near-term upside even if trend remains up.",
+            "Catalyst uncertainty is a risk: earnings date is “Unknown” and catalyst_tags are empty; without a defined upcoming catalyst, sustaining a further +10% in 7 sessions relies mainly on continued momentum flows, which can reverse quickly.",
+            "Data gaps reduce conviction and increase event/valuation risk: sector is “Unknown,” market cap is null, and market activity/sentiment/dragon-tiger data are unavailable (completeness_score 0.4), limiting the ability to verify whether the move is supported by fundamentals or just short-term flows."
+          ],
+          "confidence": 6.0
+        }
+      ]
+    },
+    "688525.SH": {
+      "ticker": "688525.SH",
+      "final_verdict": "HOLD",
+      "verdict_reasoning": "Bull evidence on trend/RSI/volume and recent event-driven strength is solid, but the bear case highlights a more decision-relevant constraint: the move is already crowded/extended with very high realized volatility and concurrent STAR/electronics fund outflows that can quickly flip momentum. Probability of a ≥10% gain in 7 sessions exists, but the downside tail and mean-reversion risk make the expected value and risk/reward insufficiently asymmetric for a clear buy.",
+      "bull_score": 7.2,
+      "bear_score": 7.0,
+      "conviction_delta": -0.8,
+      "risk_adjusted_score": 5.7,
+      "key_risks": [
+        "High realized volatility and extended short-term deviation increase probability of sharp pullback/profit-taking",
+        "Sector/market flow headwinds (STAR market and electronics net outflows) can cap upside and amplify drawdowns",
+        "Catalyst fragility: storage price/AI expectations may cool; company guidance uncertainty could trigger repricing",
+        "Overhead supply near prior highs; failure to break/hold could lead to fast mean reversion"
+      ],
+      "key_catalysts": [
+        "Continuation of storage price upcycle headlines and AI-related sentiment re-acceleration",
+        "Breakout above prior highs/52-week high with expanding volume confirming trend continuation",
+        "Reversal of STAR/electronics fund flows back to net inflows supporting high-beta leaders"
+      ],
+      "debate_rounds": 1,
+      "timestamp": "2026-03-13T14:32:42.776941Z",
+      "bull_arguments": [
+        {
+          "argument": "688525.SH（佰维存储）具备“强趋势+高波动+事件驱动”的短线组合，未来7个交易日实现≥10%上涨具备可行性。当前价202.85，技术面处于多头排列：股价同时站上MA10/MA20/MA50（MA10=189.71，MA20=177.53，MA50=161.95），且RSI14=62.77处于“sweet_spot”区间，说明趋势偏强但尚未进入极端过热区，仍有继续上攻空间。近3日量比为1.2（相对20日放量），在趋势上行阶段属于健康的量能配合，为短线突破提供条件。\n\n催化层面，新闻在3月初集中指向“存储产品价格大涨”与“AI产业股”主题（2026-03-06、2026-03-04多条），并出现“开盘20cm涨停/开盘3分钟涨停”等强势行为（2026-03-04）。这类强势股在科创板常见“二次/三次发酵”的资金博弈，尤其在高波动环境下更容易在1-2周内走出延续段。尽管近期出现科创板/电子板块资金净流出相关报道（2026-03-10至2026-03-13），但个股趋势仍保持在均线之上，说明抛压更多是板块层面的扰动，若后续出现情绪回暖或资金回流，强趋势标的往往率先反弹并放大涨幅。",
+          "key_points": [
+            "技术面多头趋势明确：股价202.85高于MA10=189.71、MA20=177.53、MA50=161.95（“above_ma10_ma20_ma50”: true），趋势延续概率高，7日内冲击+10%具备结构基础。",
+            "动能处于可持续区间：RSI14=62.77（rsi_zone=“sweet_spot”）显示强势但未极端超买；近3日量比1.2（volume_ratio_3d_to_20d=1.2）提供上攻所需的增量资金迹象。",
+            "事件/情绪催化仍在：新闻显示3月初出现强势涨停行为（2026-03-04“开盘20cm涨停”“开盘3分钟涨停”）及“存储产品价格大涨”（2026-03-06），短线容易形成趋势延续与题材再度发酵。"
+          ],
+          "confidence": 6.8
+        }
+      ],
+      "bear_arguments": [
+        {
+          "argument": "688525.SH has strong recent momentum (price above MA10/20/50 and RSI in a constructive zone), but the near-term setup looks vulnerable to a pullback rather than a fresh ≥10% leg up over the next 7 trading days. The stock is already extended after a sharp run (company noted a 3-day cumulative close-to-close deviation of ~30%), and realized volatility is extremely high, which raises the probability of mean reversion and fast drawdowns if incremental buyers fade.\n\nThe bigger risk is that the recent",
+          "key_points": [
+            "Crowded/extended move raises mean-reversion risk: company risk提示 notes 3-day cumulative deviation ~30% (03-06 headline), making a near-term pullback/profit-taking more likely than another +10% in 7 sessions.",
+            "Volatility is very high, increasing downside tail risk: realized_vol_5d_ann_pct = 86.92, so a few adverse sessions can erase gains quickly even if the trend is up.",
+            "Macro/flow headwinds in the immediate window: headlines show 科创板主力资金净流出 (e.g., 42.00亿元 on 03-13; 45.06亿元 on 03-11; 36.85亿元 on 03-10) and 电子股资金流出129.30亿元 (03-12), which can cap upside and amplify selloffs in high-beta names.",
+            "Catalyst fragility: company commentary highlights storage prices at historical highs and uncertainty in future price trend plus AI business uncertainty (03-06 headlines), so the key bullish driver could weaken quickly if expectations cool.",
+            "Technical upside may be limited near prior highs: price is still 7.93% below the 52-week high; to achieve ≥10% in 7 days it likely must break and hold above that area, which can act as supply/overhead resistance even if an explicit resistance_level is not provided.",
+            "Data gaps increase risk of being blindsided: earnings_date is Unknown; market_activity/sentiment/sector fields are largely missing (completeness_score 0.4), reducing confidence in timing catalysts and whether the trade is already crowded."
+          ],
+          "confidence": 6.0
+        }
+      ]
+    },
+    "600487.SH": {
+      "ticker": "600487.SH",
+      "final_verdict": "HOLD",
+      "verdict_reasoning": "Bull evidence supports a strong uptrend (price above MA10/20/50) with non-overheated momentum (RSI ~64) and sufficient volatility to allow a +10% move, but the lack of volume expansion and notable data gaps reduce confidence that upside will materialize within 7 sessions. Bear concerns around declining participation, high short-term tail risk from elevated realized volatility, and governance/pledge overhang make the risk/reward roughly balanced versus the short-horizon target.",
+      "bull_score": 6.8,
+      "bear_score": 6.4,
+      "conviction_delta": -0.4,
+      "risk_adjusted_score": 5.8,
+      "key_risks": [
+        "Declining volume/participation (3D/20D ~0.99) leading to consolidation or pullback after an extended run",
+        "High realized volatility (~95.8% annualized) amplifying downside tail risk, especially with governance/pledge overhang and incomplete flow/earnings visibility"
+      ],
+      "key_catalysts": [
+        "AI advanced optical fiber materials R&D/manufacturing center capacity expansion progress (phase-one construction completed) supporting theme-driven trading",
+        "Renewed volume expansion/breakout above recent highs while maintaining MA10 support, enabling momentum continuation toward a 7-day +10% move"
+      ],
+      "debate_rounds": 1,
+      "timestamp": "2026-03-13T14:33:16.799658Z",
+      "bull_arguments": [
+        {
+          "argument": "600487.SH（亨通光电）具备“趋势强 + 事件催化 + 波动率充足”的短线组合，未来7个交易日实现≥10%上涨具备可行性。技术面上，股价51.42已站上MA10/MA20/MA50（MA10=49.03、MA20=44.51、MA50=34.53），显示中短期趋势一致向上；RSI14=63.81处于“sweet_spot”，意味着动能偏强但尚未进入明显过热区，仍有继续上攻空间。与此同时，5日年化实现波动率高达95.77%，在趋势向上的背景下，这种波动结构为7日内10%幅度提供了“价格运动空间”。\n\n催化方面，新闻显示公司“AI先进光纤材料研发制造中心扩产项目正在有序推进，一期扩产项目厂房建设已收官”（2026-03-11，东方财富链接），属于明确的在建进展型催化，容易在短线形成预期强化与主题交易。资金与关注度层面，近20日平均成交额约7095万美元，流动性充足，利于趋势延续与资金推动。虽然近3日成交量相对20日略弱（量比0.99、volume_signal=declining），但在均线多头排列与RSI健康区间下，更像是上涨后的“缩量整理”，一旦量能回升，突破加速的概率提升。",
+          "key_points": [
+            "趋势确认：当前价51.42同时高于MA10/MA20/MA50（49.03/44.51/34.53），多周期均线共振向上，技术评分6.2支持偏强结构。",
+            "动能不过热：RSI14=63.81（sweet_spot）显示强势但未极端，短线仍有继续上冲的空间。",
+            "7日内达成10%所需波动具备条件：5日年化实现波动率95.77%，在上升趋势中更容易出现快速拉升；同时20日平均成交额约7095万美元，具备承接与推动能力。",
+            "事件催化明确：2026-03-11新闻披露“AI先进光纤材料…扩产项目…一期厂房建设已收官”，为短线主题与预期交易提供抓手。"
+          ],
+          "confidence": 6.8
+        }
+      ],
+      "bear_arguments": [
+        {
+          "argument": "A ≥10% gain in the next 7 trading days looks difficult because the setup is already extended and momentum is showing signs of fatigue. Price is above MA10/20/50 (MA10 49.03, MA20 44.51, MA50 34.53) with RSI14 at 63.81, which is constructive but also implies limited near-term “easy upside” unless fresh demand accelerates. That acceleration is not evident: the 3D/20D volume ratio is ~0.99 and the volume signal is explicitly “declining,” which often precedes consolidation or pullbacks after a run.\n",
+          "key_points": [
+            "Momentum may be tiring: volume is “declining” and volume_ratio_3d_to_20d is only 0.99, which is not the kind of expanding participation typically needed to push another +10% in a week.",
+            "Extended/overheat risk: price is above MA10/20/50 (49.03/44.51/34.53) and RSI14 is 63.81; upside may be increasingly dependent on new catalysts rather than trend-following alone.",
+            "High short-horizon downside tail risk: realized_vol_5d_ann_pct is 95.77, so a modest sentiment shift can translate into a large drawdown within 7 sessions.",
+            "Governance/financing overhang: headlines indicate the controlling shareholder has a high pledge ratio (reported 52.12% of holdings pledged) and “release old pledge, add new pledge” activity, which can pressure sentiment and raise forced-selling concerns if the stock dips.",
+            "Catalyst execution risk: the AI advanced fiber materials capacity expansion is described as “orderly progressing” with phase-one construction completed, but timing/ramp and market reception are not quantified; without clear near-term milestones, the market may fade the story.",
+            "Data gaps increase risk of being blindsided: earnings_date is unknown; sector is unknown; sentiment/flows (dragon-tiger, institutional net buy) are unavailable; completeness_score is only 0.4—reducing confidence in any near-term bullish thesis."
+          ],
+          "confidence": 6.0
+        }
+      ]
+    },
+    "002506.SZ": {
+      "ticker": "002506.SZ",
+      "final_verdict": "HOLD",
+      "verdict_reasoning": "Bull evidence on near-term flow is strong (large 龙虎榜净买入 + price above key MAs), which can support a momentum push toward the prior high. However, the setup is crowded (RSI ~66, very high short-term volatility) and narrative risk is elevated due to company clarifications and a holder reducing below 5%, making a clean +10% in 7 days less reliable on a risk-adjusted basis.",
+      "bull_score": 7.3,
+      "bear_score": 6.6,
+      "conviction_delta": 0.2,
+      "risk_adjusted_score": 5.7,
+      "key_risks": [
+        "Speculative-theme unwind risk from company clarifications leading to rapid sentiment reversal",
+        "High realized volatility and crowded momentum positioning increasing probability of sharp pullback/profit-taking",
+        "Potential supply overhang/distribution signal from shareholder reducing holdings below 5%"
+      ],
+      "key_catalysts": [
+        "Continuation of strong 龙虎榜/active funds net buying sustaining momentum",
+        "Technical breakout above/through the 52-week high triggering trend-following and short-term chase flows"
+      ],
+      "debate_rounds": 1,
+      "timestamp": "2026-03-13T14:33:52.054600Z",
+      "bull_arguments": [
+        {
+          "argument": "002506.SZ（协鑫集成）具备在未来7个交易日内冲击≥10%涨幅的“资金+趋势”组合：一方面，龙虎榜资金面极强，出现显著净买入；另一方面，价格结构处于多均线之上且RSI仍在可接受区间，说明上涨趋势尚未走到极端。以当前价5.87计算，10%目标约为6.46；而其距52周高点仅7.7%，意味着只要回到前高附近就已接近目标区间，若资金继续推动，突破前高后实现≥10%并非苛刻。\n\n短线催化主要来自交易层面的热度与资金关注度：公司近期多次登上龙虎榜（3/03、3/06相关报道），且3/06因“日涨幅偏离值达7%”触发上榜，显示波动与关注度提升。尽管新闻中也出现对“太空光伏”等概念澄清（3/09）以及股东减持至5%以下（3/13）的偏利空信息，但从资金净流入规模与技术面强势来看，短线更可能走“利空不跌/资金主导”的交易路径，形成7日内的冲高窗口。",
+          "key_points": [
+            "资金面强：龙虎榜显示净买入约6.95亿元（net_buy_cny=694,913,324.89），买入12.36亿元、卖出5.41亿元（buy_amount_cny=1,235,542,033.1；sell_amount_cny=540,628,708.21），且flow_score=10，属于短线强推力信号",
+            "趋势面强：当前价5.87高于MA10=5.43、MA20=5.12、MA50=3.86（above_ma10_ma20_ma50=true），RSI14=66.57且处于“acceptable”，显示强势但未进入极端过热区",
+            "目标可达性：距52周高点仅7.7%（dist_to_52w_high_pct=7.7），而7日目标涨幅10%对应约6.46；在高波动环境下（5日年化波动78.88%）配合强资金流入，短线冲击前高并延伸至≥10%具备可操作性"
+          ],
+          "confidence": 7.2
+        }
+      ],
+      "bear_arguments": [
+        {
+          "argument": "002506.SZ looks vulnerable to a near-term pullback rather than a clean ≥10% upside over the next 7 trading days, mainly because recent price action appears crowded and headline-driven while fundamental/catalyst clarity is weak. The stock is already extended above short- and medium-term moving averages (above MA10/MA20/MA50), with RSI14 at 66.57 (near overbought territory). In this setup, even modest negative news or profit-taking can trigger a fast mean-reversion move, especially given the very ",
+          "key_points": [
+            "Crowded/extended technical setup increases pullback risk: RSI14=66.57 and price above MA10/MA20/MA50 (MA10=5.43, MA20=5.12, MA50=3.86) suggests an extended run where upside may be harder to sustain for another +10% without fresh catalysts.",
+            "High volatility raises downside tail risk over a 7-day horizon: realized_vol_5d_ann_pct=78.88 implies large swings; a -5% to -10% move is plausible if momentum stalls, making the probability of a clean +10% gain lower.",
+            "Speculative-theme unwind risk from company clarifications: company states it does not have '太空光伏' related production capability and has not obtained related orders, and its products cannot be used for commercial space rocket launches—this can directly weaken narrative-driven buying.",
+            "Potential distribution/supply overhang: headline indicates 前海金控 reduced its holdings to below 5%, which can be read as selling pressure and reduced confidence from a notable holder.",
+            "Flow/\"龙虎榜\" participation can be double-edged: on Dragon-Tiger list with reason 'daily move deviation reached 7%'; such attention can attract short-term traders, but also increases risk of sharp reversals once the flow turns.",
+            "Material data gaps reduce conviction in upside catalysts: sector is 'Unknown' with no sector momentum score, sentiment score is null, market cap is null, and earnings date is unknown—hard to anchor valuation or identify near-term fundamental triggers."
+          ],
+          "confidence": 6.0
+        }
+      ]
+    },
+    "600498.SH": {
+      "ticker": "600498.SH",
+      "final_verdict": "HOLD",
+      "verdict_reasoning": "Bull evidence (institutional net buying on the Dragon & Tiger list plus price above key moving averages) supports continued momentum, but the setup is already stretched versus MA20/MA50 with RSI near overbought and very high short-term volatility, making a 7-day +10% outcome plausible but not clearly more probable than consolidation/pullback. The fund-partnership termination headline adds near-term catalyst/expectations risk in a crowded, flow-driven tape, reducing risk-adjusted upside edge versus downside whipsaw.",
+      "bull_score": 7.2,
+      "bear_score": 6.6,
+      "conviction_delta": -0.6,
+      "risk_adjusted_score": 4.9,
+      "key_risks": [
+        "Mean-reversion/pullback risk after a sharp run (price materially above MA20/MA50; RSI near 70)",
+        "Crowded hot-money flow and headline/regulatory sensitivity leading to abrupt reversals; elevated realized volatility"
+      ],
+      "key_catalysts": [
+        "Follow-through institutional/active-fund buying and momentum continuation toward the 52-week high (~10% away)",
+        "Technical breakout/52-week-high test triggering trend-following inflows"
+      ],
+      "debate_rounds": 1,
+      "timestamp": "2026-03-13T14:34:25.509385Z",
+      "bull_arguments": [
+        {
+          "argument": "600498.SH（烽火通信）具备“资金+趋势”共振的短线冲刺条件，7个交易日内实现≥10%涨幅并非苛求。首先，资金面出现强信号：公司在龙虎榜上显示机构净买入252,016,126.24元，且买入额1,175,988,809.74元显著高于卖出额923,972,683.50元（数据来自packet的dragon_tiger）。这种级别的净流入往往对应短线资金的趋势性押注，容易在接下来1-2周形成惯性上冲。\n\n其次，技术面处于强势上行结构：当前价55.5，且同时站上MA10/MA20/MA50（MA10=55.41、MA20=49.06、MA50=42.02），说明中短期趋势一致向上；RSI14=66.89处于“acceptable”区间，强势但未到极端过热，仍有继续推升空间。与此同时，距52周高点仅10.17%（within_5pct_52w_high=false，但dist_to_52w_high_pct=10.17），意味着只要延续趋势，触及/突破前高的“空间”与目标涨幅（≥10%）高度匹配。短线波动也足够支持快速拉升：5日年化已实现波动率100.03%，为7日内实现10%提供了统",
+          "key_points": [
+            "机构资金强势介入：龙虎榜机构净买入252,016,126.24元，买入1,175,988,809.74元>卖出923,972,683.50元（dragon_tiger_score=10.0，on_list=true），短线资金推动力强",
+            "趋势结构明确向上：现价55.5同时高于MA10/MA20/MA50（55.41/49.06/42.02），中短期均线多头排列，回撤承接更强",
+            "冲击前高的“距离”与目标涨幅匹配：距52周高点仅10.17%，若延续上行惯性，7个交易日内实现≥10%具备路径；且5日年化波动率100.03%支持快速波动上行"
+          ],
+          "confidence": 7.5
+        }
+      ],
+      "bear_arguments": [
+        {
+          "argument": "600498.SH looks vulnerable to a near-term pullback rather than a fresh ≥10% leg up over the next 7 trading days. The stock is already extended after a sharp run (above MA10/20/50 with MA20 far below price), while short-term momentum is approaching overbought (RSI14 66.89). With realized 5-day annualized volatility at ~100%, the distribution of outcomes is wide, and a mean-reversion downdraft can easily dominate the next week’s return profile.\n\nNews flow also introduces execution/expectation risk",
+          "key_points": [
+            "Extended technicals raise mean-reversion risk: price 55.5 is only ~0.2% above MA10 (55.41) but ~13% above MA20 (49.06) and ~32% above MA50 (42.02), suggesting a stretched move that often consolidates rather than adds another +10% in a week.",
+            "Momentum is close to overbought and can flip quickly: RSI14 is 66.89 (near the typical 70 threshold), limiting upside asymmetry and increasing the odds that any negative tape triggers a pullback within 7 sessions.",
+            "Crowded/flow-driven conditions increase reversal risk: the stock is on the Dragon & Tiger list with large gross turnover (buy 1.176B CNY vs sell 0.924B CNY) and the stated reason involves a >7% deviation move; this kind of hot-money participation can reverse abruptly, especially after a run of strong moves (headline references 连续涨停 and 紧急提示).",
+            "Catalyst disappointment risk: the company decided to terminate participation in setting up an investment fund partnership (2026-03-13), which can be interpreted as reduced strategic optionality and may cool speculative enthusiasm in the immediate next-week window.",
+            "Data gaps materially reduce conviction in a +10% thesis: sector is unknown, earnings date is unknown, market cap is missing, and there is no sentiment score/options data—without these, it’s difficult to validate fundamental support or identify upcoming positive catalysts that could reliably drive another +10% in 7 trading days."
+          ],
+          "confidence": 6.0
+        }
+      ]
+    },
+    "002384.SZ": {
+      "ticker": "002384.SZ",
+      "final_verdict": "HOLD",
+      "verdict_reasoning": "The bull case has solid technical evidence (strong MA stack, near-high regime, elevated volatility that can enable a fast move), but the bear case more convincingly highlights unfavorable short-term asymmetry: RSI is extremely overbought and volume expansion is only modest, increasing odds of consolidation/pullback rather than a clean +10% continuation in 7 sessions. Given the crowded-momentum headlines and meaningful fundamental/catalyst data gaps, the probability-weighted edge for a tactical long is not clear enough to upgrade beyond HOLD.",
+      "bull_score": 6.8,
+      "bear_score": 6.6,
+      "conviction_delta": -0.5,
+      "risk_adjusted_score": 5.0,
+      "key_risks": [
+        "Overbought unwind/failed breakout: RSI14 ~86 with price near highs can trigger sharp mean reversion within a week",
+        "Crowded momentum + limited volume confirmation: only mild 3d/20d volume uplift raises risk of demand exhaustion and air-pocket drawdown"
+      ],
+      "key_catalysts": [
+        "Continuation breakout if price holds above MA10 and re-accelerates with clear volume expansion",
+        "Sustained positive flow/attention (net inflows, leveraged-fund buying) supporting another momentum leg"
+      ],
+      "debate_rounds": 1,
+      "timestamp": "2026-03-13T14:34:55.540085Z",
+      "bull_arguments": [
+        {
+          "argument": "002384.SZ (东山精密) is exhibiting a classic momentum breakout setup that can plausibly deliver a ≥10% move within the next 7 trading days, driven by strong trend structure, proximity to highs, and supportive flow/attention signals in recent news. The stock is trading at 109.3 (as of 2026-03-12) and sits just 2.1% below its 52-week high, indicating price discovery near the top of its range rather than mean-reversion behavior. With all key moving averages stacked below price (MA10=97.5, MA20=87.24, M",
+          "key_points": [
+            "Breakout/near-high regime: within 5% of 52-week high (dist_to_52w_high_pct=2.1%), consistent with continuation potential over the next week rather than range trading.",
+            "Strong trend confirmation: price above MA10/MA20/MA50 (true) with MA10=97.5, MA20=87.24, MA50=82.44 vs current_price=109.3, indicating strong upside structure and dip-buying support zones.",
+            "Catalyst/attention + volatility for a fast move: 5d realized vol annualized 73.56% supports the feasibility of a ≥10% 7-trading-day swing; volume ratio 3d/20d=1.13 plus multiple capital-flow/market-attention headlines (2026-03-10 to 2026-03-13) suggest active participation."
+          ],
+          "confidence": 6.8
+        }
+      ],
+      "bear_arguments": [
+        {
+          "argument": "002384.SZ is priced for near-perfection into the next week: it is within 2.1% of its 52-week high while RSI(14) is extremely overbought at 86.51. In this setup, the risk/reward for a ≥10% gain over the next 7 trading days is asymmetric—upside may be capped by profit-taking and mean reversion, while downside can be sharp if momentum stalls even briefly. With realized 5-day annualized volatility at 73.56%, short-horizon swings can be large, and an overbought unwind can easily dominate the next-wee",
+          "key_points": [
+            "Overbought/mean-reversion risk: RSI14 = 86.51 (\"overbought\") while price is within 2.1% of the 52-week high—conditions that often precede pullbacks or sideways consolidation rather than another +10% leg in 7 trading days.",
+            "Crowded momentum + profit-taking risk near highs: headlines emphasize \"historical new highs\" and notable flow activity; when a stock is already extended, marginal demand can fade and trigger fast reversals.",
+            "Volatility risk cuts both ways: realized_vol_5d_ann_pct = 73.56 implies large short-term swings; in an overbought state, the probability-weighted next move can skew to a sharp drawdown if momentum breaks.",
+            "Volume is not confirming a fresh breakout impulse: volume_ratio_3d_to_20d = 1.13 and volume_signal = \"neutral\"—not a strong expansion that would typically support a sustained acceleration needed for +10% in a week.",
+            "Key data gaps elevate downside uncertainty: earnings_date is \"Unknown\", sector is \"Unknown\", and sentiment/dragon-tiger/sector momentum are unavailable (data completeness_score = 0.4), making it hard to justify a near-term catalyst-driven +10% thesis."
+          ],
+          "confidence": 6.0
+        }
+      ]
+    },
+    "000988.SZ": {
+      "ticker": "000988.SZ",
+      "final_verdict": "HOLD",
+      "verdict_reasoning": "技术面与资金面确实呈现强趋势+放量确认，短期实现≥10%上行在统计波动条件下并非不可能；但RSI14=87.34处于极端超买区，且近期新闻主要是资金流/成交热度而非可验证的近端基本面催化，7个交易日内更可能先震荡消化或回撤。综合来看，上行空间存在但胜率与回撤风险接近均衡，暂不做高置信度追涨决策。",
+      "bull_score": 6.8,
+      "bear_score": 6.6,
+      "conviction_delta": -0.3,
+      "risk_adjusted_score": 5.2,
+      "key_risks": [
+        "极端超买（RSI14≈87）触发均值回归，出现快速回撤/高位横盘导致7日内难以再涨≥10%",
+        "放量可能是阶段性情绪/资金冲顶而非持续增量资金，缺乏明确基本面催化时易出现获利了结"
+      ],
+      "key_catalysts": [
+        "若后续继续出现大单净流入与量能维持（而非缩量滞涨），可能推动趋势延续并突破前高供给区",
+        "若披露业绩预告/订单/产业政策等硬催化（当前缺失），可显著提升7日内再上攻的确定性"
+      ],
+      "debate_rounds": 1,
+      "timestamp": "2026-03-13T14:35:29.156521Z",
+      "bull_arguments": [
+        {
+          "argument": "000988.SZ（华工科技）具备“强趋势+强资金+高波动”的短线组合，支持未来7个交易日冲击≥10%涨幅。价格127.9（截至2026-03-12）显著站上MA10/MA20/MA50（分别为110.85/94.69/85.83），说明中短期趋势已被资金推升并得到均线系统确认；同时近3日成交量相对20日放大至1.63倍且“volume_signal=confirmed”，配合多条资金流向新闻（2026-03-12~2026-03-13）显示大单净流入与换手活跃，短线动量仍在延续。\n\n从“能否在7天实现≥10%”的可行性看，5日年化已实现波动率达到88.75%，意味着短期价格弹性很强；在趋势向上且量能确认的背景下，10%级别的波动目标在统计上并不苛刻。需要正视的是RSI14高达87.34（overbought）提示回撤风险上升，但在强势行情中，过热往往对应“加速段”，若后续继续出现放量与资金净流入，股价更可能以高位震荡后再上攻的方式完成目标。",
+          "key_points": [
+            "趋势结构强：当前价127.9显著高于MA10/MA20/MA50（110.85/94.69/85.83），且“above_ma10_ma20_ma50=true”，说明多头趋势明确（技术证据）。",
+            "量能与资金推动：近3日/20日量比1.63且“volume_signal=confirmed”；同时新闻显示“特大单净流入资金超2亿元”（2026-03-12、2026-03-13，Eastmoney链接）与“筹码大换手（3月12日）”，支持短线继续上攻的资金面基础。",
+            "短期弹性足以覆盖10%目标：5日年化已实现波动率88.75（realized_vol_5d_ann_pct），在强趋势与放量确认下，7个交易日内出现≥10%上行波动具备可行性。"
+          ],
+          "confidence": 6.8
+        }
+      ],
+      "bear_arguments": [
+        {
+          "argument": "000988.SZ looks like a crowded, late-stage momentum move where the near-term risk/reward is skewed against achieving an additional ≥10% gain over the next 7 trading days. The stock is extremely overbought (RSI14 87.34) while also showing elevated short-term volatility (5d realized vol annualized 88.75%). In this setup, even a small shift in flows can trigger sharp mean-reversion, making a pullback or sideways digestion more probable than another quick leg higher.\n\nThe recent news flow is dominat",
+          "key_points": [
+            "Overbought/mean-reversion risk: RSI14 is 87.34 (\"overbought\"), which historically increases the probability of a short-term pullback or consolidation rather than another +10% in 7 sessions.",
+            "Crowded momentum + potential exhaustion: volume is elevated (3d/20d volume ratio 1.63, volume_signal \"confirmed\") and headlines emphasize large-order inflows and turnover leadership; this can attract late chasers and set up profit-taking if incremental buyers fade.",
+            "Volatility cuts both ways: 5d realized volatility is very high (88.75% annualized), implying wide daily ranges; a few adverse sessions can quickly erase recent gains and make holding for a clean +10% outcome over 7 days less likely.",
+            "Not near 52-week high but still extended: price is ~9.55% below the 52w high; while that leaves room, it also suggests recent strength may be approaching prior supply zones without a defined resistance level provided (resistance_level null).",
+            "Catalyst uncertainty: earnings_date is \"Unknown\" and catalyst_tags are empty; without a known near-term event, the probability of a sustained, catalyst-driven +10% move in a tight 7-day window is lower.",
+            "Data gaps raise risk: sector is \"Unknown\" and sector momentum/hot sector flags are unavailable; sentiment/dragon-tiger/inst flows are largely missing (market_activity_available false), reducing confidence in whether the move is supported by durable institutional demand vs. short-term trading flows."
+          ],
+          "confidence": 6.0
+        }
+      ]
+    }
+  },
+  "primary_label": "Weekly"
+}
