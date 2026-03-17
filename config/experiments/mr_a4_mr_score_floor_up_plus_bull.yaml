@@ -1,0 +1,7 @@
+mean_reversion:
+  score_floor: 70
+
+book_size:
+  bull:
+    min_score: 75
+    max_picks: 3

@@ -1,0 +1,4 @@
+book_size:
+  bull:
+    min_score: 70
+    max_picks: 4

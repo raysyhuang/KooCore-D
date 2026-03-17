@@ -1,0 +1,4 @@
+acceptance:
+  dq_full_threshold: 60
+  dq_selective_threshold: 40
+  max_full: 4

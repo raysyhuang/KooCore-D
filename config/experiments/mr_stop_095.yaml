@@ -1,0 +1,2 @@
+mean_reversion:
+  stop_atr_mult: 0.95

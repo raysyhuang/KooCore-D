@@ -1,0 +1,188 @@
+name: Backtest
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Run mode: single (one run) or sweep (predefined comparison)"
+        required: true
+        default: "single"
+        type: choice
+        options:
+          - single
+          - sweep
+      start_date:
+        description: "Start date (YYYY-MM-DD) — required for single mode"
+        required: false
+        default: "2025-03-14"
+      end_date:
+        description: "End date (YYYY-MM-DD) — required for single mode"
+        required: false
+        default: "2026-03-13"
+      config_path:
+        description: "Config file path"
+        required: false
+        default: "config/default.yaml"
+      label:
+        description: "Output label suffix"
+        required: false
+        default: ""
+      acceptance_mode:
+        description: "Acceptance mode"
+        required: false
+        default: "live_equivalent"
+        type: choice
+        options:
+          - off
+          - engine_only
+          - live_equivalent
+      engines:
+        description: "Engines to run"
+        required: false
+        default: "mr_only"
+        type: choice
+        options:
+          - all
+          - mr_only
+          - sniper_only
+      sweep_name:
+        description: "Sweep preset name (only used when mode=sweep)"
+        required: false
+        default: "clean_stop_confirm"
+        type: choice
+        options:
+          - clean_stop_confirm
+          - stop_sweep_3y
+          - full_horizon
+
+env:
+  PYTHON_VERSION: "3.11"
+  PYTHONUNBUFFERED: "1"
+
+concurrency:
+  group: backtest-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  backtest:
+    name: Run Backtest
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Cache pip packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run single backtest
+        if: inputs.mode == 'single'
+        env:
+          TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
+        run: |
+          LABEL="${{ inputs.label }}"
+          if [ -z "$LABEL" ]; then
+            LABEL="gha_$(echo '${{ inputs.config_path }}' | sed 's|.*/||;s|\.yaml||')_$(echo '${{ inputs.start_date }}' | cut -c1-4)_$(echo '${{ inputs.end_date }}' | cut -c1-4)"
+          fi
+          echo "Running: $LABEL"
+          python scripts/backtest_1yr.py \
+            --start "${{ inputs.start_date }}" \
+            --end "${{ inputs.end_date }}" \
+            --config "${{ inputs.config_path }}" \
+            --acceptance-mode "${{ inputs.acceptance_mode }}" \
+            --engines "${{ inputs.engines }}" \
+            --label "$LABEL" \
+            2>&1 | tee "outputs/backtest/${LABEL}.log"
+
+      - name: Run sweep — clean_stop_confirm
+        if: inputs.mode == 'sweep' && inputs.sweep_name == 'clean_stop_confirm'
+        env:
+          TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
+        run: |
+          set -e
+          run_bt() {
+            local label=$1 start=$2 end=$3 config=$4
+            echo "=== ${label} ($(date '+%Y-%m-%d %H:%M:%S')) ==="
+            python scripts/backtest_1yr.py \
+              --start "$start" --end "$end" \
+              --acceptance-mode live_equivalent --engines mr_only \
+              --config "$config" --label "$label" \
+              2>&1 | tee "outputs/backtest/${label}.log"
+          }
+          run_bt mr_075_1y 2025-03-14 2026-03-13 config/experiments/mr_a0_baseline_075.yaml
+          run_bt mr_095_1y 2025-03-14 2026-03-13 config/experiments/mr_stop_095.yaml
+          run_bt mr_075_5y 2021-03-14 2026-03-13 config/experiments/mr_a0_baseline_075.yaml
+          run_bt mr_095_5y 2021-03-14 2026-03-13 config/experiments/mr_stop_095.yaml
+          echo "=== ALL DONE ==="
+
+      - name: Run sweep — stop_sweep_3y
+        if: inputs.mode == 'sweep' && inputs.sweep_name == 'stop_sweep_3y'
+        env:
+          TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
+        run: |
+          set -e
+          run_bt() {
+            local label=$1 config=$2
+            echo "=== ${label} ($(date '+%Y-%m-%d %H:%M:%S')) ==="
+            python scripts/backtest_1yr.py \
+              --start 2023-03-14 --end 2026-03-13 \
+              --acceptance-mode live_equivalent --engines mr_only \
+              --config "$config" --label "$label" \
+              2>&1 | tee "outputs/backtest/${label}.log"
+          }
+          run_bt mr_075_3y config/experiments/mr_a0_baseline_075.yaml
+          run_bt mr_085_3y config/experiments/mr_stop_085.yaml
+          run_bt mr_090_3y config/experiments/mr_stop_090.yaml
+          run_bt mr_095_3y config/experiments/mr_stop_095.yaml
+          echo "=== ALL DONE ==="
+
+      - name: Run sweep — full_horizon
+        if: inputs.mode == 'sweep' && inputs.sweep_name == 'full_horizon'
+        env:
+          TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
+        run: |
+          set -e
+          run_bt() {
+            local label=$1 start=$2 end=$3 config=$4
+            echo "=== ${label} ($(date '+%Y-%m-%d %H:%M:%S')) ==="
+            python scripts/backtest_1yr.py \
+              --start "$start" --end "$end" \
+              --acceptance-mode live_equivalent --engines mr_only \
+              --config "$config" --label "$label" \
+              2>&1 | tee "outputs/backtest/${label}.log"
+          }
+          for config in mr_a0_baseline_075 mr_stop_095; do
+            for period in "1y 2025-03-14 2026-03-13" "3y 2023-03-14 2026-03-13" "5y 2021-03-14 2026-03-13"; do
+              p_label=$(echo "$period" | cut -d' ' -f1)
+              p_start=$(echo "$period" | cut -d' ' -f2)
+              p_end=$(echo "$period" | cut -d' ' -f3)
+              run_bt "${config}_${p_label}" "$p_start" "$p_end" "config/experiments/${config}.yaml"
+            done
+          done
+          echo "=== ALL DONE ==="
+
+      - name: Upload backtest results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: backtest-results-${{ inputs.mode }}-${{ github.run_number }}
+          path: |
+            outputs/backtest/backtest_summary_*.json
+            outputs/backtest/backtest_detail_*.csv
+            outputs/backtest/backtest_daily_*.csv
+            outputs/backtest/*.log
+          retention-days: 14

@@ -1,0 +1,4 @@
+mean_reversion:
+  stop_atr_mult: 0.5
+  target_1_atr_mult: 1.5
+  target_2_atr_mult: 2.0
