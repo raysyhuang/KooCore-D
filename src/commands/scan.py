@@ -60,8 +60,12 @@ def cmd_scan(args) -> int:
     save_json(watchlist, out_dir / f"execution_watchlist_{scan_date}.json")
     logger.info("Saved execution_watchlist_%s.json", scan_date)
 
-    # --- Telegram alert ---
-    _send_scan_alert(result)
+    # --- Telegram alert (skipped when morning workflow handles it) ---
+    import os
+    if not os.environ.get("DRAGON_PULSE_SKIP_TELEGRAM"):
+        _send_scan_alert(result)
+    else:
+        logger.info("Telegram alert skipped (DRAGON_PULSE_SKIP_TELEGRAM set)")
 
     picks_count = len(result["picks"])
     logger.info("Scan complete: %d picks for %s", picks_count, scan_date)

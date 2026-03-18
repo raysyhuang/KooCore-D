@@ -75,6 +75,7 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           MAS_TELEGRAM_LOG_URL: ${{ secrets.MAS_TELEGRAM_LOG_URL }}
           MAS_API_SECRET_KEY: ${{ secrets.MAS_API_SECRET_KEY }}
+          DRAGON_PULSE_SKIP_TELEGRAM: "1"
         run: |
           python main.py scan --config config/default.yaml
 

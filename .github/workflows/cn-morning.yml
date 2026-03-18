@@ -26,23 +26,25 @@ jobs:
           # Pull latest to get nightly outputs
           ref: main
 
-      - name: Compute trading date
-        id: date
-        run: |
-          TRADE_DATE=$(TZ=Asia/Shanghai date +%Y-%m-%d)
-          echo "trade_date=${TRADE_DATE}" >> "$GITHUB_OUTPUT"
-
-      - name: Check for watchlist
+      - name: Find latest watchlist
         id: check
         run: |
-          TRADE_DATE="${{ steps.date.outputs.trade_date }}"
-          WL_FILE="outputs/${TRADE_DATE}/execution_watchlist_${TRADE_DATE}.json"
-          if [ -f "${WL_FILE}" ]; then
+          # The morning check runs BEFORE today's nightly scan, so we need
+          # the most recent watchlist (typically yesterday's trading date).
+          # Sort by date embedded in filename (not mtime, which is unreliable
+          # after a fresh git checkout).
+          LATEST_WL=$(ls outputs/*/execution_watchlist_*.json 2>/dev/null | sort -t_ -k3 -r | head -1)
+          if [ -n "${LATEST_WL}" ]; then
             echo "found=true" >> "$GITHUB_OUTPUT"
-            echo "Watchlist found: ${WL_FILE}"
+            # Extract date from filename: execution_watchlist_YYYY-MM-DD.json
+            TRADE_DATE=$(basename "${LATEST_WL}" | sed 's/execution_watchlist_//;s/\.json//')
+            echo "trade_date=${TRADE_DATE}" >> "$GITHUB_OUTPUT"
+            echo "Watchlist found: ${LATEST_WL} (trade date: ${TRADE_DATE})"
           else
             echo "found=false" >> "$GITHUB_OUTPUT"
-            echo "No watchlist for ${TRADE_DATE}. Nightly run may have failed or produced no picks."
+            TRADE_DATE=$(TZ=Asia/Shanghai date +%Y-%m-%d)
+            echo "trade_date=${TRADE_DATE}" >> "$GITHUB_OUTPUT"
+            echo "No watchlist found. Nightly run may have failed or produced no picks."
           fi
 
       - name: Set up Python
@@ -62,8 +64,10 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          MAS_TELEGRAM_LOG_URL: ${{ secrets.MAS_TELEGRAM_LOG_URL }}
+          MAS_API_SECRET_KEY: ${{ secrets.MAS_API_SECRET_KEY }}
         run: |
-          TRADE_DATE="${{ steps.date.outputs.trade_date }}"
+          TRADE_DATE="${{ steps.check.outputs.trade_date }}"
           python scripts/morning_check.py --date "${TRADE_DATE}"
 
       - name: Commit check results
@@ -71,7 +75,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          TRADE_DATE="${{ steps.date.outputs.trade_date }}"
+          TRADE_DATE="${{ steps.check.outputs.trade_date }}"
           git add "outputs/${TRADE_DATE}/execution_check_${TRADE_DATE}.json" 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No check results to commit"

@@ -245,7 +245,20 @@ def main():
     logging.basicConfig(level=logging.INFO, format="%(message)s")
 
     # Resolve date and output directory
-    date_str = args.date or datetime.now().strftime("%Y-%m-%d")
+    # When no --date given, find the most recent watchlist (nightly runs
+    # the evening before, so "today" at 09:26 has no watchlist yet).
+    date_str = args.date
+    if not date_str and not args.picks_file:
+        import glob
+        # Sort by date in filename, not mtime (mtime unreliable after git checkout)
+        candidates = sorted(glob.glob("outputs/*/execution_watchlist_*.json"), reverse=True)
+        if candidates:
+            # Extract date from filename
+            fname = Path(candidates[0]).stem  # execution_watchlist_YYYY-MM-DD
+            date_str = fname.replace("execution_watchlist_", "")
+            logger.info(f"Auto-detected latest watchlist date: {date_str}")
+    if not date_str:
+        date_str = datetime.now().strftime("%Y-%m-%d")
     output_dir = Path("outputs") / date_str
 
     # Priority: load from execution watchlist artifact (new scan schema)
@@ -282,6 +295,32 @@ def main():
 
     if not picks:
         logger.info("No picks to validate.")
+        # Still send a compact Telegram message for zero-picks days
+        try:
+            from src.core.alerts import AlertConfig, AlertManager, _regime_emoji
+            alert_config = AlertConfig(enabled=True, channels=["telegram"])
+            if alert_config.telegram_bot_token and alert_config.telegram_chat_id:
+                wl_data = {}
+                if watchlist_path.exists():
+                    wl_data = json.loads(watchlist_path.read_text(encoding="utf-8"))
+                regime = wl_data.get("regime", "unknown")
+                emoji = _regime_emoji(regime)
+                lines = [
+                    f"<b>\U0001f409 Dragon Pulse — {date_str}</b>",
+                    f"Regime: {emoji} <b>{regime.upper()}</b>",
+                    "",
+                    "No picks today — nothing passed the selection funnel.",
+                ]
+                mgr = AlertManager(alert_config)
+                mgr.send_alert(
+                    title=f"Dragon Pulse — {date_str}",
+                    message="\n".join(lines),
+                    data={"asof": date_str},
+                    priority="low",
+                )
+                logger.info("No-picks morning alert sent to Telegram")
+        except Exception as e:
+            logger.warning(f"Failed to send no-picks alert: {e}")
         return 0
 
     logger.info(f"Validating {len(picks)} picks...")
@@ -350,54 +389,86 @@ def main():
     check_file.write_text(json.dumps(check_output, ensure_ascii=False, indent=2), encoding="utf-8")
     logger.info(f"Saved execution check to {check_file}")
 
-    # Send Telegram execution alert
+    # Send combined Telegram alert (watchlist details + execution verdicts)
     try:
-        from src.core.alerts import AlertConfig, AlertManager, _ticker_display, _section_line
+        from src.core.alerts import AlertConfig, AlertManager, _ticker_display, _regime_emoji
 
         alert_config = AlertConfig(enabled=True, channels=["telegram"])
         if alert_config.telegram_bot_token and alert_config.telegram_chat_id:
-            lines = [f"<b>\U0001f3af Dragon Pulse — Execution Check {date_str}</b>", ""]
+            # Load watchlist for full pick details
+            wl_data = {}
+            if watchlist_path.exists():
+                wl_data = json.loads(watchlist_path.read_text(encoding="utf-8"))
+            regime = wl_data.get("regime", "unknown")
+            universe_size = wl_data.get("universe_size", 0)
+            wl_picks = wl_data.get("picks", [])
+            pick_map = {p.get("ticker"): p for p in wl_picks}
+
+            emoji = _regime_emoji(regime)
+            lines = [
+                f"<b>\U0001f409 Dragon Pulse — {date_str}</b>",
+                f"Regime: {emoji} <b>{regime.upper()}</b> | Picks: <b>{len(wl_picks)}</b> | Universe: {universe_size}",
+                "",
+            ]
 
             go_picks = [r for r in results if r.action == "GO"]
-            cancel_picks = [r for r in results if r.action == "CANCEL"]
             warn_picks = [r for r in results if r.action == "WARN"]
+            cancel_picks = [r for r in results if r.action == "CANCEL"]
 
-            if go_picks:
-                lines.append(f"\u2705 <b>GO ({len(go_picks)})</b>")
-                for r in go_picks:
-                    display = _ticker_display(r.ticker, r.name_cn)
-                    lines.append(f"  {display}")
-                    lines.append(f"  Entry \u00a5{r.entry_price:.2f} \u2192 Open \u00a5{r.open_price:.2f} ({r.gap_pct:+.1f}%)")
+            # Per-pick details with execution verdict
+            for i, r in enumerate(results, 1):
+                icon = {
+                    "GO": "\u2705", "WARN": "\u26a0\ufe0f", "CANCEL": "\u274c"
+                }.get(r.action, "?")
+                display = _ticker_display(r.ticker, r.name_cn)
+                lines.append(f"{icon} <b>{i}. {display}</b>  [{r.action}]")
+
+                # Full pick details from watchlist
+                wp = pick_map.get(r.ticker, {})
+                score = wp.get("score", 0)
+                entry = r.entry_price
+                stop = wp.get("stop_loss", 0)
+                t1 = wp.get("target_1", 0)
+                hold = wp.get("holding_period", "?")
+                max_entry = wp.get("max_entry_price")
+                max_str = f" max=\u00a5{max_entry:.2f}" if max_entry else ""
+                lines.append(
+                    f"   Score: {score:.0f} | Entry: \u00a5{entry:.2f}{max_str} | "
+                    f"Stop: \u00a5{stop:.2f} | T1: \u00a5{t1:.2f} | Hold: {hold}d"
+                )
+
+                # Open price + gap
+                if r.open_price:
+                    lines.append(
+                        f"   Open: \u00a5{r.open_price:.2f} (gap: {r.gap_pct:+.1f}%)"
+                    )
+
+                # Reasons (warnings/cancellations)
+                if r.reasons:
+                    for reason in r.reasons:
+                        lines.append(f"   \u2192 {reason}")
+
+                # Reason summary from watchlist
+                if wp.get("reason_summary") and r.action == "GO":
+                    lines.append(f"   {wp['reason_summary']}")
+
                 lines.append("")
 
-            if warn_picks:
-                lines.append(f"\u26a0\ufe0f <b>WARN ({len(warn_picks)})</b>")
-                for r in warn_picks:
-                    display = _ticker_display(r.ticker, r.name_cn)
-                    reason = r.reasons[0] if r.reasons else "elevated risk"
-                    lines.append(f"  {display} — {reason}")
-                lines.append("")
-
-            if cancel_picks:
-                lines.append(f"\u274c <b>CANCEL ({len(cancel_picks)})</b>")
-                for r in cancel_picks:
-                    display = _ticker_display(r.ticker, r.name_cn)
-                    reason = r.reasons[0] if r.reasons else "threshold breached"
-                    lines.append(f"  {display} — {reason}")
-                lines.append("")
-
-            lines.append(f"\U0001f4ca GO: {len(go_picks)} | WARN: {len(warn_picks)} | CANCEL: {len(cancel_picks)}")
+            # Summary line
+            lines.append(
+                f"\U0001f4ca GO: {len(go_picks)} | WARN: {len(warn_picks)} | CANCEL: {len(cancel_picks)}"
+            )
 
             mgr = AlertManager(alert_config)
             mgr.send_alert(
-                title=f"Execution Check: {date_str}",
+                title=f"Dragon Pulse — {date_str}",
                 message="\n".join(lines),
                 data={"asof": date_str},
                 priority="high" if go_picks else "low",
             )
-            logger.info("Execution alert sent to Telegram")
+            logger.info("Combined morning alert sent to Telegram")
     except Exception as e:
-        logger.warning(f"Failed to send execution alert: {e}")
+        logger.warning(f"Failed to send morning alert: {e}")
 
     return 0
 
