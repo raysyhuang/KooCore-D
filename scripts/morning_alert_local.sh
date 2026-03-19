@@ -46,4 +46,12 @@ fi
 
 echo "No CI marker found — running morning check locally."
 ${PYTHON} scripts/morning_check.py --date "${TRADE_DATE}"
+
+# Push the marker so a late CI run sees it and skips
+MORNING_MARKER="outputs/${TRADE_DATE}/.morning_alert_sent"
+if [ -f "${MORNING_MARKER}" ]; then
+    git add "${MORNING_MARKER}"
+    git commit -m "auto: local morning alert marker for ${TRADE_DATE}" --quiet 2>/dev/null || true
+    git push origin main --quiet 2>/dev/null || echo "WARN: marker push failed"
+fi
 echo "=== Done: $(date) ==="
