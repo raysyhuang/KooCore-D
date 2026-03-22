@@ -1,5 +1,6 @@
 yfinance>=0.2.0
-pandas>=1.5.0
+# AkShare/provider paths used by CN scans still rely on pandas APIs removed in 3.x.
+pandas>=1.5.0,<3.0
 numpy>=1.24.0
 lxml>=4.9.0
 html5lib>=1.1
