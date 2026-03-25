@@ -702,25 +702,27 @@ def main():
             "day1_stop_count": r_day1_stops,
         }
 
-    # Equity curve (Daily equal-weighted PnL)
-    # Group trades by date and compute daily mean PnL
-    daily_returns = df_valid.groupby("date")["pnl_pct"].mean()
+    # Equity curve (compounded daily equal-weighted returns)
+    # Group trades by date and compute daily mean PnL (as decimal)
+    daily_returns = df_valid.groupby("date")["pnl_pct"].mean() / 100.0
     # Fill in zeros for days with no picks among the trading days
     full_daily_series = pd.Series(0.0, index=[d.strftime("%Y-%m-%d") for d in trading_days])
     full_daily_series.update(daily_returns)
-    
-    cumulative_pnl = full_daily_series.cumsum()
-    max_dd = 0.0
-    peak = 0.0
-    for val in cumulative_pnl:
-        if val > peak:
-            peak = val
-        dd = peak - val
-        if dd > max_dd:
-            max_dd = dd
+
+    # Compound to equity curve (start at 1.0)
+    equity = (1 + full_daily_series).cumprod()
+    equity_peak = equity.cummax()
+    drawdown_series = (equity - equity_peak) / equity_peak
+    max_dd = float(-drawdown_series.min()) * 100  # positive percentage
+    cumulative_pnl_pct = float(equity.iloc[-1] - 1) * 100
 
     suffix = f"_{args.label}" if args.label else ""
     summary = {
+        "created_at": datetime.utcnow().isoformat() + "Z",
+        "config_path": args.config,
+        "label": args.label if hasattr(args, "label") else None,
+        "start": args.start,
+        "end": args.end,
         "period": f"{args.start} to {args.end}",
         "exit_mode": args.exit_mode,
         "mr_target_mode": args.mr_target,
@@ -748,7 +750,8 @@ def main():
         "profitable_days_pct": round(profitable_days_pct, 4),
         "exit_day_distribution": exit_day_dist,
         "max_drawdown_pct": round(max_dd, 2),
-        "cumulative_pnl_pct": round(float(cumulative_pnl.iloc[-1]) if len(cumulative_pnl) else 0, 2),
+        "cumulative_pnl_pct": round(cumulative_pnl_pct, 2),
+        "final_equity_multiple": round(float(equity.iloc[-1]), 2),
         "total_time_min": round(total_time / 60, 1),
         "breadth_suppressed_days": breadth_suppressed_days,
         "acceptance_mode_counts": acceptance_mode_counts,
@@ -769,7 +772,7 @@ def main():
                 hold_expired_positive_pct * 100)
     logger.info("Profitable days: %.1f%% | Zero-pick days: %d (%.1f%%) | Avg picks/active day: %.1f",
                 profitable_days_pct * 100, zero_pick_days, zero_pick_days_pct * 100, avg_picks_per_active_day)
-    logger.info("Max drawdown: %.2f%% | Cumulative PnL: %.2f%%", max_dd, summary["cumulative_pnl_pct"])
+    logger.info("Max drawdown: %.2f%% | Cumulative PnL: %.2f%% | Equity: %.2fx", max_dd, cumulative_pnl_pct, float(equity.iloc[-1]))
     if exit_day_dist:
         logger.info("Stop exit-day dist: %s", exit_day_dist)
     logger.info("")
