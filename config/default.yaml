@@ -108,10 +108,10 @@ book_size:
 
   # Regime-specific constraints
   bull:
-    max_picks: 5
+    max_picks: 2
     min_score: 65
   choppy:
-    max_picks: 3
+    max_picks: 2
     min_score: 75
   bear:
     max_picks: 2
@@ -124,7 +124,7 @@ acceptance:
   enabled: true
   dq_full_threshold: 55       # day quality ≥ this → full mode (A+B tiers)
   dq_selective_threshold: 20  # day quality ≥ this → selective (A-tier only)
-  max_full: 5                 # max picks in full mode
+  max_full: 2                 # max picks in full mode
   max_selective: 2            # max picks in selective mode
   # Below dq_selective_threshold → abstain (0 picks)
 

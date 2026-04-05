@@ -222,15 +222,15 @@ class TestLiveConfigBehavior:
             "book_size": {
                 "breadth_floor": 0.15,
                 "max_per_sector": 1,
-                "bull": {"max_picks": 5, "min_score": 65},
-                "choppy": {"max_picks": 3, "min_score": 75},
+                "bull": {"max_picks": 2, "min_score": 65},
+                "choppy": {"max_picks": 2, "min_score": 75},
                 "bear": {"max_picks": 2, "min_score": 70},
             },
             "acceptance": {
                 "enabled": True,
                 "dq_full_threshold": 55,
                 "dq_selective_threshold": 20,
-                "max_full": 5,
+                "max_full": 2,
                 "max_selective": 2,
             },
         }
@@ -267,3 +267,25 @@ class TestLiveConfigBehavior:
             acceptance_mode="live_equivalent",
         )
         assert result.score_floor_count == 1  # only A passes
+
+    def test_bull_caps_at_2(self):
+        """Bull regime with many candidates should cap at 2 in off mode."""
+        candidates = _make_candidates(
+            ("A", 95), ("B", 90), ("C", 85), ("D", 80), ("E", 75),
+        )
+        result = run_selection_funnel(
+            candidates, "bull", 0.60, self._live_config(),
+            universe_size=1000, acceptance_mode="off",
+        )
+        assert len(result.final_picks) == 2
+
+    def test_choppy_caps_at_2(self):
+        """Choppy regime with many candidates should cap at 2 in off mode."""
+        candidates = _make_candidates(
+            ("A", 95), ("B", 90), ("C", 85), ("D", 80),
+        )
+        result = run_selection_funnel(
+            candidates, "choppy", 0.45, self._live_config(),
+            universe_size=1000, acceptance_mode="off",
+        )
+        assert len(result.final_picks) == 2
