@@ -27,7 +27,7 @@ universe:
 # Required by config validator (legacy compat)
 liquidity:
   min_price: 5.0
-  min_avg_dollar_volume_20d: 100000000
+  min_avg_dollar_volume_20d: 50000000
   min_avg_volume: 1000000
 
 technicals:
@@ -50,9 +50,9 @@ mean_reversion:
 
   # Gates
   min_bars: 60
-  adv_min_cny: 100000000       # 100M CNY floor
+  adv_min_cny: 50000000        # 50M CNY floor
   max_single_day_move: 0.11    # reject split/bad-data artifacts
-  rsi2_max: 5                  # deeply oversold only
+  rsi2_max: 10                 # RSI(2) oversold trigger
   score_floor: 65              # min composite to emit signal
 
   # Targets
@@ -103,7 +103,7 @@ sniper:
 # PORTFOLIO & RISK SETTINGS — Variable Book Size
 # =============================================================================
 book_size:
-  breadth_floor: 0.35  # % of universe above SMA20 to allow any picks
+  breadth_floor: 0.15  # % of universe above SMA20 to allow any picks
   max_per_sector: 1    # max picks from same industry per day
 
   # Regime-specific constraints
@@ -114,8 +114,8 @@ book_size:
     max_picks: 3
     min_score: 75
   bear:
-    max_picks: 1
-    min_score: 85  # Only the absolute best setup survives in a bear market
+    max_picks: 2
+    min_score: 70  # Tighter than bull/choppy but realistic for MR setups
 
 # =============================================================================
 # ACCEPTANCE LAYER — app-level precision filter above engines
@@ -123,7 +123,7 @@ book_size:
 acceptance:
   enabled: true
   dq_full_threshold: 55       # day quality ≥ this → full mode (A+B tiers)
-  dq_selective_threshold: 35  # day quality ≥ this → selective (A-tier only)
+  dq_selective_threshold: 20  # day quality ≥ this → selective (A-tier only)
   max_full: 5                 # max picks in full mode
   max_selective: 2            # max picks in selective mode
   # Below dq_selective_threshold → abstain (0 picks)

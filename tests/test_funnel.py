@@ -211,3 +211,59 @@ class TestRunSelectionFunnel:
         assert isinstance(result, StageResult)
         assert result.acceptance_mode in ("full", "selective", "abstain")
         assert result.day_quality_score >= 0
+
+
+class TestLiveConfigBehavior:
+    """Validate that the live config (default.yaml) produces picks in realistic conditions."""
+
+    def _live_config(self):
+        """Config values matching current default.yaml."""
+        return {
+            "book_size": {
+                "breadth_floor": 0.15,
+                "max_per_sector": 1,
+                "bull": {"max_picks": 5, "min_score": 65},
+                "choppy": {"max_picks": 3, "min_score": 75},
+                "bear": {"max_picks": 2, "min_score": 70},
+            },
+            "acceptance": {
+                "enabled": True,
+                "dq_full_threshold": 55,
+                "dq_selective_threshold": 20,
+                "max_full": 5,
+                "max_selective": 2,
+            },
+        }
+
+    def test_bear_low_breadth_not_suppressed(self):
+        """Bear regime with 25% breadth (above 15% floor) should not suppress."""
+        candidates = _make_candidates(("A", 78), ("B", 72))
+        info = {"A": {"industry": "tech"}, "B": {"industry": "finance"}}
+        result = run_selection_funnel(
+            candidates, "bear", 0.25, self._live_config(),
+            universe_size=1000, info_map=info,
+            acceptance_mode="live_equivalent",
+        )
+        assert result.breadth_suppressed is False
+        assert result.score_floor_count == 2  # both pass min_score=70
+
+    def test_bear_very_low_breadth_suppressed(self):
+        """Breadth below 15% should still suppress."""
+        candidates = _make_candidates(("A", 90))
+        result = run_selection_funnel(
+            candidates, "bear", 0.10, self._live_config(),
+            universe_size=1000, acceptance_mode="live_equivalent",
+        )
+        assert result.breadth_suppressed is True
+        assert len(result.final_picks) == 0
+
+    def test_bear_score_floor_at_70(self):
+        """Bear regime with min_score=70 should pass 75+ but reject 65."""
+        candidates = _make_candidates(("A", 75), ("B", 65))
+        info = {"A": {"industry": "tech"}, "B": {"industry": "finance"}}
+        result = run_selection_funnel(
+            candidates, "bear", 0.25, self._live_config(),
+            universe_size=1000, info_map=info,
+            acceptance_mode="live_equivalent",
+        )
+        assert result.score_floor_count == 1  # only A passes
